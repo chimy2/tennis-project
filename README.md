@@ -1,4 +1,4 @@
-# golf-project
+# tennis-project
 쌍용 교육센터 자바 프로젝트 
 
 ### git 저장소 연결하기
