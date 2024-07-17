@@ -4,14 +4,14 @@ import com.java.tennis.App;
 import com.java.tennis.dao.LanguageDAO;
 
 public class LanguageService {
-	private LanguageDAO dao;
+	public LanguageDAO dao;
 	
 	public LanguageService() {
 		dao = new LanguageDAO();
 	}
 	
-	public String get(String line) {
-		return dao.get(line, App.langIndex);
+	public static String get(String line) {
+		return LanguageDAO.get(line, App.langIndex);
 	}
 	
 	public void set(int num) {

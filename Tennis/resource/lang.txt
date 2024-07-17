@@ -1,1 +1,4 @@
-한국어, 영어, 일본어 
+한국어, 영어, 일본어
+메뉴 선택,select menu,メニューを選択します
+1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료,1. Game start 2. Hall of Fame 3. Game description 4. Environment setting 5. Game end,1. ゲーム開始 2.名誉の殿堂 3.ゲーム説明 4.環境設定 5.ゲーム終了
+오류가 발생했습니다.,An error has occurred.,エラーが発生しました。

@@ -4,16 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class LanguageDAO {
-	private final String path = "resource/lang.txt";
+	private static final String path = "resource/lang.txt";
 
-	public String get(String sentence, int langIndex) {
-		String result = "오류가 발생했습니다.";
+	public static String get(String sentence, int langIndex) {
+		String result = "";
 		if(langIndex == 0) {
 			return sentence;
 		} else {
-			try {
+			try(BufferedReader reader = new BufferedReader(new FileReader(path))) {
 				String line = "";
-				BufferedReader reader = new BufferedReader(new FileReader(path));
 				
 				while((line = reader.readLine()) != null) {
 					String[] sentences = line.split(",");
