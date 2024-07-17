@@ -8,11 +8,19 @@ import com.github.lalyos.jfiglet.FigletFont;
 import com.java.tennis.service.MainService;
 
 public class MenuView {
+	Scanner scan;
+	
+	public MenuView() {
+		scan = new Scanner(System.in);
+	}
+	
 	public void getMainMenu() {
 		String result = "";
 		result += "===================================================================================";
+		result += "===================================================================================";
 		result += "\r\n";
 		result += getTitle();
+		result += "===================================================================================";
 		result += "===================================================================================";
 		result += "\r\n";
 		result += "메뉴 선택";
@@ -40,7 +48,6 @@ public class MenuView {
 		System.out.println();
 		System.out.println("계속하시려면 엔터를 치세요.");
 		
-		Scanner scan = new Scanner(System.in);
 		scan.nextLine();	//Block
 		System.out.println();
 	}
