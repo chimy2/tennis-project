@@ -1,0 +1,5 @@
+package com.java.tennis.dao;
+
+public class GameDTO {
+	private int no;					//일련번호
+}

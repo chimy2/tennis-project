@@ -1,0 +1,9 @@
+package com.java.tennis.dto;
+
+public class RecordDTO {
+	private int no;			//일련번호
+	private String name;	//이름
+	private CharacterDTO character;	//이름
+	private boolean type;	//단식/복식
+	private MatchDTO match;	//매치데이터
+}

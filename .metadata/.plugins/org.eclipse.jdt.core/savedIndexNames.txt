@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 INDEX VERSION 1.131+C:\Users\user\Desktop\tennis3\.metadata\.plugins\org.eclipse.jdt.core
 871783575.index
+=======
+INDEX VERSION 1.131+C:\class\project\tennis\.metadata\.plugins\org.eclipse.jdt.core
+871783575.index
+1865797976.index
+>>>>>>> 06e22d61c2fcc69605ad873d138a3da71c0dd7ca
