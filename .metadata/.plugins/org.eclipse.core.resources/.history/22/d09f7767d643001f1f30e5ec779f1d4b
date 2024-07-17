@@ -1,0 +1,6 @@
+package com.java.tennis.dto;
+
+public class AbilityDTO {
+	private int force;
+	private int agility;
+}

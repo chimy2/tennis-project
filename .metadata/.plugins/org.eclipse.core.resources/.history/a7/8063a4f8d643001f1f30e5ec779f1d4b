@@ -1,0 +1,8 @@
+package com.java.tennis.dto;
+
+public class SkillDTO {
+	private double serve;
+	private double forehand;
+	private double backhand;
+	private double volly;
+}

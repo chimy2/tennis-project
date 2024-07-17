@@ -1,0 +1,5 @@
+package com.java.tennis.dto;
+
+public class MatchDTO {
+	private int no;					//일련번호
+}

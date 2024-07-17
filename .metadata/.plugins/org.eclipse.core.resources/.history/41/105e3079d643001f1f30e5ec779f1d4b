@@ -1,0 +1,8 @@
+package com.java.tennis.dto;
+
+public class CharacterDTO {
+	private String name;
+	private AbilityDTO ability;
+	private SkillDTO skill;
+	
+}
