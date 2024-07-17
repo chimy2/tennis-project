@@ -5,8 +5,8 @@ import com.java.tennis.view.ExplainView;
 import com.java.tennis.view.MenuView;
 
 public class ExplainService {
-	ExplainView view;
-	MenuView menuView;
+	private ExplainView view;
+	private MenuView menuView;
 	
 	public ExplainService() {
 		view = new ExplainView();

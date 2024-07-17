@@ -7,11 +7,14 @@ import com.java.tennis.service.TennisService;
 import com.java.tennis.view.MenuView;
 
 public class App {
+	public static int langIndex = 0;
+	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		MenuView view = new MenuView();
 		ExplainService explainService = new ExplainService();
 		TennisService tennisService = new TennisService();
+//		LanguageService languageService = new LanguageService();
 		
 		while(true) {
 			view.getMainMenu();
