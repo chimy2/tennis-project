@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Font
+Bundle-SymbolicName: Font
+Bundle-Version: 1.0.0.qualifier
+Automatic-Module-Name: Font
+Bundle-RequiredExecutionEnvironment: JavaSE-11
