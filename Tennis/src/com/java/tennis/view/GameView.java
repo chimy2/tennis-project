@@ -1,9 +1,14 @@
 package com.java.tennis.view;
 
+import com.java.tennis.model.CharacterDTO;
+
 public class GameView {
 	
+	CharacterDTO dto = new CharacterDTO();
 	
-	public void gameView(int i) {
+	public void gameView(CharacterDTO dtoCharacter) {
+		
+		int i = Integer.parseInt(dtoCharacter.getNo());
 		
 		String temp = "";
 		
