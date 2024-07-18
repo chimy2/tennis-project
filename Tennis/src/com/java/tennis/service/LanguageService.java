@@ -4,7 +4,10 @@ import com.java.tennis.App;
 import com.java.tennis.dao.LanguageDAO;
 
 public class LanguageService {
-	public LanguageDAO dao;
+	private LanguageDAO dao;
+	private final int LANG_KR = 0;
+	private final int LANG_EN = 1;
+	private final int LANG_JP = 2;
 	
 	public LanguageService() {
 		dao = new LanguageDAO();
@@ -16,11 +19,11 @@ public class LanguageService {
 	
 	public void set(int num) {
 		if(num == 1) {	//한국어
-			App.langIndex = 0;
+			App.langIndex = LANG_KR;
 		} else if(num == 2) {
-			App.langIndex = 1;
+			App.langIndex =	LANG_EN;
 		} else if(num == 3) {
-			App.langIndex = 2;
+			App.langIndex = LANG_JP;
 		}
 	}
 }
