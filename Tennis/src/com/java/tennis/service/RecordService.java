@@ -74,7 +74,6 @@ public class RecordService {
 				scan.skip("\r\n");
 //				dao.gameSearch(dao.gameId()); //아이디 검색 > 상세점수 출력
 				dao.getSpec(dao.gameNum()); //아이디 검색 > 상세점수 출력
-				
 			}
 
 			else if (menu == 3) {

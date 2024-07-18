@@ -23,8 +23,7 @@ public class App {
 		RecordService recordService = new RecordService();
 		RecordView rView =  new RecordView();
 		
-		boolean yn= true;
-		while(yn) {
+		while(true) {
 			view.getMainMenu();
 			
 			String input = scan.nextLine();
