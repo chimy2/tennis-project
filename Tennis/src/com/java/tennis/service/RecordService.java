@@ -54,7 +54,6 @@ public class RecordService {
 	
 	
 	public void getSpec() {
-
 		
 		RecordService sevice = new RecordService();
 		
@@ -70,10 +69,18 @@ public class RecordService {
 
 			} else if (menu.equals("2")) {
 				
-
-				dao.recordSearch(dao.gameId());
-				dao.getSpec(dao.gameNum());
-				
+//				System.out.println("아이디 입력: ");
+				String list = dao.recordSearch(dao.gameId());
+//				String num = scan.nextLine();
+//				dao.check(num);
+//				dao.recordSearch(num);
+				if(list.equals("")) {
+					System.out.println("잘못된 아이디 입니다.");
+				} else {
+					System.out.println(list);
+					dao.getSpec(dao.gameNum());
+					
+				}
 			}
 
 			else if (menu.equals("3")) {
