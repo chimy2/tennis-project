@@ -2,6 +2,8 @@ package com.java.tennis.view;
 
 import java.util.Scanner;
 
+import com.java.tennis.service.LanguageService;
+
 public class RecordView {
 	private Scanner scan;
 public RecordView() {
@@ -14,9 +16,9 @@ public RecordView() {
 	}
 
 	public void titleSpecific() {
-		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("-------------------------------------------------------------------------------------");
 		System.out.println("\t번호\t\t날짜\t\t닉네임\t\t캐릭터\t\t스코어");
-		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("-------------------------------------------------------------------------------------");
 	}
 	
 	
@@ -28,9 +30,9 @@ public RecordView() {
 	}
 	
 	public void subTitleSpecific() {
-		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("--------------------------------------------------------------------------------------");
 		System.out.println("\t세트\t\t게임\t\t스코어\t\t승패");
-		System.out.println("-----------------------------------------------------------------------------------------");
+		System.out.println("--------------------------------------------------------------------------------------");
 	}
 	
 	
@@ -111,9 +113,15 @@ public RecordView() {
 
 	}
 	
+	public void thindividingLine() {
+		System.out.println();
+		System.out.println("--------------------------------------");
+	}
+	
+	
 	public void dividingLine() {
 		System.out.println();
-		System.out.println("=========================================================================================");
+		System.out.println("=====================================================================================");
 	}
 	
 	
@@ -128,5 +136,18 @@ public void sortMenu() {
 		System.out.print("선택(번호): ");
 		
 	}
+
+
+
+
+public void errorInput() {
+	String result = "";
+	result += LanguageService.get("잘못 입력 하셨습니다.");
+	result += "\r\n";
+	result += LanguageService.get("다시 입력해주세요.");
+	System.out.println(result);
+}
 	
 }
+
+
