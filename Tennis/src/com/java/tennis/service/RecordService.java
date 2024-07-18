@@ -3,6 +3,7 @@ package com.java.tennis.service;
 import java.util.Scanner;
 
 import com.java.tennis.dao.RecordDAO;
+import com.java.tennis.view.MainView;
 import com.java.tennis.view.RecordView;
 
 public class RecordService {
@@ -53,7 +54,6 @@ public class RecordService {
 	
 	
 	public void getSpec() {
-
 		
 		RecordService sevice = new RecordService();
 		
@@ -70,14 +70,24 @@ public class RecordService {
 
 
 			} else if (menu == 2) {
-				dao.recordSearch(dao.gameId());
-//				dao.gameSearch(dao.gameId()); //아이디 검색 > 상세점수 출력
-				dao.getSpec(dao.gameNum()); //아이디 검색 > 상세점수 출력
+				
+//				System.out.println("아이디 입력: ");
+				String list = dao.recordSearch(dao.gameId());
+//				String num = scan.nextLine();
+//				dao.check(num);
+//				dao.recordSearch(num);
+				if(list.equals("")) {
+					System.out.println("잘못된 아이디 입니다.");
+				} else {
+					System.out.println(list);
+					dao.getSpec(dao.gameNum());
+					
+				}
 			}
 
 			else if (menu == 3) {
 				//
-
+				
 				view.subTitle("최신 기록");
 				dao.getTotal(); // 전체 최신기록
 				System.out.println("1. 날짜");
@@ -88,10 +98,14 @@ public class RecordService {
 				int num = scan.nextInt();
 				dao.sort(num);
 				
-			} else {
+			} else if(menu == 4) {
 				stop = false;
 				System.out.println("메인메뉴로 돌아갑니다.");
-				break;
+				
+				//break;
+			} else {
+				MainView error = new MainView();
+				error.errorInput();
 			}
 
 		}
