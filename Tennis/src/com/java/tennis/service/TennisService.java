@@ -13,9 +13,10 @@ public class TennisService {
 	private TennisDTO dto = new TennisDTO();
 	private Scanner scan = new Scanner(System.in);
 	
-	int serveCount= 0; //몇 번째 서브 (게임이 끝날 때 리셋)
-	int gameCount = 0; //몇 번째 게임 (세트가 끝날 때 리셋)
-	int setCount = 0; //몇 번째 세트 (매치가 끝날 때 리셋)
+	int countTotalServe; //한 매치에 총 서브 횟수 (매치가 끝날 때 리셋)
+	int countServe= 0; //몇 번째 서브 (게임이 끝날 때 리셋)
+	int countGame = 0; //몇 번째 게임 (세트가 끝날 때 리셋)
+	int countSet = 0; //몇 번째 세트 (매치가 끝날 때 리셋)
 	
 	TennisDTO me = new TennisDTO();
 	TennisDTO cpu = new TennisDTO();
@@ -81,9 +82,10 @@ public class TennisService {
 	}
 
 	private void gameStart(TennisDTO dto) {
+		
 		boolean loop = true;
 		while (loop) {
-		
+			
 			Random rnd = new Random();
 			me.chance = rnd.nextInt(100)+1;
 			cpu.chance = rnd.nextInt(100)+1;
@@ -129,13 +131,18 @@ public class TennisService {
 		
 	}
 
-	private void nextGame() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	private int characterSelect() {
+		
+		System.out.println();
+//		이곳에서 캐릭터를 보여주고 유저가 맘에드는 캐릭터에 대응하는 번호를 입력하면 그 값으로 캐릭터 값을 리턴해줘야함
+		
+		
+		
+		
+		
+		
 		int character = 0;
+		character = scan.nextInt();
 		return character;
 
 		
