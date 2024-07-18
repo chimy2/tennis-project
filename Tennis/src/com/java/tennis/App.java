@@ -3,10 +3,11 @@ package com.java.tennis;
 import java.util.Scanner;
 
 import com.java.tennis.service.ExplainService;
-import com.java.tennis.service.LanguageService;
+import com.java.tennis.service.RecordService;
 import com.java.tennis.service.SettingService;
 import com.java.tennis.service.TennisService;
 import com.java.tennis.view.MainView;
+import com.java.tennis.view.RecordView;
 
 public class App {
 	public static int langIndex = 0;
@@ -19,8 +20,11 @@ public class App {
 		TennisService tennisService = new TennisService();
 //		LanguageService languageService = new LanguageService();
 		SettingService settingService = new SettingService();
+		RecordService recordService = new RecordService();
+		RecordView rView =  new RecordView();
 		
-		while(true) {
+		boolean yn= true;
+		while(yn) {
 			view.getMainMenu();
 			
 			String input = scan.nextLine();
@@ -30,6 +34,9 @@ public class App {
 				tennisService.gameSetup();
 			} else if (input.equals("2")) {
 //				명예의 전당
+//				rView.mainMenu();
+//				yn = false;
+				recordService.getSpec();
 			} else if (input.equals("3")) {
 //				게임 설명서
 				explainService.get();

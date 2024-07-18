@@ -3,7 +3,12 @@ package com.java.tennis.service;
 import java.util.Random;
 import java.util.Scanner;
 
+import javax.net.ssl.SNIHostName;
+
+import com.java.tennis.model.RecordDTO;
+import com.java.tennis.model.SkillDTO;
 import com.java.tennis.model.TennisDTO;
+import com.java.tennis.view.GameView;
 import com.java.tennis.view.TennisView;
 
 public class TennisService {
@@ -13,12 +18,14 @@ public class TennisService {
 	private TennisDTO dto = new TennisDTO();
 	private Scanner scan = new Scanner(System.in);
 	
-	int serveCount= 0; //몇 번째 서브 (게임이 끝날 때 리셋)
-	int gameCount = 0; //몇 번째 게임 (세트가 끝날 때 리셋)
-	int setCount = 0; //몇 번째 세트 (매치가 끝날 때 리셋)
+	static int countTotalServe; //한 매치에 총 서브 횟수 (매치가 끝날 때 리셋)
+	static int countServe; //몇 번째 서브 (게임이 끝날 때 리셋)
+	static int countGame; //몇 번째 게임 (세트가 끝날 때 리셋)
+	static int countSet; //몇 번째 세트 (매치가 끝날 때 리셋)
 	
 	TennisDTO me = new TennisDTO();
 	TennisDTO cpu = new TennisDTO();
+	RecordDTO dtoRecord = new RecordDTO();
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -67,36 +74,73 @@ public class TennisService {
 		scan.skip("\r\n");
 		
 		System.out.println();
-		characterSelect();
+		view.characterSelect();
+		character = scan.nextInt();
+		dto.setCharacter(character);
+		scan.skip("\r\n");
 		
 		TennisDTO dto = new TennisDTO();
+		SkillDTO dtoSkill = new SkillDTO();
 		
 		dto.setType(type);
 		dto.setSet(set);
 		dto.setPlayer(player);
 		dto.setCharacter(character);
+
+		dtoSkill.getSkill(dto.getCharacter());
 		
-		gameStart(dto);
+		gameStart(dto, dtoSkill);
 	
 	}
 
-	private void gameStart(TennisDTO dto) {
+	private void gameStart(TennisDTO dto, SkillDTO dtoSkill) {
+		
+		String p1 = "Player1";
+		String p2 = "Player2";
+		
+		countServe = 1;
+		countTotalServe = 1;
+		countGame = 1;
+		countSet = 1;
+		
+		System.out.println("게임을 시작합니다.");
+		
 		boolean loop = true;
 		while (loop) {
-		
+
+			int input;
+			GameView viewGame = new GameView();
+			viewGame.gameView(dto.getCharacter());
+			input = scan.nextInt();
+			scan.skip("\r\n");
+			
 			Random rnd = new Random();
-			me.chance = rnd.nextInt(100)+1;
-			cpu.chance = rnd.nextInt(100)+1;
+			me.chance = rnd.nextInt(100) + 1 + dtoSkill.getSkill(dto.getCharacter())[input-1]; //stats[i]
+			cpu.chance = rnd.nextInt(100) + 1;
+
+			System.out.println();
+			System.out.printf("%d세트 %d게임 %d회차 서브\r\n", countSet, countGame, countTotalServe);
+	
 			
 			if (me.chance > cpu.chance) {
 				me.point++;
-				break;
+				countTotalServe++;
+				countServe++;
+				System.out.println(p1 + " 득점!");
+//				여기에 본인/컴퓨터 포인트를 인자값으로 받아서 러브 피프틴 써티 포티 이런 걸 말해주는 메서드 구현 필요
 			} else if (me.chance < cpu.chance) {
 				cpu.point++;
-				break;
+				countTotalServe++;
+				countServe++;
+//				여기에 본인/컴퓨터 포인트를 인자값으로 받아서 러브 피프틴 써티 포티 이런 걸 말해주는 메서드 구현 필요
+				System.out.println(p2 + " 득점!");			
 			} else {
 				continue;
 			}
+			System.out.println(me.point + "-" + cpu.point);
+			System.out.println("[확인]");
+			scan.nextLine();
+			
 			
 		}
 		pointCheck();
@@ -104,6 +148,8 @@ public class TennisService {
 		}
 	
 	
+
+
 
 
 
@@ -129,17 +175,6 @@ public class TennisService {
 		
 	}
 
-	private void nextGame() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private int characterSelect() {
-		int character = 0;
-		return character;
-
-		
-	}
 
 	public void gameRecord() {
 		// TODO Auto-generated method stub
