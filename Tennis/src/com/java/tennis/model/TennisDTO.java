@@ -6,6 +6,12 @@ public class TennisDTO {
 	private int type; // 1 = 단식, 2 = 복식
 	private int set; // 1 = 3세트, 2 = 5세트
 	private int player; //1 = 유저 1명, 2 = 유저 2명
+	public CharacterDTO getCharacter() {
+		return character;
+	}
+	public void setCharacter(CharacterDTO character) {
+		this.character = character;
+	}
 	private CharacterDTO character; //게임 캐릭터 고유일련번호
 	
 	public int point;	/*	
@@ -60,12 +66,6 @@ public class TennisDTO {
 		this.player = player;
 	}
 	
-	public CharacterDTO getCharacter() {
-		return character;
-	}
-	public void setCharacter(CharacterDTO character) {
-		this.character = character;
-	}
 
 	
 	public int getPoint() {

@@ -4,14 +4,9 @@ import com.java.tennis.App;
 import com.java.tennis.dao.LanguageDAO;
 
 public class LanguageService {
-	private LanguageDAO dao;
-	private final int LANG_KR = 0;
-	private final int LANG_EN = 1;
-	private final int LANG_JP = 2;
-	
-	public LanguageService() {
-		dao = new LanguageDAO();
-	}
+	public final int LANG_KR = 0;
+	public final int LANG_EN = 1;
+	public final int LANG_JP = 2;
 	
 	public static String get(String line) {
 		return LanguageDAO.get(line, App.langIndex);

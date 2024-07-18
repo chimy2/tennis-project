@@ -1,10 +1,18 @@
 package com.java.tennis.service;
 
+import java.util.Arrays;
+
 public class MainService {
 	public static void printLine(String txt) {
 		try {
-			for(String line : txt.split("\r?\n")) {
-				System.out.println(line);
+			String[] lines = txt.split("\r?\n");
+			
+			for(int i=0; i<lines.length; i++) {
+				if(i == lines.length - 1) {
+					System.out.print(lines[i]);
+				} else {
+					System.out.println(lines[i]);
+				}
 				Thread.sleep(100);
 			}
 		} catch (Exception e) {
@@ -14,8 +22,14 @@ public class MainService {
 	
 	public static void printLine(String txt, int millis) {
 		try {
-			for(String line : txt.split("\r?\n")) {
-				System.out.println(line);
+			String[] lines = txt.split("\r?\n");
+			
+			for(int i=0; i<lines.length; i++) {
+				if(i == lines.length - 1) {
+					System.out.print(lines[i]);
+				} else {
+					System.out.println(lines[i]);
+				}
 				Thread.sleep(millis);
 			}
 		} catch (Exception e) {

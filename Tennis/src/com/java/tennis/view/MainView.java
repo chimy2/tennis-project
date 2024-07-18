@@ -23,7 +23,6 @@ public class MainView {
 		result += LanguageService.get("1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료");
 		result += "\r\n";
 		result += getSeperator();
-		result += "\r\n";
 		result += selectMenu();
 		MainService.printLine(result, 200);
 	}
@@ -64,10 +63,11 @@ public class MainView {
 	}
 	
 	public String selectMenu() {
-		return LanguageService.get("메뉴 선택");
+		return LanguageService.get("메뉴 선택") + " > ";
 	}
 	
 	public String getSeperator() {
-		return "=============================================================================\r\n";
+		return "=================================================================="
+				+ "======================================================\r\n";
 	}
 }

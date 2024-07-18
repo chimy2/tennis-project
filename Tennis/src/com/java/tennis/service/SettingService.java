@@ -38,6 +38,7 @@ public class SettingService {
 				setDifficulty();
 			} else if(input.equals("3")) {
 //				만든 사람들
+				getDevelopers();
 			} else if(input.equals("4")) {
 //				디스코드
 				getDiscord();
@@ -51,10 +52,11 @@ public class SettingService {
 			}
 		}
 	}
-	
+
 	public void setLang() {
 		while(true) {
 			view.setLang();
+			System.out.print(mainView.selectMenu());
 			
 			String input = scan.nextLine();
 			try {
@@ -62,6 +64,8 @@ public class SettingService {
 				
 				if(num >= 1 && num <= 3) {
 					languageService.set(num);
+					break;
+				} else if(num == 4) {
 					break;
 				} else {
 					throw new Exception("잘못된 입력");
@@ -76,6 +80,7 @@ public class SettingService {
 		while(true) {
 			view.setDiff();
 			view.getDiff();
+			System.out.print(mainView.selectMenu());
 			String input = scan.nextLine();
 
 			try {
@@ -84,6 +89,8 @@ public class SettingService {
 				if(num >= 1 && num <= 3) {
 					App.difficulty = num;
 					break;
+				} else if(num == 4) {
+					break;
 				} else {
 					throw new Exception("잘못된 입력");
 				}
@@ -91,6 +98,10 @@ public class SettingService {
 				mainView.errorInput();
 			}
 		}
+	}
+	
+	public void getDevelopers() {
+		System.out.println(dao.getDevelopers());
 	}
 	
 	public void getDiscord() {
