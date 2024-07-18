@@ -61,15 +61,14 @@ public class RecordService {
 		boolean stop = true;
 		while (stop) {
 			view.mainMenu(); // 명예의 전당 메뉴
-			int menu = scan.nextInt();
-			scan.skip("\r\n");
+			String menu = scan.nextLine();
 			
 			
-			if (menu == 1) {
+			if (menu.equals("1")) {
 
 				sevice.get(); // 명예의 전당 출력
 
-			} else if (menu == 2) {
+			} else if (menu.equals("2")) {
 				
 
 				dao.recordSearch(dao.gameId());
@@ -77,7 +76,7 @@ public class RecordService {
 				
 			}
 
-			else if (menu == 3) {
+			else if (menu.equals("3")) {
 
 				view.subTitle("최신 기록");
 				dao.getTotal(); // 전체 최신기록
@@ -86,8 +85,8 @@ public class RecordService {
 				System.out.println("3. 캐릭터");
 
 				System.out.println("번호 입력 : ");
-				int num = scan.nextInt();
-				if (num == 1 || num == 2 || num == 3) {
+				String num = scan.nextLine();
+				if (num.equals("1") || num.equals("2") || num.equals("3")) {
 					dao.sort(num);
 				} else {
 					MainView error = new MainView();
@@ -95,13 +94,14 @@ public class RecordService {
 					continue;
 				}
 
-			} else if (menu == 4) {
+			} else if (menu.equals("4")) {
 				stop = false;
 				System.out.println("메인메뉴로 돌아갑니다.");
 			} else {
 
 				MainView error = new MainView();
 				error.errorInput();
+				error.pause();
 
 			}
 			

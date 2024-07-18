@@ -323,7 +323,7 @@ public class RecordDAO {
 
 	}
 
-	public void sort(int number) {
+	public void sort(String number) {
 		String line = null;
 		String lineTemp = null;
 		String[] temp = null;
@@ -386,27 +386,27 @@ public class RecordDAO {
 
 	}
 
-	public void stack(ArrayList<RecordDTO> list, int number) {
+	public void stack(ArrayList<RecordDTO> list, String number) {
 		view.sortMenu();
-		int sort = scan.nextInt();
+		String sort = scan.nextLine();
 
-		if (sort == 1 || sort == 2) {
-			if (number == 1) {// 날짜
-				if (sort == 1) {
+		if (sort.equals("1") || sort.equals("2")) {
+			if (number.equals("1")) {// 날짜
+				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getDate)); // 정렬(오름차순)
 
 				} else {
 					list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)
 				}
-			} else if (number == 2) {
-				if (sort == 1) {
+			} else if (number.equals("2")) {
+				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬(오름차순)
 
 				} else {
 					list.sort(Comparator.comparing(RecordDTO::getName).reversed()); // 정렬(내림차순)
 				}
-			} else if (number == 3) {
-				if (sort == 1) {
+			} else if (number.equals("3")) {
+				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getCharactername)); // 정렬(오름차순)
 
 				} else {
