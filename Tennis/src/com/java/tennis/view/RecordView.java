@@ -2,6 +2,8 @@ package com.java.tennis.view;
 
 import java.util.Scanner;
 
+import com.java.tennis.service.LanguageService;
+
 public class RecordView {
 	private Scanner scan;
 public RecordView() {
@@ -128,5 +130,16 @@ public void sortMenu() {
 		System.out.print("선택(번호): ");
 		
 	}
+
+
+
+
+public void errorInput() {
+	String result = "";
+	result += LanguageService.get("잘못 입력 하셨습니다.");
+	result += "\r\n";
+	result += LanguageService.get("다시 입력해주세요.");
+	System.out.println(result);
+}
 	
 }
