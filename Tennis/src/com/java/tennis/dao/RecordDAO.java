@@ -471,8 +471,10 @@ public void getTotal() {
 				
 			}
 			
-		
-			stack(list);
+//			if(number=1) {
+//				
+//			}
+			stack(list); // 정렬 메서드
 
 			
 			int i=1;
