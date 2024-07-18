@@ -15,7 +15,7 @@ public class RecordDAO {
 	private RecordView view;
 	private Scanner scan;
 //	private RecordDTO dto;
-	ArrayList<RecordDTO> list = new ArrayList<RecordDTO>();
+
 	
 	
 	public RecordDAO() {
@@ -114,6 +114,7 @@ public class RecordDAO {
 						temp = line.split(",");
 						
 						String character = "";
+//						character = charname(temp[3]);
 						if(temp[3].equals("1")) {
 							character = "호랑이";
 						} else if(temp[3].equals("2")) {
@@ -243,18 +244,18 @@ public class RecordDAO {
 						if (temp[2].equals(name)) {
 							
 							String character = "";
-							character =charname(temp[3]);
+//							character =charname(temp[3]);
 							
 							
-//							if(temp[3].equals("1")) {
-//								character = "호랑이";
-//							} else if(temp[3].equals("2")) {
-//								character = "병아리";
-//							} else if(temp[3].equals("3")) {
-//								character = "강아지";
-//							} else {
-//								character = "고양이";
-//							}
+							if(temp[3].equals("1")) {
+								character = "호랑이";
+							} else if(temp[3].equals("2")) {
+								character = "병아리";
+							} else if(temp[3].equals("3")) {
+								character = "강아지";
+							} else {
+								character = "고양이";
+							}
 							
 							String score = "";
 							score = temp[4] + " : " + temp[5];
@@ -392,16 +393,16 @@ public void getTotal() {
 						temp = line.split(",");
 						
 						String character = "";
-						character = charname(temp[3]);
-//						if(temp[3].equals("1")) {
-//							character = "호랑이";
-//						} else if(temp[3].equals("2")) {
-//							character = "병아리";
-//						} else if(temp[3].equals("3")) {
-//							character = "강아지";
-//						} else {
-//							character = "고양이";
-//						}
+//						character = charname(temp[3]);
+						if(temp[3].equals("1")) {
+							character = "호랑이";
+						} else if(temp[3].equals("2")) {
+							character = "병아리";
+						} else if(temp[3].equals("3")) {
+							character = "강아지";
+						} else {
+							character = "고양이";
+						}
 						
 						String score = "";
 						score = temp[4] + " : " + temp[5];
@@ -448,32 +449,19 @@ public void getTotal() {
 		try {
 			// 일련번호, 날짜, 이름, 캐릭터 번호, 스코어1(나), 스코어2(컴퓨터)
 			// 1,2024-04-03,현영석,3,2,0
-			
+			ArrayList<RecordDTO> list = new ArrayList<RecordDTO>();
 			BufferedReader reader = new BufferedReader(new FileReader(PATH+"record.txt"));
 			while((line = reader.readLine())!=null) {
+				
 				temp = line.split(",");
 				temp[1] = temp[1].replace("-", "");
 				RecordDTO dto = new RecordDTO();
 				dto.setNo(temp[0]); // 일련번호 
 				dto.setDate(temp[1]); //날짜
 				dto.setName(temp[2]); //이름
+				dto.setCharacterno(temp[3]); //캐릭터 > 번호를 이름으로 변경하는 메서드 만들어야 함
 				dto.setScoreme(temp[4]); //내 점수
 				dto.setSocrecumputer(temp[5]); //컴퓨터 점수
-				
-				String character = "";
-				character = charname(temp[3]);
-//				if(temp[3].equals("1")) {
-//					character = "호랑이";
-//				} else if(temp[3].equals("2")) {
-//					character = "병아리";
-//				} else if(temp[3].equals("3")) {
-//					character = "강아지";
-//				} else {
-//					character = "고양이";
-//				}
-				dto.setCharacterno(character); 
-				
-				
 				
 				list.add(dto);
 				
@@ -483,30 +471,9 @@ public void getTotal() {
 				
 			}
 			
-			 // 날짜를 오름차순으로 정렬
+		
+			stack(list);
 
-//			if(number == 1) {// 날짜
-//			
-////				list.sort(Comparator.comparing(RecordDTO::getDate)); // 정렬
-////				list.stream().sorted((a, b)-> a.getDate().compareTo(b.getDate())); //안됀
-//			}else if(number == 2) { // 아이디
-////				list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬
-//			}else if(number == 3) { //캐릭터 이름 // 에러가 남
-////				list.sort(Comparator.comparing(RecordDTO::getCharactername)); // 정렬
-//			}
-
-			
-			view.sortMenu();
-			int sort = scan.nextInt();
-			
-			if(sort == 1) {
-				list.sort(Comparator.comparing(RecordDTO::getDate)); //정렬(오름차순)
-			} else {
-				list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); //정렬(내림차순)
-			}
-			
-			
-			
 			
 			int i=1;
 			for(RecordDTO record : list) {
@@ -516,17 +483,15 @@ public void getTotal() {
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
 				
 				String character = "";
-				character = charname(record.getCharacterno());
-				
-//				if(record.getCharacterno().equals("1")) {
-//					character = "호랑이";
-//				} else if(record.getCharacterno().equals("2")) {
-//					character = "병아리";
-//				} else if(record.getCharacterno().equals("3")) {
-//					character = "강아지";
-//				} else {
-//					character = "고양이";
-//				}
+				if(record.getCharacterno().equals("1")) {
+					character = "호랑이";
+				} else if(record.getCharacterno().equals("2")) {
+					character = "병아리";
+				} else if(record.getCharacterno().equals("3")) {
+					character = "강아지";
+				} else {
+					character = "고양이";
+				}
 				
 				
 				
@@ -551,25 +516,46 @@ public void getTotal() {
 		
 		
 	}
+	
+	
+	public void stack(ArrayList<RecordDTO> list) {
+		view.sortMenu();
+		int sort = scan.nextInt();
+		
+		if(sort == 1) {
+			list.sort(Comparator.comparing(RecordDTO::getDate)); //정렬(오름차순)
+
+			
+		} else {
+			list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); //정렬(내림차순)
+		}
+	}
+		
 		
 	
-	public String charname(String charno) {
-		
-		String character= "";
-		if(charno.equals("1")) {
-			character = "호랑이";
-		} else if(charno.equals("2")) {
-			character = "병아리";
-		} else if(charno.equals("3")) {
-			character = "강아지";
-		} else {
-			character = "고양이";
-		}
-		
-		
-		
-		return character;
+	
+	
+	
 	}
+		
+	
+//	public String charname(String charno) {
+//		
+//		String character= "";
+//		if(charno.equals("1")) {
+//			character = "호랑이";
+//		} else if(charno.equals("2")) {
+//			character = "병아리";
+//		} else if(charno.equals("3")) {
+//			character = "강아지";
+//		} else {
+//			character = "고양이";
+//		}
+//		
+//		
+//		
+//		return character;
+//	}
 			
 			
 //	public void date(RecordDTO dto) {
@@ -584,7 +570,7 @@ public void getTotal() {
 //		list.sort(Comparator.comparing(RecordDTO::getCharactername)); // 정렬
 //	}
 	
-}
+
 
 
 
