@@ -180,12 +180,12 @@ public class RecordDAO {
 		// 일련번호, 날짜, 이름, 캐릭터 번호, 스코어1(나), 스코어2(컴퓨터)
 		// 1,2024-04-03,현영석,3,2,0
 		String result = "";
+		String line = null;
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
 
 
-			String line = null;
 
 			while ((line = reader.readLine()) != null) {
 				String[] temp = line.split(",");
@@ -196,13 +196,14 @@ public class RecordDAO {
 					String score = "";
 					score = temp[4] + " : " + temp[5];
 
-					String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], character,
+					String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", temp[0], temp[1], temp[2], character,
 							score);
 
 					result += list;
-
+//					System.out.println(result);
 				}
 			}
+			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.recordSearch");
 			e.printStackTrace();
