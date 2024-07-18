@@ -19,17 +19,11 @@ public class App {
 		ExplainService explainService = new ExplainService();
 		TennisService tennisService = new TennisService();
 //		LanguageService languageService = new LanguageService();
-<<<<<<< HEAD
-		
-		while(true) {
-=======
 		SettingService settingService = new SettingService();
 		RecordService recordService = new RecordService();
 		RecordView rView =  new RecordView();
 		
-		boolean yn= true;
-		while(yn) {
->>>>>>> 0eb0db512813ff5eed56001e91afd745e3f75327
+		while(true) {
 			view.getMainMenu();
 			
 			String input = scan.nextLine();

@@ -73,7 +73,6 @@ public class RecordService {
 				dao.recordSearch(dao.gameId());
 //				dao.gameSearch(dao.gameId()); //아이디 검색 > 상세점수 출력
 				dao.getSpec(dao.gameNum()); //아이디 검색 > 상세점수 출력
-				
 			}
 
 			else if (menu == 3) {
