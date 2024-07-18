@@ -2,4 +2,11 @@
 메뉴 선택,select menu,メニューを選択します
 1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료,1. Game start 2. Hall of Fame 3. Game Manual 4. Setting 5. Exit Game,1. ゲーム開始 2.殿堂 3.ゲーム説明書 4.環境設定 5.ゲーム終了
 오류가 발생했습니다.,An error has occurred.,エラーが発生しました。
-계속하시려면 엔터를 치세요.,
+계속하시려면 엔터를 치세요.,Hit Enter to continue.,続けるためにはエンターを押してください。
+1. 언어 설정 2. 난이도 설정 3. 만든 사람들 4. 디스코드 5. 개발자에게 기부하기 6. 메인 메뉴,1. Language settings 2. Difficulty settings 3. Builders 4. Discord 5. Donate to developers 6. main menu,1. 言語設定 2.難易度設定 3.作った人々 4.ディスコード 5.開発者に寄付する 6. メインメニュー
+1. 한국어 2. English 3. 日本語 4. 메인 메뉴,1. 한국어 2. English 3. 日本語 4. main menu,1. 한국어 2. English 3. 日本語 4. メインメニュー
+1. 쉽게 2. 보통 3. 어렵게,1. Easy. 2. Normal. 3. Hard,1. 簡単に 2. 普通 3. 難しく
+쉽게,Easy,簡単に
+보통,Normal,普通
+어렵게,Hard,難しく
+

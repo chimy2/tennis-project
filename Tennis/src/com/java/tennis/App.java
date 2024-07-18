@@ -4,18 +4,21 @@ import java.util.Scanner;
 
 import com.java.tennis.service.ExplainService;
 import com.java.tennis.service.LanguageService;
+import com.java.tennis.service.SettingService;
 import com.java.tennis.service.TennisService;
-import com.java.tennis.view.MenuView;
+import com.java.tennis.view.MainView;
 
 public class App {
-	public static int langIndex = 1;
+	public static int langIndex = 0;
+	public static int difficulty = 2;
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		MenuView view = new MenuView();
+		MainView view = new MainView();
 		ExplainService explainService = new ExplainService();
 		TennisService tennisService = new TennisService();
 //		LanguageService languageService = new LanguageService();
+		SettingService settingService = new SettingService();
 		
 		while(true) {
 			view.getMainMenu();
@@ -32,13 +35,14 @@ public class App {
 				explainService.get();
 			} else if (input.equals("4")) {
 //				환경설정
+				settingService.main();
 			} else if (input.equals("5")) {
-				System.out.println(LanguageService.get("게임을 종료합니다."));
-				System.out.println(LanguageService.get("안녕히 가십시오."));
+//				게임 종료
+				view.end();
 				break;
 			} else {
-				System.out.println(LanguageService.get("잘못 입력 하셨습니다."));
-				System.out.println(LanguageService.get("다시 입력해주세요."));
+//				입력 오류
+				view.errorInput();
 			}
 		}
 	}

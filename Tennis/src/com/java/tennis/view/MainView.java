@@ -8,36 +8,30 @@ import com.github.lalyos.jfiglet.FigletFont;
 import com.java.tennis.service.LanguageService;
 import com.java.tennis.service.MainService;
 
-public class MenuView {
+public class MainView {
 	private Scanner scan;
 	
-	public MenuView() {
+	public MainView() {
 		scan = new Scanner(System.in);
 	}
 	
 	public void getMainMenu() {
 		String result = "";
-		result += "===================================================================================";
-		result += "===================================================================================";
-		result += "\r\n";
+		result += getSeperator();
 		result += getTitle();
-		result += "===================================================================================";
-		result += "===================================================================================";
-		result += "\r\n";
-		result += LanguageService.get("메뉴 선택");
-		result += "\r\n";
+		result += getSeperator();
 		result += LanguageService.get("1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료");
 		result += "\r\n";
+		result += getSeperator();
 		result += "\r\n";
-		result += "\r\n";
-		result += LanguageService.get("메뉴 입력: ");
+		result += selectMenu();
 		MainService.printLine(result, 200);
 	}
 	
 	public String getTitle() {
 		String result = "";
     	try {
-			String path = "fif/caligraphy.flf";
+			String path = "flf/speed.flf";
 			result = FigletFont.convertOneLine(new File(path), "Tennis Simulator");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -51,5 +45,29 @@ public class MenuView {
 		
 		scan.nextLine();	//Block
 		System.out.println();
+	}
+	
+	public void end() {
+		String result = "";
+		result += LanguageService.get("게임을 종료합니다.");
+		result += "\r\n";
+		result += LanguageService.get("안녕히 가십시오.");
+		System.out.println(result);
+	}
+	
+	public void errorInput() {
+		String result = "";
+		result += LanguageService.get("잘못 입력 하셨습니다.");
+		result += "\r\n";
+		result += LanguageService.get("다시 입력해주세요.");
+		System.out.println(result);
+	}
+	
+	public String selectMenu() {
+		return LanguageService.get("메뉴 선택");
+	}
+	
+	public String getSeperator() {
+		return "=============================================================================\r\n";
 	}
 }

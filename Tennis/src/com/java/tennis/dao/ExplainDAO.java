@@ -13,7 +13,7 @@ public class ExplainDAO {
 		} else if(langIndex == 2) {
 			path = "resource/explain_jp.txt";
 		} else {
-			path = "resource/explain_ko.txt";
+			path = "resource/explain_kr.txt";
 		}
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
