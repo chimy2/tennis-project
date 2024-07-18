@@ -3,12 +3,13 @@ package com.java.tennis;
 import java.util.Scanner;
 
 import com.java.tennis.service.ExplainService;
+import com.java.tennis.service.LanguageService;
 import com.java.tennis.service.TennisService;
 import com.java.tennis.view.MenuView;
 import com.java.tennis.view.RecordView;
 
 public class App {
-	public static int langIndex = 0;
+	public static int langIndex = 1;
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -38,12 +39,12 @@ public class App {
 			} else if (input.equals("4")) {
 //				환경설정
 			} else if (input.equals("5")) {
-				System.out.println("게임을 종료합니다.");
-				System.out.println("안녕히 가십시오.");
+				System.out.println(LanguageService.get("게임을 종료합니다."));
+				System.out.println(LanguageService.get("안녕히 가십시오."));
 				break;
 			} else {
-				System.out.println("잘못 입력 하셨습니다.");
-				System.out.println("다시 입력해주세요.");
+				System.out.println(LanguageService.get("잘못 입력 하셨습니다."));
+				System.out.println(LanguageService.get("다시 입력해주세요."));
 			}
 		}
 	}

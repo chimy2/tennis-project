@@ -1,5 +1,6 @@
 package com.java.tennis.service;
 
+import com.java.tennis.App;
 import com.java.tennis.dao.ExplainDAO;
 import com.java.tennis.view.ExplainView;
 import com.java.tennis.view.MenuView;
@@ -14,7 +15,7 @@ public class ExplainService {
 	}
 
 	public void get() {
-		MainService.printLine(ExplainDAO.getExplain());
+		MainService.printLine(ExplainDAO.getExplain(App.langIndex));
 		menuView.pause();
 	}
 }

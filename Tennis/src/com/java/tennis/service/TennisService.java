@@ -27,14 +27,12 @@ public class TennisService {
 //	static int serveCount; //몇 번째 서브 (게임이 끝날 때 리셋)
 //	static int gameCount; //몇 번째 게임 (세트가 끝날 때 리셋)
 //	static int setCount; //몇 번째 세트 (매치가 끝날 때 리셋)
-	
 
 	public TennisService() {
 		this.dto = new TennisDTO();
 		this.view = new TennisView();
 //		this.dao = new TennisDAO();
 		this.scan = new Scanner(System.in);
-		
 	}
 
 	public void gameSetup() {

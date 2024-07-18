@@ -4,9 +4,17 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class ExplainDAO {
-	public static String getExplain() {
+	public static String getExplain(int langIndex) {
 		String result = "";
-		String path = "resource/explain.txt";
+		String path = "";
+		
+		if(langIndex == 1) {
+			path = "resource/explain_en.txt";
+		} else if(langIndex == 2) {
+			path = "resource/explain_jp.txt";
+		} else {
+			path = "resource/explain_ko.txt";
+		}
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
 			String line = "";
