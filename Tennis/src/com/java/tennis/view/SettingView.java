@@ -21,30 +21,30 @@ public class SettingView {
 		result += "\r\n";
 		result += mainView.getSeperator();
 		result += mainView.selectMenu();
-		System.out.println(result);
+		System.out.print(result);
 	}
 	
 	public void setLang() {
 		String result = "";
 		result += mainView.getSeperator();
-		result += LanguageService.get("1. 한국어 2. English 3. 日本語 4. 메인 메뉴");
+		result += LanguageService.get("1. 한국어 2. English 3. 日本語 4. 돌아가기");
 		result += "\r\n";
 		result += mainView.getSeperator();
-		System.out.println(result);
+		System.out.print(result);
 	}
 	
 	public void setDiff() {
 		String result = "";
 		result += mainView.getSeperator();
-		result += LanguageService.get("1. 쉽게 2. 보통 3. 어렵게");
+		result += LanguageService.get("1. 쉽게 2. 보통 3. 어렵게 4. 돌아가기");
 		result += "\r\n";
 		result += mainView.getSeperator();
-		System.out.println(result);
+		System.out.print(result);
 	}
 	
 	public void getDiff() {
 		int diff = App.difficulty;
-		String result = "";
+		String result = "> ";
 		result += LanguageService.get("현재 난이도는") + " ";
 		
 		if(diff == EASY) {

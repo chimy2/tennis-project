@@ -7,7 +7,6 @@ import com.java.tennis.service.RecordService;
 import com.java.tennis.service.SettingService;
 import com.java.tennis.service.TennisService;
 import com.java.tennis.view.MainView;
-import com.java.tennis.view.RecordView;
 
 public class App {
 	public static int langIndex = 0;
@@ -18,10 +17,8 @@ public class App {
 		MainView view = new MainView();
 		ExplainService explainService = new ExplainService();
 		TennisService tennisService = new TennisService();
-//		LanguageService languageService = new LanguageService();
 		SettingService settingService = new SettingService();
 		RecordService recordService = new RecordService();
-		RecordView rView =  new RecordView();
 		
 		while(true) {
 			view.getMainMenu();
