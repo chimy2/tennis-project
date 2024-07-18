@@ -3,15 +3,17 @@ package com.java.tennis.service;
 import java.util.Random;
 import java.util.Scanner;
 
-import javax.net.ssl.SNIHostName;
-
+import com.java.tennis.dao.CharacterDAO;
+import com.java.tennis.model.AbilityDTO;
+import com.java.tennis.model.CharacterDTO;
 import com.java.tennis.model.RecordDTO;
-import com.java.tennis.model.SkillDTO;
 import com.java.tennis.model.TennisDTO;
 import com.java.tennis.view.GameView;
 import com.java.tennis.view.TennisView;
 
 public class TennisService {
+	
+	String PATHCharacter = "C:\\class\\project\\Tennis\\resource\\character.txt";
 	
 	private TennisView view = new TennisView();
 //	private TennisDAO dao = new TennisDAO();
@@ -26,6 +28,7 @@ public class TennisService {
 	TennisDTO me = new TennisDTO();
 	TennisDTO cpu = new TennisDTO();
 	RecordDTO dtoRecord = new RecordDTO();
+	CharacterDAO daoCharacter = new CharacterDAO();
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -45,6 +48,8 @@ public class TennisService {
 	public void gameSetup() {
 //		단식/복식 -> 세트 수 -> 플레이어수 -> 캐릭터 선택
 		
+		
+		
 		int type = 0; // 1 = 단식, 2 = 복식
 		int set = 0; // 1 = 3세트, 2 = 5세트
 		int player = 0; //1 = 유저 1명, 2 = 유저 2명
@@ -52,48 +57,89 @@ public class TennisService {
 		
 		view.subtitle("게임 시작");
 		
-		System.out.println();
-		System.out.println("게임 타입을 선택해주세요.");
-		System.out.println("1.[단식]		2.[복식]");
-		type = scan.nextInt();
+		boolean loop = true;
+		while (loop) {
+			
+			System.out.println();
+			System.out.println("게임 타입을 선택해주세요.");
+			System.out.println("1.[단식]		2.[복식]");
+			type = scan.nextInt();
+			dto.setType(type);
+			scan.skip("\r\n");
+			
+			if (type == 1 || type == 2) {
+				loop = false;
+			} else {
+				System.out.println("올바른 번호를 입력하세요.");
+				continue;
+			}
+			
+		}
+		
+		loop = true;
+		while (loop) {
+			
+			System.out.println();
+			System.out.println("세트 수를 입력해주세요.");
+			System.out.println("1.[3세트]		2.[5세트]");
+			set = scan.nextInt();
+			dto.setSet(set);
+			scan.skip("\r\n");
+			
+			if (set == 1 || set == 2) {
+				loop = false;
+			} else {
+				System.out.println("올바른 번호를 입력하세요.");
+				continue;
+			}
+		}
+		
+		loop = true;
+		while (loop) {
+			
+			System.out.println();
+			System.out.println("유저 수를 입력해주세요.");
+			System.out.println("1.[1명]		2.[2명]");
+			player = scan.nextInt();
+			dto.setPlayer(player);
+			scan.skip("\r\n");
+			
+			if (player == 1 || player == 2) {
+				loop = false;
+			} else {
+				System.out.println("올바른 번호를 입력하세요.");
+				continue;
+			}
+		}
+		
+		loop = true;
+		while (loop) {
+			
+			System.out.println();
+			view.characterSelect();
+			character = scan.nextInt();
+			scan.skip("\r\n");
+			
+			if (character == 1 || character == 2|| character == 3 || character ==4) {
+				loop = false;
+			} else {
+				System.out.println("올바른 번호를 입력하세요.");
+				continue;
+			}
+		}
+		
+		
+		;
 		dto.setType(type);
-		scan.skip("\r\n");
-		
-		System.out.println();
-		System.out.println("세트 수를 입력해주세요.");
-		System.out.println("1.[3세트]		2.[5세트]");
-		set = scan.nextInt();
-		dto.setSet(set);
-		scan.skip("\r\n");
-		
-		System.out.println();
-		System.out.println("유저 수를 입력해주세요.");
-		System.out.println("1.[1명]		2.[2명]");
-		player = scan.nextInt();
-		dto.setPlayer(player);
-		scan.skip("\r\n");
-		
-		System.out.println();
-		view.characterSelect();
-		character = scan.nextInt();
-		dto.setCharacter(character);
-		scan.skip("\r\n");
-		
-		TennisDTO dto = new TennisDTO();
-		SkillDTO dtoSkill = new SkillDTO();
-		
-		dto.setType(type);
 		dto.setSet(set);
 		dto.setPlayer(player);
-		dto.setCharacter(character);
 
-		dtoSkill.getSkill(dto.getCharacter());
 		
-		gameStart(dto, dtoSkill);
+		gameStart(dto, daoCharacter.get(character));
 	
 	}
 
-	private void gameStart(TennisDTO dto, SkillDTO dtoSkill) {
+	private void gameStart(TennisDTO dto, CharacterDTO dtoCharacter) {
 		
 		String p1 = "Player1";
 		String p2 = "Player2";
@@ -103,19 +149,21 @@ public class TennisService {
 		countGame = 1;
 		countSet = 1;
 		
-		System.out.println("게임을 시작합니다.");
 		
+		
+		System.out.println("게임을 시작합니다.");
 		boolean loop = true;
 		while (loop) {
 
+			AbilityDTO dtoAbility = new AbilityDTO();
 			int input;
 			GameView viewGame = new GameView();
-			viewGame.gameView(dto.getCharacter());
+			viewGame.gameView(dtoCharacter);
 			input = scan.nextInt();
 			scan.skip("\r\n");
 			
 			Random rnd = new Random();
-			me.chance = rnd.nextInt(100) + 1 + dtoSkill.getSkill(dto.getCharacter())[input-1]; //stats[i]
+			me.chance = rnd.nextInt(100) + 50 + dtoAbility.statModifier(input); //stats[i]
 			cpu.chance = rnd.nextInt(100) + 1;
 
 			System.out.println();
