@@ -6,6 +6,7 @@ import com.java.tennis.service.ExplainService;
 import com.java.tennis.service.LanguageService;
 import com.java.tennis.service.TennisService;
 import com.java.tennis.view.MenuView;
+import com.java.tennis.view.RecordView;
 
 public class App {
 	public static int langIndex = 1;
@@ -17,7 +18,10 @@ public class App {
 		TennisService tennisService = new TennisService();
 //		LanguageService languageService = new LanguageService();
 		
-		while(true) {
+		RecordView rView =  new RecordView();
+		
+		boolean yn= true;
+		while(yn) {
 			view.getMainMenu();
 			
 			String input = scan.nextLine();
@@ -26,6 +30,8 @@ public class App {
 //				게임시작
 				tennisService.gameSetup();
 			} else if (input.equals("2")) {
+				rView.mainMenu();
+				yn = false;
 //				명예의 전당
 			} else if (input.equals("3")) {
 //				게임 설명서

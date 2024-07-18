@@ -11,12 +11,21 @@ public class RecordDTO {
 	
 	//---------------------------
 	//기록과 관련된 멤버 변수와 멤버메서드만 정리
-	private int no;					//일련번호
+	private String no;					//일련번호
 	private String date;			//날짜
 	private String name;			//이름
-//	private int characterno;		//캐릭터 번호
-	private int scoreme;			//스코어1(나)
-	private int socrecumputer;		//스코어2(컴퓨터)
+	private String characterno;		//캐릭터 번호
+	private String charactername;		//캐릭터 번호
+	public String getCharactername() {
+		return charactername;
+	}
+	public void setCharactername(String charactername) {
+		this.charactername = charactername;
+	}
+
+
+	private String scoreme;			//스코어1(나)
+	private String socrecumputer;		//스코어2(컴퓨터)
 	
 	
 	private CharacterDTO character;	//캐릭터 > 캐릭터 번호 가져오기
@@ -32,10 +41,10 @@ public class RecordDTO {
 	
 	
 	
-	public int getNo() {
+	public String getNo() {
 		return no;
 	}
-	public void setNo(int no) {
+	public void setNo(String no) {
 		this.no = no;
 	}
 	public String getDate() {
@@ -50,26 +59,32 @@ public class RecordDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getScoreme() {
+	public String getScoreme() {
 		return scoreme;
 	}
-	public void setScoreme(int scoreme) {
+	public void setScoreme(String scoreme) {
 		this.scoreme = scoreme;
 	}
-	public int getSocrecumputer() {
+	public String getSocrecumputer() {
 		return socrecumputer;
 	}
-	public void setSocrecumputer(int socrecumputer) {
+	public void setSocrecumputer(String socrecumputer) {
 		this.socrecumputer = socrecumputer;
 	}
-	public CharacterDTO getCharacter() {
-		return character;
-	}
-	public void setCharacter(CharacterDTO character) {
-		this.character = character;
-	}
+//	public CharacterDTO getCharacter() {
+//		return character;
+//	}
+//	public void setCharacter(CharacterDTO character) {
+//		this.character = character;
+//	}
 	public TennisDTO getTennis() {
 		return tennis;
+	}
+	public String getCharacterno() {
+		return characterno;
+	}
+	public void setCharacterno(String characterno) {
+		this.characterno = characterno;
 	}
 	public void setTennis(TennisDTO tennis) {
 		this.tennis = tennis;
