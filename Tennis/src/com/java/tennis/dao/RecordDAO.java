@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Scanner;
+import java.util.Stack;
 
 import com.java.tennis.model.RecordDTO;
 import com.java.tennis.view.MainView;
@@ -16,6 +17,9 @@ public class RecordDAO {
 	private RecordView view;
 	private Scanner scan;
 //	private RecordDTO dto;
+
+	private Stack<String> historyStack;
+	private String currentPage;
 
 	public RecordDAO() {
 		this.view = new RecordView();
@@ -67,6 +71,7 @@ public class RecordDAO {
 ////												,dto.getTennis().getGamePoint() //게임번호
 //												,dto.getTennis().getPoint() //스코어 1
 //												,dto.getTennis().getPoint());// 스코어 2
+
 
 			writerSpec.write(lineSpec); // 점수-상세한 추가
 			writerSpec.close(); // 파일 저장
@@ -128,7 +133,6 @@ public class RecordDAO {
 
 	// 상세한 정보 불러오기
 	public void getSpec(String num) {
-
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "game.txt"));
 
@@ -168,15 +172,18 @@ public class RecordDAO {
 
 	}
 
+
 	// 검색 기능 : 이름 검색하면 불러올 수 있는 기능
-	public void recordSearch(String name) {
+	public String recordSearch(String name) {
 
 		// 간단한 점수 저장------------------------------------------
 		// 일련번호, 날짜, 이름, 캐릭터 번호, 스코어1(나), 스코어2(컴퓨터)
 		// 1,2024-04-03,현영석,3,2,0
+		String result = "";
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
+
 
 			String line = null;
 
@@ -192,7 +199,7 @@ public class RecordDAO {
 					String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], character,
 							score);
 
-					System.out.println(list);
+					result += list;
 
 				}
 			}
@@ -200,7 +207,7 @@ public class RecordDAO {
 			System.out.println("RecordDAO.recordSearch");
 			e.printStackTrace();
 		}
-
+		return result;
 	}
 
 	public String gameId() {
@@ -312,7 +319,6 @@ public class RecordDAO {
 				num++;
 
 			}
-
 			view.dividingLine(); // 구분선
 			System.out.println();
 
@@ -323,7 +329,7 @@ public class RecordDAO {
 
 	}
 
-	public void sort(int number) {
+	public void sort(String number) {
 		String line = null;
 		String lineTemp = null;
 		String[] temp = null;
@@ -343,6 +349,7 @@ public class RecordDAO {
 				dto.setDate(temp[1]); // 날짜
 				dto.setName(temp[2]); // 이름
 				dto.setCharacterno(temp[3]); // 캐릭터 > 번호를 이름으로 변경하는 메서드 만들어야 함
+
 				dto.setCharactername(temp[3]); // 캐릭터이름
 				dto.setScoreme(temp[4]); // 내 점수
 				dto.setSocrecumputer(temp[5]); // 컴퓨터 점수
@@ -359,15 +366,14 @@ public class RecordDAO {
 			}
 
 			stack(list, number); // 정렬 메서드
-
+			
 			int i = 1;
 			for (RecordDTO record : list) {
 
 				String dump = record.getDate();
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
 
-				
-				
+
 				String character = nameCharacter(record.getCharacterno());
 //			
 
@@ -386,27 +392,28 @@ public class RecordDAO {
 
 	}
 
-	public void stack(ArrayList<RecordDTO> list, int number) {
-		view.sortMenu();
-		int sort = scan.nextInt();
+	public void stack(ArrayList<RecordDTO> list, String number) {
 
-		if (sort == 1 || sort == 2) {
-			if (number == 1) {// 날짜
-				if (sort == 1) {
+		view.sortMenu();
+		String sort = scan.nextLine();
+
+		if (sort.equals("1") || sort.equals("2")) {
+			if (number.equals("1")) {// 날짜
+				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getDate)); // 정렬(오름차순)
 
 				} else {
 					list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)
 				}
-			} else if (number == 2) {
-				if (sort == 1) {
+			} else if (number.equals("2")) {
+				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬(오름차순)
 
 				} else {
 					list.sort(Comparator.comparing(RecordDTO::getName).reversed()); // 정렬(내림차순)
 				}
-			} else if (number == 3) {
-				if (sort == 1) {
+			} else if (number.equals("3")) {
+				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getCharactername)); // 정렬(오름차순)
 
 				} else {
@@ -416,10 +423,10 @@ public class RecordDAO {
 		} else {
 			MainView error = new MainView();
 			error.errorInput();
-
 		}
 
 	}
+
 
 	public static String nameCharacter(String number){
 

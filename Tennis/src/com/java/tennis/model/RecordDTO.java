@@ -15,7 +15,7 @@ public class RecordDTO {
 	private String date;			//날짜
 	private String name;			//이름
 	private String characterno;		//캐릭터 번호
-	private String charactername;		//캐릭터 번호
+	private String charactername;		//캐릭터 이름
 	public String getCharactername() {
 		return charactername;
 	}
