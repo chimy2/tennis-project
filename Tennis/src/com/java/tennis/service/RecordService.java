@@ -68,6 +68,7 @@ public class RecordService {
 			else if (menu.equals("3")) {// 3. 최신기록 전체보기
 
 				view.subMenu("최신 기록");
+				view.titleSpecific();
 				dao.getTotal(); // 전체 최신기록
 
 				view.sortQuestion(); // 정렬질문

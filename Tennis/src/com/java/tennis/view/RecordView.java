@@ -16,8 +16,18 @@ public class RecordView {
 		String result = "";
 		result += "\r\n";
 		result += thingetSeperator();
-		result += LanguageService.get("명예의 전당");
+		result += LanguageService.get(title);
 		//result += "\r\n";
+		System.out.println(result);
+		
+	}
+	
+	public void subtitle(String title) {
+		
+		String result = "";
+		result += "\r\n";
+		result += thingetSeperator();
+		result += LanguageService.get(title);
 		System.out.println(result);
 		
 	}
@@ -79,11 +89,17 @@ public class RecordView {
 	}
 	
 	public void subMenu(String title) {
-		MainView dividingLine = new MainView();
+		//원본
+//		String result = "";
+//		result += thingetSeperator();
+//		result += LanguageService.get(title+"\r\n");
+//		result += thingetSeperator();
+//		System.out.println(result);
+		
 		String result = "";
-		result += dividingLine.getSeperator();
-		result += LanguageService.get(title+"\r\n");
-		result += dividingLine.getSeperator();
+		result += "\r\n";
+		result += thingetSeperator();
+		result += LanguageService.get(title);
 		System.out.println(result);
 	}
 	
@@ -104,12 +120,15 @@ public class RecordView {
 		String result = "";
 		result += "\r\n";
 		result += thingetSeperator(); //구분선
+		result += "정렬 선택\r\n";
+		result += thingetSeperator(); //구분선
 		result += "1. 날짜\r\n";
 		result += "2. 아이디\r\n";
 		result += "3. 캐릭터\r\n";
 		result += thingetSeperator();
 		System.out.print(result);
 		System.out.print("번호 입력: ");
+		
 		
 	}
 	
