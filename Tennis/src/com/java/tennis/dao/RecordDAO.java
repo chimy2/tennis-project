@@ -84,21 +84,22 @@ public class RecordDAO {
 	}
 
 	// 상세한 정보 불러오기
-	public void getSpec(String num) {
+	public String getSpec(String num) {
+		String result = "";
+		String line = null;
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "game.txt"));
 
-			String line = null;
 
 			while ((line = reader.readLine()) != null) {
 
-				if (line.startsWith(num)) {
-
 					String[] temp = line.split(",");
+					
+					
+					if (temp[0].equals(num)) {
 
 					// 1,1,1,4,0
 					// 번호 세트 게임 스코어점수
-					//
 
 					String score = "";
 					score = temp[3] + " : " + temp[4];
@@ -110,18 +111,23 @@ public class RecordDAO {
 						win = "패";
 					}
 
-					String list = String.format("\t%s세트\t\t%s게임\t\t%s\t\t %s", temp[1], temp[2], score, win);
+					result += String.format("\t%s세트\t\t%s게임\t\t%s\t\t %s\n", temp[1], temp[2], score, win);
 
-					System.out.println(list);
 
 				}
+			}
+//			System.out.println(result);
+			
+			if(num.equals("q")) {
+				result = "q";
 			}
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.getSpec");
 			e.printStackTrace();
 		}
-
+		
+		return result;
 	}
 
 
@@ -159,6 +165,11 @@ public class RecordDAO {
 			String thinline = "";	//구분선
 			thinline += view.thingetSeperator();
 			System.out.println(thinline);
+			
+			if(id.equals("q")) {
+				result = "q";
+			}
+			
 			
 			reader.close();
 		} catch (Exception e) {

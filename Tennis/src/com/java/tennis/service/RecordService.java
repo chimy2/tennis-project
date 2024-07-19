@@ -57,11 +57,32 @@ public class RecordService {
 
 				String list = dao.recordSearch(dao.gameId());
 				while (list.equals("")) { // 확인되지 않는 아이디 입력시
-					System.out.println("확인되지 않는 아이디입니다.");
+					System.out.println("확인되지 않는 아이디입니다.\n메뉴로 돌아가실려면 'q'를 입력해주세요.");
 					list = dao.recordSearch(dao.gameId());
+					
+					if(list.equals("q")) {
+						list = "";
+						break;
+					}
 				}
 				System.out.println(list);
-				dao.getSpec(dao.gameNum());
+				
+				
+				if (!(list.equals("") || (list.equals("q")))) { //id 없거나 q 선택했을 때 안돌아가게
+					String listSpec = dao.getSpec(dao.gameNum());
+					while (listSpec.equals("")) { // 확인되지 않는 번호 입력시
+						System.out.println("확인되지 않는 번호입니다.\n메뉴로 돌아가실려면 'q'를 입력해주세요.");
+
+						listSpec = dao.getSpec(dao.gameNum());
+
+						if (listSpec.equals("q")) {
+							listSpec = "";
+							break;
+						}
+					}
+				System.out.println(listSpec);
+				
+				}
 
 			}
 
