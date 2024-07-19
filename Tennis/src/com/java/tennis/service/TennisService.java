@@ -1,12 +1,18 @@
 package com.java.tennis.service;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.Calendar;
 import java.util.Random;
 import java.util.Scanner;
 
 import com.java.tennis.App;
 import com.java.tennis.dao.CharacterDAO;
+import com.java.tennis.dao.GameDAO;
+import com.java.tennis.dao.MatchDAO;
 import com.java.tennis.model.AbilityDTO;
 import com.java.tennis.model.CharacterDTO;
+import com.java.tennis.model.MatchDTO;
 import com.java.tennis.model.RecordDTO;
 import com.java.tennis.model.TennisDTO;
 import com.java.tennis.view.GameView;
@@ -16,7 +22,9 @@ import com.java.tennis.view.TennisView;
 
 public class TennisService {
 	
-	String PATHCharacter = "resource\\character.txt";
+	final String PATH = "resource\\record.txt";
+
+	final String PATHCharacter = "resource\\character.txt";
 	
 	private TennisView view = new TennisView();
 //	private TennisDAO dao = new TennisDAO();
@@ -28,12 +36,16 @@ public class TennisService {
 	static int countGame; //몇 번째 게임 (세트가 끝날 때 리셋)
 	static int countSet; //몇 번째 세트 (매치가 끝날 때 리셋)
 	
+	GameDAO dao = new GameDAO();
 	TennisDTO me = new TennisDTO();
 	TennisDTO cpu = new TennisDTO();
 	RecordDTO dtoRecord = new RecordDTO();
 	CharacterDAO daoCharacter = new CharacterDAO();
 	SettingView settingView = new SettingView();
 	MainView mainView = new MainView();
+	MatchDTO dtoMatch = new MatchDTO();
+	MatchDAO daoMatch = new MatchDAO();
+	String temp = "";
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -154,12 +166,21 @@ public class TennisService {
 		countGame = 1;
 		countSet = 1;
 		
+//		me.pointSet = 1;	//게임 빨리 끝내기용
+//		me.pointGame = 2;	//게임 빨리 끝내기용
+//		countSet = 2;		//게임 빨리 끝내기용
+//		countGame = 3;		//게임 빨리 끝내기용
+		
 		
 		System.out.println();
 		System.out.println("게임을 시작합니다.");
+		
+//		int matchId = 0;
+//		matchId = matchId();
+		
 		boolean loop = true;
 		while (loop) {
-
+			
 			pointCheck(dtoCharacter);
 			
 			if (dto.getSet() == 1) {
@@ -184,6 +205,7 @@ public class TennisService {
 				viewGame.gameView(dtoCharacter);
 				input = scan.nextInt();
 				scan.skip("\r\n");
+
 				if (input > 4 || input < 1) {
 					System.out.println("사용할 기술을 선택해주세요.");
 					continue;
@@ -209,13 +231,15 @@ public class TennisService {
 				countTotalServe++;
 				countServe++;
 				System.out.println(p1 + " 득점!");
+				
 //				여기에 본인/컴퓨터 포인트를 인자값으로 받아서 러브 피프틴 써티 포티 이런 걸 말해주는 메서드 구현 필요
 			} else if (me.chance < cpu.chance) {
 				cpu.point++;
 				countTotalServe++;
 				countServe++;
-//				여기에 본인/컴퓨터 포인트를 인자값으로 받아서 러브 피프틴 써티 포티 이런 걸 말해주는 메서드 구현 필요
 				System.out.println(p2 + " 득점!");			
+				
+//				여기에 본인/컴퓨터 포인트를 인자값으로 받아서 러브 피프틴 써티 포티 이런 걸 말해주는 메서드 구현 필요
 			} else {
 				continue;
 			}
@@ -226,10 +250,56 @@ public class TennisService {
 			
 			
 		}
+		boolean loopRecord = true;
+		while (loopRecord) {
+			
+			System.out.println("게임을 기록하시겠습니까?");
+			System.out.println("1.예	2.아니오");
+			int input = scan.nextInt();
+			scan.skip("\r\n");
+			
+			if (input == 1) {
+				
+				
+				recordName(dtoCharacter);
+				loopRecord = false;
+				
+			} else if (input == 2) {
+				
+				break;
+				
+			}
+			
+		}
 		
-		System.out.println("게임을 기록하시겠습니까?");
-		System.out.println("1.예	2.아니오");
-		scan.nextInt();
+	}
+
+	private int matchId() {
+		int result = 0;
+		try {
+			
+			BufferedReader reader = new BufferedReader(new FileReader(PATH));
+			
+			String line = null;
+			
+			String temp = null;
+			
+			while ((line = reader.readLine()) != null) {
+				
+					temp = line;
+				
+				
+			}
+			result = Integer.parseInt(temp.split(",")[0])+1;
+			
+			
+		} catch (Exception e) {
+			System.out.println("TennisService.matchId");
+			e.printStackTrace();
+		}
+
+
+		return result;
 	}
 
 	private void pointCheck(CharacterDTO dtoCharacter) {
@@ -237,7 +307,10 @@ public class TennisService {
 		String p1 = dtoCharacter.getName();
 		String p2 = "Player2";
 		
+		int matchNum = matchId();
+		
 		if (me.point > 3 && me.point - cpu.point > 1) {
+			temp +=  matchNum + "," + countSet + "," + countGame + "," + me.point + "," + cpu.point + "\r\n";
 			me.pointGame++;
 			me.point = 0;
 			cpu.point = 0;
@@ -252,6 +325,9 @@ public class TennisService {
 		}
 		
 		if (cpu.point > 3 && cpu.point - me.point > 1) {
+			temp +=  matchNum + "," + countSet + "," + countGame + "," + me.point + "," + cpu.point + "\r\n";
+
+
 			cpu.pointGame++;
 			me.point = 0;
 			cpu.point = 0;
@@ -309,9 +385,11 @@ public class TennisService {
 			if (me.pointSet > 1) {
 				System.out.println();
 				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
+				System.out.println(temp);
 			} else if (cpu.pointSet > 1) {
 				System.out.println();
 				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
+				System.out.println(temp);
 			}
 		}
 		
@@ -319,9 +397,11 @@ public class TennisService {
 			if (me.pointSet > 2) {
 				System.out.println();
 				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
+				System.out.println(temp);
 			} else if (cpu.pointSet > 2) {
 				System.out.println();
 				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
+				System.out.println(temp);
 			}
 		}
 		
@@ -329,36 +409,54 @@ public class TennisService {
 	}
 
 
-	public void gameRecord() {
-		// TODO Auto-generated method stub
+	public String recordName(CharacterDTO characterDTO) {
 		
-	}
+		boolean loop = true;
+		while (loop) {
+			
+			System.out.println("기록할 이름을 입력해주세요.");
+			System.out.print("이름: ");
+			String name = scan.nextLine();
 
-	public void gameInfo() {
-		// TODO Auto-generated method stub
-		
-	}
+			
+			System.out.printf("입력하신 이름이 %s이(가) 맞습니까?\r\n", name);
+			System.out.println("1.예	2.아니오");
+			
+			int input = scan.nextInt();
+			scan.skip("\r\n");
+			
+			if(input == 1) {
+				
+				dtoMatch.setNo(matchId());
+				Calendar now = Calendar.getInstance();
+				Calendar date = Calendar.getInstance();
+				date.set(Calendar.YEAR, now.get(Calendar.YEAR));
+				date.set(Calendar.MONTH, now.get(Calendar.MONTH));
+				date.set(Calendar.DATE, now.get(Calendar.DATE));
+				dtoMatch.setDate(date);
+				dtoMatch.setName(name);
+				dtoMatch.setCharacter(Integer.parseInt(characterDTO.getNo()));
+				dtoMatch.setMePointSet(me.pointSet);
+				dtoMatch.setCpuPointSet(cpu.pointSet);
+				
 
-	public void gameSetting() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	private static void m1() {
-
-
-		Random rnd = new Random();
-		
-		int i = 0;
-		while (i <=100) {
-			System.out.println(rnd.nextInt(10)+1);
-			i++;
+				daoMatch.add(dtoMatch);
+				dao.add(temp);
+				temp = "";
+				System.out.println("게임 기록이 저장됐습니다.");
+				me.pointSet = 0;
+				cpu .pointSet = 0;
+				loop = false;
+				
+			} else if (input == 2) {
+				
+				continue;
+			}
 		}
+		return "";
 		
 	}
-	
-	
+
 	
 }
 
