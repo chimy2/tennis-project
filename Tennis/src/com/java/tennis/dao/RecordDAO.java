@@ -29,9 +29,7 @@ public class RecordDAO {
 
 	private final String PATH = ".\\resource\\"; // 변경되면 안됌
 
-	// 기록하는 메서드----------------------------------------------------------------
 
-	
 	// 정보 불러오는 메서드----------------------------------------------------------------
 
 	// 간단한 정보 불러오기
@@ -69,6 +67,7 @@ public class RecordDAO {
 
 			view.dividingLine(); // 구분선
 			System.out.println();
+			
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
@@ -120,7 +119,7 @@ public class RecordDAO {
 
 
 	// 검색 기능 : 이름 검색하면 불러올 수 있는 기능
-	public String recordSearch(String name) {
+	public String recordSearch(String id) {
 
 		// 간단한 점수 저장------------------------------------------
 		// 일련번호, 날짜, 이름, 캐릭터 번호, 스코어1(나), 스코어2(컴퓨터)
@@ -136,7 +135,7 @@ public class RecordDAO {
 			while ((line = reader.readLine()) != null) {
 				String[] temp = line.split(",");
 
-				if (temp[2].equals(name)) {
+				if (temp[2].equals(id)) {
 					String character = nameCharacter(temp[3]);
 
 					String score = "";
@@ -174,68 +173,6 @@ public class RecordDAO {
 
 	}
 
-	public void gameSearch(String identification) {
-
-		// 아이디를 입력받아 우승정보를 검색 후 출력하시오.
-		try {
-
-			BufferedReader recordreader = new BufferedReader(new FileReader(PATH + "record.txt"));
-			BufferedReader gamereader = new BufferedReader(new FileReader(PATH + "game.txt"));
-
-			String line = null;
-			String num = "";
-
-			String id = identification;
-
-			while ((line = recordreader.readLine()) != null) {
-
-				String[] temp = line.split(",");
-
-				if (temp[2].equals(id)) {
-
-					num = temp[0];
-					break;
-					// 1,1,1,4,0
-					// 번호 세트 게임 스코어점수
-					//
-				}
-			}
-
-			if (!num.equals("")) {
-
-				while ((line = gamereader.readLine()) != null) {
-
-					String[] score = line.split(",");
-					String win = "";
-
-					if (num.equals(score[0])) {
-
-						String total = score[3] + " : " + score[4];
-
-						if ((score[3].compareTo(score[4])) > 0) {
-							win = "승";
-						} else {
-							win = "패";
-						}
-
-						String list = String.format("\t%s세트\t\t%s게임\t\t%s\t\t %s", score[1], score[2], total, win);
-
-						System.out.println(list);
-
-					}
-				}
-
-			}
-			recordreader.close();
-			gamereader.close();
-
-		} catch (Exception e) {
-			System.out.println("Q122_grades.main");
-			e.printStackTrace();
-
-		}
-
-	}
 
 	public void getTotal() {
 

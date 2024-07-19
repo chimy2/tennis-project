@@ -62,19 +62,7 @@ public RecordView() {
 		System.out.println("4. 메인메뉴 돌아가기");
 		System.out.println("--------------------------------------");
 		System.out.print("선택(번호): ");
-		
-//		int num = -1;
-//		num = scan.nextInt();
-//		
-//		if(num >= 1 && num <=4) {
-//			return num;
-//		}else {
-//			System.out.println("번호를 잘 못 입력했습니다.다시 입력하세요");
-//		}
-//		
-//		return num;
-		
-	
+
 
 	}
 	
