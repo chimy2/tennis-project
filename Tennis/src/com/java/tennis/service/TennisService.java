@@ -10,12 +10,13 @@ import com.java.tennis.model.CharacterDTO;
 import com.java.tennis.model.RecordDTO;
 import com.java.tennis.model.TennisDTO;
 import com.java.tennis.view.GameView;
+import com.java.tennis.view.MainView;
 import com.java.tennis.view.SettingView;
 import com.java.tennis.view.TennisView;
 
 public class TennisService {
 	
-	String PATHCharacter = "C:\\class\\project\\Tennis\\resource\\character.txt";
+	String PATHCharacter = "resource\\character.txt";
 	
 	private TennisView view = new TennisView();
 //	private TennisDAO dao = new TennisDAO();
@@ -32,6 +33,7 @@ public class TennisService {
 	RecordDTO dtoRecord = new RecordDTO();
 	CharacterDAO daoCharacter = new CharacterDAO();
 	SettingView settingView = new SettingView();
+	MainView mainView = new MainView();
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -46,20 +48,19 @@ public class TennisService {
 		this.view = new TennisView();
 //		this.dao = new TennisDAO();
 		this.scan = new Scanner(System.in);
-		settingView = new SettingView();
+		this.settingView = new SettingView();
+		this.mainView = new MainView();
 	}
 
 	public void gameSetup() {
 //		단식/복식 -> 세트 수 -> 플레이어수 -> 캐릭터 선택
-		
-		
 		
 		int type = 0; // 1 = 단식, 2 = 복식
 		int set = 0; // 1 = 3세트, 2 = 5세트
 		int player = 0; //1 = 유저 1명, 2 = 유저 2명
 		int character = 0; //게임 캐릭터 고유일련번호
 		
-		view.subtitle("게임 시작");
+		view.getTitle();
 		
 		boolean loop = true;
 		while (loop) {
@@ -74,7 +75,7 @@ public class TennisService {
 			if (type == 1 || type == 2) {
 				loop = false;
 			} else {
-				System.out.println("올바른 번호를 입력하세요.");
+				mainView.errorInput();
 				continue;
 			}
 			
@@ -93,7 +94,7 @@ public class TennisService {
 			if (set == 1 || set == 2) {
 				loop = false;
 			} else {
-				System.out.println("올바른 번호를 입력하세요.");
+				mainView.errorInput();
 				continue;
 			}
 		}
@@ -111,7 +112,7 @@ public class TennisService {
 			if (player == 1 || player == 2) {
 				loop = false;
 			} else {
-				System.out.println("올바른 번호를 입력하세요.");
+				mainView.errorInput();
 				continue;
 			}
 		}
@@ -127,7 +128,7 @@ public class TennisService {
 			if (character == 1 || character == 2|| character == 3 || character ==4) {
 				loop = false;
 			} else {
-				System.out.println("올바른 번호를 입력하세요.");
+				mainView.errorInput();
 				continue;
 			}
 		}
@@ -184,7 +185,7 @@ public class TennisService {
 				input = scan.nextInt();
 				scan.skip("\r\n");
 				if (input > 4 || input < 1) {
-					System.out.println("1번부터 4번까지의 기술 중 하나를 선택하세요.");
+					System.out.println("사용할 기술을 선택해주세요.");
 					continue;
 				} else {
 					break;
@@ -229,29 +230,12 @@ public class TennisService {
 		System.out.println("게임을 기록하시겠습니까?");
 		System.out.println("1.예	2.아니오");
 		scan.nextInt();
-		
-		
-	
-		}
-	
-	
-
-
-
-
-
+	}
 
 	private void pointCheck(CharacterDTO dtoCharacter) {
 		
 		String p1 = dtoCharacter.getName();
 		String p2 = "Player2";
-		
-		
-		
-
-		
-		
-		
 		
 		if (me.point > 3 && me.point - cpu.point > 1) {
 			me.pointGame++;
@@ -342,8 +326,6 @@ public class TennisService {
 		}
 		
 		
-		
-	
 	}
 
 

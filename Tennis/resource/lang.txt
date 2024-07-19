@@ -11,3 +11,25 @@
 어렵게,Hard,難しく
 현재 난이도는,The current level of difficulty is,現在の難易度は
 입니다.,,です
+백핸드,Backhand,バックハンド
+포핸드,Forehand,フォアハンド
+서브,Serve,サブ
+스매시,Smash,スマッシュ
+노박 조코비치,Novak Djokovic,ノバク・ジョコビッチ
+세레나 윌리엄스,Serena Williams,セリーナ・ウィリアムズ
+마리야 샤라포바,Maria Sharapova,マリア・シャラポワ
+라파엘 나달,Rafael Nadal,ラファエル・ナダル
+원하는 캐릭터를 선택하세요.,Choose the character you want.,ご希望のキャラクターを選択します。
+단식,Singles,シングルス
+복식,Doubles,ダブルス
+게임 타입을 선택해주세요.,Please select the game type.,ゲームタイプを選択してください。
+세트 수를 입력해주세요.,Please enter the number of sets.,セット数を入力してください。
+유저 수를 입력해주세요.,Please enter the number of players.,ユーザー数を入力してください。
+1명,1 player,1人
+2명,2 players,2人
+게임을 시작합니다.,Starting the game.,ゲームを開始します。
+사용할 테니스 기술을 선택해주세요.,Please select the tennis technique to use.,使用するテニス技術を選択してください。
+다음 게임을 시작합니다.,Starting the next game.,次のゲームを開始します。
+
+
+
