@@ -6,6 +6,8 @@ public class TennisDTO {
 	private int type; // 1 = 단식, 2 = 복식
 	private int set; // 1 = 3세트, 2 = 5세트
 	private int player; //1 = 유저 1명, 2 = 유저 2명
+	
+	
 	public CharacterDTO getCharacter() {
 		return character;
 	}
