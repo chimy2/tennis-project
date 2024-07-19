@@ -168,12 +168,13 @@ public class RecordDAO {
 		return result;
 	}
 
-	public String gameId() {
+	public String gameId() {	//명예의 전당 > 아이디 검색하기 > [ 아이디 입력(출력) ]
 		
-		RecordView line = new RecordView();
-		
-		
-		System.out.print("아이디 입력 : ");
+		String result = "";
+		result += "\r\n";
+		result += view.thingetSeperator();
+		result += "아이디 입력 : ";
+		System.out.print(result);
 		String id = scan.nextLine();
 
 		return id;
@@ -242,6 +243,8 @@ public class RecordDAO {
 			// 1,2024-04-03,현영석,3,2,0
 			ArrayList<RecordDTO> list = new ArrayList<RecordDTO>();
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
+			System.out.println(); //줄 간격 맞추려고 만든 것
+			
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
