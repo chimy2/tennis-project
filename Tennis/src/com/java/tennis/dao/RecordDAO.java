@@ -225,7 +225,7 @@ public class RecordDAO {
 
 			// 1,2024-04-03,현영석,3,2,0
 			// 번호 날짜 닉네임 캐릭터 스코어 점수
-			//
+			
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
@@ -294,7 +294,7 @@ public class RecordDAO {
 //					
 
 			}
-
+			
 			stack(list, number); // 정렬 메서드
 			
 			int i = 1;
@@ -331,6 +331,13 @@ public class RecordDAO {
 		view.sortMenu();
 		String sort = scan.nextLine();
 
+		while (!(sort.equals("1") || sort.equals("2"))) {
+			System.out.println("숫자를 다시 입력해주세요.");
+			System.out.print("번호 입력: ");
+			sort = scan.nextLine();
+		}
+		
+		
 		if (sort.equals("1") || sort.equals("2")) {
 			if (number.equals("1")) {// 날짜
 				if (sort.equals("1")) {

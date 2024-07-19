@@ -103,20 +103,26 @@ public class RecordService {
 				System.out.print(view.thingetSeperator()); // 정렬질문_구분선
 				System.out.print("번호 입력: ");
 				String need = scan.nextLine(); // 정렬질문_스캔
-
+			
+				
+				while (!(need.equals("1") || need.equals("2"))) {
+					System.out.println("숫자를 다시 입력해주세요.");
+					System.out.print("번호 입력: ");
+					need = scan.nextLine();
+				}
 				if (need.equals("1")) {
-
+					
 					view.sortSortQuestion(); // 명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문
-
+					
 					String num = scan.nextLine();
 					while (!(num.equals("1") || num.equals("2") || num.equals("3"))) {
 						System.out.println("숫자를 다시 입력해주세요.");
 						System.out.print("번호 입력: ");
 						num = scan.nextLine();
+						
 					}
 					dao.sort(num);
 				}
-
 			} else if (menu.equals("4")) {
 
 				stop = false;
