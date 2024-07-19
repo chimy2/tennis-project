@@ -57,37 +57,72 @@ public class RecordService {
 
 				String list = dao.recordSearch(dao.gameId());
 				while (list.equals("")) { // 확인되지 않는 아이디 입력시
-					System.out.println("확인되지 않는 아이디입니다.");
+					System.out.println("확인되지 않는 아이디입니다.\n메뉴로 돌아가실려면 'q'를 입력해주세요.");
 					list = dao.recordSearch(dao.gameId());
+					
+					if(list.equals("q")) {
+						list = "";
+						break;
+					}
+				}
+			
+				if(!list.equals("")) {
+					view.titleSpecific();
 				}
 				System.out.println(list);
-				dao.getSpec(dao.gameNum());
+				
+				
+				if (!(list.equals("") || (list.equals("q")))) { //id 없거나 q 선택했을 때 안돌아가게
+					String listSpec = dao.getSpec(dao.gameNum());
+					while (listSpec.equals("")) { // 확인되지 않는 번호 입력시
+						System.out.println("확인되지 않는 번호입니다.\n메뉴로 돌아가실려면 'q'를 입력해주세요.");
+
+						listSpec = dao.getSpec(dao.gameNum());
+
+						if (listSpec.equals("q")) {
+							listSpec = "";
+							break;
+						}
+					}
+					if(!listSpec.equals("")) {
+						view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
+					}
+				System.out.println(listSpec);
+				
+				}
 
 			}
 
 			else if (menu.equals("3")) {// 3. 최신기록 전체보기
 
 				view.subMenu("최신 기록");
+				view.titleSpecific();
 				dao.getTotal(); // 전체 최신기록
 
 				view.sortQuestion(); // 정렬질문
 				System.out.print(view.thingetSeperator()); // 정렬질문_구분선
 				System.out.print("번호 입력: ");
 				String need = scan.nextLine(); // 정렬질문_스캔
-
+			
+				
+				while (!(need.equals("1") || need.equals("2"))) {
+					System.out.println("숫자를 다시 입력해주세요.");
+					System.out.print("번호 입력: ");
+					need = scan.nextLine();
+				}
 				if (need.equals("1")) {
-
+					
 					view.sortSortQuestion(); // 명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문
-
+					
 					String num = scan.nextLine();
 					while (!(num.equals("1") || num.equals("2") || num.equals("3"))) {
 						System.out.println("숫자를 다시 입력해주세요.");
 						System.out.print("번호 입력: ");
 						num = scan.nextLine();
+						
 					}
 					dao.sort(num);
 				}
-
 			} else if (menu.equals("4")) {
 
 				stop = false;

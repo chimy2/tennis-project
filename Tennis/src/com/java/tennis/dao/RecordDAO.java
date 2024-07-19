@@ -84,21 +84,25 @@ public class RecordDAO {
 	}
 
 	// 상세한 정보 불러오기
-	public void getSpec(String num) {
+
+	public String getSpec(String num) { //id입력
+		String result = "";
+		String line = null;
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "game.txt"));
-
-			String line = null;
+			
+//			view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
+			
 
 			while ((line = reader.readLine()) != null) {
 
-				if (line.startsWith(num)) {
-
 					String[] temp = line.split(",");
+					
+					
+					if (temp[0].equals(num)) {
 
 					// 1,1,1,4,0
 					// 번호 세트 게임 스코어점수
-					//
 
 					String score = "";
 					score = temp[3] + " : " + temp[4];
@@ -110,18 +114,30 @@ public class RecordDAO {
 						win = "패";
 					}
 
-					String list = String.format("\t%s세트\t\t%s게임\t\t%s\t\t %s", temp[1], temp[2], score, win);
+					result += String.format("\t%s세트\t\t%s게임\t\t%s\t\t %s\n", temp[1], temp[2], score, win);
 
-					System.out.println(list);
 
 				}
 			}
+
+//			System.out.println(result);
+			
+			if(num.equals("q")) {
+				result = "q";
+			}
+
+//			MainView error = new MainView();
+//			System.out.println(error.getSeperator()); //구분선 > 출력이 마지막 구현이라 구분해주려고 선 추가
+//			error.pause(); //계속하시려면 엔터
+//			
+
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.getSpec");
 			e.printStackTrace();
 		}
-
+		
+		return result;
 	}
 
 
@@ -133,10 +149,11 @@ public class RecordDAO {
 		// 1,2024-04-03,현영석,3,2,0
 		String result = "";
 		String line = null;
+		
+//		view.titleSpecific();
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
-
 
 
 			while ((line = reader.readLine()) != null) {
@@ -152,13 +169,14 @@ public class RecordDAO {
 							score);
 
 					result += list;
-//					System.out.println(result);
 				}
 			}
 			
-			String thinline = "";	//구분선
-			thinline += view.thingetSeperator();
-			System.out.println(thinline);
+			
+			if(id.equals("q")) {
+				result = "q";
+			}
+			
 			
 			reader.close();
 		} catch (Exception e) {
@@ -173,18 +191,23 @@ public class RecordDAO {
 		String result = "";
 		result += "\r\n";
 		result += view.thingetSeperator();
+		result += "아이디 검색\r\n";
+		result += view.thingetSeperator();
 		result += "아이디 입력 : ";
 		System.out.print(result);
 		String id = scan.nextLine();
+		System.out.println();
 
 		return id;
 	}
 
 	public String gameNum() {
-
+		
+		System.out.print(view.thingetSeperator());
 		System.out.print("번호 입력 : ");
 		String num = scan.nextLine();
-
+		System.out.println();
+		
 		return num;
 
 	}
@@ -202,7 +225,7 @@ public class RecordDAO {
 
 			// 1,2024-04-03,현영석,3,2,0
 			// 번호 날짜 닉네임 캐릭터 스코어 점수
-			//
+			
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
@@ -224,7 +247,9 @@ public class RecordDAO {
 			thinline += view.thingetSeperator();
 			System.out.println(thinline);
 			System.out.println();
+			
 			reader.close();
+			
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
@@ -269,7 +294,7 @@ public class RecordDAO {
 //					
 
 			}
-
+			
 			stack(list, number); // 정렬 메서드
 			
 			int i = 1;
@@ -306,6 +331,13 @@ public class RecordDAO {
 		view.sortMenu();
 		String sort = scan.nextLine();
 
+		while (!(sort.equals("1") || sort.equals("2"))) {
+			System.out.println("숫자를 다시 입력해주세요.");
+			System.out.print("번호 입력: ");
+			sort = scan.nextLine();
+		}
+		
+		
 		if (sort.equals("1") || sort.equals("2")) {
 			if (number.equals("1")) {// 날짜
 				if (sort.equals("1")) {

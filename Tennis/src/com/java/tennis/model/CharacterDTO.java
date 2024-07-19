@@ -1,5 +1,7 @@
 package com.java.tennis.model;
 
+import com.java.tennis.service.LanguageService;
+
 public class CharacterDTO {
 	
 	private String no;			//일련번호
@@ -16,7 +18,7 @@ public class CharacterDTO {
 		this.no = no;
 	}
 	public String getName() {
-		return name;
+		return LanguageService.get(name);
 	}
 	public void setName(String name) {
 		this.name = name;
