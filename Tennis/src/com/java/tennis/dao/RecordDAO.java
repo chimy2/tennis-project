@@ -115,8 +115,8 @@ public class RecordDAO {
 					System.out.println(list);
 
 				}
-
 			}
+			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.getSpec");
 			e.printStackTrace();
@@ -224,7 +224,7 @@ public class RecordDAO {
 			thinline += view.thingetSeperator();
 			System.out.println(thinline);
 			System.out.println();
-
+			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
