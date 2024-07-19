@@ -56,6 +56,13 @@ public class RecordService {
 				String list = dao.recordSearch(dao.gameId());
 				if(list.equals("")) {
 					System.out.println("잘못된 아이디 입니다.");
+					
+					System.out.println();
+					MainView error = new MainView();
+					error.errorInput();
+					error.pause();
+					
+
 				} else {
 					System.out.println(list);
 					dao.getSpec(dao.gameNum());
