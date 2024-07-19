@@ -8,7 +8,7 @@ import com.java.tennis.model.SkillDTO;
 
 public class SkillDAO {
 	
-	final String PATH = "C:\\class\\project\\Tennis\\resource\\skill.txt";
+	final String PATH = "resource\\skill.txt";
 	
 	public SkillDTO getSkill(int num) {
 	

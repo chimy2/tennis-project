@@ -6,9 +6,9 @@ import com.java.tennis.service.LanguageService;
 public class SettingView {
 	private MainView mainView;
 	
-	private final int EASY = 1;
-	private final int NORMAL = 2;
-	private final int HARD = 3;
+	public final int EASY = 1;
+	public final int NORMAL = 2;
+	public final int HARD = 3;
 	
 	public SettingView() {
 		mainView = new MainView();

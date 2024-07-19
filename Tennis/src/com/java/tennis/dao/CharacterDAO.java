@@ -9,7 +9,7 @@ import com.java.tennis.model.SkillDTO;
 
 public class CharacterDAO {
 	
-	final String PATH = "C:\\class\\project\\Tennis\\resource\\character.txt";
+	final String PATH = "resource\\character.txt";
 	private SkillDAO skilldao;
 	
 	public CharacterDAO() {
