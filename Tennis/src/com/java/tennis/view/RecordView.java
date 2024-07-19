@@ -87,7 +87,7 @@ public class RecordView {
 		
 		String result = "";
 		result += thingetSeperator();
-		result += "정렬이 필요하신가요? \r\n";
+		result += "정렬이 필요하십니까? \r\n";
 		result += thingetSeperator();
 		System.out.print(result);
 		System.out.println("1. 필요");
@@ -95,30 +95,26 @@ public class RecordView {
 	
 	}
 	
-
+	public void sortSortQuestion() { //명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문
+		
+		String result = "";
+		result += "\r\n";
+		result += thingetSeperator(); //구분선
+		result += "1. 날짜\r\n";
+		result += "2. 아이디\r\n";
+		result += "3. 캐릭터\r\n";
+		result += thingetSeperator();
+		System.out.print(result);
+		System.out.print("번호 입력: ");
+		
+	}
+	
+	
 	public String getTitle(String title) {
 
 		return title;
 	}
 
-	// 최근기록 > 아이디 입력
-	public void idMenu() {
-
-		System.out.println("===================");
-		System.out.println("       아이디");
-		System.out.println("===================");
-
-	}
-
-//	public void thindividingLine() {
-//		System.out.println();
-//		System.out.println("--------------------------------------");
-//	}
-//
-//	public void dividingLine() {
-//		System.out.println();
-//		System.out.println("=====================================================================================");
-//	}
 
 	public String thingetSeperator() {
 		return "------------------------------------------------------------------"
