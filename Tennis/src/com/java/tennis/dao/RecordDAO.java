@@ -33,7 +33,7 @@ public class RecordDAO {
 	// 정보 불러오는 메서드----------------------------------------------------------------
 
 	// 간단한 정보 불러오기
-	public void get() {
+	public void get() { //명예의전당
 
 		String line = null;
 		int count = 0;
@@ -54,26 +54,33 @@ public class RecordDAO {
 
 				String score = "";
 				score = temp[4] + " : " + temp[5];
-
+				
 				String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], character, score);
 
 				System.out.println(list);
 				count++;
+				
 				if (count == 10) { // 10줄만 보이고 싶어
 					break;
 				}
-
+				
 			}
-
-			view.dividingLine(); // 구분선
+			
+			String result = "";	//구분선
+			result += view.thingetSeperator();
+			System.out.println(result);
+			
 			System.out.println();
 			
 			reader.close();
+			
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
 		}
-
+		
+		
+		
 	}
 
 	// 상세한 정보 불러오기
@@ -108,8 +115,8 @@ public class RecordDAO {
 					System.out.println(list);
 
 				}
-
 			}
+			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.getSpec");
 			e.printStackTrace();
@@ -148,6 +155,11 @@ public class RecordDAO {
 //					System.out.println(result);
 				}
 			}
+			
+			String thinline = "";	//구분선
+			thinline += view.thingetSeperator();
+			System.out.println(thinline);
+			
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.recordSearch");
@@ -156,9 +168,13 @@ public class RecordDAO {
 		return result;
 	}
 
-	public String gameId() {
-
-		System.out.print("아이디 입력 : ");
+	public String gameId() {	//명예의 전당 > 아이디 검색하기 > [ 아이디 입력(출력) ]
+		
+		String result = "";
+		result += "\r\n";
+		result += view.thingetSeperator();
+		result += "아이디 입력 : ";
+		System.out.print(result);
 		String id = scan.nextLine();
 
 		return id;
@@ -203,9 +219,12 @@ public class RecordDAO {
 				num++;
 
 			}
-			view.dividingLine(); // 구분선
+			
+			String thinline = "";	//구분선
+			thinline += view.thingetSeperator();
+			System.out.println(thinline);
 			System.out.println();
-
+			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
@@ -224,6 +243,8 @@ public class RecordDAO {
 			// 1,2024-04-03,현영석,3,2,0
 			ArrayList<RecordDTO> list = new ArrayList<RecordDTO>();
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
+			System.out.println(); //줄 간격 맞추려고 만든 것
+			
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
@@ -268,7 +289,11 @@ public class RecordDAO {
 
 				i++;
 			}
-
+			
+			MainView error = new MainView();
+			System.out.println(error.getSeperator()); //구분선 > 정렬출력으로 출력이 모두 끝나서 구분해주려고 선 추가
+			error.pause(); // 정렬선택(오름차순/내림차순) > 출력 > 계속하려면 엔터쳐라
+			
 			reader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -308,7 +333,9 @@ public class RecordDAO {
 			MainView error = new MainView();
 			error.errorInput();
 		}
-
+		System.out.println(); //줄 간격맞추려고 만든 것
+		view.titleSpecific();//명예의 전당 > 최신 기록 > 정렬(필요) > 아이디 > 정렬선택 > 속성출력
+		
 	}
 
 
@@ -356,8 +383,8 @@ public class RecordDAO {
 		
 		
 		
-		
 		return character;
 	}
-
+	
+	
 }
