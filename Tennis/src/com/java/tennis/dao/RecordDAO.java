@@ -289,7 +289,11 @@ public class RecordDAO {
 
 				i++;
 			}
-
+			
+			MainView error = new MainView();
+			System.out.println(error.getSeperator()); //구분선 > 정렬출력으로 출력이 모두 끝나서 구분해주려고 선 추가
+			error.pause(); // 정렬선택(오름차순/내림차순) > 출력 > 계속하려면 엔터쳐라
+			
 			reader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -329,7 +333,9 @@ public class RecordDAO {
 			MainView error = new MainView();
 			error.errorInput();
 		}
-
+		System.out.println(); //줄 간격맞추려고 만든 것
+		view.titleSpecific();//명예의 전당 > 최신 기록 > 정렬(필요) > 아이디 > 정렬선택 > 속성출력
+		
 	}
 
 
@@ -377,8 +383,8 @@ public class RecordDAO {
 		
 		
 		
-		
 		return character;
 	}
-
+	
+	
 }

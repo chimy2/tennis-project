@@ -95,7 +95,7 @@ public class RecordView {
 	
 	}
 	
-	public void sortSortQuestion() { //명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문
+	public void sortSortQuestion() { //명예의 전당 > 최신기록 > 정렬(필요) > [정렬질문]
 		
 		String result = "";
 		result += "\r\n";
@@ -116,21 +116,23 @@ public class RecordView {
 	}
 
 
-	public String thingetSeperator() {
+	public String thingetSeperator() { //메뉴 외 구분선
 		return "------------------------------------------------------------------"
 				+ "------------------------------------------------------\r\n";
 	}
 
-	public void sortMenu() {
+	public void sortMenu() { //명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문 > [세부정렬질문]
 
-		System.out.println("======================================");
-		System.out.println("               정렬선택");
-		System.out.println("======================================");
-		System.out.println("1. 오름차순");
-		System.out.println("2. 내림차순");
-		System.out.println("--------------------------------------");
-		System.out.print("선택(번호): ");
-
+		String sortmenu = "";
+		sortmenu += thingetSeperator();
+		sortmenu += "정렬선택\r\n";
+		sortmenu += thingetSeperator();
+		sortmenu += "1. 오름차순\r\n";
+		sortmenu += "2. 내림차순\r\n";
+		sortmenu += thingetSeperator();
+		System.out.print(sortmenu);
+		System.out.print("번호 입력: ");
+		
 	}
 
 	public void errorInput() {
