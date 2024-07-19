@@ -3,12 +3,14 @@ package com.java.tennis.service;
 import java.util.Random;
 import java.util.Scanner;
 
+import com.java.tennis.App;
 import com.java.tennis.dao.CharacterDAO;
 import com.java.tennis.model.AbilityDTO;
 import com.java.tennis.model.CharacterDTO;
 import com.java.tennis.model.RecordDTO;
 import com.java.tennis.model.TennisDTO;
 import com.java.tennis.view.GameView;
+import com.java.tennis.view.SettingView;
 import com.java.tennis.view.TennisView;
 
 public class TennisService {
@@ -29,6 +31,7 @@ public class TennisService {
 	TennisDTO cpu = new TennisDTO();
 	RecordDTO dtoRecord = new RecordDTO();
 	CharacterDAO daoCharacter = new CharacterDAO();
+	SettingView settingView = new SettingView();
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -43,6 +46,7 @@ public class TennisService {
 		this.view = new TennisView();
 //		this.dao = new TennisDAO();
 		this.scan = new Scanner(System.in);
+		settingView = new SettingView();
 	}
 
 	public void gameSetup() {
@@ -192,6 +196,11 @@ public class TennisService {
 			me.chance = rnd.nextInt(100) + 50 + dtoAbility.statModifier(input); //stats[i]
 			cpu.chance = rnd.nextInt(100) + 1;
 
+			if(App.difficulty == settingView.EASY) {
+				me.chance += 20;
+			} else if(App.difficulty == settingView.HARD) {
+				me.chance -= 20;
+			}
 	
 			
 			if (me.chance > cpu.chance) {
