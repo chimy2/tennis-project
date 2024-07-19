@@ -12,7 +12,6 @@ public class RecordService {
 	private RecordDAO dao;
 	private Scanner scan;
  
-//	MenuView menuView;
 
 	public RecordService() {
 		this.view = new RecordView();
@@ -38,21 +37,6 @@ public class RecordService {
 
 	}
 	
-//	public void getSort() {
-//
-//		view.title("날짜 순서"); // 길이가 안맞음
-////		view.titleSpecific();// 간단한 정보 보여주는 메서드
-//		System.out.print("번호 선택 : ");
-//		int number = scan.nextInt();
-//		dao.sort(number);
-//
-//	}
-	
-	
-	
-
-	
-	
 	public void getSpec() {
 		
 		RecordService sevice = new RecordService();
@@ -69,13 +53,16 @@ public class RecordService {
 
 			} else if (menu.equals("2")) {
 				
-//				System.out.println("아이디 입력: ");
 				String list = dao.recordSearch(dao.gameId());
-//				String num = scan.nextLine();
-//				dao.check(num);
-//				dao.recordSearch(num);
 				if(list.equals("")) {
 					System.out.println("잘못된 아이디 입니다.");
+					
+					System.out.println();
+					MainView error = new MainView();
+					error.errorInput();
+					error.pause();
+					
+
 				} else {
 					System.out.println(list);
 					dao.getSpec(dao.gameNum());
