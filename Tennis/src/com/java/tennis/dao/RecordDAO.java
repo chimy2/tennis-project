@@ -118,6 +118,9 @@ public class RecordDAO {
 
 				}
 			}
+			MainView error = new MainView();
+			System.out.println(error.getSeperator()); //구분선 > 출력이 마지막 구현이라 구분해주려고 선 추가
+			error.pause(); //계속하시려면 엔터
 			
 			reader.close();
 		} catch (Exception e) {
@@ -136,10 +139,11 @@ public class RecordDAO {
 		// 1,2024-04-03,현영석,3,2,0
 		String result = "";
 		String line = null;
+		
+		view.titleSpecific();
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
-
 
 
 			while ((line = reader.readLine()) != null) {
@@ -155,13 +159,9 @@ public class RecordDAO {
 							score);
 
 					result += list;
-//					System.out.println(result);
 				}
 			}
 			
-			String thinline = "";	//구분선
-			thinline += view.thingetSeperator();
-			System.out.println(thinline);
 			
 			reader.close();
 		} catch (Exception e) {
@@ -176,18 +176,23 @@ public class RecordDAO {
 		String result = "";
 		result += "\r\n";
 		result += view.thingetSeperator();
+		result += "아이디 검색\r\n";
+		result += view.thingetSeperator();
 		result += "아이디 입력 : ";
 		System.out.print(result);
 		String id = scan.nextLine();
+		System.out.println();
 
 		return id;
 	}
 
 	public String gameNum() {
-
+		
+		System.out.print(view.thingetSeperator());
 		System.out.print("번호 입력 : ");
 		String num = scan.nextLine();
-
+		System.out.println();
+		
 		return num;
 
 	}
