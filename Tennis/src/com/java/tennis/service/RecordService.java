@@ -65,6 +65,10 @@ public class RecordService {
 						break;
 					}
 				}
+			
+				if(!list.equals("")) {
+					view.titleSpecific();
+				}
 				System.out.println(list);
 				
 				
@@ -79,6 +83,9 @@ public class RecordService {
 							listSpec = "";
 							break;
 						}
+					}
+					if(!listSpec.equals("")) {
+						view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
 					}
 				System.out.println(listSpec);
 				

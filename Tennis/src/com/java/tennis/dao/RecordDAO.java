@@ -91,7 +91,7 @@ public class RecordDAO {
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "game.txt"));
 			
-			view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
+//			view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
 			
 
 			while ((line = reader.readLine()) != null) {
@@ -126,10 +126,10 @@ public class RecordDAO {
 				result = "q";
 			}
 
-			MainView error = new MainView();
-			System.out.println(error.getSeperator()); //구분선 > 출력이 마지막 구현이라 구분해주려고 선 추가
-			error.pause(); //계속하시려면 엔터
-			
+//			MainView error = new MainView();
+//			System.out.println(error.getSeperator()); //구분선 > 출력이 마지막 구현이라 구분해주려고 선 추가
+//			error.pause(); //계속하시려면 엔터
+//			
 
 			reader.close();
 		} catch (Exception e) {
@@ -150,7 +150,7 @@ public class RecordDAO {
 		String result = "";
 		String line = null;
 		
-		view.titleSpecific();
+//		view.titleSpecific();
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
