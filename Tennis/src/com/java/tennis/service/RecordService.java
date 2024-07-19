@@ -51,31 +51,27 @@ public class RecordService {
 			String menu = scan.nextLine();
 			
 			
-			if (menu.equals("1")) {
+			if (menu.equals("1")) {// 1. 명예의 전당
 
 				sevice.get(); // 명예의 전당 출력
 				
 				MainView error = new MainView(); //계속하려면 엔터쳐라
 				error.pause();
 
-			} else if (menu.equals("2")) {
+			} else if (menu.equals("2")) {//2. 아이디 검색하기
 				
 				String list = dao.recordSearch(dao.gameId());
-				if(list.equals("")) { //확인되지 않는 아이디 입력시 출력
+				while(list.equals("")) { //확인되지 않는 아이디 입력시 
 					System.out.println("확인되지 않는 아이디입니다.");
-					
-					MainView error = new MainView();
-					error.pause();
-					
-
-				} else {
+					list = dao.recordSearch(dao.gameId());
+				} 
 					System.out.println(list);
 					dao.getSpec(dao.gameNum());
 					
-				}
+				
 			}
 
-			else if (menu.equals("3")) {
+			else if (menu.equals("3")) {//3. 최신기록 전체보기
 
 				view.subMenu("최신 기록");
 				dao.getTotal(); // 전체 최신기록
@@ -87,15 +83,18 @@ public class RecordService {
 				System.out.println("3. 캐릭터");
 				System.out.println("번호 입력 : ");
 				String num = scan.nextLine();
-				if (num.equals("1") || num.equals("2") || num.equals("3")) {
+				while (!(num.equals("1") || num.equals("2") || num.equals("3"))) {
+					System.out.println("번호 입력 : ");
+					num = scan.nextLine();
+					
 					dao.sort(num);
-				} else {
+				} 
 					MainView error = new MainView();
 					error.errorInput();
 					continue;
-				}
+				
 
-			} else if (menu.equals("4")) {
+			} else if (menu.equals("4")) {//4. 메인메뉴 돌아가기
 				stop = false;
 				System.out.println("메인메뉴로 돌아갑니다.");
 			} else {
