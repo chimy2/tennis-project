@@ -3,118 +3,131 @@ package com.java.tennis.view;
 import java.util.Scanner;
 
 import com.java.tennis.service.LanguageService;
+import com.java.tennis.service.MainService;
 
 public class RecordView {
-	private Scanner scan;
-public RecordView() {
-	this.scan = new Scanner(System.in);
-}	
-	
-	public void title(String title) {
-		System.out.println();
-		System.out.println("=======================================" + title + "=======================================");
+	private Scanner scan; //뷰에서 스캐너가 필요한지 확인부탁드립니다.
+
+	public RecordView() {
+		this.scan = new Scanner(System.in);
 	}
 
-	public void titleSpecific() {
-		System.out.println("-------------------------------------------------------------------------------------");
-		System.out.println("\t번호\t\t날짜\t\t닉네임\t\t캐릭터\t\t스코어");
-		System.out.println("-------------------------------------------------------------------------------------");
+	public void title(String title) {
+		
+		String result = "";
+		result += "\r\n";
+		result += thingetSeperator();
+		result += LanguageService.get("명예의 전당");
+		//result += "\r\n";
+		System.out.println(result);
+		
 	}
-	
-	
-	
-	
-	public void subTitle(String title) {
-		System.out.println();
-		System.out.println("======================================" + title + "======================================");
+
+	public void titleSpecific() { //명예의전당 속성이름
+		
+		String result = "";
+		result += thingetSeperator();
+		result += LanguageService.get("\t번호\t\t날짜\t\t닉네임\t\t캐릭터\t\t스코어");
+		result += "\r\n";
+		result += thingetSeperator();
+		System.out.println(result);
+		
 	}
-	
+
+
+
 	public void subTitleSpecific() {
 		System.out.println("--------------------------------------------------------------------------------------");
 		System.out.println("\t세트\t\t게임\t\t스코어\t\t승패");
 		System.out.println("--------------------------------------------------------------------------------------");
 	}
-	
-	
-	
-	//멈춤
+
+	// 멈춤
 	public void pause() {
-		
+
 		System.out.println();
 		System.out.print("계속하시려면 엔터를 치세요.");
-		
+
 		Scanner scan = new Scanner(System.in);
-		scan.nextLine(); //Block
-		
+		scan.nextLine(); // Block
+
 		System.out.println();
-		
+
 	}
-	
 	
 	public void mainMenu() {
 
-		System.out.println("======================================");
-		System.out.println("               명예의 전당");
-		System.out.println("======================================");
-		System.out.println("1. 명예의 전당");
-		System.out.println("2. 아이디 검색하기");
-		System.out.println("3. 최신기록 전체보기");
-		System.out.println("4. 메인메뉴 돌아가기");
-		System.out.println("--------------------------------------");
+		MainView dividingLine = new MainView();
+
+		String result = "";
+		result += "\r\n";
+		result += dividingLine.getSeperator();
+		result += LanguageService.get("명예의 전당\r\n");
+		result += dividingLine.getSeperator();
+		result += LanguageService.get("1. 명예의 전당\r\n");
+		result += LanguageService.get("2. 아이디 검색하기\r\n");
+		result += LanguageService.get("3. 최신기록 전체보기\r\n");
+		result += LanguageService.get("4. 메인메뉴 돌아가기\r\n");
+		result += dividingLine.getSeperator();
+		System.out.print(result);
 		System.out.print("선택(번호): ");
-
-
-	}
-	
-	
-	
-	public void serchMenu() {
-
-		System.out.println("======================================");
-		System.out.println("      검색 상세 기록");
-		System.out.println("======================================");
-		System.out.println("상세 기록 확인 (Y/N)");
-		System.out.println("--------------------------------------");
-		System.out.print("선택(Y/N): ");
-
-	}
-	
-	
-	public void serchMenuSpec() {
-
-		System.out.println("======================================");
-		System.out.println("      검색 상세 기록");
-		System.out.println("======================================");
-		System.out.println("상세 기록 확인 (Y/N)");
-		System.out.println("--------------------------------------");
-		System.out.print("선택(Y/N): ");
-
-	}
-	
-	//최근기록 > 아이디 입력
-	public void idMenu() {
 		
+
+	}
+	
+	public void subMenu(String title) {
+		MainView dividingLine = new MainView();
+		String result = "";
+		result += dividingLine.getSeperator();
+		result += LanguageService.get(title+"\r\n");
+		result += dividingLine.getSeperator();
+		System.out.println(result);
+	}
+	
+	public void sortQuestion() {
+		
+		String result = "";
+		result += thingetSeperator();
+		result += "정렬이 필요하신가요? \r\n";
+		result += thingetSeperator();
+		System.out.print(result);
+		System.out.println("1. 필요");
+		System.out.println("2. 불필요(전 단계로 돌아기기)");
+	
+	}
+	
+
+	public String getTitle(String title) {
+
+		return title;
+	}
+
+	// 최근기록 > 아이디 입력
+	public void idMenu() {
+
 		System.out.println("===================");
 		System.out.println("       아이디");
 		System.out.println("===================");
-		
 
 	}
-	
-	public void thindividingLine() {
-		System.out.println();
-		System.out.println("--------------------------------------");
+
+//	public void thindividingLine() {
+//		System.out.println();
+//		System.out.println("--------------------------------------");
+//	}
+//
+//	public void dividingLine() {
+//		System.out.println();
+//		System.out.println("=====================================================================================");
+//	}
+
+	public String thingetSeperator() {
+		return "------------------------------------------------------------------"
+				+ "------------------------------------------------------\r\n";
 	}
-	
-	
-	public void dividingLine() {
-		System.out.println();
-		System.out.println("=====================================================================================");
-	}
-	
-	
-public void sortMenu() {
-		
+
+	public void sortMenu() {
+
 		System.out.println("======================================");
 		System.out.println("               정렬선택");
 		System.out.println("======================================");
@@ -122,20 +135,15 @@ public void sortMenu() {
 		System.out.println("2. 내림차순");
 		System.out.println("--------------------------------------");
 		System.out.print("선택(번호): ");
-		
+
 	}
 
+	public void errorInput() {
+		String result = "";
+		result += LanguageService.get("잘못 입력 하셨습니다.");
+		result += "\r\n";
+		result += LanguageService.get("다시 입력해주세요.");
+		System.out.println(result);
+	}
 
-
-
-public void errorInput() {
-	String result = "";
-	result += LanguageService.get("잘못 입력 하셨습니다.");
-	result += "\r\n";
-	result += LanguageService.get("다시 입력해주세요.");
-	System.out.println(result);
 }
-	
-}
-
-

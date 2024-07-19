@@ -33,7 +33,7 @@ public class RecordDAO {
 	// 정보 불러오는 메서드----------------------------------------------------------------
 
 	// 간단한 정보 불러오기
-	public void get() {
+	public void get() { //명예의전당
 
 		String line = null;
 		int count = 0;
@@ -54,26 +54,33 @@ public class RecordDAO {
 
 				String score = "";
 				score = temp[4] + " : " + temp[5];
-
+				
 				String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], character, score);
 
 				System.out.println(list);
 				count++;
+				
 				if (count == 10) { // 10줄만 보이고 싶어
 					break;
 				}
-
+				
 			}
-
-			view.dividingLine(); // 구분선
+			
+			String result = "";	//구분선
+			result += view.thingetSeperator();
+			System.out.println(result);
+			
 			System.out.println();
 			
 			reader.close();
+			
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
 		}
-
+		
+		
+		
 	}
 
 	// 상세한 정보 불러오기
@@ -148,6 +155,11 @@ public class RecordDAO {
 //					System.out.println(result);
 				}
 			}
+			
+			String thinline = "";	//구분선
+			thinline += view.thingetSeperator();
+			System.out.println(thinline);
+			
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.recordSearch");
@@ -157,7 +169,10 @@ public class RecordDAO {
 	}
 
 	public String gameId() {
-
+		
+		RecordView line = new RecordView();
+		
+		
 		System.out.print("아이디 입력 : ");
 		String id = scan.nextLine();
 
@@ -203,7 +218,10 @@ public class RecordDAO {
 				num++;
 
 			}
-			view.dividingLine(); // 구분선
+			
+			String thinline = "";	//구분선
+			thinline += view.thingetSeperator();
+			System.out.println(thinline);
 			System.out.println();
 
 		} catch (Exception e) {
