@@ -1,5 +1,7 @@
 package com.java.tennis.model;
 
+import com.java.tennis.service.LanguageService;
+
 public class RecordDTO {
 //	private int no;					//일련번호
 //	private String name;			//이름
@@ -17,7 +19,7 @@ public class RecordDTO {
 	private String characterno;		//캐릭터 번호
 	private String charactername;		//캐릭터 이름
 	public String getCharactername() {
-		return charactername;
+		return LanguageService.get(charactername);
 	}
 	public void setCharactername(String charactername) {
 		this.charactername = charactername;

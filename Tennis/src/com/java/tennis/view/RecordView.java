@@ -6,9 +6,11 @@ import com.java.tennis.service.LanguageService;
 
 public class RecordView {
 	private Scanner scan; //뷰에서 스캐너가 필요한지 확인부탁드립니다.
-
+	private MainView mainView;
+	
 	public RecordView() {
 		this.scan = new Scanner(System.in);
+		this.mainView = new MainView();
 	}
 
 	public void title(String title) {
@@ -16,7 +18,7 @@ public class RecordView {
 		String result = "";
 		result += "\r\n";
 		result += thingetSeperator();
-		result += LanguageService.get("명예의 전당");
+		result += mainView.addStringMargin(LanguageService.get(title));
 		//result += "\r\n";
 		System.out.println(result);
 		
@@ -26,7 +28,15 @@ public class RecordView {
 		
 		String result = "";
 		result += thingetSeperator();
-		result += LanguageService.get("\t번호\t\t날짜\t\t닉네임\t\t캐릭터\t\t스코어");
+		result += LanguageService.get("번호");
+		result += "\t";
+		result += LanguageService.get("날짜");
+		result += "\t";
+		result += LanguageService.get("닉네임");
+		result += "\t";
+		result += LanguageService.get("캐릭터");
+		result += "\t";
+		result += LanguageService.get("스코어");
 		result += "\r\n";
 		result += thingetSeperator();
 		System.out.println(result);
@@ -36,49 +46,51 @@ public class RecordView {
 
 
 	public void subTitleSpecific() {
-		System.out.println("--------------------------------------------------------------------------------------");
-		System.out.println("\t세트\t\t게임\t\t스코어\t\t승패");
-		System.out.println("--------------------------------------------------------------------------------------");
+		String result = "";
+		result += thingetSeperator();
+		result += LanguageService.get("세트");
+		result += "\t";
+		result += LanguageService.get("게임");
+		result += "\t";
+		result += LanguageService.get("스코어");
+		result += "\t";
+		result += LanguageService.get("승패");
+		result += thingetSeperator();
+		System.out.println(result);
 	}
 
 	// 멈춤
-	public void pause() {
-
-		System.out.println();
-		System.out.print("계속하시려면 엔터를 치세요.");
-
-		Scanner scan = new Scanner(System.in);
-		scan.nextLine(); // Block
-
-		System.out.println();
-
-	}
 	
 	public void mainMenu() {
 
-		MainView dividingLine = new MainView();
-
 		String result = "";
 		result += "\r\n";
-		result += dividingLine.getSeperator();
-		result += LanguageService.get("명예의 전당\r\n");
-		result += dividingLine.getSeperator();
-		result += LanguageService.get("1. 명예의 전당\r\n");
-		result += LanguageService.get("2. 아이디 검색하기\r\n");
-		result += LanguageService.get("3. 최신기록 전체보기\r\n");
-		result += LanguageService.get("4. 메인메뉴 돌아가기\r\n");
-		result += dividingLine.getSeperator();
+		result += mainView.getSeperator();
+		result += mainView.addStringMargin(LanguageService.get("명예의 전당"));
+		result += mainView.getSeperator();
+		result += "1. ";
+		result += LanguageService.get("명예의 전당");
+		result += "\t";
+		result += "2. ";
+		result += LanguageService.get("아이디 검색하기");
+		result += "\t";
+		result += "3. ";
+		result += LanguageService.get("최신기록 전체보기");
+		result += "\t";
+		result += "4. ";
+		result += LanguageService.get("메인 메뉴 돌아가기");
+		result += "\r\n";
+		result += mainView.getSeperator();
+		result += mainView.input();
 		System.out.print(result);
-		System.out.print("선택(번호): ");
-		
-
 	}
 	
 	public void subMenu(String title) {
 		MainView dividingLine = new MainView();
 		String result = "";
 		result += dividingLine.getSeperator();
-		result += LanguageService.get(title+"\r\n");
+		result += LanguageService.get(title);
+		result += "\r\n";
 		result += dividingLine.getSeperator();
 		System.out.println(result);
 	}
@@ -87,12 +99,17 @@ public class RecordView {
 		
 		String result = "";
 		result += thingetSeperator();
-		result += "정렬이 필요하십니까? \r\n";
+		result += LanguageService.get("정렬해서 보기를 원하십니까?");
+		result += "\r\n";
 		result += thingetSeperator();
+		result += "1. "; 
+		result += LanguageService.get("네");
+		result += "\t";
+		result += "2. ";
+		result += LanguageService.get("아니요(전 단계로 돌아가기)");
+		result += thingetSeperator();
+		result += mainView.input();
 		System.out.print(result);
-		System.out.println("1. 필요");
-		System.out.println("2. 불필요(전 단계로 돌아기기)");
-	
 	}
 	
 	public void sortSortQuestion() { //명예의 전당 > 최신기록 > 정렬(필요) > [정렬질문]
@@ -100,18 +117,21 @@ public class RecordView {
 		String result = "";
 		result += "\r\n";
 		result += thingetSeperator(); //구분선
-		result += "1. 날짜\r\n";
-		result += "2. 아이디\r\n";
-		result += "3. 캐릭터\r\n";
+		result += "1. ";
+		result += LanguageService.get("날짜");
+		result += "\t";
+		result += "2. ";
+		result += LanguageService.get("아이디");
+		result += "\t";
+		result += "3. ";
+		result += LanguageService.get("캐릭터");
 		result += thingetSeperator();
+		result += mainView.input();
 		System.out.print(result);
-		System.out.print("번호 입력: ");
-		
 	}
 	
 	
 	public String getTitle(String title) {
-
 		return title;
 	}
 
@@ -125,14 +145,18 @@ public class RecordView {
 
 		String sortmenu = "";
 		sortmenu += thingetSeperator();
-		sortmenu += "정렬선택\r\n";
+		sortmenu += LanguageService.get("정렬을 선택해주세요.");
+		sortmenu += "\r\n";
 		sortmenu += thingetSeperator();
-		sortmenu += "1. 오름차순\r\n";
-		sortmenu += "2. 내림차순\r\n";
+		sortmenu += "1. ";
+		sortmenu += LanguageService.get("오름차순");
+		sortmenu += "\t";
+		sortmenu += "2.";
+		sortmenu += LanguageService.get("내림차순");
+		sortmenu += "\r\n";
 		sortmenu += thingetSeperator();
+		sortmenu += mainView.input();
 		System.out.print(sortmenu);
-		System.out.print("번호 입력: ");
-		
 	}
 
 	public void errorInput() {
@@ -140,7 +164,9 @@ public class RecordView {
 		result += LanguageService.get("잘못 입력 하셨습니다.");
 		result += "\r\n";
 		result += LanguageService.get("다시 입력해주세요.");
+		result += "\r\n";
+		result += mainView.input();
 		System.out.println(result);
 	}
-
+	
 }

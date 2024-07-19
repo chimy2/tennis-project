@@ -35,7 +35,7 @@ public class TennisView {
 			temp += characterList.get(i).getName();
 			temp += "\r\n";
 		}
-		
+		temp += mainView.input();
 		System.out.println(temp);
 		
 //		이곳에서 캐릭터를 보여주고 유저가 맘에드는 캐릭터에 대응하는 번호를 입력하면 그 값으로 캐릭터 값을 리턴해줘야함
@@ -43,7 +43,94 @@ public class TennisView {
 	}
 	
 	public void selectGameType() {
+		String temp = "";
 		
+		temp += "\r\n";
+		temp += mainView.getSeperator();
+		temp += LanguageService.get("게임 타입을 선택해주세요.");
+		temp += "\r\n";
+		temp += mainView.getSeperator();
+		temp += String.format("1.[%s]\t\t\t2.[%s]",
+				LanguageService.get("단식"),
+				LanguageService.get("복식")
+			);
+		temp += "\r\n";
+		temp += mainView.input();
+		
+		System.out.println(temp);
 	}
+	
+	public void selectGameSet() {
+		String set = LanguageService.get("세트");
+		String temp = "";
+		
+		temp += "\r\n";
+		temp += mainView.getSeperator();
+		temp += LanguageService.get("세트 수를 선택해주세요.");
+		temp += "\r\n";
+		temp += mainView.getSeperator();
+		temp += String.format("1.[%s]\t\t\t2.[%s]",
+				set,
+				set
+			);
+		temp += "\r\n";
+		temp += mainView.input();
+		
+		System.out.println(temp);
+	}
+	
+	public void selectPlayerNumber() {
+		String temp = "";
 
+		temp += "\r\n";
+		temp += mainView.getSeperator();
+		temp += LanguageService.get("플레이어 수를 입력해주세요.");
+		temp += "\r\n";
+		temp += mainView.getSeperator();
+		temp += String.format("1.[%s]\t\t\t2.[%s]",
+				LanguageService.get("1명"),
+				LanguageService.get("2명")
+			);
+		temp += "\r\n";
+		temp += mainView.input();
+		
+		System.out.println(temp);
+	}
+	
+	public void startGame() {
+		String temp = "";
+		
+		temp += "\r\n";
+		temp += LanguageService.get("게임을 시작합니다.");
+		
+		System.out.println(temp);
+	}
+	
+	public void selectSkill() {
+		String temp = "";
+		
+		temp += LanguageService.get("사용할 기술을 선택해주세요.");
+		
+		System.out.println(temp);
+	}
+	
+	public void recordGame() {
+		String temp = "";
+
+		temp += LanguageService.get("게임을 기록하시겠습니까?");
+		temp += "\r\n";
+		temp += LanguageService.get("1.예	2.아니오");
+		temp += "\r\n";
+		
+		System.out.println(temp);
+	}
+	
+	public void completeRecordGame() {
+		String temp = "";
+		
+		temp += LanguageService.get("게임 기록이 저장됐습니다.");
+		temp += "\r\n";
+		
+		System.out.println(temp);
+	}
 }

@@ -76,10 +76,7 @@ public class TennisService {
 		
 		boolean loop = true;
 		while (loop) {
-			
-			System.out.println();
-			System.out.println("게임 타입을 선택해주세요.");
-			System.out.println("1.[단식]		2.[복식]");
+			view.selectGameType();
 			type = scan.nextInt();
 			dto.setType(type);
 			scan.skip("\r\n");
@@ -96,9 +93,7 @@ public class TennisService {
 		loop = true;
 		while (loop) {
 			
-			System.out.println();
-			System.out.println("세트 수를 입력해주세요.");
-			System.out.println("1.[3세트]		2.[5세트]");
+			view.selectGameSet();
 			set = scan.nextInt();
 			dto.setSet(set);
 			scan.skip("\r\n");
@@ -114,9 +109,7 @@ public class TennisService {
 		loop = true;
 		while (loop) {
 			
-			System.out.println();
-			System.out.println("유저 수를 입력해주세요.");
-			System.out.println("1.[1명]		2.[2명]");
+			view.selectPlayerNumber();
 			player = scan.nextInt();
 			dto.setPlayer(player);
 			scan.skip("\r\n");
@@ -172,8 +165,7 @@ public class TennisService {
 //		countGame = 3;		//게임 빨리 끝내기용
 		
 		
-		System.out.println();
-		System.out.println("게임을 시작합니다.");
+		view.startGame();
 		
 //		int matchId = 0;
 //		matchId = matchId();
@@ -207,7 +199,7 @@ public class TennisService {
 				scan.skip("\r\n");
 
 				if (input > 4 || input < 1) {
-					System.out.println("사용할 기술을 선택해주세요.");
+					view.selectSkill();
 					continue;
 				} else {
 					break;
@@ -252,9 +244,7 @@ public class TennisService {
 		}
 		boolean loopRecord = true;
 		while (loopRecord) {
-			
-			System.out.println("게임을 기록하시겠습니까?");
-			System.out.println("1.예	2.아니오");
+			view.recordGame();
 			int input = scan.nextInt();
 			scan.skip("\r\n");
 			
@@ -443,7 +433,7 @@ public class TennisService {
 				daoMatch.add(dtoMatch);
 				dao.add(temp);
 				temp = "";
-				System.out.println("게임 기록이 저장됐습니다.");
+				view.completeRecordGame();
 				me.pointSet = 0;
 				cpu .pointSet = 0;
 				loop = false;

@@ -16,6 +16,7 @@ public class LanguageDAO {
 				
 				while((line = reader.readLine()) != null) {
 					String[] sentences = line.split(",");
+					
 					if(sentences[0].equals(sentence)) {
 						result = sentences[langIndex];
 						break;

@@ -2,7 +2,6 @@ package com.java.tennis.view;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import com.github.lalyos.jfiglet.FigletFont;
@@ -69,10 +68,6 @@ public class MainView {
 	}
 	
 	public int calcStringLength(String str) {
-//		int basicLen = 1;
-//		double korLen = 120/63.0;
-//		double JapLen = 120/75.0;
-		
 		double result = 0;
 		
 		for(int i=0; i<str.length(); i++) {
@@ -92,7 +87,7 @@ public class MainView {
 	
 	public void pause() {
 		System.out.println();
-		System.out.println(LanguageService.get("계속하시려면 엔터를 치세요."));
+		System.out.println(LanguageService.get("계속하시려면 엔터를 입력해주세요."));
 		
 		scan.nextLine();	//Block
 		System.out.println();
@@ -114,8 +109,20 @@ public class MainView {
 		System.out.println(result);
 	}
 	
+	public String returnMenu() {
+		return LanguageService.get("이전 메뉴로 돌아갑니다.");
+	}
+	
+	public String returnMainMenu() {
+		return LanguageService.get("메인 메뉴로 돌아갑니다.");
+	}
+	
 	public String selectMenu() {
 		return LanguageService.get("메뉴 선택") + " > ";
+	}
+	
+	public String input() {
+		return LanguageService.get("입력") + " > ";
 	}
 	
 	public String getSeperator() {

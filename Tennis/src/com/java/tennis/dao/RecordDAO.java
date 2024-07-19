@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 import com.java.tennis.model.RecordDTO;
+import com.java.tennis.service.LanguageService;
 import com.java.tennis.view.MainView;
 import com.java.tennis.view.RecordView;
 
@@ -17,6 +18,7 @@ public class RecordDAO {
 	private RecordView view;
 	private Scanner scan;
 //	private RecordDTO dto;
+	private MainView mainView;
 
 	private Stack<String> historyStack;
 	private String currentPage;
@@ -25,6 +27,7 @@ public class RecordDAO {
 		this.view = new RecordView();
 		this.scan = new Scanner(System.in);
 //		this.dto = new RecordDTO();
+		this.mainView = new MainView();
 	}
 
 	private final String PATH = ".\\resource\\"; // 변경되면 안됌
@@ -55,7 +58,7 @@ public class RecordDAO {
 				String score = "";
 				score = temp[4] + " : " + temp[5];
 				
-				String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], character, score);
+				String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], LanguageService.get(character), score);
 
 				System.out.println(list);
 				count++;
@@ -182,7 +185,7 @@ public class RecordDAO {
 
 	public String gameNum() {
 
-		System.out.print("번호 입력 : ");
+		mainView.input();
 		String num = scan.nextLine();
 
 		return num;
@@ -362,8 +365,6 @@ public class RecordDAO {
 				i++;
 			}
 
-			
-			
 			if(number.equals("1")) {
 				character = tempRecorde[Integer.parseInt(number)-1];
 			}else if(number.equals("2")) {

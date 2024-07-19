@@ -2,7 +2,7 @@
 메뉴 선택,select menu,メニューを選択します
 1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료,1. Game start 2. Hall of Fame 3. Game Manual 4. Setting 5. Exit Game,1. ゲーム開始 2.殿堂 3.ゲーム説明書 4.環境設定 5.ゲーム終了
 오류가 발생했습니다.,An error has occurred.,エラーが発生しました。
-계속하시려면 엔터를 치세요.,Hit Enter to continue.,続けるためにはエンターを押してください。
+계속하시려면 엔터를 입력해주세요.,Enter to continue.,続けるためにはエンターを押してください。
 1. 언어 설정 2. 난이도 설정 3. 만든 사람들 4. 디스코드 5. 개발자에게 기부하기 6. 메인 메뉴,1. Language settings 2. Difficulty settings 3. Builders 4. Discord 5. Donate to developers 6. main menu,1. 言語設定 2.難易度設定 3.作った人々 4.ディスコード 5.開発者に寄付する 6. メインメニュー
 1. 한국어 2. English 3. 日本語 4. 돌아가기,1. 한국어 2. English 3. 日本語 4. return,1. 한국어 2. English 3. 日本語 4. 帰る
 1. 쉽게 2. 보통 3. 어렵게 4. 돌아가기,1. Easy. 2. Normal. 3. Hard 4. return,1. 簡単に 2. 普通 3. 難しく 4. 帰る
@@ -30,6 +30,37 @@
 게임을 시작합니다.,Starting the game.,ゲームを開始します。
 사용할 테니스 기술을 선택해주세요.,Please select the tennis technique to use.,使用するテニス技術を選択してください。
 다음 게임을 시작합니다.,Starting the next game.,次のゲームを開始します。
-
-
-
+잘못 입력 하셨습니다.,You have entered incorrectly.,間違った入力です。
+다시 입력해주세요.,Please enter again.,再入力してください。
+입력,Input,入力
+게임을 종료합니다.,Exiting the game.,ゲームを終了します。
+안녕히 가십시오.,Goodbye.,さようなら。
+게임 타입을 선택해주세요.,Please select the game type.,ゲームタイプを選択してください。
+세트 수를 선택해주세요.,Please select the number of sets.,セット数を選択してください。
+플레이어 수를 입력해주세요.,Please enter the number of players.,プレイヤー数を入力してください。
+세트,Set,セット
+이전 메뉴로 돌아갑니다.,Returning to the previous menu.,前のメニューに戻ります。
+메인 메뉴로 돌아갑니다.,Returning to the main menu.,メインメニューに戻ります。
+사용할 기술을 선택해주세요.,Please select the technique to use.,使用する技術を選択してください。
+게임을 기록하시겠습니까?,Would you like to record the game?,ゲームを記録しますか？
+게임 기록이 저장됐습니다.,The game record has been saved.,ゲーム記録が保存されました。
+명예의 전당,Hall of Fame,名誉の殿堂
+번호,Number,番号
+날짜,Date,日付
+닉네임,Nickname,ニックネーム
+캐릭터,Character,キャラクター
+스코어,Score,スコア
+게임,Game,ゲーム
+승패,Win/Loss,勝敗
+아이디 검색하기,Search by ID,ID検索
+최신기록 전체보기,View all recent records,最新記録を全て表示
+정렬해서 보기를 원하십니까?,Would you like to view sorted records?,並べ替えて表示しますか？
+아이디,ID,ID
+최신 기록,Recent records,最新記録
+오름차순,Ascending order,昇順
+내림차순,Descending order,降順
+정렬을 선택해주세요.,Please select the sorting order.,並べ替えの順序を選択してください。
+네,Yes,はい
+아니요(전 단계로 돌아가기),No (Go back to the previous step),いいえ（前の段階に戻る）
+메인 메뉴 돌아가기,Return to the main menu,メインメニューに戻る
+닉네임이 존재하지 않습니다.,The nickname does not exist.,ニックネームが存在しません

@@ -3,8 +3,18 @@ package com.java.tennis.dao;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
+import com.java.tennis.App;
+import com.java.tennis.view.MainView;
+
 public class ExplainDAO {
-	public static String getExplain(int langIndex) {
+	private static MainView mainView;
+	
+	public ExplainDAO() {
+		mainView = new MainView();
+	}
+	
+	public String getExplain() {
+		int langIndex = App.langIndex;
 		String result = "";
 		String path = "";
 		
@@ -20,8 +30,17 @@ public class ExplainDAO {
 			String line = "";
 			
 			while((line = reader.readLine()) != null) {
-				result += line + "\r\n";
+				try {
+					String[] temp = line.split("\\.");
+					Integer.parseInt(temp[0]);
+					result += mainView.getSeperator();
+					result += line + "\r\n";
+					result += mainView.getSeperator();
+				} catch (Exception e) {
+					result += line + "\r\n";
+				}
 			}
+			
 		} catch (Exception e) {
 			System.out.println("ExplainDAO.getExplain");
 			e.printStackTrace();

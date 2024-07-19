@@ -1,10 +1,7 @@
 package com.java.tennis.service;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Scanner;
 
-import com.github.lalyos.jfiglet.FigletFont;
 import com.java.tennis.dao.RecordDAO;
 import com.java.tennis.view.MainView;
 import com.java.tennis.view.RecordView;
@@ -14,11 +11,13 @@ public class RecordService {
 	private RecordView view;
 	private RecordDAO dao;
 	private Scanner scan;
+	private MainView mainView;
 
 	public RecordService() {
 		this.view = new RecordView();
 		this.dao = new RecordDAO();
 		this.scan = new Scanner(System.in);
+		this.mainView = new MainView();
 	}
 
 	public void get() { // 명예의전당 출력
@@ -49,9 +48,7 @@ public class RecordService {
 			if (menu.equals("1")) {// 1. 명예의 전당
 
 				sevice.get(); // 명예의 전당 출력
-
-				MainView error = new MainView(); // 계속하려면 엔터쳐라
-				error.pause();
+				mainView.pause();// 계속하려면 엔터쳐라
 
 			} else if (menu.equals("2")) {// 2. 아이디 검색하기
 
@@ -62,7 +59,6 @@ public class RecordService {
 				}
 				System.out.println(list);
 				dao.getSpec(dao.gameNum());
-
 			}
 
 			else if (menu.equals("3")) {// 3. 최신기록 전체보기
@@ -71,8 +67,6 @@ public class RecordService {
 				dao.getTotal(); // 전체 최신기록
 
 				view.sortQuestion(); // 정렬질문
-				System.out.print(view.thingetSeperator()); // 정렬질문_구분선
-				System.out.print("번호 입력: ");
 				String need = scan.nextLine(); // 정렬질문_스캔
 
 				if (need.equals("1")) {
@@ -81,8 +75,7 @@ public class RecordService {
 
 					String num = scan.nextLine();
 					while (!(num.equals("1") || num.equals("2") || num.equals("3"))) {
-						System.out.println("숫자를 다시 입력해주세요.");
-						System.out.print("번호 입력: ");
+						view.errorInput();
 						num = scan.nextLine();
 					}
 					dao.sort(num);
@@ -91,14 +84,11 @@ public class RecordService {
 			} else if (menu.equals("4")) {
 
 				stop = false;
-				System.out.println("메인메뉴로 돌아갑니다.");
-			}
+				mainView.returnMainMenu();
+			} else {
 
-			else {
-
-				MainView error = new MainView();
-				error.errorInput();
-				error.pause();
+				mainView.errorInput();
+				mainView.pause();
 
 			}
 

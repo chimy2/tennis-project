@@ -102,6 +102,7 @@ public class SettingService {
 	
 	public void getDevelopers() {
 		System.out.println(dao.getDevelopers());
+		mainView.pause();
 	}
 	
 	public void getDiscord() {
