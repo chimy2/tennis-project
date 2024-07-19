@@ -23,6 +23,16 @@ public class RecordView {
 		System.out.println(result);
 		
 	}
+	
+	public void subtitle(String title) {
+		
+		String result = "";
+		result += "\r\n";
+		result += thingetSeperator();
+		result += LanguageService.get(title);
+		System.out.println(result);
+		
+	}
 
 	public void titleSpecific() { //명예의전당 속성이름
 		
@@ -86,12 +96,17 @@ public class RecordView {
 	}
 	
 	public void subMenu(String title) {
-		MainView dividingLine = new MainView();
+		//원본
+//		String result = "";
+//		result += thingetSeperator();
+//		result += LanguageService.get(title+"\r\n");
+//		result += thingetSeperator();
+//		System.out.println(result);
+		
 		String result = "";
-		result += dividingLine.getSeperator();
-		result += LanguageService.get(title);
 		result += "\r\n";
-		result += dividingLine.getSeperator();
+		result += thingetSeperator();
+		result += LanguageService.get(title);
 		System.out.println(result);
 	}
 	
