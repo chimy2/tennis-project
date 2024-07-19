@@ -84,12 +84,15 @@ public class RecordDAO {
 	}
 
 	// 상세한 정보 불러오기
-	public String getSpec(String num) {
+
+	public String getSpec(String num) { //id입력
 		String result = "";
 		String line = null;
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "game.txt"));
-
+			
+			view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
+			
 
 			while ((line = reader.readLine()) != null) {
 
@@ -116,11 +119,18 @@ public class RecordDAO {
 
 				}
 			}
+
 //			System.out.println(result);
 			
 			if(num.equals("q")) {
 				result = "q";
 			}
+
+			MainView error = new MainView();
+			System.out.println(error.getSeperator()); //구분선 > 출력이 마지막 구현이라 구분해주려고 선 추가
+			error.pause(); //계속하시려면 엔터
+			
+
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.getSpec");
@@ -139,10 +149,11 @@ public class RecordDAO {
 		// 1,2024-04-03,현영석,3,2,0
 		String result = "";
 		String line = null;
+		
+		view.titleSpecific();
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
-
 
 
 			while ((line = reader.readLine()) != null) {
@@ -158,13 +169,9 @@ public class RecordDAO {
 							score);
 
 					result += list;
-//					System.out.println(result);
 				}
 			}
 			
-			String thinline = "";	//구분선
-			thinline += view.thingetSeperator();
-			System.out.println(thinline);
 			
 			if(id.equals("q")) {
 				result = "q";
@@ -184,18 +191,23 @@ public class RecordDAO {
 		String result = "";
 		result += "\r\n";
 		result += view.thingetSeperator();
+		result += "아이디 검색\r\n";
+		result += view.thingetSeperator();
 		result += "아이디 입력 : ";
 		System.out.print(result);
 		String id = scan.nextLine();
+		System.out.println();
 
 		return id;
 	}
 
 	public String gameNum() {
-
+		
+		System.out.print(view.thingetSeperator());
 		System.out.print("번호 입력 : ");
 		String num = scan.nextLine();
-
+		System.out.println();
+		
 		return num;
 
 	}
@@ -235,7 +247,9 @@ public class RecordDAO {
 			thinline += view.thingetSeperator();
 			System.out.println(thinline);
 			System.out.println();
+			
 			reader.close();
+			
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
