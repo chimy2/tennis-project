@@ -230,19 +230,20 @@ public class TennisService {
 				me.point++;
 				countTotalServe++;
 				countServe++;
-				System.out.println(p1 + " 득점!");
+//				System.out.println(p1 + " 득점!"); //System.out.println(pointName(me.point, cpu.point)); 메서드가 득점 출력 메시지 대체
 				
 //				여기에 본인/컴퓨터 포인트를 인자값으로 받아서 러브 피프틴 써티 포티 이런 걸 말해주는 메서드 구현 필요
 			} else if (me.chance < cpu.chance) {
 				cpu.point++;
 				countTotalServe++;
 				countServe++;
-				System.out.println(p2 + " 득점!");			
+//				System.out.println(p2 + " 득점!"); //System.out.println(pointName(me.point, cpu.point)); 메서드가 득점 출력 메시지 대체	
 				
 //				여기에 본인/컴퓨터 포인트를 인자값으로 받아서 러브 피프틴 써티 포티 이런 걸 말해주는 메서드 구현 필요
 			} else {
 				continue;
 			}
+			System.out.println(pointName(me.point, cpu.point));
 			System.out.println(me.point + "-" + cpu.point);
 			System.out.println("[확인]");
 			scan.nextLine();
@@ -279,6 +280,41 @@ public class TennisService {
 
 
 
+
+
+	private String pointName(int num1, int num2) {
+		
+		String[] pointNames = {"러브", "피프틴", "써티", "포티"	};
+		String result;
+
+		if (num1 == num2) {
+			if (num1 < 3) {
+				result = pointNames[num1] + "-올";
+			} else {
+				result = "듀스";
+			}
+		} else if (num1 > 3 || num2 > 3) {
+
+			int diff = num1 - num2;
+				
+			if (diff == 1) {
+				result = "애드 플레이어 1";
+			} else if ( diff == -1 ) {
+				result = "애드 플레이어 2";
+			} else if (diff == 2) {
+				result = "게임 플레이어 1";
+			} else {
+				result = "게임 플레이어 2";
+			}
+				 
+		} else {
+				result = pointNames[num1] + "-" + pointNames[num2];
+		}
+
+		return result;
+
+	
+	}
 
 
 	private int matchId() {
