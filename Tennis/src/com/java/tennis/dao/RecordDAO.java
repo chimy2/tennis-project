@@ -16,24 +16,19 @@ import com.java.tennis.view.RecordView;
 public class RecordDAO {
 	private RecordView view;
 	private Scanner scan;
-//	private RecordDTO dto;
-
 	private Stack<String> historyStack;
 	private String currentPage;
 
 	public RecordDAO() {
 		this.view = new RecordView();
 		this.scan = new Scanner(System.in);
-//		this.dto = new RecordDTO();
 	}
 
 	private final String PATH = ".\\resource\\"; // 변경되면 안됌
 
-
 	// 정보 불러오는 메서드----------------------------------------------------------------
-
 	// 간단한 정보 불러오기
-	public void get() { //명예의전당
+	public void get() {
 
 		String line = null;
 		int count = 0;
@@ -45,7 +40,7 @@ public class RecordDAO {
 
 			// 1,2024-04-03,현영석,3,2,0
 			// 번호 날짜 닉네임 캐릭터 스코어 점수
-			//
+
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
@@ -54,33 +49,26 @@ public class RecordDAO {
 
 				String score = "";
 				score = temp[4] + " : " + temp[5];
-				
+
 				String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], character, score);
 
 				System.out.println(list);
 				count++;
-				
 				if (count == 10) { // 10줄만 보이고 싶어
 					break;
 				}
-				
+
 			}
-			
-			String result = "";	//구분선
-			result += view.thingetSeperator();
-			System.out.println(result);
-			
+
+			view.dividingLine(); // 구분선
 			System.out.println();
-			
+
 			reader.close();
-			
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
 		}
-		
-		
-		
+
 	}
 
 	// 상세한 정보 불러오기
@@ -124,7 +112,6 @@ public class RecordDAO {
 
 	}
 
-
 	// 검색 기능 : 이름 검색하면 불러올 수 있는 기능
 	public String recordSearch(String id) {
 
@@ -136,8 +123,6 @@ public class RecordDAO {
 
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
-
-
 
 			while ((line = reader.readLine()) != null) {
 				String[] temp = line.split(",");
@@ -155,11 +140,6 @@ public class RecordDAO {
 //					System.out.println(result);
 				}
 			}
-			
-			String thinline = "";	//구분선
-			thinline += view.thingetSeperator();
-			System.out.println(thinline);
-			
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.recordSearch");
@@ -169,10 +149,7 @@ public class RecordDAO {
 	}
 
 	public String gameId() {
-		
-		RecordView line = new RecordView();
-		
-		
+
 		System.out.print("아이디 입력 : ");
 		String id = scan.nextLine();
 
@@ -187,7 +164,6 @@ public class RecordDAO {
 		return num;
 
 	}
-
 
 	public void getTotal() {
 
@@ -218,10 +194,7 @@ public class RecordDAO {
 				num++;
 
 			}
-			
-			String thinline = "";	//구분선
-			thinline += view.thingetSeperator();
-			System.out.println(thinline);
+			view.dividingLine(); // 구분선
 			System.out.println();
 
 		} catch (Exception e) {
@@ -256,10 +229,7 @@ public class RecordDAO {
 				dto.setScoreme(temp[4]); // 내 점수
 				dto.setSocrecumputer(temp[5]); // 컴퓨터 점수
 
-				
-				
 				dto.setCharactername(nameCharacter(temp[3]));
-
 
 				list.add(dto);
 
@@ -268,13 +238,12 @@ public class RecordDAO {
 			}
 
 			stack(list, number); // 정렬 메서드
-			
+
 			int i = 1;
 			for (RecordDTO record : list) {
 
 				String dump = record.getDate();
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
-
 
 				String character = nameCharacter(record.getCharacterno());
 //			
@@ -329,10 +298,8 @@ public class RecordDAO {
 
 	}
 
+	public static String nameCharacter(String number) {
 
-	public static String nameCharacter(String number){
-
-		
 		String character = "";
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(".\\resource\\character.txt"));
@@ -340,41 +307,35 @@ public class RecordDAO {
 			String[] tempRecorde = new String[4];
 			String line = null;
 			int i = 0;
-			
+
 			while ((line = reader.readLine()) != null) {
 
 				if (i > 0) { // 첫 번째 줄은 무시
-	               tempCharacter = line.split(",");
-	                if (tempCharacter.length > 1) {
-	                    tempRecorde[i-1] = tempCharacter[1].trim(); // 이름만 추출해서 저장
-	                }
-	            }
+					tempCharacter = line.split(",");
+					if (tempCharacter.length > 1) {
+						tempRecorde[i - 1] = tempCharacter[1].trim(); // 이름만 추출해서 저장
+					}
+				}
 
 				i++;
 			}
 
-			
-			
-			if(number.equals("1")) {
-				character = tempRecorde[Integer.parseInt(number)-1];
-			}else if(number.equals("2")) {
-				character = tempRecorde[Integer.parseInt(number)-1];
-			}else if(number.equals("3")) {
-				character = tempRecorde[Integer.parseInt(number)-1];
-			}else if(number.equals("4")) {
-				character = tempRecorde[Integer.parseInt(number)-1];
+			if (number.equals("1")) {
+				character = tempRecorde[Integer.parseInt(number) - 1];
+			} else if (number.equals("2")) {
+				character = tempRecorde[Integer.parseInt(number) - 1];
+			} else if (number.equals("3")) {
+				character = tempRecorde[Integer.parseInt(number) - 1];
+			} else if (number.equals("4")) {
+				character = tempRecorde[Integer.parseInt(number) - 1];
 			}
-			
-			
+
 			reader.close();
-			
+
 		} catch (Exception e) {
 			System.out.println("에러");
 		}
-		
-		
-		
-		
+
 		return character;
 	}
 
