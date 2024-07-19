@@ -30,8 +30,6 @@ public class App {
 				tennisService.gameSetup();
 			} else if (input.equals("2")) {
 //				명예의 전당
-//				rView.mainMenu();
-//				yn = false;
 				recordService.getSpec();
 			} else if (input.equals("3")) {
 //				게임 설명서

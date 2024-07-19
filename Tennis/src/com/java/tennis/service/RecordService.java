@@ -2,6 +2,8 @@ package com.java.tennis.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.github.lalyos.jfiglet.FigletFont;
@@ -97,12 +99,111 @@ public class RecordService {
 
 				view.subMenu("최신 기록");
 				view.titleSpecific();
-				dao.getTotal(); // 전체 최신기록
+				ArrayList<String> lineArray = dao.getTotal(); // 전체 최신기록 배열로 받음
+//				System.out.println(lineArray.get(0));
+				int number = 0;
+				String need = "";
+				
+				//처음에 10개 초과인 경우 페이지 변환 시작
+				while (lineArray.size() > 10) {
+					System.out.println("1. 다음페이지"); // number = 0
+					System.out.println("메뉴로 돌아가실려면 'q'를 입력해주세요.");
+					
+					//10개 먼저 보이고 페이지 선택 필요
+					for (int i = 0; i < (number + 1) * 10; i++) {
+						System.out.println(lineArray.get(i));
+					}
+					
+					// 10개 초과 계속 보이는 경우
+					if(lineArray.size() >(number + 1) * 10) {
+						System.out.printf("%20s, %20s, %20s\n","1. 다음페이지"," ","2. 이전페이지");
+						System.out.println("메뉴로 돌아가실려면 'q'를 입력해주세요.");
+						
+						
+					}else {// 10개 초과가 아닌 경우
+						System.out.println("2. 이전페이지");
+						System.out.println("메뉴로 돌아가실려면 'q'를 입력해주세요.");
+						
+						
+						
+					}
+					
+				}
+				
+				// 처음에 10개 이하인 경우는 페이지 변환 안보이게
+				for (int i = 0; i < lineArray.size(); i++) {
+					System.out.println(lineArray.get(i));
+				}
+				
+				
+				// 페이지 보여주기 > 36개쌓인 상황
+				
+//				while (number <= 0) {
+//					// 첫번째 작동 = 첫 ㅠㅗ
+//					if(number==1) {
+//						for (int i = 0; i < (number + 1) * 10; i++) {
+//							System.out.println(lineArray.get(i));
+//						}
+//
+//						System.out.println("1. 다음페이지"); // number = 0
+//						System.out.println("메뉴로 돌아가실려면 'q'를 입력해주세요.");
+//						need = scan.nextLine();
+//						
+//						if(need.equals("1")) {
+//							number++; // number = 1
+//							
+//						}else {
+//							number = -1;
+//						}
+//						
+//					// 두번째 작동부터 	
+//					}else {
+//						if(need.equals("1")) {
+//							for (int i = number *10; i < (number + 1) * 10; i++) {
+//								System.out.println(lineArray.get(i));
+//							}
+//							
+//							System.out.println("1. 다음페이지");
+//							System.out.print("2. 이전페이지");
+//							need = scan.nextLine();
+//							
+//							if(need.equals("1")) {
+//								number++;
+//								for (int i = number* 10; i < (number + 1) * 10; i++) {
+//									System.out.println(lineArray.get(i));
+//								}
+//								System.out.println("1. 다음페이지");
+//								System.out.print("2. 이전페이지");
+//								need = scan.nextLine();
+//								
+//							}else{
+//								number--;
+//								for (int i = number * 10; i < (number + 1) * 10; i++) {
+//									System.out.println(lineArray.get(i));
+//								}
+//								System.out.println("1. 다음페이지");
+//								System.out.print("2. 이전페이지");
+//								need = scan.nextLine();
+//							}
+//					}
+//					
+//					
+//					
+//					else {
+//						
+//					}
+//					
+//					
+//				}
+//				
+				
+				
+				
 
 				view.sortQuestion(); // 정렬질문
 				System.out.print(view.thingetSeperator()); // 정렬질문_구분선
 				System.out.print("번호 입력: ");
-				String need = scan.nextLine(); // 정렬질문_스캔
+				need = scan.nextLine(); // 정렬질문_스캔
 			
 				
 				while (!(need.equals("1") || need.equals("2"))) {
