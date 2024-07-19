@@ -35,10 +35,14 @@ public class RecordView {
 
 
 
-	public void subTitleSpecific() {
-		System.out.println("--------------------------------------------------------------------------------------");
-		System.out.println("\t세트\t\t게임\t\t스코어\t\t승패");
-		System.out.println("--------------------------------------------------------------------------------------");
+	public void subTitleSpecific() { //명예의전당 > 아이디검색 > 아이디입력 > 출력 > 번호입력 > [속성출력]
+	
+		String result = "";
+		result += thingetSeperator();
+		result += LanguageService.get("\t세트\t\t게임\t\t스코어\t\t승패");
+		result += "\r\n";
+		result += thingetSeperator();
+		System.out.println(result);
 	}
 
 	// 멈춤

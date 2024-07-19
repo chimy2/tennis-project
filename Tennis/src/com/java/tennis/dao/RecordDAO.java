@@ -84,12 +84,14 @@ public class RecordDAO {
 	}
 
 	// 상세한 정보 불러오기
-	public void getSpec(String num) {
+	public void getSpec(String num) { //id입력
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "game.txt"));
 
 			String line = null;
-
+			
+			view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
+			
 			while ((line = reader.readLine()) != null) {
 
 				if (line.startsWith(num)) {
@@ -116,6 +118,7 @@ public class RecordDAO {
 
 				}
 			}
+			
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.getSpec");
