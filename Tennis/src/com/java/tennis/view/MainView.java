@@ -22,13 +22,9 @@ public class MainView {
 		result += getSeperator();
 		result += getTitle();
 		result += getSeperator();
-//		result += LanguageService.get("1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료");
-//		result += "\r\n";
-//		result += "\r\n";
-//		result += getSeperator();
 		result += getSubTitle("시작 메뉴");
 		result += getSeperator();
-		result += addMenuMarginCenter("게임 시작하기", "명예의 전당", "게임 설명", "환경 설정", "게임 종료");
+		result += setNumRowMargin("게임 시작하기", "명예의 전당", "게임 설명", "환경 설정", "게임 종료");
 		result += getSeperatorThin();
 		result += selectMenu();
 		MainService.printLine(result, 200);
@@ -56,13 +52,13 @@ public class MainView {
 	
 	public String getSubTitle(String title) {
 		String result = "";
-		result = addStringMargin(LanguageService.get(title));
+		result = setRowMargin(LanguageService.get(title));
 		return result;
 	}
 	
 	public String getSubTitle(String title, String addition) {
 		String result = "";
-		result = addStringMargin(LanguageService.get(title) + " " + addition);
+		result = setRowMargin(LanguageService.get(title) + " " + addition);
 		return result;
 	}
 	
@@ -71,59 +67,40 @@ public class MainView {
 		for(int i=0; i<titles.length; i++) {
 			result += titles[i];
 		}
-		result = addStringMargin(result);
+		result = setRowMargin(result);
 		return result;
 	}
 		
-	public String addStringMargin(String line) {
-//		JetBrainsMonoHangul NL 기준 120자
-		int crit = 60;
-		int size = crit + calcStringLength(line) / 2;
-		return String.format("%" + size + "s\r\n", line);
-	}
 	
-	public String addStringMarginMultiLine(String multiLine) {
+	public String addRowMarginMultiLine(String multiLine) {
 		String result = "";
 		String[] lines = multiLine.split("(\r)?\n");
 		
 		for(String line : lines) {
-			result += addStringMargin(line);
+			result += setRowMargin(line);
 		}
 		
 		return result;
 	}
 	
-	public String addMenuMarginCenter(String menu) {
-		String result = "";
-		int len = 1;
-		
-		for(int i=0; i<len; i++) {
-			result += String.format("%d. %s", i + 1, menu);
-		}
-		
-		result = addStringMargin(result);
-		
-		return result;
-	}
+//	public String addMenuMarginCenter(String... menus) {
+//		String result = "";
+//		int len = menus.length;
+//		
+//		for(int i=0; i<len; i++) {
+//			String menu = LanguageService.get(menus[i]);
+//			result += String.format("%d. %s", i + 1, menu);
+//			if(i != len - 1) {
+//				result += " ".repeat(3);
+//			}
+//		}
+//		
+//		result = setRowMargin(result);
+//		
+//		return result;
+//	}
 	
-	public String addMenuMarginCenter(String... menus) {
-		String result = "";
-		int len = menus.length;
-		
-		for(int i=0; i<len; i++) {
-			String menu = LanguageService.get(menus[i]);
-			result += String.format("%d. %s", i + 1, menu);
-			if(i != len - 1) {
-				result += " ".repeat(3);
-			}
-		}
-		
-		result = addStringMargin(result);
-		
-		return result;
-	}
-	
-	public String setRowMargin(String[] rows) {
+	public String setRowMargin(String... rows) {
 		
 		for(int i=0; i<rows.length; i++) {
 			rows[i] = LanguageService.get(rows[i]);
@@ -131,9 +108,49 @@ public class MainView {
 
 		StringBuilder sb = new StringBuilder();
 		
-	    for (String row : rows) {
-	        sb.append(arrangeRow(row, rows.length));
-//	        sb.append(1);
+	    for (int i=0; i<rows.length; i++) {
+	        sb.append(arrangeRow(rows[i], rows.length));
+	    }
+	    
+	    sb.append("\r\n");
+	    
+	    return sb.toString();
+	}
+	public String setNumRowMargin(String row) {
+		int count = 1;
+		StringBuilder sb = new StringBuilder();
+
+	    for (int i=0; i<count; i++) {
+	        sb.append(arrangeRow(String.format("%d. %s", (i + 1), row), count));
+	    }
+	    
+	    sb.append("\r\n");
+	    
+	    return sb.toString();
+	}
+	
+	public String setNumRowMargin(String... rows) {
+		
+		for(int i=0; i<rows.length; i++) {
+			rows[i] = LanguageService.get(rows[i]);
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+	    for (int i=0; i<rows.length; i++) {
+	        sb.append(arrangeRow(String.format("%d. %s", (i + 1), rows[i]), rows.length));
+	    }
+	    
+	    sb.append("\r\n");
+	    
+	    return sb.toString();
+	}
+	
+	public String setNumRowMargin(String row, int... nums) {
+		StringBuilder sb = new StringBuilder();
+
+	    for (int i=0; i<nums.length; i++) {
+	    	sb.append(arrangeRow(String.format("%d. %d %s", (i + 1), nums[i], LanguageService.get(row)), nums.length));
 	    }
 	    
 	    sb.append("\r\n");
@@ -143,8 +160,10 @@ public class MainView {
 	
 	public String arrangeRow(String text, int len) {
 		int lineLength = 120;
-	    int textLength = text.length();
-	    int padding = (lineLength/ len - calcKRJPStringCount(text))/ 2 ;
+	    int padding = (lineLength / len - calcKRJPStringCount(text) - text.length())/ 2 ;
+	    if(padding < 0) {
+	    	padding = 0;
+	    }
 	    // 패딩을 추가하여 텍스트를 가운데로 정렬
 	    StringBuilder sb = new StringBuilder();
         sb.append(" ".repeat(padding));
@@ -164,26 +183,9 @@ public class MainView {
 				result += " ".repeat(3);
 			}
 		}
-		result = addStringMargin(result);
+		result = setRowMargin(result);
 		return result;
 	}
-	
-//	public String addMenuMargin(String menu, int... nums) {
-//		int width = 120;
-//		String result = "";
-//		int len = nums.length;
-//		int areaSize = width / len;
-//		String temp = LanguageService.get(menu);
-//		
-//		for(int i=0; i<len; i++) {
-//			result += String.format("%-" + (areaSize - calcKRJPStringCount(temp)) + "s", 
-//					String.format("%d. %d%s", i + 1, nums[i], temp));
-//		}
-//		
-//		result += "\r\n";
-//		
-//		return result;
-//	}
 	
 	public int calcStringLength(String str) {
 		double result = 0;
@@ -200,7 +202,7 @@ public class MainView {
 	}
 	
 	public int calcKRJPStringCount(String str) {
-		int result = 0;
+		double result = 0;
 //		기본 폰트에 맞춰 크기 설정 하기
 		for(int i=0; i<str.length(); i++) {
 			char c = str.charAt(i);
@@ -210,7 +212,7 @@ public class MainView {
 				result++;
 			}
 		}
-		return result * 2;
+		return (int) result;
 	}
 	
 	public void pause() {
