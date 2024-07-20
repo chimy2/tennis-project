@@ -22,15 +22,7 @@ public class RecordView {
 		System.out.print(result);
 		
 	}
-	
-	public void subtitle(String title) {
-		String result = "";
-		result += "\r\n";
-		result += mainView.getSeperator();
-		result += mainView.getSubTitle(title);
-		System.out.print(result);
-		
-	}
+
 
 	public void titleSpecific() { //명예의전당 속성이름
 		
@@ -78,36 +70,10 @@ public class RecordView {
 		result += mainView.getSubTitle("명예의 전당");
 		result += mainView.getSeperator();
 		result += mainView.addMenuMarginCenter("명예의 전당", "아이디 검색하기", "최신기록 전체보기", "메인 메뉴 돌아가기");
-//		result += "1. ";
-//		result += LanguageService.get("명예의 전당");
-//		result += "\t";
-//		result += "2. ";
-//		result += LanguageService.get("아이디 검색하기");
-//		result += "\t";
-//		result += "3. ";
-//		result += LanguageService.get("최신기록 전체보기");
-//		result += "\t";
-//		result += "4. ";
-//		result += LanguageService.get("메인 메뉴 돌아가기");
 		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
 	}
-	
-//	public void subMenu(String title) {
-//		//원본
-////		String result = "";
-////		result += thingetSeperator();
-////		result += LanguageService.get(title+"\r\n");
-////		result += thingetSeperator();
-////		System.out.println(result);
-//		
-//		String result = "";
-//		result += "\r\n";
-//		result += mainView.getSeperator();
-//		result += LanguageService.get(title);
-//		System.out.println(result);
-//	}
 	
 	public void sortQuestion() {
 		
@@ -116,12 +82,6 @@ public class RecordView {
 		result += mainView.getSubTitle("정렬해서 보기를 원하십니까?");
 		result += mainView.getSeperator();
 		result += mainView.addMenuMarginCenter("네", "아니요(전 단계로 돌아가기)"); 
-//		result += "1. "; 
-//		result += LanguageService.get("네");
-//		result += "\t";
-//		result += "2. ";
-//		result += LanguageService.get("아니요(전 단계로 돌아가기)");
-//		result += "\r\n";
 		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
@@ -146,6 +106,7 @@ public class RecordView {
 		result += mainView.input();
 		System.out.print(result);
 	}
+
 
 	public void sortMenu() { //명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문 > [세부정렬질문]
 
@@ -172,13 +133,11 @@ public class RecordView {
 		sortmenu += mainView.getSubTitle("정렬을 선택해주세요.");
 		sortmenu += mainView.getSeperator();
 		sortmenu += mainView.addMenuMarginCenter("오름차순");
-//		sortmenu += "1.";
-//		sortmenu += LanguageService.get("오름차순");
-//		sortmenu += "\r\n";
 		sortmenu += mainView.getSeperatorThin();
 		sortmenu += mainView.input();
 		System.out.print(sortmenu);
 	}
+
 
 	public String gameId() { // 명예의 전당 > 아이디 검색하기 > [ 아이디 입력(출력) ]
 		String result = "";

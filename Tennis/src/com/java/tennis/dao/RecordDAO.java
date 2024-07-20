@@ -16,18 +16,16 @@ import com.java.tennis.view.RecordView;
 public class RecordDAO {
 	private RecordView view;
 	private Scanner scan;
-//	private RecordDTO dto;
 	private MainView mainView;
 
-//	private Stack<String> historyStack;
-//	private String currentPage;
 	private HashMap<String, String> idToNum = new HashMap<>();
+	private BufferedReader reader;
 
 	public RecordDAO() {
 		this.view = new RecordView();
 		this.scan = new Scanner(System.in);
-//		this.dto = new RecordDTO();
 		this.mainView = new MainView();
+
 	}
 
 	private final String PATH = ".\\resource\\"; // 변경되면 안됌
@@ -36,48 +34,21 @@ public class RecordDAO {
 
 	// 간단한 정보 불러오기
 	public String get() { // 명예의전당
-		
+
 		ArrayList<RecordDTO> lineArray = new ArrayList<RecordDTO>();
 		String line = null;
-		int count = 0;
 		String[] temp = null;
-		int num = 1;
-		String tempRecord ="";
+		String tempRecord = "";
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
+			this.reader = new BufferedReader(new FileReader(PATH + "record.txt"));
 
 			// 1,2024-04-03,현영석,3,2,0
 			// 번호 날짜 닉네임 캐릭터 스코어 점수
 			//
-//			while ((line = reader.readLine()) != null) {
-//
-//				temp = line.split(",");
-//
-//				String character = nameCharacter(temp[3]);
-//
-//				String score = "";
-//				score = temp[4] + " : " + temp[5];
-//				String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", temp[0], temp[1], temp[2], LanguageService.get(character), score);
-//
-//				System.out.println(list);
-//				count++;
-//
-//				if (count == 10) { // 10줄만 보이고 싶어
-//					break;
-//				}
-//
-//			}
-			
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
-
-				String character = nameCharacter(temp[3]);
-
-				String score = "";
-				score = temp[4] + " : " + temp[5];
-				
 				temp = line.split(",");
 				temp[1] = temp[1].replace("-", "");
 				RecordDTO dto = new RecordDTO();
@@ -93,44 +64,12 @@ public class RecordDAO {
 				dto.setCharactername(nameCharacter(temp[3]));
 
 				lineArray.add(dto);
-//				System.out.println(lineArray.get(num-1));
-				
-				//10개씩 보여주기
-//				lineArray.add(String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", num, temp[1], temp[2], character, score));
-
-//				System.out.print(list);
-
-//				System.out.println(lineArray.get(0));
-				num++;
-
 			}
-			
+
 			lineArray.sort(Comparator.comparing(RecordDTO::getScoreme).reversed()
 					.thenComparing(Comparator.comparing(RecordDTO::getSocrecumputer)
-                    .thenComparing(Comparator.comparing(RecordDTO::getDate).reversed())));
-			
-//			int i = 1;
-//			for (RecordDTO record : lineArray) {
-//
-//				String dump = record.getDate();
-//				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
-//
-//				String character = nameCharacter(record.getCharacterno());
-////			
-//
-//				tempRecord += String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", i, dump, record.getName(),
-//						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
-//
-//				i++;
-//
-//				if (count == 10) { // 10줄만 보이고 싶어
-//					break;
-//				}
-//
-//			}
-			
-			
-			
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed())));
+
 			int i = 1;
 			for (RecordDTO record : lineArray) {
 
@@ -138,26 +77,16 @@ public class RecordDAO {
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
 
 				String character = nameCharacter(record.getCharacterno());
-//			
 
 				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
 						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
 
 				i++;
 			}
-			
-			
-			
-			
-			
-
-//			String result = ""; // 구분선
-//			result += mainView.getSeperatorThin();
-//			System.out.println(result);
 
 			System.out.println();
 
-			reader.close();
+			this.reader.close();
 
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
@@ -173,13 +102,14 @@ public class RecordDAO {
 		String result = "";
 		String line = null;
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(PATH + "game.txt"));
+
+			this.reader = new BufferedReader(new FileReader(PATH + "game.txt"));
 
 //			view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
 
 			String set = LanguageService.get("세트");
 			String game = LanguageService.get("게임");
-			
+
 			while ((line = reader.readLine()) != null) {
 
 				String[] temp = line.split(",");
@@ -200,29 +130,17 @@ public class RecordDAO {
 						win = "패";
 					}
 
-					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", 
-							temp[1],
-							set,
-							temp[2],
-							game, 
-							score, 
+					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", temp[1], set, temp[2], game, score,
 							LanguageService.get(win));
 
 				}
 			}
 
-//			System.out.println(result);
-
 			if (num.equals("q")) {
 				result = "q";
 			}
 
-//			MainView error = new MainView();
-//			System.out.println(error.getSeperator()); //구분선 > 출력이 마지막 구현이라 구분해주려고 선 추가
-//			error.pause(); //계속하시려면 엔터
-//			
-
-			reader.close();
+			this.reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.getSpec");
 			e.printStackTrace();
@@ -242,7 +160,7 @@ public class RecordDAO {
 		int i = 1;
 
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
+			this.reader = new BufferedReader(new FileReader(PATH + "record.txt"));
 
 			while ((line = reader.readLine()) != null) {
 				String[] temp = line.split(",");
@@ -253,32 +171,30 @@ public class RecordDAO {
 					String score = "";
 					score = temp[4] + " : " + temp[5];
 
-					String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2], LanguageService.get(character), score);
+					result += String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2],
+							LanguageService.get(character), score);
 
-					result += list;
 					String numChange = String.format("%s", i);
 					idToNum.put(numChange, temp[0]);
 					i++;
 				}
-				
-				
+
 			}
 			if (id.equals("q")) {
 				result = "q";
 			}
-			
-			reader.close();
+
+			this.reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.recordSearch");
 			e.printStackTrace();
 		}
-		
+
 		return result;
 	}
 
 	public String gameNum() {
 
-//		mainView.input();
 		String result = "";
 		result += mainView.getSeperator();
 		result += mainView.getSubTitle("자세히 보고싶은 기록의 번호를 입력하세요.");
@@ -294,28 +210,19 @@ public class RecordDAO {
 	public String getTotal() {
 
 		String line = null;
-		String list = null;
 		ArrayList<RecordDTO> lineArray = new ArrayList<RecordDTO>();
 		String[] temp = null;
-		int num = 1;
-	
 		String tempRecord = "";
-		
+
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
+			this.reader = new BufferedReader(new FileReader(PATH + "record.txt"));
 
 			// 1,2024-04-03,현영석,3,2,0
 			// 번호 날짜 닉네임 캐릭터 스코어 점수
-			
+
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
-
-				String character = nameCharacter(temp[3]);
-
-				String score = "";
-				score = temp[4] + " : " + temp[5];
-				
 				temp = line.split(",");
 				temp[1] = temp[1].replace("-", "");
 				RecordDTO dto = new RecordDTO();
@@ -331,38 +238,22 @@ public class RecordDAO {
 				dto.setCharactername(nameCharacter(temp[3]));
 
 				lineArray.add(dto);
-
-				
-				//10개씩 보여주기
-//				lineArray.add(String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", num, temp[1], temp[2], character, score));
-
-//				System.out.print(list);
-
-//				System.out.println(lineArray.get(0));
-				num++;
-
 			}
 			lineArray.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)
-			
+
 			int i = 1;
 			for (RecordDTO record : lineArray) {
 
 				String dump = record.getDate();
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
-
-				String character = nameCharacter(record.getCharacterno());
-//			
-
 				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
 						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
 
 				i++;
 			}
-//			System.out.println(tempRecord);
-//			list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)			
-			
-			reader.close();
-			
+
+			this.reader.close();
+
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
@@ -372,15 +263,13 @@ public class RecordDAO {
 
 	public void sort(String number) {
 		String line = null;
-		String lineTemp = null;
 		String[] temp = null;
-		int num = 1;
 
 		try {
 			// 일련번호, 날짜, 이름, 캐릭터 번호, 스코어1(나), 스코어2(컴퓨터)
 			// 1,2024-04-03,현영석,3,2,0
 			ArrayList<RecordDTO> list = new ArrayList<RecordDTO>();
-			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
+			this.reader = new BufferedReader(new FileReader(PATH + "record.txt"));
 			System.out.println(); // 줄 간격 맞추려고 만든 것
 
 			while ((line = reader.readLine()) != null) {
@@ -392,7 +281,6 @@ public class RecordDAO {
 				dto.setDate(temp[1]); // 날짜
 				dto.setName(temp[2]); // 이름
 				dto.setCharacterno(temp[3]); // 캐릭터 > 번호를 이름으로 변경하는 메서드 만들어야 함
-
 				dto.setCharactername(temp[3]); // 캐릭터이름
 				dto.setScoreme(temp[4]); // 내 점수
 				dto.setSocrecumputer(temp[5]); // 컴퓨터 점수
@@ -412,10 +300,6 @@ public class RecordDAO {
 
 				String dump = record.getDate();
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
-
-				String character = nameCharacter(record.getCharacterno());
-//			
-
 				String tempRecord = "";
 				tempRecord = String.format("%d\t%s\t%s\t%s\t%s : %S", i, dump, record.getName(),
 						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
@@ -428,7 +312,7 @@ public class RecordDAO {
 			System.out.println(error.getSeperator()); // 구분선 > 정렬출력으로 출력이 모두 끝나서 구분해주려고 선 추가
 			error.pause(); // 정렬선택(오름차순/내림차순) > 출력 > 계속하려면 엔터쳐라
 
-			reader.close();
+			this.reader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -437,54 +321,49 @@ public class RecordDAO {
 
 	public void stack(ArrayList<RecordDTO> list, String number) {
 
-		if(!number.equals("1")) {
+		if (!number.equals("1")) {
 			view.sortMenu();
-			
-		}else {
+
+		} else {
 			view.sortMenuCalendar();
-		
+
 		}
-		
+
 		String sort = scan.nextLine();
 
-		if(number.equals("2")||number.equals("3")) {
+		if (number.equals("2") || number.equals("3")) {
 			while (!(sort.equals("1") || sort.equals("2"))) {
 				view.errorInput();
 				mainView.input();
 				sort = scan.nextLine();
 			}
-			
-		}else {
+
+		} else {
 			while (!(sort.equals("1"))) {
 				view.errorInput();
 				mainView.input();
 				sort = scan.nextLine();
 			}
 		}
-		
 
 		if (sort.equals("1") || sort.equals("2")) {
 			if (number.equals("1")) {// 날짜
 				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getDate)); // 정렬(오름차순)
-//					list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)
-
-				} 
-				else {
+				} else {
 					MainView error = new MainView();
 					error.errorInput();
 				}
 			} else if (number.equals("2")) {
 				if (sort.equals("1")) {
-//					list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬(오름차순)
-//					list.sort(Comparator.comparing(RecordDTO::getDate).reversed());
 
 					list.sort(Comparator.comparing(RecordDTO::getName)
-		                      .thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));
-					
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));
+
 				} else {
 					list.sort(Comparator.comparing(RecordDTO::getName).reversed()
-							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));	; // 정렬(내림차순)
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));
+					; // 정렬(내림차순)
 				}
 			} else if (number.equals("3")) {
 				if (sort.equals("1")) {
@@ -493,7 +372,7 @@ public class RecordDAO {
 
 				} else {
 					list.sort(Comparator.comparing(RecordDTO::getCharactername).reversed()
-		                      .thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));// 정렬(내림차순)
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));// 정렬(내림차순)
 				}
 			}
 		} else {
@@ -505,11 +384,11 @@ public class RecordDAO {
 
 	}
 
-	public static String nameCharacter(String number) {
+	public String nameCharacter(String number) {
 
 		String character = "";
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(".\\resource\\character.txt"));
+			BufferedReader reader = new BufferedReader(new FileReader(PATH + "character.txt"));
 			String[] tempCharacter = new String[4];
 			String[] tempRecorde = new String[4];
 			String line = null;
@@ -546,13 +425,4 @@ public class RecordDAO {
 		return character;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
