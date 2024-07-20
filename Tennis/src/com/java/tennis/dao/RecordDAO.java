@@ -19,9 +19,9 @@ public class RecordDAO {
 //	private RecordDTO dto;
 	private MainView mainView;
 
-	private Stack<String> historyStack;
-	private String currentPage;
-	HashMap<String, String> dumy = new HashMap<>();
+//	private Stack<String> historyStack;
+//	private String currentPage;
+	private HashMap<String, String> idToNum = new HashMap<>();
 
 	public RecordDAO() {
 		this.view = new RecordView();
@@ -181,7 +181,7 @@ public class RecordDAO {
 
 				String[] temp = line.split(",");
 
-				String dump = dumy.get(num);
+				String dump = idToNum.get(num);
 				if (temp[0].equals(dump)) {
 
 					// 1,1,1,4,0
@@ -248,7 +248,7 @@ public class RecordDAO {
 
 					result += list;
 					String numChange = String.format("%s", i);
-					dumy.put(numChange, temp[0]);
+					idToNum.put(numChange, temp[0]);
 					i++;
 				}
 				

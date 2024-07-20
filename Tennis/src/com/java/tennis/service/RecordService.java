@@ -103,10 +103,8 @@ public class RecordService {
 		}
 	}
 
-	
 	// 명예의 전당 전체 작동
 	public void record() {
-
 
 		boolean stop = true;
 		while (stop) {
@@ -114,24 +112,15 @@ public class RecordService {
 			String menu = scan.nextLine();
 
 			if (menu.equals("1")) {// 1. 명예의 전당
-
 				winnerRecord();
-
 			} else if (menu.equals("2")) {// 2. 아이디 검색하기
 				searchId();
-
-			}
-
-			else if (menu.equals("3")) {// 3. 최신기록 전체보기
-
+			} else if (menu.equals("3")) {// 3. 최신기록 전체보기
 				recentRecord();
-
 			} else if (menu.equals("4")) {
-
 				stop = false;
 				mainView.returnMainMenu();
 			} else {
-
 				mainView.errorInput();
 				mainView.pause();
 
