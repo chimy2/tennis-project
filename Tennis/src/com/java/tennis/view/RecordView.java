@@ -176,6 +176,25 @@ public class RecordView {
 		sortmenu += mainView.input();
 		System.out.print(sortmenu);
 	}
+	
+	public void sortMenuCalendar() { //명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문 > [세부정렬질문]
+
+		String sortmenu = "";
+		sortmenu += thingetSeperator();
+		sortmenu += LanguageService.get("정렬을 선택해주세요.");
+		sortmenu += "\r\n";
+		sortmenu += thingetSeperator();
+		sortmenu += "1.";
+		sortmenu += LanguageService.get("오름차순");
+		sortmenu += "\r\n";
+		sortmenu += thingetSeperator();
+		sortmenu += mainView.input();
+		System.out.print(sortmenu);
+	}
+	
+	
+	
+	
 
 	public void errorInput() {
 		String result = "";
