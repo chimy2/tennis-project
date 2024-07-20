@@ -137,16 +137,33 @@ public class TennisView {
 		System.out.println(temp);
 	}
 	
-	public String informGame(int countSet, int countGame, int countTotalServe) {
+	public String informGame(int countSet, int countGame, int countTotalServe) {	
+		
 		String temp = "";
-		temp += String.format("(%d%s %d%s %d%s %s)", 
-				countSet, 
-				LanguageService.get("세트"), 
-				countGame, 
-				LanguageService.get("게임"), 
-				countTotalServe, 
-				LanguageService.get("회차"), 
-				LanguageService.get("서브"));
+		
+		if (countTotalServe % 2 == 1) {
+			
+			temp += String.format("(%d%s %d%s %d%s %s)", 
+					countSet, 
+					LanguageService.get("세트"), 
+					countGame, 
+					LanguageService.get("게임"), 
+					countTotalServe, 
+					LanguageService.get("회차"),
+					LanguageService.get("서브"));
+			
+		} else {
+			
+			temp += String.format("(%d%s %d%s %d%s %s)", 
+					countSet, 
+					LanguageService.get("세트"), 
+					countGame, 
+					LanguageService.get("게임"), 
+					countTotalServe, 
+					LanguageService.get("회차"),
+					LanguageService.get("리시브"));
+		}
+		
 		return temp;
 	}
 	
@@ -173,6 +190,18 @@ public class TennisView {
 		temp += mainView.getSeperator();
 		temp += mainView.addMenuMarginCenter("예", "아니요");
 		temp += mainView.getSeperatorThin();
+		
+		System.out.println(temp);
+	}
+
+	public void finalMenu() {
+		String temp = "";
+		
+		temp += mainView.getSeperator();
+		temp += mainView.getSubTitle("테니스 시뮬레이터를 플레이 해주셔서 감사합니다.");
+		temp += mainView.getSeperatorThin();
+		temp += mainView.addMenuMarginCenter("메인메뉴", "다시하기", "게임종료");
+		temp += mainView.getSeperator();
 		
 		System.out.println(temp);
 	}

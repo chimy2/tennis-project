@@ -24,13 +24,6 @@ public class RecordDTO {
 	private MatchDTO match;			//세트 번호
 	private TennisDTO tennis;		// 게임 번호
 	
-//	private CharacterDTO character;	//캐릭터 > 캐릭터 번호 가져오기
-	
-	
-	
-	
-	
-	
 	public String getCharactername() {
 		return LanguageService.get(charactername);
 	}

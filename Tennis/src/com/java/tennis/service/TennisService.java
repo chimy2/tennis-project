@@ -142,6 +142,7 @@ public class TennisService {
 
 		
 		gameStart(dto, daoCharacter.get(character));
+		return;
 	
 	}
 
@@ -155,15 +156,7 @@ public class TennisService {
 		countGame = 1;
 		countSet = 1;
 		
-//		me.pointSet = 1;	//게임 빨리 끝내기용
-//		me.pointGame = 2;	//게임 빨리 끝내기용
-//		countSet = 2;		//게임 빨리 끝내기용
-//		countGame = 3;		//게임 빨리 끝내기용
-		
 		view.getTitle();
-		
-//		int matchId = 0;
-//		matchId = matchId();
 		
 		boolean loop = true;
 		while (loop) {
@@ -275,6 +268,7 @@ public class TennisService {
 			
 			
 		}
+		
 		boolean loopRecord = true;
 		while (loopRecord) {
 			view.recordGame();
@@ -289,6 +283,20 @@ public class TennisService {
 				break;
 			}
 		}
+		view.finalMenu();
+		String input = scan.nextLine();
+		
+		if (input.equals("1")) {
+			return;
+			
+		} else if (input.equals("2")) {
+			gameStart(dto, dtoCharacter);
+		} else if (input.equals("3")) {
+//			MainView view = new 
+		}
+		
+		
+//		루프 돔황챠!!!
 		
 	}
 
