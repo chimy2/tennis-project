@@ -65,6 +65,7 @@ public class RecordView {
 		result += LanguageService.get("스코어");
 		result += "\t";
 		result += LanguageService.get("승패");
+		result += "\r\n";
 		result += thingetSeperator();
 		System.out.println(result);
 	}
@@ -122,6 +123,7 @@ public class RecordView {
 		result += "\t";
 		result += "2. ";
 		result += LanguageService.get("아니요(전 단계로 돌아가기)");
+		result += "\r\n";
 		result += thingetSeperator();
 		result += mainView.input();
 		System.out.print(result);
