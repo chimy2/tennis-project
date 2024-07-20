@@ -101,6 +101,20 @@ public class MainView {
 		return result;
 	}
 	
+	public String addMenuMarginCenter(String menu) {
+		int width = 120;
+		String result = "";
+		int len = 1;
+		
+		for(int i=0; i<len; i++) {
+			result += String.format("%d. %s", i + 1, menu);
+		}
+		
+		result = addStringMargin(result);
+		
+		return result;
+	}
+	
 	public String addMenuMarginCenter(String... menus) {
 		int width = 120;
 		String result = "";
@@ -119,12 +133,31 @@ public class MainView {
 		return result;
 	}
 	
-	public String addMenuMargin(String str, int... nums) {
+	public String addMenuMarginCenter(String menu, int... nums) {
 		int width = 120;
 		String result = "";
 		int len = nums.length;
 		int areaSize = width / len;
-		String temp = LanguageService.get(str);
+		String temp = LanguageService.get(menu);
+		
+		for(int i=0; i<len; i++) {
+			result += String.format("%d. %d%s", i + 1, nums[i], menu);
+			if(i != len - 1) {
+				result += " ".repeat(3);
+			}
+		}
+
+		result = addStringMargin(result);
+		
+		return result;
+	}
+	
+	public String addMenuMargin(String menu, int... nums) {
+		int width = 120;
+		String result = "";
+		int len = nums.length;
+		int areaSize = width / len;
+		String temp = LanguageService.get(menu);
 		
 		for(int i=0; i<len; i++) {
 			result += String.format("%-" + (areaSize - calcKRJPStringCount(temp)) + "s", 

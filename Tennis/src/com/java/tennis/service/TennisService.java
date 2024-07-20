@@ -72,8 +72,6 @@ public class TennisService {
 		int player = 0; //1 = 유저 1명, 2 = 유저 2명
 		int character = 0; //게임 캐릭터 고유일련번호
 		
-		view.getTitle();
-		
 		boolean loop = true;
 		while (loop) {
 			view.selectGameType();
@@ -162,8 +160,7 @@ public class TennisService {
 //		countSet = 2;		//게임 빨리 끝내기용
 //		countGame = 3;		//게임 빨리 끝내기용
 		
-		
-		view.startGame();
+		view.getTitle();
 		
 //		int matchId = 0;
 //		matchId = matchId();
@@ -183,10 +180,7 @@ public class TennisService {
 				}
 			}
 
-			System.out.println();
-			System.out.println("==============================================");
-			System.out.printf("%d세트 %d게임 %d회차 서브\r\n", countSet, countGame, countTotalServe);
-			System.out.println("==============================================");
+			view.informGame(countSet, countGame, countTotalServe);
 
 			AbilityDTO dtoAbility = new AbilityDTO();
 			int input;
@@ -248,17 +242,12 @@ public class TennisService {
 			scan.skip("\r\n");
 			
 			if (input == 1) {
-				
-				
 				recordName(dtoCharacter);
 				loopRecord = false;
 				
 			} else if (input == 2) {
-				
 				break;
-				
 			}
-			
 		}
 		
 	}
@@ -287,7 +276,6 @@ public class TennisService {
 			} else {
 				result = "게임 플레이어 2";
 			}
-				 
 		} else {
 				result = pointNames[num1] + "-" + pointNames[num2];
 		}
@@ -303,16 +291,11 @@ public class TennisService {
 		try {
 			
 			BufferedReader reader = new BufferedReader(new FileReader(PATH));
-			
 			String line = null;
-			
 			String temp = null;
 			
 			while ((line = reader.readLine()) != null) {
-				
 					temp = line;
-				
-				
 			}
 			result = Integer.parseInt(temp.split(",")[0])+1;
 			
@@ -321,8 +304,6 @@ public class TennisService {
 			System.out.println("TennisService.matchId");
 			e.printStackTrace();
 		}
-
-
 		return result;
 	}
 

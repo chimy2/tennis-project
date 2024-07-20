@@ -9,9 +9,10 @@ import com.java.tennis.service.SkillService;
 
 public class GameView {
 	
-	CharacterDTO dto;
-	SkillService skillService;
-	ArrayList<SkillDTO> skillList;
+	private CharacterDTO dto;
+	private SkillService skillService;
+	private ArrayList<SkillDTO> skillList;
+	private MainView mainView = new MainView();
 	
 	public GameView() {
 		dto = new CharacterDTO();
@@ -25,8 +26,8 @@ public class GameView {
 		String skillName = dtoCharacter.getSkill().getName();
 		String result = "";
 		int skillCount = skillService.getSkillCount();
-		
-		result += LanguageService.get("어떤 스킬을 사용하겠습니까?") + "\r\n";
+		result += mainView.addStringMargin("어떤 스킬을 사용하겠습니까?");
+		result += mainView.getSeperatorThin();
 		
 		for(int i=0; i<skillCount; i++) {
 			String temp = skillList.get(i).getName();
@@ -37,8 +38,8 @@ public class GameView {
 			result += "\r\n";
 			
 		}
-		
-		System.out.println(result);
+		result += mainView.input();
+		System.out.print(result);
 	}
 }
 

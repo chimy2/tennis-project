@@ -211,14 +211,15 @@ public class RecordDAO {
 
 	}
 
-	public ArrayList<String> getTotal() {
+	public String getTotal() {
 
 		String line = null;
 		String list = null;
-		ArrayList<String> lineArray = new ArrayList<>();
+		ArrayList<RecordDTO> lineArray = new ArrayList<RecordDTO>();
 		String[] temp = null;
 		int num = 1;
 	
+		String tempRecord = "";
 		
 		
 		
@@ -236,9 +237,26 @@ public class RecordDAO {
 
 				String score = "";
 				score = temp[4] + " : " + temp[5];
+				
+				temp = line.split(",");
+				temp[1] = temp[1].replace("-", "");
+				RecordDTO dto = new RecordDTO();
+				dto.setNo(temp[0]); // 일련번호
+				dto.setDate(temp[1]); // 날짜
+				dto.setName(temp[2]); // 이름
+				dto.setCharacterno(temp[3]); // 캐릭터 > 번호를 이름으로 변경하는 메서드 만들어야 함
 
+				dto.setCharactername(temp[3]); // 캐릭터이름
+				dto.setScoreme(temp[4]); // 내 점수
+				dto.setSocrecumputer(temp[5]); // 컴퓨터 점수
+
+				dto.setCharactername(nameCharacter(temp[3]));
+
+				lineArray.add(dto);
+
+				
 				//10개씩 보여주기
-				lineArray.add(String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", num, temp[1], temp[2], character, score));
+//				lineArray.add(String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s", num, temp[1], temp[2], character, score));
 
 //				System.out.print(list);
 
@@ -246,6 +264,27 @@ public class RecordDAO {
 				num++;
 
 			}
+			lineArray.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)
+			
+			int i = 1;
+			for (RecordDTO record : lineArray) {
+
+				String dump = record.getDate();
+				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
+
+				String character = nameCharacter(record.getCharacterno());
+//			
+
+				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
+						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
+
+				i++;
+			}
+//			System.out.println(tempRecord);
+
+			
+			
+//			list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)			
 			
 			String thinline = "";	//구분선
 			thinline += mainView.getSeperatorThin();
@@ -258,7 +297,7 @@ public class RecordDAO {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
 		}
-		return lineArray;
+		return tempRecord;
 	}
 
 	public void sort(String number) {
@@ -328,7 +367,14 @@ public class RecordDAO {
 
 	public void stack(ArrayList<RecordDTO> list, String number) {
 
-		view.sortMenu();
+		if(!number.equals("1")) {
+			view.sortMenu();
+			
+		}else {
+			view.sortMenuCalendar();
+		
+		}
+		
 		String sort = scan.nextLine();
 
 		while (!(sort.equals("1") || sort.equals("2"))) {
@@ -341,23 +387,33 @@ public class RecordDAO {
 			if (number.equals("1")) {// 날짜
 				if (sort.equals("1")) {
 					list.sort(Comparator.comparing(RecordDTO::getDate)); // 정렬(오름차순)
+//					list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)
 
-				} else {
-					list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)
+				} 
+				else {
+					MainView error = new MainView();
+					error.errorInput();
 				}
 			} else if (number.equals("2")) {
 				if (sort.equals("1")) {
-					list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬(오름차순)
+//					list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬(오름차순)
+//					list.sort(Comparator.comparing(RecordDTO::getDate).reversed());
 
+					list.sort(Comparator.comparing(RecordDTO::getName)
+		                      .thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));
+					
 				} else {
-					list.sort(Comparator.comparing(RecordDTO::getName).reversed()); // 정렬(내림차순)
+					list.sort(Comparator.comparing(RecordDTO::getName).reversed()
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));	; // 정렬(내림차순)
 				}
 			} else if (number.equals("3")) {
 				if (sort.equals("1")) {
-					list.sort(Comparator.comparing(RecordDTO::getCharactername)); // 정렬(오름차순)
+					list.sort(Comparator.comparing(RecordDTO::getCharactername)
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));// 정렬(오름차순)
 
 				} else {
-					list.sort(Comparator.comparing(RecordDTO::getCharactername).reversed()); // 정렬(내림차순)
+					list.sort(Comparator.comparing(RecordDTO::getCharactername).reversed()
+		                      .thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));// 정렬(내림차순)
 				}
 			}
 		} else {

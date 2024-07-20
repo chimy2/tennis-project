@@ -89,24 +89,22 @@ public class RecordService {
 					}
 				System.out.println(listSpec);
 				
-				MainView error = new MainView();
-				System.out.println(error.getSeperator()); // 출력이 끝나서 추가함
-				error.pause(); // 출력이 끝나서 추가함
-				
 				}
 			}
 
 			else if (menu.equals("3")) {// 3. 최신기록 전체보기
 				view.subMenu("최신 기록");
 				view.titleSpecific();
-				ArrayList<String> lineArray = dao.getTotal(); // 전체 최신기록 배열로 받음
+//				ArrayList<RecordDTO> lineArray = dao.getTotal(); // 전체 최신기록 배열로 받음
 //				System.out.println(lineArray.get(0));
 				int number = 0;
 				
-				//모든 간단한 정보 확인 : 먼저 10줄만 보여주기
-				for(int i=0; i<lineArray.size(); i++) {
-					System.out.println(lineArray.get(i));
-				}
+				//모든 간단한 정보 확인 : 전체 줄만 보여주기
+//				for(int i=0; i<lineArray.size(); i++) {
+//					System.out.println(lineArray.get(i));
+//				}
+				String lineArray = dao.getTotal(); 
+				System.out.println(lineArray);
 				
 				// 정보가 괜찮으면 진행
 			
