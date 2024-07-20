@@ -200,8 +200,9 @@ public class TennisView {
 		temp += mainView.getSeperator();
 		temp += mainView.getSubTitle("테니스 시뮬레이터를 플레이 해주셔서 감사합니다.");
 		temp += mainView.getSeperatorThin();
-		temp += mainView.setNumRowMargin("메인 메뉴", "다시 하기", "게임 종료");
+		temp += mainView.setNumRowMargin("메인메뉴", "다시하기");
 		temp += mainView.getSeperator();
+		temp += mainView.input();
 		
 		System.out.println(temp);
 	}
