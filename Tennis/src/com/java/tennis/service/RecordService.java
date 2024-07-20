@@ -90,6 +90,10 @@ public class RecordService {
 					}
 				System.out.println(listSpec);
 				
+				MainView error = new MainView();
+				System.out.println(error.getSeperator()); // 출력이 끝나서 추가함
+				error.pause(); // 출력이 끝나서 추가함
+				
 				}
 			}
 

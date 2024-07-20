@@ -169,18 +169,20 @@ public class RecordDAO {
 					dumy.put(numChange, temp[0]);
 					i++;
 				}
-
+				
+				
 			}
 
 			if (id.equals("q")) {
 				result = "q";
 			}
-
+			
 			reader.close();
 		} catch (Exception e) {
 			System.out.println("RecordDAO.recordSearch");
 			e.printStackTrace();
 		}
+		
 		return result;
 	}
 
