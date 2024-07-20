@@ -24,7 +24,6 @@ public class RecordView {
 	}
 	
 	public void subtitle(String title) {
-		
 		String result = "";
 		result += "\r\n";
 		result += mainView.getSeperator();
@@ -95,20 +94,20 @@ public class RecordView {
 		System.out.print(result);
 	}
 	
-	public void subMenu(String title) {
-		//원본
+//	public void subMenu(String title) {
+//		//원본
+////		String result = "";
+////		result += thingetSeperator();
+////		result += LanguageService.get(title+"\r\n");
+////		result += thingetSeperator();
+////		System.out.println(result);
+//		
 //		String result = "";
-//		result += thingetSeperator();
-//		result += LanguageService.get(title+"\r\n");
-//		result += thingetSeperator();
+//		result += "\r\n";
+//		result += mainView.getSeperator();
+//		result += LanguageService.get(title);
 //		System.out.println(result);
-		
-		String result = "";
-		result += "\r\n";
-		result += mainView.getSeperator();
-		result += LanguageService.get(title);
-		System.out.println(result);
-	}
+//	}
 	
 	public void sortQuestion() {
 		
@@ -146,10 +145,6 @@ public class RecordView {
 		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
-	}
-	
-	public String getTitle(String title) {
-		return title;
 	}
 
 	public void sortMenu() { //명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문 > [세부정렬질문]

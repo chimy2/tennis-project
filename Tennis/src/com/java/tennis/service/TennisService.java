@@ -179,7 +179,6 @@ public class TennisService {
 					break;
 				}
 			}
-
 			;
 
 			AbilityDTO dtoAbility = new AbilityDTO();
@@ -189,17 +188,60 @@ public class TennisService {
 				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countTotalServe));
 				input = scan.nextInt();
 				scan.skip("\r\n");
+				
+				if (input == 333) {
+					
+					String[] terms = {"유저 포인트", "컴퓨터 포인트", "유저 게임 포인트", "컴퓨터 게임 포인트", "유저 세트 포인트", "컴퓨터 세트 포인트", "현재 게임", "현제 세트"};
+					String txt = "" + me.point + "," + cpu.point + "," + me.pointGame + "," + cpu.pointGame + "," + me.pointSet + "," + cpu.pointSet + "," + countGame + "," + countSet;
+					String[] old = txt.split(",");
+					int[] values = {me.point, cpu.point, me.pointGame, cpu.pointGame, me.pointSet, cpu.pointSet, countGame, countSet};
+					
+//					int[] temp = scoreModifier(me.point, cpu.point, me.pointGame, cpu.pointGame, me.pointSet, cpu.pointSet, countGame, countSet);
+					int[] temp = scoreModifier(values);
+					
+					me.point = temp[0];
+					cpu.point = temp[1];
+					me.pointGame = temp[2];
+					cpu.pointGame = temp[3];
+					me.pointSet = temp[4];
+					cpu.pointSet = temp[5];
+					countGame = temp[6];
+					countGame = temp[7];
+					
+					System.out.printf("게임 변수가 아래와 같이 변경되었습니다.\r\n");
+					
+					for (int i=0; i<terms.length; i++) {
+						System.out.printf("%s: %s -> %d\r\n", terms[i], old[i], temp[i]);
+					}
+					
+					System.out.println();
+					continue;
+				}
 
+				if (input == 111 || input == 222) {
+					break;
+				} else {
 				if (input > 4 || input < 1) {
 					view.selectSkill();
 					continue;
 				} else {
 					break;
 				}
+			}	
+				
 			}
-			
+	/*
+			사용자가 원하는 기술에 해당하는 번호 input을 입력할 때 사용하기 위해 추가한 코드
+			특정 점수/상황을 도출하기 위한 용도로 사용 (ex: 같은 점수 상황을 만들기. 타이 브레이크 상황 만들기 등...)
+			추가적인 코드는 statModifier(input) 메서드 참조 (해당 메서드는 AbilityDTO 클래스에 존재함)
+			111 입력 시 -> 유저 난수 += 150 -> 유저 무조건 승리
+			222 입력 시 -> 컴퓨너 난수 += 150 -> 컴퓨터 무조건 승리 
+			if (input == 111 || input == 222) {
+				break;
+			} else {}
+	*/
 			Random rnd = new Random();
-			me.chance = rnd.nextInt(100) + 50 + dtoAbility.statModifier(input); //stats[i]
+			me.chance = rnd.nextInt(100) + 1 + dtoAbility.statModifier(input); //stats[i]
 			cpu.chance = rnd.nextInt(100) + 1;
 
 			if(App.difficulty == settingView.EASY) {
@@ -250,6 +292,91 @@ public class TennisService {
 		
 	}
 
+//	private int[] scoreModifier(int p1, int p2, int g1, int g2, int s1, int s2,	int countGame, int countSet) {
+	private int[] scoreModifier(int[] values) {
+		
+		/*
+		해당 메서드는 게임내 포인트,게임,세트 점수를 조작하여 원하는 디버깅 상황을 신속하게 만들기 위해 만든 메서드입니다.
+		해당 메서드는 게임 내 각종 점수 변수를 정수형의 배열로 받고 다시 이것을 같은 자료형의 새 값으로 반환합니다.
+		[1] = 유저 포인트,	[2] = 컴퓨터 포인트
+		[3] = 유저 게임 포인트,	[4] = 유저 게임 포인트
+		[5] = 유저 세트 포인트, [6] = 유저 세트 포인트
+		countGame = 현재 게임 == [3] + [4] + 1
+			ex: 유저가 1 게임 포인트를 획득했으며 컴퓨터가 0 게임 포인트를 획득하고 있으면 식은 아래와 같습니다.
+			[3] = 1, [4] = 0
+			-> countGame =	[3]	+	[4]	+	1
+			-> countGame =	(1)	+	(0)	+	1
+			-> countGame = 2
+			-> 현재게임은 2
+			countSet의 정의도 동일한 방식을 가져갑니다.
+		countSet = 현재 세트 == [5] + [6] + 1
+		*/
+		
+		boolean loop = true;
+		while (loop) {
+			
+			String[] terms = {"유저 포인트", "컴퓨터 포인트", "유저 게임 포인트", "컴퓨터 게임 포인트", "유저 세트 포인트", "컴퓨터 세트 포인트", "현재 게임", "현제 세트"};
+			
+			System.out.println();
+			System.out.println("띄어쓰기 없이 아래 순서로 변수를 띄어쓰기 없이 아래와 같이 입력 부탁드립니다.\r\n"
+								+ "(p1포인트,p2포인트,p1게임포인트,p2게임포인트,p1세트포인트,p2세트포인트)"
+								+ "(1,2,3,4,5,6)");
+			System.out.println();
+		System.out.println("현재 변수 값은 아래와 같습니다.");
+		
+		for (int i=0; i<values.length; i++) {
+			System.out.printf("%-15s: %d\r\n", terms[i], values[i]);
+		}
+		
+//		String temp = "";
+//		
+//		for (int i=0; i<values.length; i++) {
+//			if (i!=values.length-1) {
+//				temp += values[i] + ", ";
+//			} else {
+//				temp += values[i];
+//			}
+//		}
+//		System.out.println(temp);
+		System.out.print("입력: ");
+		
+		String text = scan.nextLine();
+		String[] string = (text.split(","));
+		
+		int[] temp = new int[string.length + 2];
+		
+		for (int i=0; i<string.length; i++) {
+			temp[i] = Integer.valueOf(string[i]);
+		}
+		
+		System.out.println("입력하신 값을 확인 부탁드립니다.");
+		System.out.printf("p1포인트: %d\r\n", temp[0]);
+		System.out.printf("p2포인트: %d\r\n", temp[1]);
+		System.out.printf("p1게임포인트: %d\r\n", temp[2]);
+		System.out.printf("p2게임포인트: %d\r\n", temp[3]);
+		System.out.printf("p1세트포인트: %d\r\n", temp[4]);
+		System.out.printf("p2세트포인트: %d\r\n", temp[5]);
+		System.out.println("1.예\t\t\t2.아니오");
+		temp[6] = countGame = temp[2] + temp[3] + 1;
+		temp[7] = countSet = temp[4] + temp[5] + 1;
+		
+		int input = scan.nextInt();
+		scan.skip("\r\n");
+		if (input == 2) {
+			continue;
+		} else if (input == 1);
+			return temp;
+		}
+		return null;
+
+
+		
+		
+		
+
+		
+	}
+
 	private String pointName(int num1, int num2) {
 		
 		String[] pointNames = {"러브", "피프틴", "써티", "포티"	};
@@ -269,7 +396,7 @@ public class TennisService {
 				result = "애드 플레이어 1";
 			} else if ( diff == -1 ) {
 				result = "애드 플레이어 2";
-			} else if (diff == 2) {
+			} else if (diff >= 2) {
 				result = "게임 플레이어 1";
 			} else {
 				result = "게임 플레이어 2";
@@ -420,7 +547,18 @@ public class TennisService {
 			view.recordName();
 			String name = scan.nextLine();
 
-			view.checkRecordName(name);
+//<<<<<<< HEAD
+//			view.checkRecordName(name);
+//=======
+			if (name.length() < 1 || name.length() > 10) {
+				System.out.println("이름은 1자에서 10자 사이로 입력 부탁드립니다.");
+				recordName(characterDTO);
+			}
+			
+			System.out.printf("입력하신 이름이 %s이(가) 맞습니까?\r\n", name);
+			System.out.println("1.예	2.아니오");
+			
+//>>>>>>> 8a8fba42ce023bc98e254f839aaf97ffaf5cb0ed
 			int input = scan.nextInt();
 			scan.skip("\r\n");
 			

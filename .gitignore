@@ -25,3 +25,5 @@ replay_pid*
 .metadata/
 Tennis/.settings/
 Tennis/bin/
+ignoreMe/
+
