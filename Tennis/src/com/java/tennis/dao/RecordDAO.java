@@ -201,7 +201,11 @@ public class RecordDAO {
 
 	public String gameNum() {
 
-		mainView.input();
+//		mainView.input();
+		String result = "";
+		result += view.thingetSeperator();
+		result += "번호 입력 : ";
+		System.out.print(result);
 		String num = scan.nextLine();
 		System.out.println();
 
@@ -412,4 +416,13 @@ public class RecordDAO {
 		return character;
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
