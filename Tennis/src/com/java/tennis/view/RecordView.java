@@ -93,15 +93,6 @@ public class RecordView {
 		result += "\r\n";
 		result += mainView.getSeperator();
 		result += mainView.addMenuMarginCenter("날짜", "아이디", "캐릭터");
-//		result += "1. ";
-//		result += LanguageService.get("날짜");
-//		result += "\t";
-//		result += "2. ";
-//		result += LanguageService.get("아이디");
-//		result += "\t";
-//		result += "3. ";
-//		result += LanguageService.get("캐릭터");
-//		result += "\r\n";
 		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
@@ -115,12 +106,6 @@ public class RecordView {
 		sortmenu += mainView.getSubTitle("정렬을 선택해주세요.");
 		sortmenu += mainView.getSeperator();
 		sortmenu += mainView.addMenuMarginCenter("오름차순", "내림차순");
-//		sortmenu += "1. ";
-//		sortmenu += LanguageService.get("오름차순");
-//		sortmenu += "\t";
-//		sortmenu += "2.";
-//		sortmenu += LanguageService.get("내림차순");
-//		sortmenu += "\r\n";
 		sortmenu += mainView.getSeperatorThin();
 		sortmenu += mainView.input();
 		System.out.print(sortmenu);
