@@ -23,7 +23,7 @@ English, English, English
 백핸드,Backhand,バックハンド
 포핸드,Forehand,フォアハンド
 서브,Serve,サブ
-리시브,Receive,리시브일본어모르겠어요찾아주세요
+리시브,Receive,受ける
 스매시,Smash,スマッシュ
 노박 조코비치,Novak Djokovic,ノバク・ジョコビッチ
 세레나 윌리엄스,Serena Williams,セリーナ・ウィリアムズ
@@ -86,5 +86,5 @@ English, English, English
 패,Loss,敗
 기록할 이름을 입력해주세요.,Please enter the name to record.,記録する名前を入力してください。
 입력하신 이름이,The name you entered is,入力した名前が
-이(가) 맞습니까?,correct?,でよろしいですか？
+이(가) 맞습니까?, correct?,でよろしいですか？
 자세히 보고싶은 기록의 번호를 입력하세요.,Please enter the number of the record you want to see in detail.,詳細を見たい記録の番号を入力してください

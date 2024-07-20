@@ -257,7 +257,6 @@ public class RecordDAO {
 			}
 
 			this.reader.close();
-
 		} catch (Exception e) {
 			System.out.println("RecordDAO.get");
 			e.printStackTrace();
