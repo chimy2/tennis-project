@@ -93,23 +93,6 @@ public class MainView {
 		return result;
 	}
 	
-//	public String addMenuMargin(String... menus) {
-//		int width = 120;
-//		String result = "";
-//		int len = menus.length;
-//		int areaSize = width / len;
-//
-//		for(int i=0; i<len; i++) {
-//			String menu = LanguageService.get(menus[i]);
-//			result += String.format("%-" + (areaSize - calcKRJPStringCount(menu)) + "s", 
-//					String.format("%d. %s", i + 1, menu));
-//		}
-//		
-//		result += "\r\n";
-//		
-//		return result;
-//	}
-	
 	public String addMenuMarginCenter(String menu) {
 		String result = "";
 		int len = 1;
@@ -140,6 +123,36 @@ public class MainView {
 		return result;
 	}
 	
+	public String setRowMargin(String[] rows) {
+		
+		for(int i=0; i<rows.length; i++) {
+			rows[i] = LanguageService.get(rows[i]);
+		}
+
+		StringBuilder sb = new StringBuilder();
+		
+	    for (String row : rows) {
+	        sb.append(arrangeRow(row, rows.length));
+//	        sb.append(1);
+	    }
+	    
+	    sb.append("\r\n");
+	    
+	    return sb.toString();
+	}
+	
+	public String arrangeRow(String text, int len) {
+		int lineLength = 120;
+	    int textLength = text.length();
+	    int padding = (lineLength/ len - calcKRJPStringCount(text))/ 2 ;
+	    // 패딩을 추가하여 텍스트를 가운데로 정렬
+	    StringBuilder sb = new StringBuilder();
+        sb.append(" ".repeat(padding));
+	    sb.append(text);
+	    sb.append(" ".repeat(padding));
+	    return sb.toString();
+	}
+	
 	public String addMenuMarginCenter(String menu, int... nums) {
 		String result = "";
 		int len = nums.length;
@@ -151,9 +164,7 @@ public class MainView {
 				result += " ".repeat(3);
 			}
 		}
-
 		result = addStringMargin(result);
-		
 		return result;
 	}
 	
@@ -199,7 +210,7 @@ public class MainView {
 				result++;
 			}
 		}
-		return result;
+		return result * 2;
 	}
 	
 	public void pause() {

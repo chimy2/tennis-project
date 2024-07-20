@@ -35,22 +35,37 @@ public class RecordView {
 	public void titleSpecific() { //명예의전당 속성이름
 		
 		String result = "";
+		String empty = "";
+		String[] menus = {
+		        "번호",
+		        "날짜",
+		        "닉네임",
+		        "캐릭터",
+		        "스코어"
+		    };
+		
+		
+		
 		result += mainView.getSeperator();
-		result += LanguageService.get("번호");
-		result += "\t";
-		result += LanguageService.get("날짜");
-		result += "\t";
-		result += LanguageService.get("닉네임");
-		result += "\t";
-		result += LanguageService.get("캐릭터");
-		result += "\t";
-		result += LanguageService.get("스코어");
-		result += "\r\n";
+		result += mainView.setRowMargin(menus);
+//		result += mainView.addStringMargin(
+//				String.format("%4s%3s%10s%3s%10s%3s%15s%3s%3s",
+//						LanguageService.get("번호"),
+//						empty,
+//						LanguageService.get("날짜"),
+//						empty,
+//						LanguageService.get("닉네임"),
+//						empty,
+//						LanguageService.get("캐릭터"),
+//						empty,
+//						LanguageService.get("스코어")
+//						)
+//				);
 		result += mainView.getSeperator();
 		System.out.println(result);
+	
 		
 	}
-
 
 
 	public void subTitleSpecific() {
@@ -131,6 +146,8 @@ public class RecordView {
 		
 		String result = "";
 		result += "\r\n";
+		result += mainView.getSeperator();
+		result += mainView.getSubTitle("무엇을 기준으로 정렬하시겠습니까?");
 		result += mainView.getSeperator();
 		result += mainView.addMenuMarginCenter("날짜", "아이디", "캐릭터");
 //		result += "1. ";

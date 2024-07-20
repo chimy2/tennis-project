@@ -360,7 +360,6 @@ public class RecordDAO {
 			}
 //			System.out.println(tempRecord);
 //			list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)			
-			
 			reader.close();
 			
 		} catch (Exception e) {
