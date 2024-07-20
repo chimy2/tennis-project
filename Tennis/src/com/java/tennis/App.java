@@ -11,6 +11,7 @@ import com.java.tennis.view.MainView;
 public class App {
 	public static int langIndex = 0;
 	public static int difficulty = 2;
+	public static boolean loop;
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -20,7 +21,8 @@ public class App {
 		SettingService settingService = new SettingService();
 		RecordService recordService = new RecordService();
 		
-		while(true) {
+		loop = true;
+		while(loop) {
 			view.getMainMenu();
 			
 			String input = scan.nextLine();

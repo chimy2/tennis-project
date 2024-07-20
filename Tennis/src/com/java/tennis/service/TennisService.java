@@ -184,7 +184,7 @@ public class TennisService {
 				
 				if (input == 333) {
 					
-					String[] terms = {"유저 포인트", "컴퓨터 포인트", "유저 게임 포인트", "컴퓨터 게임 포인트", "유저 세트 포인트", "컴퓨터 세트 포인트", "현재 게임", "현제 세트"};
+					String[] terms = {"p1포인트", "p2포인트", "p1게임포인트", "p2게임포인트", "p1세트포인트", "p2세트포인트", "현재게임", "현제세트"};
 					String txt = "" + me.point + "," + cpu.point + "," + me.pointGame + "," + cpu.pointGame + "," + me.pointSet + "," + cpu.pointSet + "," + countGame + "," + countSet;
 					String[] old = txt.split(",");
 					int[] values = {me.point, cpu.point, me.pointGame, cpu.pointGame, me.pointSet, cpu.pointSet, countGame, countSet};
@@ -203,9 +203,18 @@ public class TennisService {
 					
 					System.out.printf("게임 변수가 아래와 같이 변경되었습니다.\r\n");
 					
-					for (int i=0; i<terms.length; i++) {
-						System.out.printf("%s: %s -> %d\r\n", terms[i], old[i], temp[i]);
+					for (int i=0; i<values.length-2; i++) {
+						if (terms[i].length()>8) {
+							System.out.printf("%s:%s   ->\t%d\r\n", terms[i], old[i], temp[i]);
+						} else if (terms[i].length()>4) {
+							System.out.printf("%s:\t%s   ->\t%d\r\n", terms[i], old[i], temp[i]);
+						}
 					}
+					
+					
+//					for (int i=0; i<terms.length; i++) {
+//						System.out.printf("%s: %s -> %d\r\n", terms[i], old[i], temp[i]);
+//					}
 					
 					System.out.println();
 					continue;
@@ -283,18 +292,23 @@ public class TennisService {
 				break;
 			}
 		}
-		view.finalMenu();
-		String input = scan.nextLine();
 		
-		if (input.equals("1")) {
-			return;
+		while (true) {
 			
-		} else if (input.equals("2")) {
-			gameStart(dto, dtoCharacter);
-		} else if (input.equals("3")) {
-			MainView view = new 
+			view.finalMenu();
+			String input = scan.nextLine();
+			
+			if (input.equals("1")) {
+				return;
+			} else if (input.equals("2")) {
+				System.out.println();
+				gameSetup();
+			} else {
+				MainView view = new MainView();
+				view.errorInput();
+			}
+			
 		}
-		
 		
 //		루프 돔황챠!!!
 		
@@ -363,6 +377,14 @@ public class TennisService {
 		}
 		temp[6] = countGame = temp[2] + temp[3] + 1;
 		temp[7] = countSet = temp[4] + temp[5] + 1;
+	
+		String tempText = "";
+		
+		tempText += mainView.getSeperator();
+		tempText +=	mainView.addMenuMarginCenter("예", "아니오");
+		tempText += mainView.getSeperator();
+		
+		System.out.println(tempText);
 		
 		int input = scan.nextInt();
 		scan.skip("\r\n");
