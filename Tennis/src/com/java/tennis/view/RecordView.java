@@ -142,6 +142,7 @@ public class RecordView {
 		result += "\t";
 		result += "3. ";
 		result += LanguageService.get("캐릭터");
+		result += "\r\n";
 		result += thingetSeperator();
 		result += mainView.input();
 		System.out.print(result);
