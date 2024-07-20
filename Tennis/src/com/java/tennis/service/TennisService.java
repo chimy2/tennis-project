@@ -36,16 +36,16 @@ public class TennisService {
 	static int countGame; //몇 번째 게임 (세트가 끝날 때 리셋)
 	static int countSet; //몇 번째 세트 (매치가 끝날 때 리셋)
 	
-	GameDAO dao = new GameDAO();
-	TennisDTO me = new TennisDTO();
-	TennisDTO cpu = new TennisDTO();
-	RecordDTO dtoRecord = new RecordDTO();
-	CharacterDAO daoCharacter = new CharacterDAO();
-	SettingView settingView = new SettingView();
-	MainView mainView = new MainView();
-	MatchDTO dtoMatch = new MatchDTO();
-	MatchDAO daoMatch = new MatchDAO();
-	String temp = "";
+	private GameDAO dao = new GameDAO();
+	private TennisDTO me = new TennisDTO();
+	private TennisDTO cpu = new TennisDTO();
+	private RecordDTO dtoRecord = new RecordDTO();
+	private CharacterDAO daoCharacter = new CharacterDAO();
+	private SettingView settingView = new SettingView();
+	private MainView mainView = new MainView();
+	private MatchDTO dtoMatch = new MatchDTO();
+	private MatchDAO daoMatch = new MatchDAO();
+	private String temp = "";
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -87,12 +87,10 @@ public class TennisService {
 				mainView.errorInput();
 				continue;
 			}
-			
 		}
 		
 		loop = true;
 		while (loop) {
-			
 			view.selectGameSet();
 			set = scan.nextInt();
 			dto.setSet(set);

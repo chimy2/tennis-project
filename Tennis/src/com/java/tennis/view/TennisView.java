@@ -50,10 +50,11 @@ public class TennisView {
 		temp += LanguageService.get("게임 타입을 선택해주세요.");
 		temp += "\r\n";
 		temp += mainView.getSeperator();
-		temp += String.format("1.[%s]\t\t\t2.[%s]",
-				LanguageService.get("단식"),
-				LanguageService.get("복식")
-			);
+		temp += mainView.addMenuMargin("단식", "복식");
+//		temp += String.format("1.[%s]\t\t\t2.[%s]",
+//				LanguageService.get("단식"),
+//				LanguageService.get("복식")
+//			);
 		temp += "\r\n";
 		temp += mainView.input();
 		
@@ -69,10 +70,11 @@ public class TennisView {
 		temp += LanguageService.get("세트 수를 선택해주세요.");
 		temp += "\r\n";
 		temp += mainView.getSeperator();
-		temp += String.format("1.[%s]\t\t\t2.[%s]",
-				set,
-				set
-			);
+		temp += mainView.addMenuMargin("세트", 3, 5);
+//		temp += String.format("1.[3%s]\t\t\t2.[5%s]",
+//				set,
+//				set
+//			);
 		temp += "\r\n";
 		temp += mainView.input();
 		
@@ -87,10 +89,11 @@ public class TennisView {
 		temp += LanguageService.get("플레이어 수를 입력해주세요.");
 		temp += "\r\n";
 		temp += mainView.getSeperator();
-		temp += String.format("1.[%s]\t\t\t2.[%s]",
-				LanguageService.get("1명"),
-				LanguageService.get("2명")
-			);
+		temp += mainView.addMenuMargin("1명", "2명");
+//		temp += String.format("1.[%s]\t\t\t2.[%s]",
+//				LanguageService.get("1명"),
+//				LanguageService.get("2명")
+//			);
 		temp += "\r\n";
 		temp += mainView.input();
 		
@@ -119,7 +122,8 @@ public class TennisView {
 
 		temp += LanguageService.get("게임을 기록하시겠습니까?");
 		temp += "\r\n";
-		temp += LanguageService.get("1.예	2.아니오");
+		temp += mainView.addMenuMargin("예", "아니요");
+//		temp += LanguageService.get("1.예	2.아니오");
 		temp += "\r\n";
 		
 		System.out.println(temp);

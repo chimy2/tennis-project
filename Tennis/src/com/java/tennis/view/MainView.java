@@ -22,8 +22,8 @@ public class MainView {
 		result += getSeperator();
 		result += getTitle();
 		result += getSeperator();
-		result += LanguageService.get("1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료");
-		result += "\r\n";
+//		result += LanguageService.get("1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료");
+		result += addMenuMargin("게임 시작하기", "명예의 전당", "게임 설명", " 환경 설정", "게임 종료");
 		result += getSeperator();
 		result += selectMenu();
 		MainService.printLine(result, 200);
@@ -52,7 +52,7 @@ public class MainView {
 	public String addStringMargin(String line) {
 //		JetBrainsMonoHangul NL 기준 120자
 		int crit = 60;
-		int size = crit + calcStringLength(line);
+		int size = crit + calcStringLength(line) / 2;
 		return String.format("%" + size + "s\r\n", line);
 	}
 	
@@ -63,6 +63,40 @@ public class MainView {
 		for(String line : lines) {
 			result += addStringMargin(line);
 		}
+		
+		return result;
+	}
+	
+	public String addMenuMargin(String... menus) {
+		int width = 120;
+		String result = "";
+		int len = menus.length;
+		int areaSize = width / len;
+
+		for(int i=0; i<len; i++) {
+			String menu = LanguageService.get(menus[i]);
+			result += String.format("%-" + (areaSize - calcKRJPStringCount(menu)) + "s", 
+					String.format("%d. %s", i + 1, menu));
+		}
+		
+		result += "\r\n";
+		
+		return result;
+	}
+	
+	public String addMenuMargin(String str, int... nums) {
+		int width = 120;
+		String result = "";
+		int len = nums.length;
+		int areaSize = width / len;
+		String temp = LanguageService.get(str);
+		
+		for(int i=0; i<len; i++) {
+			result += String.format("%-" + (areaSize - calcKRJPStringCount(temp)) + "s", 
+					String.format("%d. %d%s", i + 1, nums[i], temp));
+		}
+		
+		result += "\r\n";
 		
 		return result;
 	}
@@ -78,7 +112,21 @@ public class MainView {
 				result += 0.25;
 			}
 		}
-		return (int) result / 2;
+		return (int) result;
+	}
+	
+	public int calcKRJPStringCount(String str) {
+		int result = 0;
+//		기본 폰트에 맞춰 크기 설정 하기
+		for(int i=0; i<str.length(); i++) {
+			char c = str.charAt(i);
+			if(c >= '가' && c <= '힣' 
+					|| c >= 'あ' && c <= 'ん'
+					|| c >= 'ア' && c <= 'ン') {
+				result++;
+			}
+		}
+		return result;
 	}
 	
 	public String getSubTitle(String title) {
