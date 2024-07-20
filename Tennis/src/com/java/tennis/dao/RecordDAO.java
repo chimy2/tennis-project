@@ -82,6 +82,10 @@ public class RecordDAO {
 						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
 
 				i++;
+
+				if (i > 10) {
+					break;
+				}
 			}
 
 			System.out.println();
