@@ -97,20 +97,20 @@ public class RecordView {
 		System.out.print(result);
 	}
 	
-	public void subMenu(String title) {
-		//원본
+//	public void subMenu(String title) {
+//		//원본
+////		String result = "";
+////		result += thingetSeperator();
+////		result += LanguageService.get(title+"\r\n");
+////		result += thingetSeperator();
+////		System.out.println(result);
+//		
 //		String result = "";
-//		result += thingetSeperator();
-//		result += LanguageService.get(title+"\r\n");
-//		result += thingetSeperator();
+//		result += "\r\n";
+//		result += mainView.getSeperator();
+//		result += LanguageService.get(title);
 //		System.out.println(result);
-		
-		String result = "";
-		result += "\r\n";
-		result += mainView.getSeperator();
-		result += LanguageService.get(title);
-		System.out.println(result);
-	}
+//	}
 	
 	public void sortQuestion() {
 		
@@ -150,9 +150,9 @@ public class RecordView {
 	}
 	
 	
-	public String getTitle(String title) {
-		return title;
-	}
+//	public String getTitle(String title) {
+//		return title;
+//	}
 
 
 
