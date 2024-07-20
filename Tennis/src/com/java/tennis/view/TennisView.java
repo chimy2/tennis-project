@@ -193,4 +193,16 @@ public class TennisView {
 		
 		System.out.println(temp);
 	}
+
+	public void finalMenu() {
+		String temp = "";
+		
+		temp += mainView.getSeperator();
+		temp += mainView.getSubTitle("테니스 시뮬레이터를 플레이 해주셔서 감사합니다.");
+		temp += mainView.getSeperatorThin();
+		temp += mainView.addMenuMarginCenter("메인메뉴", "다시하기", "게임종료");
+		temp += mainView.getSeperator();
+		
+		System.out.println(temp);
+	}
 }
