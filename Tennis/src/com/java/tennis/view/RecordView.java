@@ -24,15 +24,15 @@ public class RecordView {
 		
 	}
 	
-	public void subtitle(String title) {
-		
-		String result = "";
-		result += "\r\n";
-		result += thingetSeperator();
-		result += LanguageService.get(title);
-		System.out.println(result);
-		
-	}
+//	public void subtitle(String title) {
+//		
+//		String result = "";
+//		result += "\r\n";
+//		result += thingetSeperator();
+//		result += LanguageService.get(title);
+//		System.out.println(result);
+//		
+//	}
 
 	public void titleSpecific() { //명예의전당 속성이름
 		
