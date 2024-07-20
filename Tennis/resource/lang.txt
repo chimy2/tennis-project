@@ -23,6 +23,7 @@ English, English, English
 백핸드,Backhand,バックハンド
 포핸드,Forehand,フォアハンド
 서브,Serve,サブ
+리시브,Receive,리시브일본어모르겠어요찾아주세요
 스매시,Smash,スマッシュ
 노박 조코비치,Novak Djokovic,ノバク・ジョコビッチ
 세레나 윌리엄스,Serena Williams,セリーナ・ウィリアムズ

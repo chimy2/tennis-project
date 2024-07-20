@@ -137,16 +137,33 @@ public class TennisView {
 		System.out.println(temp);
 	}
 	
-	public String informGame(int countSet, int countGame, int countTotalServe) {
+	public String informGame(int countSet, int countGame, int countTotalServe) {	
+		
 		String temp = "";
-		temp += String.format("(%d%s %d%s %d%s %s)", 
-				countSet, 
-				LanguageService.get("세트"), 
-				countGame, 
-				LanguageService.get("게임"), 
-				countTotalServe, 
-				LanguageService.get("회차"), 
-				LanguageService.get("서브"));
+		
+		if (countTotalServe % 2 == 1) {
+			
+			temp += String.format("(%d%s %d%s %d%s %s)", 
+					countSet, 
+					LanguageService.get("세트"), 
+					countGame, 
+					LanguageService.get("게임"), 
+					countTotalServe, 
+					LanguageService.get("회차"),
+					LanguageService.get("서브"));
+			
+		} else {
+			
+			temp += String.format("(%d%s %d%s %d%s %s)", 
+					countSet, 
+					LanguageService.get("세트"), 
+					countGame, 
+					LanguageService.get("게임"), 
+					countTotalServe, 
+					LanguageService.get("회차"),
+					LanguageService.get("리시브"));
+		}
+		
 		return temp;
 	}
 	
