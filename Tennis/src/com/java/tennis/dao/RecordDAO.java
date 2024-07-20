@@ -151,9 +151,9 @@ public class RecordDAO {
 			
 			
 
-			String result = ""; // 구분선
-			result += mainView.getSeperatorThin();
-			System.out.println(result);
+//			String result = ""; // 구분선
+//			result += mainView.getSeperatorThin();
+//			System.out.println(result);
 
 			System.out.println();
 
@@ -254,7 +254,6 @@ public class RecordDAO {
 				
 				
 			}
-
 			if (id.equals("q")) {
 				result = "q";
 			}
