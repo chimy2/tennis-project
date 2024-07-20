@@ -400,17 +400,24 @@ public class RecordDAO {
 				}
 			} else if (number.equals("2")) {
 				if (sort.equals("1")) {
-					list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬(오름차순)
+//					list.sort(Comparator.comparing(RecordDTO::getName)); // 정렬(오름차순)
+//					list.sort(Comparator.comparing(RecordDTO::getDate).reversed());
 
+					list.sort(Comparator.comparing(RecordDTO::getName)
+		                      .thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));
+					
 				} else {
-					list.sort(Comparator.comparing(RecordDTO::getName).reversed()); // 정렬(내림차순)
+					list.sort(Comparator.comparing(RecordDTO::getName).reversed()
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));	; // 정렬(내림차순)
 				}
 			} else if (number.equals("3")) {
 				if (sort.equals("1")) {
-					list.sort(Comparator.comparing(RecordDTO::getCharactername)); // 정렬(오름차순)
+					list.sort(Comparator.comparing(RecordDTO::getCharactername)
+							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));// 정렬(오름차순)
 
 				} else {
-					list.sort(Comparator.comparing(RecordDTO::getCharactername).reversed()); // 정렬(내림차순)
+					list.sort(Comparator.comparing(RecordDTO::getCharactername).reversed()
+		                      .thenComparing(Comparator.comparing(RecordDTO::getDate).reversed()));// 정렬(내림차순)
 				}
 			}
 		} else {
