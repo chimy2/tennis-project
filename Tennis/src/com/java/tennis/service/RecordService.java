@@ -59,7 +59,7 @@ public class RecordService {
 
 				String list = dao.recordSearch(dao.gameId());
 				while (list.equals("")) { // 확인되지 않는 아이디 입력시
-					System.out.println("확인되지 않는 아이디입니다.\n메뉴로 돌아가실려면 'q'를 입력해주세요.");
+					view.notExist();
 					list = dao.recordSearch(dao.gameId());
 					
 					if(list.equals("q")) {
@@ -76,8 +76,7 @@ public class RecordService {
 				if (!(list.equals("") || (list.equals("q")))) { //id 없거나 q 선택했을 때 안돌아가게
 					String listSpec = dao.getSpec(dao.gameNum());
 					while (listSpec.equals("")) { // 확인되지 않는 번호 입력시
-						System.out.println("확인되지 않는 번호입니다.\n메뉴로 돌아가실려면 'q'를 입력해주세요.");
-
+						view.notExist();
 						listSpec = dao.getSpec(dao.gameNum());
 
 						if (listSpec.equals("q")) {
@@ -94,14 +93,11 @@ public class RecordService {
 			}
 
 			else if (menu.equals("3")) {// 3. 최신기록 전체보기
-
 				view.subMenu("최신 기록");
 				view.titleSpecific();
 //				ArrayList<RecordDTO> lineArray = dao.getTotal(); // 전체 최신기록 배열로 받음
 //				System.out.println(lineArray.get(0));
 				int number = 0;
-				
-				
 				
 				//모든 간단한 정보 확인 : 전체 줄만 보여주기
 //				for(int i=0; i<lineArray.size(); i++) {
@@ -115,11 +111,10 @@ public class RecordService {
 					view.sortQuestion(); // 정렬질문
 					String need = scan.nextLine(); // 정렬질문_스캔
 
-					System.out.print(view.thingetSeperator()); // 정렬질문_구분선
+//					System.out.print(view.thingetSeperator()); // 정렬질문_구분선
 
 					while (!(need.equals("1") || need.equals("2"))) {
-						System.out.println("숫자를 다시 입력해주세요.");
-						System.out.print("번호 입력: ");
+						view.errorInput();
 						need = scan.nextLine();
 					}
 					if (need.equals("1")) {

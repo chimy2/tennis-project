@@ -1,11 +1,8 @@
 package com.java.tennis.dao;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -155,7 +152,7 @@ public class RecordDAO {
 			
 
 			String result = ""; // 구분선
-			result += view.thingetSeperator();
+			result += mainView.getSeperatorThin();
 			System.out.println(result);
 
 			System.out.println();
@@ -275,13 +272,12 @@ public class RecordDAO {
 
 		String result = "";
 		result += "\r\n";
-		result += view.thingetSeperator();
-		result += "아이디 검색\r\n";
-		result += view.thingetSeperator();
-		result += "아이디 입력 : ";
+		result += mainView.getSeperator();
+		result += mainView.addStringMargin(LanguageService.get("아이디 검색(메뉴로 돌아가실려면 'q'를 입력해주세요.)"));
+		result += mainView.getSeperator();
+		result += mainView.input();
 		System.out.print(result);
 		String id = scan.nextLine();
-		System.out.println();
 
 		return id;
 	}
@@ -290,8 +286,8 @@ public class RecordDAO {
 
 //		mainView.input();
 		String result = "";
-		result += view.thingetSeperator();
-		result += "번호 입력 : ";
+		result += mainView.getSeperatorThin();
+		result += mainView.input();
 		System.out.print(result);
 		String num = scan.nextLine();
 		System.out.println();
@@ -376,7 +372,7 @@ public class RecordDAO {
 //			list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)			
 			
 			String thinline = "";	//구분선
-			thinline += view.thingetSeperator();
+			thinline += mainView.getSeperatorThin();
 			System.out.println(thinline);
 			System.out.println();
 			

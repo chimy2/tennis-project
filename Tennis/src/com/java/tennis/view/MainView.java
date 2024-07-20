@@ -23,8 +23,13 @@ public class MainView {
 		result += getTitle();
 		result += getSeperator();
 //		result += LanguageService.get("1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료");
-		result += addMenuMargin("게임 시작하기", "명예의 전당", "게임 설명", " 환경 설정", "게임 종료");
+//		result += "\r\n";
+//		result += "\r\n";
+//		result += getSeperator();
+		result += getSubTitle("시작 메뉴");
 		result += getSeperator();
+		result += addMenuMarginCenter("게임 시작하기", "명예의 전당", "게임 설명", " 환경 설정", "게임 종료");
+		result += getSeperatorThin();
 		result += selectMenu();
 		MainService.printLine(result, 200);
 	}
@@ -47,6 +52,18 @@ public class MainView {
 			e.printStackTrace();
 		}
     	return result;
+	}
+	
+	public String getSubTitle(String title) {
+		String result = "";
+		result = addStringMargin(LanguageService.get(title));
+		return result;
+	}
+	
+	public String getSubTitle(String title, String addition) {
+		String result = "";
+		result = addStringMargin(LanguageService.get(title) + " " + LanguageService.get(addition));
+		return result;
 	}
 	
 	public String addStringMargin(String line) {
@@ -84,12 +101,63 @@ public class MainView {
 		return result;
 	}
 	
-	public String addMenuMargin(String str, int... nums) {
+	public String addMenuMarginCenter(String menu) {
+		int width = 120;
+		String result = "";
+		int len = 1;
+		
+		for(int i=0; i<len; i++) {
+			result += String.format("%d. %s", i + 1, menu);
+		}
+		
+		result = addStringMargin(result);
+		
+		return result;
+	}
+	
+	public String addMenuMarginCenter(String... menus) {
+		int width = 120;
+		String result = "";
+		int len = menus.length;
+		
+		for(int i=0; i<len; i++) {
+			String menu = LanguageService.get(menus[i]);
+			result += String.format("%d. %s", i + 1, menu);
+			if(i != len - 1) {
+				result += " ".repeat(3);
+			}
+		}
+		
+		result = addStringMargin(result);
+		
+		return result;
+	}
+	
+	public String addMenuMarginCenter(String menu, int... nums) {
 		int width = 120;
 		String result = "";
 		int len = nums.length;
 		int areaSize = width / len;
-		String temp = LanguageService.get(str);
+		String temp = LanguageService.get(menu);
+		
+		for(int i=0; i<len; i++) {
+			result += String.format("%d. %d%s", i + 1, nums[i], menu);
+			if(i != len - 1) {
+				result += " ".repeat(3);
+			}
+		}
+
+		result = addStringMargin(result);
+		
+		return result;
+	}
+	
+	public String addMenuMargin(String menu, int... nums) {
+		int width = 120;
+		String result = "";
+		int len = nums.length;
+		int areaSize = width / len;
+		String temp = LanguageService.get(menu);
 		
 		for(int i=0; i<len; i++) {
 			result += String.format("%-" + (areaSize - calcKRJPStringCount(temp)) + "s", 
@@ -127,10 +195,6 @@ public class MainView {
 			}
 		}
 		return result;
-	}
-	
-	public String getSubTitle(String title) {
-		return LanguageService.get(title);
 	}
 	
 	public void pause() {
@@ -176,5 +240,9 @@ public class MainView {
 	public String getSeperator() {
 		return "=================================================================="
 				+ "======================================================\r\n";
+	}
+	public String getSeperatorThin() { //메뉴 외 구분선
+		return "------------------------------------------------------------------"
+				+ "------------------------------------------------------\r\n";
 	}
 }
