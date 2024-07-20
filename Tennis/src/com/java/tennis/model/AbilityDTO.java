@@ -17,7 +17,12 @@ public class AbilityDTO {
 			case 3:
 				return stamina;
 			case 4:
-				return focus;		
+				return focus;
+				//111과 222는 디버깅용 치트코드... (무조건 이기거나 무조건 지게해서 특정 상황 만들기용)
+			case 111:
+				return 150;
+			case 222:
+				return -150;
 		}
 		return i;
 		
