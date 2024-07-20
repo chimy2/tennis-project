@@ -79,7 +79,6 @@ public class SettingService {
 	public void setDifficulty() {
 		while(true) {
 			view.setDiff();
-			view.getDiff();
 			System.out.print(mainView.selectMenu());
 			String input = scan.nextLine();
 

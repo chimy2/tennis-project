@@ -29,13 +29,14 @@ public class TennisView {
 		String temp = "";
 		temp += "\r\n";
 		temp += mainView.getSeperator();
-		temp += mainView.addStringMargin("원하는 캐릭터를 선택하세요.");
+		temp += mainView.getSubTitle("원하는 캐릭터를 선택하세요.");
 		temp += mainView.getSeperator();
-		for(int i=0; i<characterList.size(); i++) {
-			temp += (i + 1) + ". ";
-			temp += characterList.get(i).getName();
-			temp += "\r\n";
-		}
+		temp += mainView.addMenuMarginCenter(characterList.stream().map(i->i.getName()).toArray(String[]::new));
+//		for(int i=0; i<characterList.size(); i++) {
+//			temp += (i + 1) + ". ";
+//			temp += characterList.get(i).getName();
+//			temp += "\r\n";
+//		}
 		temp += mainView.getSeperatorThin();
 		temp += mainView.input();
 		System.out.print(temp);
@@ -49,7 +50,7 @@ public class TennisView {
 		
 		temp += "\r\n";
 		temp += mainView.getSeperator();
-		temp += mainView.addStringMargin("게임 타입을 선택해주세요.");
+		temp += mainView.getSubTitle("게임 타입을 선택해주세요.");
 		temp += mainView.getSeperator();
 		temp += mainView.addMenuMarginCenter("단식", "복식");
 		temp += mainView.getSeperatorThin();
@@ -68,7 +69,7 @@ public class TennisView {
 		
 		temp += "\r\n";
 		temp += mainView.getSeperator();
-		temp += mainView.addStringMargin("세트 수를 선택해주세요.");
+		temp += mainView.getSubTitle("세트 수를 선택해주세요.");
 		temp += mainView.getSeperator();
 		temp += mainView.addMenuMarginCenter("세트", 3, 5);
 		temp += mainView.getSeperatorThin();
@@ -86,7 +87,7 @@ public class TennisView {
 
 		temp += "\r\n";
 		temp += mainView.getSeperator();
-		temp += mainView.addStringMargin("플레이어 수를 입력해주세요.");
+		temp += mainView.getSubTitle("플레이어 수를 입력해주세요.");
 		temp += mainView.getSeperator();
 		temp += mainView.addMenuMarginCenter("1명", "2명");
 		temp += mainView.getSeperatorThin();
@@ -118,7 +119,7 @@ public class TennisView {
 		String temp = "";
 
 		temp += mainView.getSeperator();
-		temp += LanguageService.get("게임을 기록하시겠습니까?");
+		temp += mainView.getSubTitle("게임을 기록하시겠습니까?");
 		temp += mainView.getSeperator();
 		temp += mainView.addMenuMarginCenter("예", "아니요");
 		temp += mainView.getSeperatorThin();
@@ -136,11 +137,43 @@ public class TennisView {
 		System.out.println(temp);
 	}
 	
-	public void informGame(int countSet, int countGame, int countTotalServe) {
+	public String informGame(int countSet, int countGame, int countTotalServe) {
 		String temp = "";
+		temp += String.format("(%d%s %d%s %d%s %s)", 
+				countSet, 
+				LanguageService.get("세트"), 
+				countGame, 
+				LanguageService.get("게임"), 
+				countTotalServe, 
+				LanguageService.get("회차"), 
+				LanguageService.get("서브"));
+		return temp;
+	}
+	
+	public void recordName() {
+		String temp = "";
+		
 		temp += mainView.getSeperator();
-		temp += mainView.addStringMargin(String.format("%d세트 %d게임 %d회차 서브", countSet, countGame, countTotalServe));
+		temp += mainView.getSubTitle("기록할 이름을 입력해주세요.");
 		temp += mainView.getSeperator();
+		
+		System.out.println(temp);
+	}
+	
+	public void checkRecordName(String name) {
+		String temp = "";
+		
+		temp += mainView.getSeperator();
+		temp += mainView.getSubTitleNotTrans(
+				LanguageService.get("입력하신 이름이"),
+				" ",
+				name,
+				LanguageService.get("이(가) 맞습니까?")
+				);
+		temp += mainView.getSeperator();
+		temp += mainView.addMenuMarginCenter("예", "아니요");
+		temp += mainView.getSeperatorThin();
+		
 		System.out.println(temp);
 	}
 }

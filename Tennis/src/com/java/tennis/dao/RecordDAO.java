@@ -92,6 +92,9 @@ public class RecordDAO {
 
 //			view.subTitleSpecific(); //명예의 전당 > 아이디검색 > 출력 > 번호입력 > [속성 출력]
 
+			String set = LanguageService.get("세트");
+			String game = LanguageService.get("게임");
+			
 			while ((line = reader.readLine()) != null) {
 
 				String[] temp = line.split(",");
@@ -112,7 +115,13 @@ public class RecordDAO {
 						win = "패";
 					}
 
-					result += String.format("\t%s세트\t\t%s게임\t\t%s\t\t %s\n", temp[1], temp[2], score, win);
+					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", 
+							temp[1],
+							set,
+							temp[2],
+							game, 
+							score, 
+							LanguageService.get(win));
 
 				}
 			}
@@ -159,7 +168,7 @@ public class RecordDAO {
 					String score = "";
 					score = temp[4] + " : " + temp[5];
 
-					String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2], character, score);
+					String list = String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2], LanguageService.get(character), score);
 
 					result += list;
 					String numChange = String.format("%s", i);
@@ -183,29 +192,16 @@ public class RecordDAO {
 		return result;
 	}
 
-	public String gameId() { // 명예의 전당 > 아이디 검색하기 > [ 아이디 입력(출력) ]
-
-		String result = "";
-		result += "\r\n";
-		result += mainView.getSeperator();
-		result += mainView.addStringMargin(LanguageService.get("아이디 검색(메뉴로 돌아가실려면 'q'를 입력해주세요.)"));
-		result += mainView.getSeperator();
-		result += mainView.input();
-		System.out.print(result);
-		String id = scan.nextLine();
-
-		return id;
-	}
-
 	public String gameNum() {
 
 //		mainView.input();
 		String result = "";
-		result += mainView.getSeperatorThin();
+		result += mainView.getSeperator();
+		result += mainView.getSubTitle("자세히 보고싶은 기록의 번호를 입력하세요.");
+		result += mainView.getSeperator();
 		result += mainView.input();
 		System.out.print(result);
 		String num = scan.nextLine();
-		System.out.println();
 
 		return num;
 
@@ -220,8 +216,6 @@ public class RecordDAO {
 		int num = 1;
 	
 		String tempRecord = "";
-		
-		
 		
 		try {
 			BufferedReader reader = new BufferedReader(new FileReader(PATH + "record.txt"));
@@ -286,9 +280,7 @@ public class RecordDAO {
 			
 //			list.sort(Comparator.comparing(RecordDTO::getDate).reversed()); // 정렬(내림차순)			
 			
-			String thinline = "";	//구분선
-			thinline += mainView.getSeperatorThin();
-			System.out.println(thinline);
+			System.out.println(mainView.getSeperatorThin());
 			System.out.println();
 			
 			reader.close();
@@ -378,8 +370,8 @@ public class RecordDAO {
 		String sort = scan.nextLine();
 
 		while (!(sort.equals("1") || sort.equals("2"))) {
-			System.out.println("숫자를 다시 입력해주세요.");
-			System.out.print("번호 입력: ");
+			view.errorInput();
+			mainView.input();
 			sort = scan.nextLine();
 		}
 

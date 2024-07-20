@@ -1,15 +1,24 @@
-한국어, 영어, 일본어
+한국어, 한국어, 한국어
+English, English, English
+日本語, 日本語, 日本語
 메뉴 선택,select menu,メニューを選択します
-1. 게임 시작하기 2. 명예의 전당 3. 게임 설명 4. 환경 설정 5. 게임 종료,1. Game start 2. Hall of Fame 3. Game Manual 4. Setting 5. Exit Game,1. ゲーム開始 2.殿堂 3.ゲーム説明書 4.環境設定 5.ゲーム終了
+게임 시작하기,Game start,ゲーム開始 
+게임 설명,Game Manual,ゲーム説明書
+환경 설정,Setting,環境設定
+게임 종료,Exit Game,ゲーム終了
 오류가 발생했습니다.,An error has occurred.,エラーが発生しました。
 계속하시려면 엔터를 입력해주세요.,Enter to continue.,続けるためにはエンターを押してください。
-1. 언어 설정 2. 난이도 설정 3. 만든 사람들 4. 디스코드 5. 개발자에게 기부하기 6. 메인 메뉴,1. Language settings 2. Difficulty settings 3. Builders 4. Discord 5. Donate to developers 6. main menu,1. 言語設定 2.難易度設定 3.作った人々 4.ディスコード 5.開発者に寄付する 6. メインメニュー
-1. 한국어 2. English 3. 日本語 4. 돌아가기,1. 한국어 2. English 3. 日本語 4. return,1. 한국어 2. English 3. 日本語 4. 帰る
-1. 쉽게 2. 보통 3. 어렵게 4. 돌아가기,1. Easy. 2. Normal. 3. Hard 4. return,1. 簡単に 2. 普通 3. 難しく 4. 帰る
+언어 설정,Language Settings,言語設定
+난이도 설정,Difficulty Settings,難易度設定
+만든 사람들,Builders,作った人々
+디스코드,Discord,ディスコード
+개발자에게 기부하기,Donate to developers,開発者に寄付する
+메인 메뉴,main menu,メインメニュー
+돌아가기,return,帰る
 쉽게,Easy,簡単に
 보통,Normal,普通
 어렵게,Hard,難しく
-현재 난이도는,The current level of difficulty is,現在の難易度は
+현재 난이도,The current level of difficulty,現在の難易度
 입니다.,,です
 백핸드,Backhand,バックハンド
 포핸드,Forehand,フォアハンド
@@ -61,6 +70,20 @@
 내림차순,Descending order,降順
 정렬을 선택해주세요.,Please select the sorting order.,並べ替えの順序を選択してください。
 네,Yes,はい
+예,Yes,はい
 아니요(전 단계로 돌아가기),No (Go back to the previous step),いいえ（前の段階に戻る）
 메인 메뉴 돌아가기,Return to the main menu,メインメニューに戻る
 닉네임이 존재하지 않습니다.,The nickname does not exist.,ニックネームが存在しません
+시작 메뉴,Start Menu,スタートメニュー
+필살기,Special Move,必殺技
+아니요,No,いいえ
+최신 기록,Latest Records,最新の記録
+이전 메뉴로 돌아가실려면 'q'를 입력해주세요.,Press 'q' to return to the previous menu.,前のメニューに戻るには「q」を入力してください。
+존재하지 않는 정보입니다.,Information does not exist.,存在しない情報です。
+무엇을 기준으로 정렬하시겠습니까?,What would you like to sort by?,何を基準に並べ替えますか？
+승,Win,勝
+패,Loss,敗
+기록할 이름을 입력해주세요.,Please enter the name to record.,記録する名前を入力してください。
+입력하신 이름이,The name you entered is,入力した名前が
+이(가) 맞습니까?,correct?,でよろしいですか？
+자세히 보고싶은 기록의 번호를 입력하세요.,Please enter the number of the record you want to see in detail.,詳細を見たい記録の番号を入力してください

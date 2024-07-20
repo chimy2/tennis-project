@@ -180,13 +180,13 @@ public class TennisService {
 				}
 			}
 
-			view.informGame(countSet, countGame, countTotalServe);
+			;
 
 			AbilityDTO dtoAbility = new AbilityDTO();
 			int input;
 			GameView viewGame = new GameView();
 			while (true) {
-				viewGame.gameView(dtoCharacter);
+				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countTotalServe));
 				input = scan.nextInt();
 				scan.skip("\r\n");
 
@@ -198,7 +198,6 @@ public class TennisService {
 				}
 			}
 			
-			
 			Random rnd = new Random();
 			me.chance = rnd.nextInt(100) + 50 + dtoAbility.statModifier(input); //stats[i]
 			cpu.chance = rnd.nextInt(100) + 1;
@@ -209,7 +208,6 @@ public class TennisService {
 				me.chance -= 20;
 			}
 	
-			
 			if (me.chance > cpu.chance) {
 				me.point++;
 				countTotalServe++;
@@ -419,14 +417,10 @@ public class TennisService {
 		boolean loop = true;
 		while (loop) {
 			
-			System.out.println("기록할 이름을 입력해주세요.");
-			System.out.print("이름: ");
+			view.recordName();
 			String name = scan.nextLine();
 
-			
-			System.out.printf("입력하신 이름이 %s이(가) 맞습니까?\r\n", name);
-			System.out.println("1.예	2.아니오");
-			
+			view.checkRecordName(name);
 			int input = scan.nextInt();
 			scan.skip("\r\n");
 			

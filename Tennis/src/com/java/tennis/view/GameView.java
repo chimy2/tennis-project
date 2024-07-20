@@ -20,24 +20,31 @@ public class GameView {
 		skillList = skillService.getSkill();
 	}
 	
-	public void gameView(CharacterDTO dtoCharacter) {
-		
-		
+	public void gameView(CharacterDTO dtoCharacter, String currentGameInfo) {
 		String skillName = dtoCharacter.getSkill().getName();
 		String result = "";
-		int skillCount = skillService.getSkillCount();
-		result += mainView.addStringMargin("어떤 스킬을 사용하겠습니까?");
-		result += mainView.getSeperatorThin();
+//		int skillCount = skillService.getSkillCount();
+		result += mainView.getSeperator();
+		result += mainView.getSubTitle("어떤 스킬을 사용하겠습니까?", currentGameInfo);
+		result += mainView.getSeperator();
 		
-		for(int i=0; i<skillCount; i++) {
-			String temp = skillList.get(i).getName();
-			result += (i + 1) + ". " + temp;
-			if(skillName.equals(temp)) {
-				result += "!";
-			}
-			result += "\r\n";
-			
-		}
+//		for(int i=0; i<skillCount; i++) {
+//			String temp = skillList.get(i).getName();
+//			result += (i + 1) + ". " + temp;
+//			if(skillName.equals(temp)) {
+//				result += "!";
+//			}
+//			result += "\r\n";
+//			
+//		}
+		result += mainView.addMenuMarginCenter(
+				skillList.stream().map(s -> {
+					return skillName.equals(s.getName()) ?
+							s.getName() + "(" 
+							+ LanguageService.get("필살기") + ")" 
+							: s.getName();
+				}).toArray(String[]::new));
+		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
 	}

@@ -28,7 +28,7 @@ public class MainView {
 //		result += getSeperator();
 		result += getSubTitle("시작 메뉴");
 		result += getSeperator();
-		result += addMenuMarginCenter("게임 시작하기", "명예의 전당", "게임 설명", " 환경 설정", "게임 종료");
+		result += addMenuMarginCenter("게임 시작하기", "명예의 전당", "게임 설명", "환경 설정", "게임 종료");
 		result += getSeperatorThin();
 		result += selectMenu();
 		MainService.printLine(result, 200);
@@ -62,10 +62,19 @@ public class MainView {
 	
 	public String getSubTitle(String title, String addition) {
 		String result = "";
-		result = addStringMargin(LanguageService.get(title) + " " + LanguageService.get(addition));
+		result = addStringMargin(LanguageService.get(title) + " " + addition);
 		return result;
 	}
 	
+	public String getSubTitleNotTrans(String... titles) {
+		String result = "";
+		for(int i=0; i<titles.length; i++) {
+			result += titles[i];
+		}
+		result = addStringMargin(result);
+		return result;
+	}
+		
 	public String addStringMargin(String line) {
 //		JetBrainsMonoHangul NL 기준 120자
 		int crit = 60;
@@ -84,25 +93,24 @@ public class MainView {
 		return result;
 	}
 	
-	public String addMenuMargin(String... menus) {
-		int width = 120;
-		String result = "";
-		int len = menus.length;
-		int areaSize = width / len;
-
-		for(int i=0; i<len; i++) {
-			String menu = LanguageService.get(menus[i]);
-			result += String.format("%-" + (areaSize - calcKRJPStringCount(menu)) + "s", 
-					String.format("%d. %s", i + 1, menu));
-		}
-		
-		result += "\r\n";
-		
-		return result;
-	}
+//	public String addMenuMargin(String... menus) {
+//		int width = 120;
+//		String result = "";
+//		int len = menus.length;
+//		int areaSize = width / len;
+//
+//		for(int i=0; i<len; i++) {
+//			String menu = LanguageService.get(menus[i]);
+//			result += String.format("%-" + (areaSize - calcKRJPStringCount(menu)) + "s", 
+//					String.format("%d. %s", i + 1, menu));
+//		}
+//		
+//		result += "\r\n";
+//		
+//		return result;
+//	}
 	
 	public String addMenuMarginCenter(String menu) {
-		int width = 120;
 		String result = "";
 		int len = 1;
 		
@@ -116,7 +124,6 @@ public class MainView {
 	}
 	
 	public String addMenuMarginCenter(String... menus) {
-		int width = 120;
 		String result = "";
 		int len = menus.length;
 		
@@ -134,14 +141,12 @@ public class MainView {
 	}
 	
 	public String addMenuMarginCenter(String menu, int... nums) {
-		int width = 120;
 		String result = "";
 		int len = nums.length;
-		int areaSize = width / len;
-		String temp = LanguageService.get(menu);
+		String str = LanguageService.get(menu);
 		
 		for(int i=0; i<len; i++) {
-			result += String.format("%d. %d%s", i + 1, nums[i], menu);
+			result += String.format("%d. %d%s", i + 1, nums[i], str);
 			if(i != len - 1) {
 				result += " ".repeat(3);
 			}
@@ -152,22 +157,22 @@ public class MainView {
 		return result;
 	}
 	
-	public String addMenuMargin(String menu, int... nums) {
-		int width = 120;
-		String result = "";
-		int len = nums.length;
-		int areaSize = width / len;
-		String temp = LanguageService.get(menu);
-		
-		for(int i=0; i<len; i++) {
-			result += String.format("%-" + (areaSize - calcKRJPStringCount(temp)) + "s", 
-					String.format("%d. %d%s", i + 1, nums[i], temp));
-		}
-		
-		result += "\r\n";
-		
-		return result;
-	}
+//	public String addMenuMargin(String menu, int... nums) {
+//		int width = 120;
+//		String result = "";
+//		int len = nums.length;
+//		int areaSize = width / len;
+//		String temp = LanguageService.get(menu);
+//		
+//		for(int i=0; i<len; i++) {
+//			result += String.format("%-" + (areaSize - calcKRJPStringCount(temp)) + "s", 
+//					String.format("%d. %d%s", i + 1, nums[i], temp));
+//		}
+//		
+//		result += "\r\n";
+//		
+//		return result;
+//	}
 	
 	public int calcStringLength(String str) {
 		double result = 0;

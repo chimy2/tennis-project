@@ -57,10 +57,10 @@ public class RecordService {
 
 			} else if (menu.equals("2")) {// 2. 아이디 검색하기
 
-				String list = dao.recordSearch(dao.gameId());
+				String list = dao.recordSearch(view.gameId());
 				while (list.equals("")) { // 확인되지 않는 아이디 입력시
 					view.notExist();
-					list = dao.recordSearch(dao.gameId());
+					list = dao.recordSearch(view.gameId());
 					
 					if(list.equals("q")) {
 						list = "";
