@@ -315,32 +315,27 @@ public class TennisService {
 		boolean loop = true;
 		while (loop) {
 			
-			String[] terms = {"유저 포인트", "컴퓨터 포인트", "유저 게임 포인트", "컴퓨터 게임 포인트", "유저 세트 포인트", "컴퓨터 세트 포인트", "현재 게임", "현제 세트"};
+			String[] terms = {"p1포인트", "p2포인트", "p1게임포인트", "p2게임포인트", "p1세트포인트", "p2세트포인트", "현재게임", "현제세트"};
 			
 			System.out.println();
-			System.out.println("띄어쓰기 없이 아래 순서로 변수를 띄어쓰기 없이 아래와 같이 입력 부탁드립니다.\r\n"
-								+ "(p1포인트,p2포인트,p1게임포인트,p2게임포인트,p1세트포인트,p2세트포인트)"
+			System.out.println("띄어쓰기 없이 현재게임과 현재세트 변수를 제외한 나머지 변수를 아래와 같이 입력 부탁드립니다.\r\n"
+								+ "(p1포인트,p2포인트,p1게임포인트,p2게임포인트,p1세트포인트,p2세트포인트)\r\n"
 								+ "(1,2,3,4,5,6)");
 			System.out.println();
 		System.out.println("현재 변수 값은 아래와 같습니다.");
 		
 		for (int i=0; i<values.length; i++) {
-			System.out.printf("%-15s: %d\r\n", terms[i], values[i]);
+			if (terms[i].length()>8) {
+				System.out.printf("%s:\t%d\r\n", terms[i], values[i]);
+			} else if (terms[i].length()>4) {
+				System.out.printf("%s:\t\t%d\r\n", terms[i], values[i]);
+			}
 		}
-		
-//		String temp = "";
-//		
-//		for (int i=0; i<values.length; i++) {
-//			if (i!=values.length-1) {
-//				temp += values[i] + ", ";
-//			} else {
-//				temp += values[i];
-//			}
-//		}
-//		System.out.println(temp);
+
 		System.out.print("입력: ");
-		
 		String text = scan.nextLine();
+		System.out.println();
+		
 		String[] string = (text.split(","));
 		
 		int[] temp = new int[string.length + 2];
@@ -350,13 +345,14 @@ public class TennisService {
 		}
 		
 		System.out.println("입력하신 값을 확인 부탁드립니다.");
-		System.out.printf("p1포인트: %d\r\n", temp[0]);
-		System.out.printf("p2포인트: %d\r\n", temp[1]);
-		System.out.printf("p1게임포인트: %d\r\n", temp[2]);
-		System.out.printf("p2게임포인트: %d\r\n", temp[3]);
-		System.out.printf("p1세트포인트: %d\r\n", temp[4]);
-		System.out.printf("p2세트포인트: %d\r\n", temp[5]);
-		System.out.println("1.예\t\t\t2.아니오");
+		
+		for (int i=0; i<values.length-2; i++) {
+			if (terms[i].length()>8) {
+				System.out.printf("%s:%d   ->\t%d\r\n", terms[i], values[i], temp[i]);
+			} else if (terms[i].length()>4) {
+				System.out.printf("%s:\t%d   ->\t%d\r\n", terms[i], values[i], temp[i]);
+			}
+		}
 		temp[6] = countGame = temp[2] + temp[3] + 1;
 		temp[7] = countSet = temp[4] + temp[5] + 1;
 		
