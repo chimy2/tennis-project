@@ -80,7 +80,6 @@ public class RecordService {
 		view.title("최신기록 전체보기");
 		view.titleSpecific();// 간단한 정보 보여주는 메서드
 
-		int number = 0;
 		String lineArray = dao.getTotal();
 		System.out.println(lineArray);
 
@@ -106,7 +105,7 @@ public class RecordService {
 
 	
 	// 명예의 전당 전체 작동
-	public void getSpec() {
+	public void record() {
 
 		RecordService sevice = new RecordService();
 
