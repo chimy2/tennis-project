@@ -100,7 +100,7 @@ public class RecordService {
 				ArrayList<String> lineArray = dao.getTotal(); // 전체 최신기록 배열로 받음
 //				System.out.println(lineArray.get(0));
 				int number = 0;
-				String need = "0";
+				
 				
 				
 				//모든 간단한 정보 확인 : 먼저 10줄만 보여주기
@@ -111,11 +111,9 @@ public class RecordService {
 				// 정보가 괜찮으면 진행
 			
 					view.sortQuestion(); // 정렬질문
-					need = scan.nextLine(); // 정렬질문_스캔
+					String need = scan.nextLine(); // 정렬질문_스캔
 
 					System.out.print(view.thingetSeperator()); // 정렬질문_구분선
-//					System.out.print("번호 입력: ");
-					need = scan.nextLine(); // 정렬질문_스캔
 
 					while (!(need.equals("1") || need.equals("2"))) {
 						System.out.println("숫자를 다시 입력해주세요.");
