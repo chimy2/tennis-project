@@ -78,9 +78,10 @@ public class RecordDAO {
 
 				String character = nameCharacter(record.getCharacterno());
 
-				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
-						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
-
+//				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
+//						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
+				tempRecord += mainView.setRowMargin(i + "", dump, record.getName(),
+						LanguageService.get(character), record.getScoreme() + " : " + record.getSocrecumputer());
 				i++;
 
 				if (i > 10) {
@@ -134,9 +135,10 @@ public class RecordDAO {
 						win = "패";
 					}
 
-					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", temp[1], set, temp[2], game, score,
+//					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", temp[1], set, temp[2], game, score,
+//							LanguageService.get(win));
+					result += mainView.setRowMargin(temp[1], set, temp[2], game, score,
 							LanguageService.get(win));
-
 				}
 			}
 
@@ -175,9 +177,10 @@ public class RecordDAO {
 					String score = "";
 					score = temp[4] + " : " + temp[5];
 
-					result += String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2],
-							LanguageService.get(character), score);
-
+//					result += String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2],
+//							LanguageService.get(character), score);
+					result += mainView.setRowMargin(i + "", temp[1], temp[2],
+							LanguageService.get(character), score); 
 					String numChange = String.format("%s", i);
 					idToNum.put(numChange, temp[0]);
 					i++;
@@ -250,8 +253,10 @@ public class RecordDAO {
 
 				String dump = record.getDate();
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
-				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
-						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
+//				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
+//						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
+				tempRecord += mainView.setRowMargin(i + "", dump, record.getName(),
+						record.getCharactername(), record.getScoreme() + " : " + record.getSocrecumputer());
 
 				i++;
 			}
@@ -303,10 +308,11 @@ public class RecordDAO {
 
 				String dump = record.getDate();
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
-				String tempRecord = "";
-				tempRecord = String.format("%d\t%s\t%s\t%s\t%s : %S", i, dump, record.getName(),
-						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
-				System.out.println(tempRecord);
+//				String tempRecord = "";
+//				tempRecord = String.format("%d\t%s\t%s\t%s\t%s : %S", i, dump, record.getName(),
+//						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
+				System.out.print(mainView.setRowMargin(i + "", dump, record.getName(),
+						record.getCharactername(), record.getScoreme() + " : " + record.getSocrecumputer()));
 
 				i++;
 			}

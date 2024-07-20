@@ -37,8 +37,7 @@ public class GameView {
 //			result += "\r\n";
 //			
 //		}
-		
-		result += mainView.addMenuMarginCenter(
+		result += mainView.setNumRowMargin(
 				skillList.stream().map(s -> {
 					return skillName.equals(s.getName()) ?
 							s.getName() + "(" 

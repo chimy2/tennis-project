@@ -381,7 +381,7 @@ public class TennisService {
 		String tempText = "";
 		
 		tempText += mainView.getSeperator();
-		tempText +=	mainView.addMenuMarginCenter("예", "아니오");
+		tempText +=	mainView.setNumRowMargin("예", "아니오");
 		tempText += mainView.getSeperator();
 		
 		System.out.println(tempText);

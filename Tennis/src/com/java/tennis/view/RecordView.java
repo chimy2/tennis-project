@@ -27,50 +27,36 @@ public class RecordView {
 	public void titleSpecific() { //명예의전당 속성이름
 		
 		String result = "";
-		String empty = "";
-		String[] menus = {
+		
+		result += mainView.getSeperator();
+		result += mainView.setRowMargin(
 		        "번호",
 		        "날짜",
 		        "닉네임",
 		        "캐릭터",
 		        "스코어"
-		    };
-		
-		
-		
-		result += mainView.getSeperator();
-		result += mainView.setRowMargin(menus);
-//		result += mainView.addStringMargin(
-//				String.format("%4s%3s%10s%3s%10s%3s%15s%3s%3s",
-//						LanguageService.get("번호"),
-//						empty,
-//						LanguageService.get("날짜"),
-//						empty,
-//						LanguageService.get("닉네임"),
-//						empty,
-//						LanguageService.get("캐릭터"),
-//						empty,
-//						LanguageService.get("스코어")
-//						)
-//				);
+		        );
 		result += mainView.getSeperator();
 		System.out.println(result);
-	
-		
 	}
 
 
 	public void subTitleSpecific() {
 		String result = "";
+		String[] menus = {
+		        "세트",
+		        "게임",
+		        "닉네임",
+		        "캐릭터",
+		        "스코어"
+		    };
+		
 		result += mainView.getSeperator();
-		result += LanguageService.get("세트");
-		result += "\t";
-		result += LanguageService.get("게임");
-		result += "\t";
-		result += LanguageService.get("스코어");
-		result += "\t";
-		result += LanguageService.get("승패");
-		result += "\r\n";
+		result += mainView.setRowMargin(
+				"세트",
+				"게임",
+				"스코어",
+				"승패");
 		result += mainView.getSeperator();
 		System.out.println(result);
 	}
@@ -84,7 +70,7 @@ public class RecordView {
 		result += mainView.getSeperator();
 		result += mainView.getSubTitle("명예의 전당");
 		result += mainView.getSeperator();
-		result += mainView.addMenuMarginCenter("명예의 전당", "아이디 검색하기", "최신기록 전체보기", "메인 메뉴 돌아가기");
+		result += mainView.setNumRowMargin("명예의 전당", "아이디 검색하기", "최신기록 전체보기", "메인 메뉴 돌아가기");
 		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
@@ -96,7 +82,7 @@ public class RecordView {
 		result += mainView.getSeperator();
 		result += mainView.getSubTitle("정렬해서 보기를 원하십니까?");
 		result += mainView.getSeperator();
-		result += mainView.addMenuMarginCenter("네", "아니요(전 단계로 돌아가기)"); 
+		result += mainView.setNumRowMargin("네", "아니요(전 단계로 돌아가기)"); 
 		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
@@ -109,7 +95,7 @@ public class RecordView {
 		result += mainView.getSeperator();
 		result += mainView.getSubTitle("무엇을 기준으로 정렬하시겠습니까?");
 		result += mainView.getSeperator();
-		result += mainView.addMenuMarginCenter("날짜", "아이디", "캐릭터");
+		result += mainView.setNumRowMargin("날짜", "아이디", "캐릭터");
 		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
@@ -122,7 +108,7 @@ public class RecordView {
 		sortmenu += mainView.getSeperator();
 		sortmenu += mainView.getSubTitle("정렬을 선택해주세요.");
 		sortmenu += mainView.getSeperator();
-		sortmenu += mainView.addMenuMarginCenter("오름차순", "내림차순");
+		sortmenu += mainView.setNumRowMargin("오름차순", "내림차순");
 		sortmenu += mainView.getSeperatorThin();
 		sortmenu += mainView.input();
 		System.out.print(sortmenu);
@@ -134,7 +120,7 @@ public class RecordView {
 		sortmenu += mainView.getSeperator();
 		sortmenu += mainView.getSubTitle("정렬을 선택해주세요.");
 		sortmenu += mainView.getSeperator();
-		sortmenu += mainView.addMenuMarginCenter("오름차순");
+		sortmenu += mainView.setNumRowMargin("오름차순");
 		sortmenu += mainView.getSeperatorThin();
 		sortmenu += mainView.input();
 		System.out.print(sortmenu);
