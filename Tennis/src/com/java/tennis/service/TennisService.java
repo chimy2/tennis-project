@@ -199,7 +199,7 @@ public class TennisService {
 					int[] values = {me.point, cpu.point, me.pointGame, cpu.pointGame, me.pointSet, cpu.pointSet, countGame, countSet};
 					
 //					int[] temp = scoreModifier(me.point, cpu.point, me.pointGame, cpu.pointGame, me.pointSet, cpu.pointSet, countGame, countSet);
-					scoreModifier(values);
+					int[] temp = scoreModifier(values);
 					
 					me.point = temp[0];
 					cpu.point = temp[1];
@@ -324,12 +324,15 @@ public class TennisService {
 			
 			String[] terms = {"유저 포인트", "컴퓨터 포인트", "유저 게임 포인트", "컴퓨터 게임 포인트", "유저 세트 포인트", "컴퓨터 세트 포인트", "현재 게임", "현제 세트"};
 			
+			System.out.println();
 			System.out.println("띄어쓰기 없이 아래 순서로 변수를 띄어쓰기 없이 아래와 같이 입력 부탁드립니다.\r\n"
-								+ "p1포인트,p2포인트,p1게임포인트,p2게임포인트,p1세트포인트,p2세트포인트");
+								+ "(p1포인트,p2포인트,p1게임포인트,p2게임포인트,p1세트포인트,p2세트포인트)"
+								+ "(1,2,3,4,5,6)");
+			System.out.println();
 		System.out.println("현재 변수 값은 아래와 같습니다.");
 		
 		for (int i=0; i<values.length; i++) {
-			System.out.printf("%s: %d\r\n", terms[i], values[i]);
+			System.out.printf("%-15s: %d\r\n", terms[i], values[i]);
 		}
 		
 //		String temp = "";
