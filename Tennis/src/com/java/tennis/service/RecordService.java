@@ -52,7 +52,7 @@ public class RecordService {
 
 			if (menu.equals("1")) {// 1. 명예의 전당
 
-				sevice.get(); // 명예의 전당 출력
+				System.out.println(dao.get()); // 명예의 전당 출력
 				mainView.pause();// 계속하려면 엔터쳐라
 
 			} else if (menu.equals("2")) {// 2. 아이디 검색하기
