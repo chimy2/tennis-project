@@ -461,11 +461,23 @@ public class RecordDAO {
 		
 		String sort = scan.nextLine();
 
-		while (!(sort.equals("1") || sort.equals("2"))) {
-			System.out.println("숫자를 다시 입력해주세요.");
-			System.out.print("번호 입력: ");
-			sort = scan.nextLine();
+		
+		if(number.equals("2")||number.equals("3")) {
+			while (!(sort.equals("1") || sort.equals("2"))) {
+				System.out.println("숫자를 다시 입력해주세요.");
+				System.out.print("번호 입력: ");
+				sort = scan.nextLine();
+			}
+			
+		}else {
+			while (!(sort.equals("1"))) {
+				System.out.println("숫자를 다시 입력해주세요.");
+				System.out.print("번호 입력: ");
+				sort = scan.nextLine();
+			}
+			
 		}
+		
 
 		if (sort.equals("1") || sort.equals("2")) {
 			if (number.equals("1")) {// 날짜

@@ -107,7 +107,6 @@ public class RecordService {
 	// 명예의 전당 전체 작동
 	public void record() {
 
-		RecordService sevice = new RecordService();
 
 		boolean stop = true;
 		while (stop) {
