@@ -32,7 +32,7 @@ public class RecordService {
 	public void searchId() {// 아이디 검색하기
 
 		String list = dao.recordSearch(view.gameId());
-
+		
 		while (list.equals("")) { // 확인되지 않는 아이디 입력시
 
 			view.notExist();

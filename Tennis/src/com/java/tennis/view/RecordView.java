@@ -136,7 +136,6 @@ public class RecordView {
 		result += mainView.input();
 		System.out.print(result);
 		String id = scan.nextLine();
-
 		return id;
 	}
 	

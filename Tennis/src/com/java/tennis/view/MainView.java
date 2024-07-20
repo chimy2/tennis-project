@@ -2,6 +2,7 @@ package com.java.tennis.view;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import com.github.lalyos.jfiglet.FigletFont;
@@ -52,13 +53,13 @@ public class MainView {
 	
 	public String getSubTitle(String title) {
 		String result = "";
-		result = setRowMargin(LanguageService.get(title));
+		result = setRowMargin(title);
 		return result;
 	}
 	
 	public String getSubTitle(String title, String addition) {
 		String result = "";
-		result = setRowMargin(LanguageService.get(title) + " " + addition);
+		result = setRowMarginNotTrans(LanguageService.get(title) + " " + addition);
 		return result;
 	}
 	
@@ -67,6 +68,7 @@ public class MainView {
 		for(int i=0; i<titles.length; i++) {
 			result += titles[i];
 		}
+		System.out.println(result+"123124124124");
 		result = setRowMargin(result);
 		return result;
 	}
@@ -77,7 +79,7 @@ public class MainView {
 		String[] lines = multiLine.split("(\r)?\n");
 		
 		for(String line : lines) {
-			result += setRowMargin(line);
+			result += setRowMarginNotTrans(line);
 		}
 		
 		return result;
@@ -116,12 +118,38 @@ public class MainView {
 	    
 	    return sb.toString();
 	}
+	
+	public String setRowMarginNotTrans(String... rows) {
+		StringBuilder sb = new StringBuilder();
+		
+	    for (int i=0; i<rows.length; i++) {
+	        sb.append(arrangeRow(rows[i], rows.length));
+	    }
+	    
+	    sb.append("\r\n");
+	    
+	    return sb.toString();
+	}
+	
 	public String setNumRowMargin(String row) {
 		int count = 1;
 		StringBuilder sb = new StringBuilder();
 
 	    for (int i=0; i<count; i++) {
 	        sb.append(arrangeRow(String.format("%d. %s", (i + 1), row), count));
+	    }
+	    
+	    sb.append("\r\n");
+	    
+	    return sb.toString();
+	}
+	
+	public String setNumRowMarginNotTrans(String... rows) {
+
+		StringBuilder sb = new StringBuilder();
+
+	    for (int i=0; i<rows.length; i++) {
+	        sb.append(arrangeRow(String.format("%d. %s", (i + 1), rows[i]), rows.length));
 	    }
 	    
 	    sb.append("\r\n");
@@ -150,7 +178,10 @@ public class MainView {
 		StringBuilder sb = new StringBuilder();
 
 	    for (int i=0; i<nums.length; i++) {
-	    	sb.append(arrangeRow(String.format("%d. %d %s", (i + 1), nums[i], LanguageService.get(row)), nums.length));
+	    	sb.append(arrangeRow(String.format(
+	    			"%d. %d %s", 
+	    			(i + 1), nums[i], LanguageService.get(row)), nums.length
+	    			));
 	    }
 	    
 	    sb.append("\r\n");

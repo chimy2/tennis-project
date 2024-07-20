@@ -8,11 +8,11 @@ English, English, English
 게임 종료,Exit Game,ゲーム終了
 오류가 발생했습니다.,An error has occurred.,エラーが発生しました。
 계속하시려면 엔터를 입력해주세요.,Enter to continue.,続けるためにはエンターを押してください。
-언어 설정,Language Settings,言語設定
-난이도 설정,Difficulty Settings,難易度設定
+언어 설정,Language,言語設定
+난이도 설정,Difficulty,難易度設定
 만든 사람들,Builders,作った人々
 디스코드,Discord,ディスコード
-개발자에게 기부하기,Donate to developers,開発者に寄付する
+개발자에게 기부하기,Donate,開発者に寄付する
 메인 메뉴,main menu,メインメニュー
 돌아가기,return,帰る
 쉽게,Easy,簡単に
@@ -76,7 +76,7 @@ English, English, English
 메인 메뉴 돌아가기,Return to the main menu,メインメニューに戻る
 닉네임이 존재하지 않습니다.,The nickname does not exist.,ニックネームが存在しません
 시작 메뉴,Start Menu,スタートメニュー
-필살기,Special Move,必殺技
+필살기,Special,必殺技
 아니요,No,いいえ
 최신 기록,Latest Records,最新の記録
 이전 메뉴로 돌아가실려면 'q'를 입력해주세요.,Press 'q' to return to the previous menu.,前のメニューに戻るには「q」を入力してください。
@@ -88,4 +88,5 @@ English, English, English
 입력하신 이름이,The name you entered is,入力した名前が
 이(가) 맞습니까?, correct?,でよろしいですか？
 자세히 보고싶은 기록의 번호를 입력하세요.,Please enter the number of the record you want to see in detail.,詳細を見たい記録の番号を入力してください
-테니스 시뮬레이터를 플레이 해주셔서 감사합니다.,
+테니스 시뮬레이터를 플레이 해주셔서 감사합니다.,Thank you for playing the Tennis Simulator.,テニスシミュレーターをプレイしていただきありがとうございます。
+어떤 스킬을 사용하겠습니까?,Which skill would you like to use?,どのスキルを使用しますか？

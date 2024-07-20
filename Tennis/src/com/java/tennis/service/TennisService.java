@@ -394,13 +394,6 @@ public class TennisService {
 			return temp;
 		}
 		return null;
-
-
-		
-		
-		
-
-		
 	}
 
 	private String pointName(int num1, int num2) {

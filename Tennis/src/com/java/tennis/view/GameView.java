@@ -37,7 +37,7 @@ public class GameView {
 //			result += "\r\n";
 //			
 //		}
-		result += mainView.setNumRowMargin(
+		result += mainView.setNumRowMarginNotTrans(
 				skillList.stream().map(s -> {
 					return skillName.equals(s.getName()) ?
 							s.getName() + "(" 
