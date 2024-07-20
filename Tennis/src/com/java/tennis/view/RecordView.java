@@ -17,7 +17,7 @@ public class RecordView {
 		
 		String result = "";
 		result += "\r\n";
-		result += thingetSeperator();
+		result += mainView.getSeperator();
 		result += mainView.addStringMargin(LanguageService.get(title));
 		//result += "\r\n";
 		System.out.println(result);
@@ -28,7 +28,7 @@ public class RecordView {
 		
 		String result = "";
 		result += "\r\n";
-		result += thingetSeperator();
+		result += mainView.getSeperator();
 		result += LanguageService.get(title);
 		System.out.println(result);
 		
@@ -37,7 +37,7 @@ public class RecordView {
 	public void titleSpecific() { //명예의전당 속성이름
 		
 		String result = "";
-		result += thingetSeperator();
+		result += mainView.getSeperatorThin();
 		result += LanguageService.get("번호");
 		result += "\t";
 		result += LanguageService.get("날짜");
@@ -48,7 +48,7 @@ public class RecordView {
 		result += "\t";
 		result += LanguageService.get("스코어");
 		result += "\r\n";
-		result += thingetSeperator();
+		result += mainView.getSeperatorThin();
 		System.out.println(result);
 		
 	}
@@ -57,7 +57,7 @@ public class RecordView {
 
 	public void subTitleSpecific() {
 		String result = "";
-		result += thingetSeperator();
+		result += mainView.getSeperatorThin();
 		result += LanguageService.get("세트");
 		result += "\t";
 		result += LanguageService.get("게임");
@@ -66,7 +66,7 @@ public class RecordView {
 		result += "\t";
 		result += LanguageService.get("승패");
 		result += "\r\n";
-		result += thingetSeperator();
+		result += mainView.getSeperatorThin();
 		System.out.println(result);
 	}
 
@@ -79,19 +79,19 @@ public class RecordView {
 		result += mainView.getSeperator();
 		result += mainView.addStringMargin(LanguageService.get("명예의 전당"));
 		result += mainView.getSeperator();
-		result += "1. ";
-		result += LanguageService.get("명예의 전당");
-		result += "\t";
-		result += "2. ";
-		result += LanguageService.get("아이디 검색하기");
-		result += "\t";
-		result += "3. ";
-		result += LanguageService.get("최신기록 전체보기");
-		result += "\t";
-		result += "4. ";
-		result += LanguageService.get("메인 메뉴 돌아가기");
-		result += "\r\n";
-		result += mainView.getSeperator();
+		result += mainView.addMenuMarginCenter("명예의 전당", "아이디 검색하기", "최신기록 전체보기", "메인 메뉴 돌아가기");
+//		result += "1. ";
+//		result += LanguageService.get("명예의 전당");
+//		result += "\t";
+//		result += "2. ";
+//		result += LanguageService.get("아이디 검색하기");
+//		result += "\t";
+//		result += "3. ";
+//		result += LanguageService.get("최신기록 전체보기");
+//		result += "\t";
+//		result += "4. ";
+//		result += LanguageService.get("메인 메뉴 돌아가기");
+		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
 	}
@@ -106,7 +106,7 @@ public class RecordView {
 		
 		String result = "";
 		result += "\r\n";
-		result += thingetSeperator();
+		result += mainView.getSeperator();
 		result += LanguageService.get(title);
 		System.out.println(result);
 	}
@@ -114,17 +114,17 @@ public class RecordView {
 	public void sortQuestion() {
 		
 		String result = "";
-		result += thingetSeperator();
-		result += LanguageService.get("정렬해서 보기를 원하십니까?");
-		result += "\r\n";
-		result += thingetSeperator();
-		result += "1. "; 
-		result += LanguageService.get("네");
-		result += "\t";
-		result += "2. ";
-		result += LanguageService.get("아니요(전 단계로 돌아가기)");
-		result += "\r\n";
-		result += thingetSeperator();
+		result += mainView.getSeperator();
+		result += mainView.addStringMargin(LanguageService.get("정렬해서 보기를 원하십니까?"));
+		result += mainView.getSeperator();
+		result += mainView.addMenuMargin("네", "아니요(전 단계로 돌아가기)"); 
+//		result += "1. "; 
+//		result += LanguageService.get("네");
+//		result += "\t";
+//		result += "2. ";
+//		result += LanguageService.get("아니요(전 단계로 돌아가기)");
+//		result += "\r\n";
+		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
 	}
@@ -133,7 +133,7 @@ public class RecordView {
 		
 		String result = "";
 		result += "\r\n";
-		result += thingetSeperator(); //구분선
+		result += mainView.getSeperatorThin();
 		result += "1. ";
 		result += LanguageService.get("날짜");
 		result += "\t";
@@ -143,7 +143,7 @@ public class RecordView {
 		result += "3. ";
 		result += LanguageService.get("캐릭터");
 		result += "\r\n";
-		result += thingetSeperator();
+		result += mainView.getSeperatorThin();
 		result += mainView.input();
 		System.out.print(result);
 	}
@@ -154,25 +154,21 @@ public class RecordView {
 	}
 
 
-	public String thingetSeperator() { //메뉴 외 구분선
-		return "------------------------------------------------------------------"
-				+ "------------------------------------------------------\r\n";
-	}
 
 	public void sortMenu() { //명예의 전당 > 최신기록 > 정렬(필요) > 정렬질문 > [세부정렬질문]
 
 		String sortmenu = "";
-		sortmenu += thingetSeperator();
+		sortmenu += mainView.getSeperator();
 		sortmenu += LanguageService.get("정렬을 선택해주세요.");
 		sortmenu += "\r\n";
-		sortmenu += thingetSeperator();
+		sortmenu += mainView.getSeperator();
 		sortmenu += "1. ";
 		sortmenu += LanguageService.get("오름차순");
 		sortmenu += "\t";
 		sortmenu += "2.";
 		sortmenu += LanguageService.get("내림차순");
 		sortmenu += "\r\n";
-		sortmenu += thingetSeperator();
+		sortmenu += mainView.getSeperatorThin();
 		sortmenu += mainView.input();
 		System.out.print(sortmenu);
 	}
@@ -184,6 +180,13 @@ public class RecordView {
 		result += LanguageService.get("다시 입력해주세요.");
 		result += "\r\n";
 		result += mainView.input();
+		System.out.print(result);
+	}
+	
+	public void notExist() {
+		String result = "";
+		result += LanguageService.get("존재하지 않는 정보입니다.");
+		result += "\r\n";
 		System.out.println(result);
 	}
 	
