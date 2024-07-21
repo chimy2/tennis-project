@@ -72,15 +72,27 @@ public class MainView {
 		return result;
 	}
 	
-//	public String addRowMarginMultiLine(String[][] string) {
+//	public String addRowMarginMultiLine(String[][] rows) {
 //		String result = "";
-//		String[] lines = multiLine.split("(\r)?\n");
+////		String[] lines = multiLine.split("(\r)?\n");
+////		
+////		for(String line : lines) {
+////			result += setRowMarginNotTrans(line);
+////		}
+//		int[] len = new int[rows.length];
 //		
-//		for(String line : lines) {
-//			result += setRowMarginNotTrans(line);
+////		각 열별 최대 길이 값
+//		for(int i=0; i<rows[0].length; i++) {
+//			for(int j=0; j<rows.length; j++) {
+//				len[i] = Math.max(len[i], rows[j][i].length() + calcKRJPStringCount(rows[j][i]));
+//			}
 //		}
-//		for(int i=0;i<multiLine)
 //		
+//		for(int i=0; i<rows.length; i++) {
+//			for(int j=0; j<rows[i].length; j++) {
+//				result += rows[i][j])
+//			}
+//		}
 //		return result;
 //	}
 		
@@ -201,16 +213,20 @@ public class MainView {
 	
 	public String arrangeRow(String text, int len) {
 		double lineLength = 122.0;
+		double width = lineLength / len; 
 	    int padding = (int)(lineLength / len - calcKRJPStringCount(text) - text.length())/ 2 ;
 	    if(padding < 0) {
 	    	padding = 0;
 	    }
 	    // 패딩을 추가하여 텍스트를 가운데로 정렬
 	    StringBuilder sb = new StringBuilder();
+//        sb.append(" ".repeat((int) (width - padding)));
+//	    if(padding >= 4) {
+//	    	System.out.println(sb.append("\t"));
+//	    }
         sb.append(" ".repeat(padding));
 	    sb.append(text);
 	    sb.append(" ".repeat(padding));
-//	    sb.append(" ".repeat(padding > 0 ? padding -1 : 0));
 //	    sb.append("|");
 	    return sb.toString();
 	}
@@ -251,7 +267,7 @@ public class MainView {
 			char c = str.charAt(i);
 			if(c >= '가' && c <= '힣') {
 //				한국어
-				result += 0.8;
+				result += 1.00;
 			} else if(c >= 'あ' && c <= 'ん'
 					|| c >= 'ア' && c <= 'ン') {
 //				일본어
@@ -289,7 +305,7 @@ public class MainView {
 		result += getSubTitle("안녕히 가십시오.");
 		result += getSeperator();
 		result += "\r\n";
-		result += "  /###           /                                                                              \r\n"
+		result += addRowMarginMultiLine("  /###           /                                                                              \r\n"
 				+ " /  ############/                                  #                                            \r\n"
 				+ "/     #########                                   ###                                           \r\n"
 				+ "#     /  #                                         #                                            \r\n"
@@ -323,7 +339,7 @@ public class MainView {
 				+ " /  ########/    ### / ###  ###  ###   ######/ ##  ### / ####/ ##     ##   ######     ###       \r\n"
 				+ "/     #####       ##/   ###  ###  ###   #####   ##  ##/   ###   ##     ##   ####       ###      \r\n"
 				+ "|                                                                                               \r\n"
-				+ " \\)                                                                                             ";
+				+ " \\)                                                                                             ");
 		
 		
 		MainService.printLine(result, 220, 5);
