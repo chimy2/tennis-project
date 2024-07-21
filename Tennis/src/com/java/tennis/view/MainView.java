@@ -68,7 +68,7 @@ public class MainView {
 		for(int i=0; i<titles.length; i++) {
 			result += titles[i];
 		}
-		result = setRowMargin(result);
+		result = setRowMarginNotTrans(result);
 		return result;
 	}
 		
@@ -112,7 +112,6 @@ public class MainView {
 	    for (int i=0; i<rows.length; i++) {
 	        sb.append(arrangeRow(rows[i], rows.length));
 	    }
-	    
 	    sb.append("\r\n");
 	    
 	    return sb.toString();
@@ -190,8 +189,8 @@ public class MainView {
 	}
 	
 	public String arrangeRow(String text, int len) {
-		int lineLength = 120;
-	    int padding = (lineLength / len - calcKRJPStringCount(text) - text.length())/ 2 ;
+		double lineLength = 122.0;
+	    int padding = (int)(lineLength / len - calcKRJPStringCount(text) - text.length())/ 2 ;
 	    if(padding < 0) {
 	    	padding = 0;
 	    }
@@ -200,6 +199,8 @@ public class MainView {
         sb.append(" ".repeat(padding));
 	    sb.append(text);
 	    sb.append(" ".repeat(padding));
+//	    sb.append(" ".repeat(padding > 0 ? padding -1 : 0));
+//	    sb.append("|");
 	    return sb.toString();
 	}
 	
@@ -238,10 +239,19 @@ public class MainView {
 		for(int i=0; i<str.length(); i++) {
 			char c = str.charAt(i);
 			if(c >= '가' && c <= '힣') {
-				result++;
+//				한국어
+				result += 1.1;
 			} else if(c >= 'あ' && c <= 'ん'
 					|| c >= 'ア' && c <= 'ン') {
-				result += 2.2;
+//				일본어
+				result += 1.2;
+//			} else if(c >= '一' && c <= '龻'
+//					|| c >= '㐀' && c <= '䶿'
+//					|| c >= '𠀀' && c <= '𪛟'
+//					|| c >= '𪜀' && c <= '𫜿'
+//					|| c >= '𫝀' && c <= ''
+//					|| c >= '' && c <= '') {
+//				한자
 			}
 		}
 		return (int) result;

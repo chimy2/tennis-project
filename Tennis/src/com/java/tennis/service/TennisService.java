@@ -563,25 +563,29 @@ private void gameReset() {
 		
 		if (dto.getSet() == 1) {
 			if (me.pointSet > 1) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p1, me.pointSet, cpu.pointSet);
 			} else if (cpu.pointSet > 1) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p2, cpu.pointSet, me.pointSet);
 			}
 		}
 		
 		if (dto.getSet() == 2) {
 			if (me.pointSet > 2) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p1, me.pointSet, cpu.pointSet);
 			} else if (cpu.pointSet > 2) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p2, cpu.pointSet, me.pointSet);
 			}
 		}
 		
@@ -598,25 +602,14 @@ private void gameReset() {
 			String name = scan.nextLine();
 			String text = "";
 
-//<<<<<<< HEAD
-//			view.checkRecordName(name);
-//=======
 			if (name.length() < 1 || name.length() > 10) {
 				text += mainView.getSubTitle("이름은 1자에서 10자 사이로 입력 부탁드립니다.");
 				System.out.println(text);
 				recordName(characterDTO);
 			}
-			
-			text = "";
-			text += mainView.getSeperator();
-			text += mainView.getSubTitle(String.format("입력하신 이름이 %s이(가) 맞습니까?\r\n", name));
-			text += mainView.getSeperator();
-			text += mainView.setNumRowMargin("예", "아니오");
-			text += mainView.getSeperatorThin();
-			
-			System.out.println(text);
 
-			//>>>>>>> 8a8fba42ce023bc98e254f839aaf97ffaf5cb0ed
+			view.checkRecordName(name);
+			
 			int input = scan.nextInt();
 			scan.skip("\r\n");
 			
