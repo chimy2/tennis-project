@@ -40,7 +40,7 @@ public class SettingView {
 		result += mainView.getSeperator();
 		result += mainView.getSubTitle("난이도 설정", getDiff());
 		result += mainView.getSeperator();
-		result += mainView.setNumRowMargin("쉽게", "보통", "어렵게", "돌아가기");
+		result += mainView.setNumRowMargin("쉬움", "보통", "어려움", "돌아가기");
 		result += mainView.getSeperatorThin();
 		System.out.print(result);
 	}
@@ -52,11 +52,11 @@ public class SettingView {
 		result += LanguageService.get("현재 난이도") + ": ";
 		
 		if(diff == EASY) {
-			result += LanguageService.get("쉽게");
+			result += LanguageService.get("쉬움");
 		} else if(diff == NORMAL) {
 			result += LanguageService.get("보통");
 		} else if(diff == HARD) {
-			result += LanguageService.get("어렵게");
+			result += LanguageService.get("어려움");
 		}
 		result += ")";
 		

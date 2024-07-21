@@ -68,7 +68,6 @@ public class MainView {
 		for(int i=0; i<titles.length; i++) {
 			result += titles[i];
 		}
-		System.out.println(result+"123124124124");
 		result = setRowMargin(result);
 		return result;
 	}
@@ -137,7 +136,7 @@ public class MainView {
 		StringBuilder sb = new StringBuilder();
 
 	    for (int i=0; i<count; i++) {
-	        sb.append(arrangeRow(String.format("%d. %s", (i + 1), row), count));
+	        sb.append(arrangeRow(String.format("%d. %s", (i + 1), LanguageService.get(row)), count));
 	    }
 	    
 	    sb.append("\r\n");
@@ -238,10 +237,11 @@ public class MainView {
 //		기본 폰트에 맞춰 크기 설정 하기
 		for(int i=0; i<str.length(); i++) {
 			char c = str.charAt(i);
-			if(c >= '가' && c <= '힣' 
-					|| c >= 'あ' && c <= 'ん'
-					|| c >= 'ア' && c <= 'ン') {
+			if(c >= '가' && c <= '힣') {
 				result++;
+			} else if(c >= 'あ' && c <= 'ん'
+					|| c >= 'ア' && c <= 'ン') {
+				result += 2.2;
 			}
 		}
 		return (int) result;

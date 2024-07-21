@@ -89,8 +89,6 @@ public class RecordDAO {
 				}
 			}
 
-			System.out.println();
-
 			this.reader.close();
 
 		} catch (Exception e) {
@@ -320,9 +318,8 @@ public class RecordDAO {
 				i++;
 			}
 
-			MainView error = new MainView();
-			System.out.println(error.getSeperator()); // 구분선 > 정렬출력으로 출력이 모두 끝나서 구분해주려고 선 추가
-			error.pause(); // 정렬선택(오름차순/내림차순) > 출력 > 계속하려면 엔터쳐라
+			System.out.println(mainView.getSeperator()); // 구분선 > 정렬출력으로 출력이 모두 끝나서 구분해주려고 선 추가
+			mainView.pause(); // 정렬선택(오름차순/내림차순) > 출력 > 계속하려면 엔터쳐라
 
 			this.reader.close();
 		} catch (Exception e) {
