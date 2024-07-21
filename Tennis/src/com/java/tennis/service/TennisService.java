@@ -301,7 +301,14 @@ public class TennisService {
 			
 		}
 		
-		boolean loopRecord = true;
+		boolean loopRecord;
+		if (!
+				((me.pointSet > cpu.pointSet && dto.getSet()==1 && me.pointSet > 1 )
+				||(me.pointSet > cpu.pointSet && dto.getSet()==2 && me.pointSet > 2))) {
+			loopRecord = false;
+		} else {
+			loopRecord = true;
+		}
 		while (loopRecord) {
 			view.recordGame();
 			int input = scan.nextInt();
@@ -319,6 +326,7 @@ public class TennisService {
 		while (true) {
 			
 			view.finalMenu();
+			gameReset();
 			String input = scan.nextLine();
 			
 			if (input.equals("1")) {
@@ -334,6 +342,22 @@ public class TennisService {
 		}
 		
 //		루프 돔황챠!!!
+		
+	}
+
+private void gameReset() {
+	
+	me.point = 0;
+	cpu.point = 0;
+	me.pointGame = 0;
+	cpu.pointGame = 0;
+	me.pointSet = 0;
+	cpu.pointSet = 0;
+	countServe = 1;
+	countGame = 1;
+	countSet = 1;
+	countTotalServe = 1;
+	
 		
 	}
 
@@ -515,11 +539,6 @@ public class TennisService {
 			cpu.point = 0;
 			cpu.pointGame = 0;
 			System.out.println(mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2));
-//			System.out.println();
-//			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p1);
-//			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
-//			System.out.println("다음 세트를 시작합니다.");
-//			System.out.println("[확인]");
 			countServe = 1;
 			countGame = 1;
 			countSet++;
@@ -535,11 +554,6 @@ public class TennisService {
 			cpu.point = 0;
 			cpu.pointGame = 0;
 			System.out.println(mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2));
-//			System.out.println();
-//			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p2);
-//			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
-//			System.out.println("다음 세트를 시작합니다.");
-//			System.out.println("[확인]");
 			countServe = 1;
 			countGame = 1;
 			countSet++;
