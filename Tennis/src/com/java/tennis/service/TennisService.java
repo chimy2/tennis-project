@@ -532,25 +532,29 @@ public class TennisService {
 		
 		if (dto.getSet() == 1) {
 			if (me.pointSet > 1) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p1, me.pointSet, cpu.pointSet);
 			} else if (cpu.pointSet > 1) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p2, cpu.pointSet, me.pointSet);
 			}
 		}
 		
 		if (dto.getSet() == 2) {
 			if (me.pointSet > 2) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p1, me.pointSet, cpu.pointSet);
 			} else if (cpu.pointSet > 2) {
-				System.out.println();
-				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
-				System.out.println(temp);
+//				System.out.println();
+//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
+//				System.out.println(temp);
+				view.resultMatch(p2, cpu.pointSet, me.pointSet);
 			}
 		}
 		
@@ -566,18 +570,13 @@ public class TennisService {
 			view.recordName();
 			String name = scan.nextLine();
 
-//<<<<<<< HEAD
-//			view.checkRecordName(name);
-//=======
 			if (name.length() < 1 || name.length() > 10) {
 				System.out.println("이름은 1자에서 10자 사이로 입력 부탁드립니다.");
 				recordName(characterDTO);
 			}
+
+			view.checkRecordName(name);
 			
-			System.out.printf("입력하신 이름이 %s이(가) 맞습니까?\r\n", name);
-			System.out.println("1.예	2.아니오");
-			
-//>>>>>>> 8a8fba42ce023bc98e254f839aaf97ffaf5cb0ed
 			int input = scan.nextInt();
 			scan.skip("\r\n");
 			

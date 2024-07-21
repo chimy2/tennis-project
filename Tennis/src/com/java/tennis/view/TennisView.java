@@ -183,4 +183,18 @@ public class TennisView {
 		
 		System.out.print(temp);
 	}
+	
+	public void resultMatch(String name, int winSet, int loseSet) {
+		String temp = "";
+		temp += mainView.getSeperator();
+		temp += mainView.getSubTitleNotTrans(String.format("%s%s [%d-%d]%s", 
+				LanguageService.get(name),
+				LanguageService.get("이(가)"),
+				winSet,
+				loseSet,
+				LanguageService.get("로 매치를 승리했습니다.")
+				));
+		temp += mainView.getSeperator();
+		System.out.print(temp);
+	}
 }

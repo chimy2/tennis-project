@@ -91,4 +91,8 @@ English, English, English
 자세히 보고싶은 기록의 번호를 입력하세요.,Please enter the number of the record you want to see in detail.,詳細を見たい記録の番号を入力してください
 테니스 시뮬레이터를 플레이 해주셔서 감사합니다.,Thank you for playing the Tennis Simulator.,テニスシミュレーターをプレイしていただきありがとうございます。
 어떤 스킬을 사용하겠습니까?,Which skill would you like to use?,どのスキルを使用しますか？
-다시 하기,
+다시 하기,Try Again,やり直す
+플레이어,Player,プレイヤー
+컴퓨터,Computer,コンピューター
+이(가), won the match ,(が)
+로 매치를 승리했습니다.,, で試合に勝ちました

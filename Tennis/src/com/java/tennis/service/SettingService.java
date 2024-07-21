@@ -105,7 +105,7 @@ public class SettingService {
 	}
 	
 	public void getDiscord() {
-		String url = "https://discord.com/";
+		String url = "https://github.com/chimy2/tennis-project";
 		
 		try {
 			Desktop.getDesktop().browse(new URI(url));
