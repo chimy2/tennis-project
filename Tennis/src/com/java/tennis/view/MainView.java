@@ -352,8 +352,8 @@ public class MainView {
 		if (pointSet1 > pointSet2) {
 			
 			text += getSeperator();
-			text += getSubTitle(String.format("%d세트의 승자는 %s입니다.\r\n", countSet, p1));
-			text += getSubTitle(String.format("현재 세트 스코어는 [%d-%d] 입니다.\r\n", pointSet1, pointSet2));
+			text += getSubTitle(String.format("%d세트의 승자는 %s입니다.", countSet, p1));
+			text += getSubTitle(String.format("현재 세트 스코어는 [%d-%d] 입니다.", pointSet1, pointSet2));
 			text += getSeperator();
 			text += getSubTitle("다음세트를 시작합니다.");
 			text += getSeperatorThin();
@@ -361,8 +361,8 @@ public class MainView {
 			text += getSeperatorThin();	
 		} else {
 			text += getSeperator();
-			text += getSubTitle(String.format("%d세트의 승자는 %s입니다.\r\n", countSet, p2));
-			text += getSubTitle(String.format("현재 세트 스코어는 [%d-%d] 입니다.\r\n", pointSet1, pointSet2));
+			text += getSubTitle(String.format("%d세트의 승자는 %s입니다.", countSet, p2));
+			text += getSubTitle(String.format("현재 세트 스코어는 [%d-%d] 입니다.", pointSet1, pointSet2));
 			text += getSeperator();
 			text += getSubTitle("다음세트를 시작합니다.");
 			text += getSeperatorThin();

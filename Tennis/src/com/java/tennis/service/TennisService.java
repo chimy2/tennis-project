@@ -514,7 +514,7 @@ public class TennisService {
 			me.pointGame = 0;
 			cpu.point = 0;
 			cpu.pointGame = 0;
-			mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2);
+			System.out.println(mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2));
 //			System.out.println();
 //			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p1);
 //			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
@@ -534,7 +534,7 @@ public class TennisService {
 			me.pointGame = 0;
 			cpu.point = 0;
 			cpu.pointGame = 0;
-			mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2);
+			System.out.println(mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2));
 //			System.out.println();
 //			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p2);
 //			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
@@ -586,9 +586,11 @@ public class TennisService {
 			
 			view.recordName();
 			String name = scan.nextLine();
+			String text = "";
 
 			if (name.length() < 1 || name.length() > 10) {
-				System.out.println("이름은 1자에서 10자 사이로 입력 부탁드립니다.");
+				text += mainView.getSubTitle("이름은 1자에서 10자 사이로 입력 부탁드립니다.");
+				System.out.println(text);
 				recordName(characterDTO);
 			}
 
