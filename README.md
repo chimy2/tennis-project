@@ -1,6 +1,7 @@
 # Tennis Simulator
-![image](https://github.com/user-attachments/assets/7f690fa0-3ddf-4b26-946d-f273793610c7)
 
+![image](https://github.com/user-attachments/assets/7f690fa0-3ddf-4b26-946d-f273793610c7)
+---
 ### 프로젝트 소개
 - 이 프로젝트는 테니스 콘솔 게임을 구현한 것입니다.
 - 사용자가 테니스 게임을 즐기고 학습할 수 있도록 다양한 기능을 구현하는 것을 목표로 하고 있습니다. 
@@ -28,3 +29,8 @@
 2. 수집된 경기의 최신 기록 확인 및 닉네임을 통한 검색, 정렬을 통한 조회가 가능합니다.
 3. 한국어, 영어, 일본어를 지원합니다.
 
+### 데이터베이스 구성
+![KakaoTalk_20240722_041844237](https://github.com/user-attachments/assets/e068b78d-2002-4d26-93ce-540035dc73a3)
+
+### 게임 기능 데이터 상세 구성
+![KakaoTalk_20240722_041855827](https://github.com/user-attachments/assets/c803a896-57b7-493d-be30-7b1b4b378734)
