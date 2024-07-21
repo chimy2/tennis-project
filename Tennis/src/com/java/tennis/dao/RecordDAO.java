@@ -137,7 +137,10 @@ public class RecordDAO {
 
 //					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", temp[1], set, temp[2], game, score,
 //							LanguageService.get(win));
-					result += mainView.setRowMarginNotTrans(temp[1], set, temp[2], game, score,
+					result += mainView.setRowMarginNotTrans(
+							temp[1] + " " + set, 
+							temp[2] + " " + game, 
+							score,
 							LanguageService.get(win));
 				}
 			}

@@ -22,6 +22,7 @@ public class TennisView {
 		temp += mainView.getSeperator();
 		temp += mainView.addRowMarginMultiLine(mainView.getTitle("Game Start"));
 		temp += mainView.getSeperator();
+		temp += "\r\n";
 		System.out.println(temp);
 	}
 	
