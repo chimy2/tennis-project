@@ -19,7 +19,7 @@ public class SettingView {
 		result += mainView.getSeperator();
 		result += mainView.getSubTitle("환경 설정");
 		result += mainView.getSeperator();
-		result += mainView.setNumRowMargin("언어 설정", "난이도 설정", "만든 사람들", "디스코드", "개발자에게 기부하기", "메인 메뉴");
+		result += mainView.setNumRowMargin("언어 설정", "난이도 설정", "만든 사람들", "깃허브", "개발자에게 기부하기", "메인 메뉴");
 		result += mainView.getSeperatorThin();
 		result += mainView.selectMenu();
 		System.out.print(result);
