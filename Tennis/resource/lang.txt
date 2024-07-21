@@ -108,4 +108,5 @@ English, English, English
 듀스,Deuce,デュース
 현재 세트 스코어는,The current set score is,現在のセットスコアは
 다음 세트를 시작합니다.,The next set begins.,次のセットを開始します。
-세트의 승자는,The winner of the set is,セットの勝者は
+세트의 승자는,winner of the set is,セットの勝者は
+회차,st,st

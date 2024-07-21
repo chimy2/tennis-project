@@ -279,15 +279,14 @@ public class TennisView {
 		return text;
 	}
 
-	public String pointDisplay(int p1, int p2) {
+	public void pointDisplay(int p1, int p2) {
 		
 		String text = "";
 		text += mainView.getSeperator();
 		text += mainView.getSubTitleNotTrans(pointName(p1, p2), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
 		text += mainView.getSeperator();
 		
-		return text;
-		
+		System.out.print(text);
 	}
 
 	private String pointName(int p1, int p2) {

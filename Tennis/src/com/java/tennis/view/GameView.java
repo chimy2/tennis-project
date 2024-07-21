@@ -28,15 +28,6 @@ public class GameView {
 		result += mainView.getSubTitle("어떤 스킬을 사용하겠습니까?", currentGameInfo);
 		result += mainView.getSeperator();
 		
-//		for(int i=0; i<skillCount; i++) {
-//			String temp = skillList.get(i).getName();
-//			result += (i + 1) + ". " + temp;
-//			if(skillName.equals(temp)) {
-//				result += "!";
-//			}
-//			result += "\r\n";
-//			
-//		}
 		result += mainView.setNumRowMarginNotTrans(
 				skillList.stream().map(s -> {
 					return skillName.equals(s.getName()) ?

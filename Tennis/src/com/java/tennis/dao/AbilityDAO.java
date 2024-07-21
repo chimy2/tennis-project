@@ -7,7 +7,7 @@ import com.java.tennis.model.AbilityDTO;
 
 public class AbilityDAO {
 	
-	final String PATH = "C:\\class\\project\\Tennis\\resource\\character.txt";
+	final String PATH = "resource\\character.txt";
 	
 	public AbilityDTO get(int num) {
 		

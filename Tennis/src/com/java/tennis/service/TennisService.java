@@ -121,7 +121,6 @@ public class TennisService {
 		loop = true;
 		while (loop) {
 			
-			System.out.println();
 			view.characterSelect();
 			character = scan.nextInt();
 			scan.skip("\r\n");
@@ -264,6 +263,16 @@ public class TennisService {
 			} else if(App.difficulty == settingView.HARD) {
 				me.chance -= 20;
 			}
+			
+			if(input == 1) {
+				me.chance += dtoCharacter.getAbility().getPower();
+			} else if(input == 2) {
+				me.chance += dtoCharacter.getAbility().getAgility();
+			} else if(input == 3) {
+				me.chance += dtoCharacter.getAbility().getStamina();
+			} else if(input == 4) {
+				me.chance += dtoCharacter.getAbility().getFocus();
+			}
 	
 			if (me.chance > cpu.chance) {
 				me.point++;
@@ -284,7 +293,7 @@ public class TennisService {
 			}
 			
 			
-			System.out.println(view.pointDisplay(me.point, cpu.point));
+			view.pointDisplay(me.point, cpu.point);
 			
 //			String text = "";
 //			System.out.println();
