@@ -40,7 +40,6 @@ public class ExplainDAO {
 					result += line + "\r\n";
 				}
 			}
-			
 		} catch (Exception e) {
 			System.out.println("ExplainDAO.getExplain");
 			e.printStackTrace();

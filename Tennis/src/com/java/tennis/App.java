@@ -9,9 +9,11 @@ import com.java.tennis.service.TennisService;
 import com.java.tennis.view.MainView;
 
 public class App {
-	public static int langIndex = 0;
+//	기본 한국어 설정
+	public static int langIndex = 2;
+//	기본 보통 난이도 설정
 	public static int difficulty = 2;
-	public static boolean loop;
+	public static boolean loop = true;
 	
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -21,7 +23,6 @@ public class App {
 		SettingService settingService = new SettingService();
 		RecordService recordService = new RecordService();
 		
-		loop = true;
 		while(loop) {
 			view.getMainMenu();
 			
@@ -42,7 +43,7 @@ public class App {
 			} else if (input.equals("5")) {
 //				게임 종료
 				view.end();
-				break;
+				loop = false;
 			} else {
 //				입력 오류
 				view.errorInput();

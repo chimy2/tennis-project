@@ -6,14 +6,17 @@ import java.util.Scanner;
 
 import com.java.tennis.App;
 import com.java.tennis.service.LanguageService;
+import com.java.tennis.view.MainView;
 
 public class SettingDAO {
 	private Scanner scan;
 	private LanguageService languageService;
+	private MainView mainView;
 	
 	public SettingDAO() {
-		scan = new Scanner(System.in);
-		languageService = new LanguageService();
+		this.scan = new Scanner(System.in);
+		this.languageService = new LanguageService();
+		this.mainView = new MainView();
 	}
 	
 	public String getDevelopers() {
@@ -34,10 +37,17 @@ public class SettingDAO {
 			BufferedReader reader = new BufferedReader(new FileReader(path));
 			
 			String line;
-			
+			int count = 0;
 			while((line = reader.readLine()) != null) {
-				result += line;
+				if(count % 3 == 0) {
+					result += mainView.getSeperator();
+					result += mainView.getSubTitleNotTrans(line);
+					result += mainView.getSeperator();
+				} else {
+					result += mainView.getSubTitleNotTrans(line);
+				}
 				result += "\r\n";
+				count++;
 			}
 		} catch (Exception e) {
 			System.out.println("SettingDAO.getDevelopers");

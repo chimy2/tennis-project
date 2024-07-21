@@ -244,35 +244,41 @@ public class MainView {
 			} else if(c >= 'あ' && c <= 'ん'
 					|| c >= 'ア' && c <= 'ン') {
 //				일본어
-				result += 1.2;
-//			} else if(c >= '一' && c <= '龻'
-//					|| c >= '㐀' && c <= '䶿'
-//					|| c >= '𠀀' && c <= '𪛟'
-//					|| c >= '𪜀' && c <= '𫜿'
-//					|| c >= '𫝀' && c <= ''
-//					|| c >= '' && c <= '') {
+				result += 0.5;
+			} else if(c >= 0x4E00 && c <= 0x9FFF 
+					|| c >= 0x3400 && c <= 0x4DBF
+					|| c >= 0x20000 && c <= 0x2A6DF
+					|| c >= 0x2A700 && c <= 0x2B73F
+					|| c >= 0x2B740 && c <= 0x2B81F
+					|| c >= 0x2B820 && c <= 0x2CEAF 
+					|| c >= 0x2CEB0 && c <= 0x2EBEF
+					|| c >= 0xF900 && c <= 0xFAFF) {
 //				한자
+				result += 0.8;
 			}
 		}
 		return (int) result;
 	}
 	
 	public void pause() {
-		System.out.println();
-		System.out.println(LanguageService.get("계속하시려면 엔터를 입력해주세요."));
-		
+		String result = "";
+		result += "\r\n";
+		result += getSeperator();
+		result += getSubTitle("계속하시려면 엔터를 입력해주세요.");
+		result += getSeperator();
+		System.out.print(result);
 		scan.nextLine();	//Block
 		System.out.println();
 	}
 	
 	public void end() {
 		String result = "";
-		result += LanguageService.get("게임을 종료합니다.");
+		result += getSeperator();
+		result += getSubTitle("게임을 종료합니다.");
+		result += getSubTitle("안녕히 가십시오.");
+		result += getSeperator();
 		result += "\r\n";
-		result += LanguageService.get("안녕히 가십시오.");
-		result += "\r\n";
-		result += "\r\n";
-		result += " /###           /                                                                              \r\n"
+		result += "  /###           /                                                                              \r\n"
 				+ " /  ############/                                  #                                            \r\n"
 				+ "/     #########                                   ###                                           \r\n"
 				+ "#     /  #                                         #                                            \r\n"

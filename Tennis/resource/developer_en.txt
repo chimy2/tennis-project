@@ -1,4 +1,11 @@
-Park So Hye
-Lee Hye Mi
-Jang Bo Hwa
-Jeon Sang Soo
+Park So-hye (Team Leader)
+Project management, game description and settings, skill functionality implementation
+
+Lee Hye-mi
+Hall of Fame functionality implementation, PPT
+
+Jang Bo-hwa
+Hall of Fame functionality implementation, documentation management
+
+Jeon Sang-soo
+Character and game functionality implementation, presentation
