@@ -56,7 +56,7 @@ public class MainView {
 		result = setRowMargin(title);
 		return result;
 	}
-	
+
 	public String getSubTitle(String title, String addition) {
 		String result = "";
 		result = setRowMarginNotTrans(LanguageService.get(title) + " " + addition);
@@ -118,6 +118,7 @@ public class MainView {
 	    
 	    return sb.toString();
 	}
+	
 	
 	public String setRowMarginNotTrans(String... rows) {
 		StringBuilder sb = new StringBuilder();
@@ -333,4 +334,77 @@ public class MainView {
 		return "------------------------------------------------------------------"
 				+ "------------------------------------------------------\r\n";
 	}
+
+	public String setWinner(int countSet, int pointSet1, int pointSet2, String p1, String p2) {
+		
+		String text = "";
+		
+		if (pointSet1 > pointSet2) {
+			
+			text += getSeperator();
+			text += getSubTitle(String.format("%d세트의 승자는 %s입니다.\r\n", countSet, p1));
+			text += getSubTitle(String.format("현재 세트 스코어는 [%d-%d] 입니다.\r\n", pointSet1, pointSet2));
+			text += getSeperator();
+			text += getSubTitle("다음세트를 시작합니다.");
+			text += getSeperatorThin();
+			text += getSubTitle("[확인]");
+			text += getSeperatorThin();	
+		} else {
+			text += getSeperator();
+			text += getSubTitle(String.format("%d세트의 승자는 %s입니다.\r\n", countSet, p2));
+			text += getSubTitle(String.format("현재 세트 스코어는 [%d-%d] 입니다.\r\n", pointSet1, pointSet2));
+			text += getSeperator();
+			text += getSubTitle("다음세트를 시작합니다.");
+			text += getSeperatorThin();
+			text += getSubTitle("[확인]");
+			text += getSeperatorThin();	
+
+		}
+		return text;
+	}
+
+	public String pointDisplay(int p1, int p2) {
+		
+		String text = "";
+		text += getSeperator();
+		text += getSubTitle(pointName(p1, p2), "(계속하시려면 엔터를 입력해주세요.)");
+//		text += getSubTitle(p1 + "-" + p2);
+		text += getSeperator();
+		text += getSubTitle("[확인]");
+		text += getSeperatorThin();
+		
+		return text;
+		
+	}
+
+	private String pointName(int p1, int p2) {
+			
+			String[] pointNames = {"러브", "피프틴", "써티", "포티"	};
+			String text;
+
+			if (p1 == p2) {
+				if (p1 < 3) {
+					text = pointNames[p1] + "-올";
+				} else {
+					text = "듀스";
+				}
+			} else if (p1 > 3 || p2 > 3) {
+
+				int diff = p1 - p2;
+					
+				if (diff == 1) {
+					text = "애드 플레이어 1";
+				} else if ( diff == -1 ) {
+					text = "애드 플레이어 2";
+				} else if (diff >= 2) {
+					text = "게임 플레이어 1";
+				} else {
+					text = "게임 플레이어 2";
+				}
+			} else {
+					text = pointNames[p1] + "-" + pointNames[p2];
+			}
+			return text;
+	}
+	
 }

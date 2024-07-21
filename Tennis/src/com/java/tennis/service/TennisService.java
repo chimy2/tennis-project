@@ -185,8 +185,8 @@ public class TennisService {
 				if (input == 333) {
 					
 					String[] terms = {"p1포인트", "p2포인트", "p1게임포인트", "p2게임포인트", "p1세트포인트", "p2세트포인트", "현재게임", "현제세트"};
-					String txt = "" + me.point + "," + cpu.point + "," + me.pointGame + "," + cpu.pointGame + "," + me.pointSet + "," + cpu.pointSet + "," + countGame + "," + countSet;
-					String[] old = txt.split(",");
+					String textVar = "" + me.point + "," + cpu.point + "," + me.pointGame + "," + cpu.pointGame + "," + me.pointSet + "," + cpu.pointSet + "," + countGame + "," + countSet;
+					String[] old = textVar.split(",");
 					int[] values = {me.point, cpu.point, me.pointGame, cpu.pointGame, me.pointSet, cpu.pointSet, countGame, countSet};
 					
 //					int[] temp = scoreModifier(me.point, cpu.point, me.pointGame, cpu.pointGame, me.pointSet, cpu.pointSet, countGame, countSet);
@@ -201,16 +201,29 @@ public class TennisService {
 					countGame = temp[6];
 					countGame = temp[7];
 					
-					System.out.printf("게임 변수가 아래와 같이 변경되었습니다.\r\n");
+					String text = "";
+					text += mainView.getSeperator();
+					text += mainView.getSubTitle("게임 변수가 아래와 같이 변경되었습니다.");
+					text += mainView.getSeperator();
 					
 					for (int i=0; i<values.length-2; i++) {
-						if (terms[i].length()>8) {
-							System.out.printf("%s:%s   ->\t%d\r\n", terms[i], old[i], temp[i]);
-						} else if (terms[i].length()>4) {
-							System.out.printf("%s:\t%s   ->\t%d\r\n", terms[i], old[i], temp[i]);
-						}
+						
+//						if (i == values.length - 3) { //배열 마지막 방 출력할 때는 줄 개행 x (\r\n 안 하는 장치)
+//							if (terms[i].length()>8) {
+//								text += mainView.getSubTitle("" + terms[i] + ":" + old[i] + "   ->\t" + temp[i]);
+//							} else if (terms[i].length()>4) {
+//								text += mainView.getSubTitle("" + terms[i] + ":\t" + old[i] + "   ->\t" + temp[i]);
+//							}
+//						} else {
+							if (terms[i].length()>8) {
+								text += mainView.getSubTitle("" + terms[i] + ":" + old[i] + "   ->\t" + temp[i]);
+							} else if (terms[i].length()>4) {
+								text += mainView.getSubTitle("" + terms[i] + ":\t" + old[i] + "   ->\t" + temp[i]);
+							}
+//						}
 					}
-					
+					text += mainView.getSeperatorThin();
+					System.out.println(text);
 					
 //					for (int i=0; i<terms.length; i++) {
 //						System.out.printf("%s: %s -> %d\r\n", terms[i], old[i], temp[i]);
@@ -269,12 +282,22 @@ public class TennisService {
 			} else {
 				continue;
 			}
-			System.out.println(pointName(me.point, cpu.point));
-			System.out.println(me.point + "-" + cpu.point);
-			System.out.println("[확인]");
+			
+			
+			System.out.println(mainView.pointDisplay(me.point, cpu.point));
+			
+//			String text = "";
+//			System.out.println();
+//			text += mainView.getSeperator();
+//			text += mainView.getSubTitle(pointName(me.point, cpu.point));
+//			text += mainView.getSubTitle(me.point + "-" + cpu.point);
+//			text += mainView.getSeperator();
+//			text += mainView.getSubTitle("[확인]");
+//			text += mainView.getSeperatorThin();
+//			System.out.println(text);
 			scan.nextLine();
 			System.out.println();
-			
+		
 			
 		}
 		
@@ -339,52 +362,67 @@ public class TennisService {
 			
 			String[] terms = {"p1포인트", "p2포인트", "p1게임포인트", "p2게임포인트", "p1세트포인트", "p2세트포인트", "현재게임", "현제세트"};
 			
-			System.out.println();
-			System.out.println("띄어쓰기 없이 현재게임과 현재세트 변수를 제외한 나머지 변수를 아래와 같이 입력 부탁드립니다.\r\n"
-								+ "(p1포인트,p2포인트,p1게임포인트,p2게임포인트,p1세트포인트,p2세트포인트)\r\n"
-								+ "(1,2,3,4,5,6)");
-			System.out.println();
-		System.out.println("현재 변수 값은 아래와 같습니다.");
-		
+			
+			String text = "";
+			text += mainView.getSeperator();
+			text += mainView.getSubTitle("띄어쓰기 없이 현재게임과 현재세트 변수를 제외한 나머지 변수를 아래와 같이 입력 부탁드립니다.");
+			text += mainView.getSubTitle("[p1포인트, p2포인트, p1게임포인트, p2게임포인트, p1세트포인트, p2세트포인트]");
+			text += mainView.getSubTitle("[1,	    2,		3,		4,		5,		6]");
+			text += mainView.getSeperator();
+			System.out.println(text);
+			
+			text = "";
+			text += mainView.getSubTitle("현재 변수 값은 아래와 같습니다.");
+
 		for (int i=0; i<values.length; i++) {
 			if (terms[i].length()>8) {
-				System.out.printf("%s:\t%d\r\n", terms[i], values[i]);
+				text += mainView.getSubTitle(terms[i] + ":" + values[i]);
+//				System.out.printf("%s:\t%d\r\n", terms[i], values[i]);
 			} else if (terms[i].length()>4) {
-				System.out.printf("%s:\t\t%d\r\n", terms[i], values[i]);
+				text += mainView.getSubTitle(terms[i] + ":      " + values[i]);
+//				System.out.printf("%s:\t\t%d\r\n", terms[i], values[i]);
 			}
 		}
-
-		System.out.print("입력: ");
-		String text = scan.nextLine();
+			text += mainView.getSeperatorThin();
+			text += mainView.input();
+			System.out.println(text);
+			text = "";
+			
+		String varInput = scan.nextLine();
 		System.out.println();
 		
-		String[] string = (text.split(","));
+		String[] string = (varInput.split(","));
 		
 		int[] temp = new int[string.length + 2];
+		
+		
+		
+		text += mainView.getSeperator();
+		text += mainView.getSubTitle("입력하신 값을 확인 부탁드립니다.");
 		
 		for (int i=0; i<string.length; i++) {
 			temp[i] = Integer.valueOf(string[i]);
 		}
 		
-		System.out.println("입력하신 값을 확인 부탁드립니다.");
 		
 		for (int i=0; i<values.length-2; i++) {
 			if (terms[i].length()>8) {
-				System.out.printf("%s:%d   ->\t%d\r\n", terms[i], values[i], temp[i]);
+				text += mainView.getSubTitle(terms[i] + ":" + values[i] + "   ->\t" + temp[i]);
+//				System.out.printf("%s:%d   ->\t%d\r\n", terms[i], values[i], temp[i]);
 			} else if (terms[i].length()>4) {
-				System.out.printf("%s:\t%d   ->\t%d\r\n", terms[i], values[i], temp[i]);
+				text += mainView.getSubTitle(terms[i] + ":\t" + values[i] + "   ->\t" + temp[i]);
+//				System.out.printf("%s:\t%d   ->\t%d\r\n", terms[i], values[i], temp[i]);
 			}
 		}
 		temp[6] = countGame = temp[2] + temp[3] + 1;
 		temp[7] = countSet = temp[4] + temp[5] + 1;
 	
-		String tempText = "";
 		
-		tempText += mainView.getSeperator();
-		tempText +=	mainView.setNumRowMargin("예", "아니오");
-		tempText += mainView.getSeperator();
+		text += mainView.getSeperator();
+		text +=	mainView.setNumRowMargin("예", "아니오");
+		text += mainView.getSeperatorThin();
 		
-		System.out.println(tempText);
+		System.out.println(text);
 		
 		int input = scan.nextInt();
 		scan.skip("\r\n");
@@ -395,40 +433,6 @@ public class TennisService {
 		}
 		return null;
 	}
-
-	private String pointName(int num1, int num2) {
-		
-		String[] pointNames = {"러브", "피프틴", "써티", "포티"	};
-		String result;
-
-		if (num1 == num2) {
-			if (num1 < 3) {
-				result = pointNames[num1] + "-올";
-			} else {
-				result = "듀스";
-			}
-		} else if (num1 > 3 || num2 > 3) {
-
-			int diff = num1 - num2;
-				
-			if (diff == 1) {
-				result = "애드 플레이어 1";
-			} else if ( diff == -1 ) {
-				result = "애드 플레이어 2";
-			} else if (diff >= 2) {
-				result = "게임 플레이어 1";
-			} else {
-				result = "게임 플레이어 2";
-			}
-		} else {
-				result = pointNames[num1] + "-" + pointNames[num2];
-		}
-
-		return result;
-
-	
-	}
-
 
 	private int matchId() {
 		int result = 0;
@@ -455,6 +459,7 @@ public class TennisService {
 		
 		String p1 = dtoCharacter.getName();
 		String p2 = "Player2";
+		String text;
 		
 		int matchNum = matchId();
 		
@@ -463,11 +468,16 @@ public class TennisService {
 			me.pointGame++;
 			me.point = 0;
 			cpu.point = 0;
-			System.out.println();
-			System.out.printf("%d세트 %d게임의 승자는 %s입니다.\r\n", countSet, countGame, p1);
-			System.out.printf("현재 게임 스코어는 [%d-%d] 입니다.\r\n", me.pointGame, cpu.pointGame);
-			System.out.println("다음 게임을 시작합니다.");
-			System.out.println("[확인]");
+			text = "";
+			text += mainView.getSeperator();
+			text += mainView.getSubTitle(String.format("%d세트 %d게임의 승자는 %s입니다.", countSet, countGame, p1));
+			text += mainView.getSubTitle(String.format("현재 게임 스코어는 [%d-%d] 입니다.", me.pointGame, cpu.pointGame));
+			text += mainView.getSeperator();
+			text += mainView.getSubTitle("다음 게임을 시작합니다.");
+			text += mainView.getSeperator();
+			text += mainView.getSubTitle("[확인]");
+			text += mainView.getSeperatorThin();
+			System.out.println(text);
 			countGame++;
 			countServe = 1;
 			scan.nextLine();
@@ -480,11 +490,16 @@ public class TennisService {
 			cpu.pointGame++;
 			me.point = 0;
 			cpu.point = 0;
-			System.out.println();
-			System.out.printf("%d세트 %d게임의 승자는 %s입니다.\r\n", countSet, countGame, p2);
-			System.out.printf("현재 게임 스코어는 [%d-%d] 입니다.\r\n", me.pointGame, cpu.pointGame);
-			System.out.println("다음 게임을 시작합니다.");
-			System.out.println("[확인]");
+			text = "";
+			text += mainView.getSeperator();
+			text += mainView.getSubTitle(String.format("%d세트 %d게임의 승자는 %s입니다.", countSet, countGame, p2));
+			text += mainView.getSubTitle(String.format("현재 게임 스코어는 [%d-%d] 입니다.", me.pointGame, cpu.pointGame));
+			text += mainView.getSeperator();
+			text += mainView.getSubTitle("다음 게임을 시작합니다.");
+			text += mainView.getSeperator();
+			text += mainView.getSubTitle("[확인]");
+			text += mainView.getSeperatorThin();
+			System.out.println(text);
 			countGame++;
 			countServe = 1;
 			scan.nextLine();
@@ -499,11 +514,12 @@ public class TennisService {
 			me.pointGame = 0;
 			cpu.point = 0;
 			cpu.pointGame = 0;
-			System.out.println();
-			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p1);
-			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
-			System.out.println("다음 세트를 시작합니다.");
-			System.out.println("[확인]");
+			mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2);
+//			System.out.println();
+//			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p1);
+//			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
+//			System.out.println("다음 세트를 시작합니다.");
+//			System.out.println("[확인]");
 			countServe = 1;
 			countGame = 1;
 			countSet++;
@@ -518,11 +534,12 @@ public class TennisService {
 			me.pointGame = 0;
 			cpu.point = 0;
 			cpu.pointGame = 0;
-			System.out.println();
-			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p2);
-			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
-			System.out.println("다음 세트를 시작합니다.");
-			System.out.println("[확인]");
+			mainView.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2);
+//			System.out.println();
+//			System.out.printf("%d세트의 승자는 %s입니다.\r\n", countSet, p2);
+//			System.out.printf("현재 세트 스코어는 [%d-%d] 입니다.\r\n", me.pointSet, cpu.pointSet);
+//			System.out.println("다음 세트를 시작합니다.");
+//			System.out.println("[확인]");
 			countServe = 1;
 			countGame = 1;
 			countSet++;
