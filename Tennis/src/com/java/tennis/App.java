@@ -9,7 +9,7 @@ import com.java.tennis.service.TennisService;
 import com.java.tennis.view.MainView;
 
 public class App {
-	public static int langIndex = 1;
+	public static int langIndex = 0;
 	public static int difficulty = 2;
 	public static boolean loop;
 	

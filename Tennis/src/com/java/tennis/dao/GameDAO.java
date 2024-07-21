@@ -26,8 +26,6 @@ public class GameDAO {
 			System.out.println("GameDAO.add");
 			e.printStackTrace();
 		}
-		
-		
 	}
 	
 	

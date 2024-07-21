@@ -47,6 +47,9 @@ public class TennisService {
 	private MatchDAO daoMatch = new MatchDAO();
 	private String temp = "";
 	
+	private String playerName = "플레이어";
+	private String computerName = "컴퓨터";
+	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
 //	private int setPoint; //세트 포인트
@@ -147,8 +150,10 @@ public class TennisService {
 
 	private void gameStart(TennisDTO dto, CharacterDTO dtoCharacter) {
 		
-		String p1 = "Player1";
-		String p2 = "Player2";
+//		String p1 = "Player1";
+//		String p2 = "Player2";
+		String p1 = playerName;
+		String p2 = computerName;
 		
 		countTotalServe = 1;
 		countServe = 1;
@@ -490,8 +495,10 @@ private void gameReset() {
 
 	private void pointCheck(CharacterDTO dtoCharacter) {
 		
-		String p1 = dtoCharacter.getName();
-		String p2 = "Player2";
+//		String p1 = dtoCharacter.getName();
+//		String p2 = "Player2";
+		String p1 = playerName;
+		String p2 = computerName;
 		String text;
 		
 		int matchNum = matchId();

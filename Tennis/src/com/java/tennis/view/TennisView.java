@@ -202,12 +202,12 @@ public class TennisView {
 		String text = "";
 		text += mainView.getSeperator();
 		text += mainView.getSubTitleNotTrans(String.format(
-				"%d %s %d%s %s%s", 
+				"%d %s %d %s %s%s", 
 				countSet, 
 				LanguageService.get("세트"),
 				countGame, 
 				LanguageService.get("게임의 승자는"),
-				winner,
+				LanguageService.get(winner),
 				LanguageService.get("입니다.")
 				));
 		text += mainView.getSubTitleNotTrans(String.format(
@@ -305,21 +305,34 @@ public class TennisView {
 				int diff = p1 - p2;
 					
 				if (diff == 1) {
+//					text = LanguageService.get("어드밴티지")
+//							+ LanguageService.get("플레이어")
+//							+ 1;
 					text = LanguageService.get("어드밴티지")
-							+ LanguageService.get("플레이어")
-							+ 1;
+							+ " "
+							+ LanguageService.get("플레이어");
+							
 				} else if ( diff == -1 ) {
-					text =  LanguageService.get("어드밴티지")
-							+ LanguageService.get("플레이어")
-							+ 2;
+//					text =  LanguageService.get("어드밴티지")
+//							+ LanguageService.get("플레이어")
+//							+ 2;
+					text = LanguageService.get("어드밴티지")
+							+ " "
+							+ LanguageService.get("컴퓨터");
 				} else if (diff >= 2) {
-					text = LanguageService.get("게임")
-							+ LanguageService.get("플레이어")
-							+ 1;
+//					text = LanguageService.get("게임")
+//							+ LanguageService.get("플레이어")
+//							+ 1;
+					text = LanguageService.get("플레이어")
+							+ " "
+							+ LanguageService.get("승");
 				} else {
-					text = LanguageService.get("게임")
-							+ LanguageService.get("플레이어")
-							+ 2;
+//					text = LanguageService.get("게임")
+//							+ LanguageService.get("플레이어")
+//							+ 2;
+					text = LanguageService.get("컴퓨터")
+							+ " "
+							+ LanguageService.get("승");
 				}
 			} else {
 					text = LanguageService.get(pointNames[p1]) + "-" + LanguageService.get(pointNames[p2]);
