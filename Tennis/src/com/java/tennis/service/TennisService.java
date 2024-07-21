@@ -151,8 +151,8 @@ public class TennisService {
 		String p1 = "Player1";
 		String p2 = "Player2";
 		
-		countServe = 1;
 		countTotalServe = 1;
+		countServe = 1;
 		countGame = 1;
 		countSet = 1;
 		
@@ -178,7 +178,7 @@ public class TennisService {
 			int input;
 			GameView viewGame = new GameView();
 			while (true) {
-				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countTotalServe));
+				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countServe));
 				input = scan.nextInt();
 				scan.skip("\r\n");
 				
@@ -469,7 +469,7 @@ public class TennisService {
 			System.out.println("다음 게임을 시작합니다.");
 			System.out.println("[확인]");
 			countGame++;
-			countTotalServe = 1;
+			countServe = 1;
 			scan.nextLine();
 		}
 		
@@ -486,7 +486,7 @@ public class TennisService {
 			System.out.println("다음 게임을 시작합니다.");
 			System.out.println("[확인]");
 			countGame++;
-			countTotalServe = 1;
+			countServe = 1;
 			scan.nextLine();
 		}
 		
