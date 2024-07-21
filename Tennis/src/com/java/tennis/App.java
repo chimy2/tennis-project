@@ -10,7 +10,7 @@ import com.java.tennis.view.MainView;
 
 public class App {
 //	기본 한국어 설정
-	public static int langIndex = 2;
+	public static int langIndex = 0;
 //	기본 보통 난이도 설정
 	public static int difficulty = 2;
 	public static boolean loop = true;

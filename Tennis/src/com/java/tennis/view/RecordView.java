@@ -151,18 +151,20 @@ public class RecordView {
 	
 	public void notExist() {
 		String result = "";
-		result += LanguageService.get("존재하지 않는 정보입니다.");
+		result += mainView.getSeperator();
+		result += mainView.getSubTitle("존재하지 않는 정보입니다.");
+		result += mainView.getSeperator();
 		result += "\r\n";
 		System.out.println(result);
 	}
 	
-	public void pause() {
-		String result = "";
-		result += mainView.getSeperator();
-		result += "\r\n";
-		result += String.format(LanguageService.get("계속하시려면 엔터를 입력해주세요."));
-		result += "\r\n";
-		System.out.println(result);
-	}
+//	public void pause() {
+//		String result = "";
+//		result += mainView.getSeperator();
+//		result += "\r\n";
+//		result += String.format(LanguageService.get("계속하시려면 엔터를 입력해주세요."));
+//		result += "\r\n";
+//		System.out.println(result);
+//	}
 	
 }

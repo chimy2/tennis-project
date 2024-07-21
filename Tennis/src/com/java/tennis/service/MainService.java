@@ -3,6 +3,23 @@ package com.java.tennis.service;
 import java.util.Arrays;
 
 public class MainService {
+	public static void printLines(String txt, int sumLineCount) {
+		try {
+			String[] lines = txt.split("\r?\n");
+			for(int i=0; i<Math.ceil((double) lines.length / sumLineCount); i++) {
+				StringBuilder sb = new StringBuilder();
+				for(int j=0; i * sumLineCount + j < lines.length && j<sumLineCount; j++) {
+					sb.append(lines[i * sumLineCount + j]);
+					sb.append("\r\n");
+				}
+				System.out.print(sb.toString());
+				Thread.sleep(1000);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public static void printLine(String txt) {
 		try {
 			String[] lines = txt.split("\r?\n");

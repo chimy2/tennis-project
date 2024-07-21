@@ -100,7 +100,7 @@ public class SettingService {
 	}
 	
 	public void getDevelopers() {
-		System.out.println(dao.getDevelopers());
+		dao.getDevelopers();
 		mainView.pause();
 	}
 	

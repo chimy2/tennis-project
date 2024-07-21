@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import com.java.tennis.App;
 import com.java.tennis.service.LanguageService;
+import com.java.tennis.service.MainService;
 import com.java.tennis.view.MainView;
 
 public class SettingDAO {
@@ -46,9 +47,10 @@ public class SettingDAO {
 				} else {
 					result += mainView.getSubTitleNotTrans(line);
 				}
-				result += "\r\n";
+//				result += "\r\n";
 				count++;
 			}
+			MainService.printLines(result, 5);
 		} catch (Exception e) {
 			System.out.println("SettingDAO.getDevelopers");
 			e.printStackTrace();

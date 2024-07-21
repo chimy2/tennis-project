@@ -71,8 +71,19 @@ public class MainView {
 		result = setRowMarginNotTrans(result);
 		return result;
 	}
-		
 	
+//	public String addRowMarginMultiLine(String[][] string) {
+//		String result = "";
+//		String[] lines = multiLine.split("(\r)?\n");
+//		
+//		for(String line : lines) {
+//			result += setRowMarginNotTrans(line);
+//		}
+//		for(int i=0;i<multiLine)
+//		
+//		return result;
+//	}
+		
 	public String addRowMarginMultiLine(String multiLine) {
 		String result = "";
 		String[] lines = multiLine.split("(\r)?\n");
@@ -240,7 +251,7 @@ public class MainView {
 			char c = str.charAt(i);
 			if(c >= '가' && c <= '힣') {
 //				한국어
-				result += 1.1;
+				result += 0.8;
 			} else if(c >= 'あ' && c <= 'ん'
 					|| c >= 'ア' && c <= 'ン') {
 //				일본어
@@ -320,10 +331,11 @@ public class MainView {
 	
 	public void errorInput() {
 		String result = "";
-		result += LanguageService.get("잘못 입력 하셨습니다.");
-		result += "\r\n";
-		result += LanguageService.get("다시 입력해주세요.");
-		System.out.println(result);
+		result += getSeperator();
+		result += getSubTitle("잘못 입력 하셨습니다.");
+		result += getSubTitle("다시 입력해주세요.");
+		result += getSeperator();
+		System.out.print(result);
 	}
 	
 	public String returnMenu() {
