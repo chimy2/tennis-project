@@ -303,7 +303,7 @@ public class RecordDAO {
 			}
 
 			stack(list, number); // 정렬 메서드
-
+			
 			int i = 1;
 			for (RecordDTO record : list) {
 
@@ -317,8 +317,8 @@ public class RecordDAO {
 
 				i++;
 			}
-
-			System.out.println(mainView.getSeperator()); // 구분선 > 정렬출력으로 출력이 모두 끝나서 구분해주려고 선 추가
+			System.out.println(); // 줄 간격맞추려고 만든 것
+			System.out.print(mainView.getSeperator()); // 구분선 > 정렬출력으로 출력이 모두 끝나서 구분해주려고 선 추가
 			mainView.pause(); // 정렬선택(오름차순/내림차순) > 출력 > 계속하려면 엔터쳐라
 
 			this.reader.close();

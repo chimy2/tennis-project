@@ -25,7 +25,7 @@ public class RecordService {
 		view.title("명예의 전당");
 		view.titleSpecific();// 간단한 정보 보여주는 메서드
 		System.out.println(dao.get()); // 명예의 전당 출력
-		mainView.pause();// 계속하려면 엔터쳐라
+		view.pause();// 계속하려면 엔터쳐라
 
 	}
 
@@ -66,7 +66,7 @@ public class RecordService {
 			System.out.println(listSpec);
 
 		}
-		mainView.pause();// 계속하려면 엔터쳐라
+		view.pause();// 계속하려면 엔터쳐라
 
 	}
 
