@@ -249,12 +249,13 @@ public class TennisView {
 
 	public void pointDisplay(int p1, int p2) {
 		
-		String text = "";
-		text += mainView.getSeperator();
-		text += mainView.getSubTitleNotTrans(pointName(p1, p2), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
-		text += mainView.getSeperator();
+					String text = "";
+					text += mainView.getSeperator();
+					text += mainView.getSubTitleNotTrans(pointName(p1, p2), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
+					text += mainView.getSeperator();
+					
+					System.out.print(text);
 		
-		System.out.print(text);
 	}
 
 	private String pointName(int p1, int p2) {
@@ -303,7 +304,11 @@ public class TennisView {
 						+ LanguageService.get("승");
 			}
 		} else {
+			if (TennisService.isServe == true) {
 				text = LanguageService.get(pointNames[p1]) + "-" + LanguageService.get(pointNames[p2]);
+			} else {
+				text = LanguageService.get(pointNames[p2]) + "-" + LanguageService.get(pointNames[p1]);
+			}
 		}
 		return text;
 	}
