@@ -35,7 +35,9 @@ public class TennisDTO {
 	static int countServe; //몇 번째 서브 (게임이 끝날 때 리셋)
 	static int countGame; //몇 번째 게임 (세트가 끝날 때 리셋)
 	static int countSet; //몇 번째 세트 (매치가 끝날 때 리셋)
-	
+	static int countTotalServe; //한 매치에 총 서브 횟수 (매치가 끝날 때 리셋)
+	static int countTotalGame; //한 매치에 총 게임 횟수 (매치가 끝날 때 리셋)
+
 	
 	public String getName() {
 		return name;

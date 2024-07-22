@@ -396,12 +396,13 @@ public class TennisService {
 			System.out.printf("%s가 먼저 서빙 합니다\r\n", p1);
 //			loop = false;
 			attackFirst = true;
+			return attackFirst;
 		} else {
 			System.out.printf("%s가 먼저 서빙 합니다.\r\n", p2);
 //			loop = false;
 			attackFirst = false;
+			return attackFirst;
 		}
-		return attackFirst;
 	}
 
 	private void gameReset() {
