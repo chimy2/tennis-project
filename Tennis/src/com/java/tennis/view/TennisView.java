@@ -204,7 +204,8 @@ public class TennisView {
 				LanguageService.get("입니다.")
 				));
 		text += mainView.getSeperator();
-		text += mainView.getSubTitle("다음 게임을 시작합니다.");
+//		text += mainView.getSubTitle("다음 게임을 시작합니다.");
+		text += mainView.getSubTitle("계속하시려면 엔터를 입력해주세요.");
 		text += mainView.getSeperatorThin();
 		System.out.println(text);
 		
