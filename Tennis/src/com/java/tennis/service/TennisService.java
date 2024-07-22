@@ -311,8 +311,6 @@ public class TennisService {
 //			System.out.println(text);
 			scan.nextLine();
 			System.out.println();
-		
-			
 		}
 		
 		boolean loopRecord;
@@ -359,20 +357,19 @@ public class TennisService {
 		
 	}
 
-private void gameReset() {
-	
-	me.point = 0;
-	cpu.point = 0;
-	me.pointGame = 0;
-	cpu.pointGame = 0;
-	me.pointSet = 0;
-	cpu.pointSet = 0;
-	countServe = 1;
-	countGame = 1;
-	countSet = 1;
-	countTotalServe = 1;
-	
-		
+	private void gameReset() {
+
+		me.point = 0;
+		cpu.point = 0;
+		me.pointGame = 0;
+		cpu.pointGame = 0;
+		me.pointSet = 0;
+		cpu.pointSet = 0;
+		countServe = 1;
+		countGame = 1;
+		countSet = 1;
+		countTotalServe = 1;
+
 	}
 
 //	private int[] scoreModifier(int p1, int p2, int g1, int g2, int s1, int s2,	int countGame, int countSet) {

@@ -80,7 +80,7 @@ public class RecordDAO {
 
 //				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
 //						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
-				tempRecord += mainView.setRowMarginNotTrans(i + "", dump, record.getName(),
+				tempRecord += mainView.setRowMarginNotTrans(String.format("%3d", i), dump, record.getName(),
 						LanguageService.get(character), record.getScoreme() + " : " + record.getSocrecumputer());
 				i++;
 
@@ -136,8 +136,8 @@ public class RecordDAO {
 //					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", temp[1], set, temp[2], game, score,
 //							LanguageService.get(win));
 					result += mainView.setRowMarginNotTrans(
-							temp[1] + " " + set, 
-							temp[2] + " " + game, 
+							String.format("%6s", temp[1] + " " + set), 
+							String.format("%6s", temp[2] + " " + game), 
 							score,
 							LanguageService.get(win));
 				}
@@ -180,7 +180,7 @@ public class RecordDAO {
 
 //					result += String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2],
 //							LanguageService.get(character), score);
-					result += mainView.setRowMarginNotTrans(i + "", temp[1], temp[2],
+					result += mainView.setRowMarginNotTrans(String.format("%3d", i), temp[1], temp[2],
 							LanguageService.get(character), score); 
 					String numChange = String.format("%s", i);
 					idToNum.put(numChange, temp[0]);
@@ -256,7 +256,7 @@ public class RecordDAO {
 				dump = dump.substring(0, 4) + "-" + dump.substring(4, 6) + "-" + dump.substring(6);
 //				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
 //						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
-				tempRecord += mainView.setRowMarginNotTrans(i + "", dump, record.getName(),
+				tempRecord += mainView.setRowMarginNotTrans(String.format("%3d", i), dump, record.getName(),
 						record.getCharactername(), record.getScoreme() + " : " + record.getSocrecumputer());
 
 				i++;
@@ -312,7 +312,7 @@ public class RecordDAO {
 //				String tempRecord = "";
 //				tempRecord = String.format("%d\t%s\t%s\t%s\t%s : %S", i, dump, record.getName(),
 //						record.getCharactername(), record.getScoreme(), record.getSocrecumputer());
-				System.out.print(mainView.setRowMarginNotTrans(i + "", dump, record.getName(),
+				System.out.print(mainView.setRowMarginNotTrans(String.format("%3d", i), dump, record.getName(),
 						record.getCharactername(), record.getScoreme() + " : " + record.getSocrecumputer()));
 
 				i++;
