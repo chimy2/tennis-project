@@ -51,6 +51,3 @@
     
 ### 🕞 데이터베이스 구성
 ![KakaoTalk_20240722_041844237](https://github.com/user-attachments/assets/e068b78d-2002-4d26-93ce-540035dc73a3)
-
-### 🕒 게임 기능 데이터 상세 구성
-![KakaoTalk_20240722_041855827](https://github.com/user-attachments/assets/c803a896-57b7-493d-be30-7b1b4b378734)
