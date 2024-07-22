@@ -139,16 +139,6 @@ public class RecordView {
 		return id;
 	}
 	
-	public void errorInput() {
-		String result = "";
-		result += LanguageService.get("잘못 입력 하셨습니다.");
-		result += "\r\n";
-		result += LanguageService.get("다시 입력해주세요.");
-		result += "\r\n";
-		result += mainView.input();
-		System.out.print(result);
-	}
-	
 	public void notExist() {
 		String result = "";
 		result += mainView.getSeperator();
@@ -157,14 +147,5 @@ public class RecordView {
 		result += "\r\n";
 		System.out.println(result);
 	}
-	
-//	public void pause() {
-//		String result = "";
-//		result += mainView.getSeperator();
-//		result += "\r\n";
-//		result += String.format(LanguageService.get("계속하시려면 엔터를 입력해주세요."));
-//		result += "\r\n";
-//		System.out.println(result);
-//	}
 	
 }
