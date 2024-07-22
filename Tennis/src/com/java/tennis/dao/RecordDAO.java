@@ -364,14 +364,14 @@ public class RecordDAO {
 
 		if (number.equals("2") || number.equals("3")) {
 			while (!(sort.equals("1") || sort.equals("2"))) {
-				view.errorInput();
+				mainView.errorInput();
 				mainView.input();
 				sort = scan.nextLine();
 			}
 
 		} else {
 			while (!(sort.equals("1"))) {
-				view.errorInput();
+				mainView.errorInput();
 				mainView.input();
 				sort = scan.nextLine();
 			}

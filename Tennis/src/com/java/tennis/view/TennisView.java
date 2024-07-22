@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.java.tennis.dao.CharacterDAO;
 import com.java.tennis.model.CharacterDTO;
 import com.java.tennis.service.LanguageService;
+import com.java.tennis.service.TennisService;
 
 public class TennisView {
 	CharacterDAO characterDAO;
@@ -115,57 +116,16 @@ public class TennisView {
 	public String informGame(int countSet, int countGame,int countTotalGame, int countServe, boolean isServingFirst) {	
 		
 		String temp = "";
-		if (isServingFirst == true) {
+		
+		temp += String.format("(%d %s %d %s %d%s %s)", 
+				countSet, 
+				LanguageService.get("세트"), 
+				countGame, 
+				LanguageService.get("게임"), 
+				countServe, 
+				LanguageService.get("회차"),
+				LanguageService.get(TennisService.isServe ? "서브" : "리시브"));
 			
-				if (countTotalGame % 2 == 1) {
-					
-					temp += String.format("(%d %s %d %s %d%s %s)", 
-							countSet, 
-							LanguageService.get("세트"), 
-							countGame, 
-							LanguageService.get("게임"), 
-							countServe, 
-							LanguageService.get("회차"),
-							LanguageService.get("서브"));
-					
-				} else if (countTotalGame % 2 != 1) {
-					
-					temp += String.format("(%d %s %d %s %d%s %s)", 
-							countSet, 
-							LanguageService.get("세트"), 
-							countGame, 
-							LanguageService.get("게임"), 
-							countServe, 
-							LanguageService.get("회차"),
-							LanguageService.get("리시브"));
-				}
-			
-		} else {
-			
-			if (countTotalGame % 2 == 1) {
-				
-				temp += String.format("(%d %s %d %s %d%s %s)", 
-						countSet, 
-						LanguageService.get("세트"), 
-						countGame, 
-						LanguageService.get("게임"), 
-						countServe, 
-						LanguageService.get("회차"),
-						LanguageService.get("리시브"));
-				
-			} else if (countTotalGame %2 != 1) {
-				
-				temp += String.format("(%d %s %d %s %d%s %s)", 
-						countSet, 
-						LanguageService.get("세트"), 
-						countGame, 
-						LanguageService.get("게임"), 
-						countServe, 
-						LanguageService.get("회차"),
-						LanguageService.get("서브"));
-			}
-			
-		}
 		return temp;
 	}
 	
@@ -247,6 +207,8 @@ public class TennisView {
 		text += mainView.getSubTitle("다음 게임을 시작합니다.");
 		text += mainView.getSeperatorThin();
 		System.out.println(text);
+		
+		TennisService.isServe = !TennisService.isServe;
 	}
 
 	public String setWinner(int countSet, int pointSet1, int pointSet2, String p1, String p2) {
@@ -380,7 +342,7 @@ public class TennisView {
 
 	private String pointName(int p1, int p2) {
 			
-		String[] pointNames = { "러브", "피프틴", "써티", "포티"	};
+		String[] pointNames = { "러브", "피프틴", "써티", "포티" };
 		String text;
 
 		if (p1 == p2) {
