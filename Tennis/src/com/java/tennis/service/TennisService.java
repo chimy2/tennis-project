@@ -78,67 +78,74 @@ public class TennisService {
 		
 		boolean loop = true;
 		while (loop) {
-			view.selectGameType();
-			type = scan.nextInt();
-			dto.setType(type);
-			scan.skip("\r\n");
-			
-			if (type == 1 || type == 2) {
-				loop = false;
-			} else {
+			try {
+				view.selectGameType();
+				type = Integer.parseInt(scan.nextLine());
+				dto.setType(type);
+				
+				if (type == 1 || type == 2) {
+					loop = false;
+				} else {
+					throw new Exception("잘못된 입력");
+				}
+			} catch (Exception e) {
 				mainView.errorInput();
-				continue;
 			}
 		}
 		
 		loop = true;
 		while (loop) {
-			view.selectGameSet();
-			set = scan.nextInt();
-			dto.setSet(set);
-			scan.skip("\r\n");
-			
-			if (set == 1 || set == 2) {
-				loop = false;
-			} else {
+			try {
+				view.selectGameSet();
+				set = Integer.parseInt(scan.nextLine());
+				dto.setSet(set);
+				
+				if (type == 1 || type == 2) {
+					loop = false;
+				} else {
+					throw new Exception("잘못된 입력");
+				}
+			} catch (Exception e) {
 				mainView.errorInput();
-				continue;
+			}
+		}
+		
+		loop = true;
+		while (loop) {
+
+			try {
+				view.selectPlayerNumber();
+				player = Integer.parseInt(scan.nextLine());
+				dto.setPlayer(player);
+				
+				if (type == 1 || type == 2) {
+					loop = false;
+				} else {
+					throw new Exception("잘못된 입력");
+				}
+			} catch (Exception e) {
+				mainView.errorInput();
 			}
 		}
 		
 		loop = true;
 		while (loop) {
 			
-			view.selectPlayerNumber();
-			player = scan.nextInt();
-			dto.setPlayer(player);
-			scan.skip("\r\n");
-			
-			if (player == 1 || player == 2) {
-				loop = false;
-			} else {
+			try {
+				view.characterSelect();
+				character = Integer.parseInt(scan.nextLine());
+				dto.setPlayer(player);
+
+				if (character == 1 || character == 2|| character == 3 || character ==4) {
+					loop = false;
+				} else {
+					throw new Exception("잘못된 입력");
+				}
+			} catch (Exception e) {
 				mainView.errorInput();
-				continue;
 			}
 		}
 		
-		loop = true;
-		while (loop) {
-			
-			view.characterSelect();
-			character = scan.nextInt();
-			scan.skip("\r\n");
-			
-			if (character == 1 || character == 2|| character == 3 || character ==4) {
-				loop = false;
-			} else {
-				mainView.errorInput();
-				continue;
-			}
-		}
-		
-		
-		;
 		dto.setType(type);
 		dto.setSet(set);
 		dto.setPlayer(player);
@@ -306,18 +313,8 @@ public class TennisService {
 				continue;
 			}
 			
-			
+//			if(countServe)
 			view.pointDisplay(me.point, cpu.point);
-			
-//			String text = "";
-//			System.out.println();
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle(pointName(me.point, cpu.point));
-//			text += mainView.getSubTitle(me.point + "-" + cpu.point);
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle("[확인]");
-//			text += mainView.getSeperatorThin();
-//			System.out.println(text);
 			scan.nextLine();
 			System.out.println();
 		}
@@ -331,16 +328,21 @@ public class TennisService {
 			loopRecord = true;
 		}
 		while (loopRecord) {
-			view.recordGame();
-			int input = scan.nextInt();
-			scan.skip("\r\n");
-			
-			if (input == 1) {
-				recordName(dtoCharacter);
-				loopRecord = false;
+			try {
+				view.recordGame();
+				int input = Integer.parseInt(scan.nextLine());
 				
-			} else if (input == 2) {
-				break;
+				switch(input) {
+				case 1: 
+					recordName(dtoCharacter);
+				case 2: 
+					loopRecord = false;
+					break;
+				default: 
+					throw new Exception("잘못된 입력"); 
+				}
+			} catch (Exception e) {
+				mainView.errorInput();
 			}
 		}
 		
@@ -656,9 +658,8 @@ public class TennisService {
 			String text = "";
 
 			if (name.length() < 1 || name.length() > 10) {
-				text += mainView.getSubTitle("이름은 1자에서 10자 사이로 입력 부탁드립니다.");
-				System.out.println(text);
-				recordName(characterDTO);
+				view.wrongNameLen();
+//				recordName(characterDTO);
 			}
 
 			view.checkRecordName(name);

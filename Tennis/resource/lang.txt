@@ -64,6 +64,7 @@ English, English, English
 게임,Game,ゲーム
 승패,Win/Loss,勝敗
 아이디 검색하기,Search by ID,ID検索
+닉네임 검색하기,Search by Nickname,ニックネーム検索
 최신기록 전체보기,View all recent records,最新記録を全て表示
 정렬해서 보기를 원하십니까?,Would you like to view sorted records?,並べ替えて表示しますか？
 아이디,ID,ID
