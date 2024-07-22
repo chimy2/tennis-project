@@ -112,3 +112,8 @@ English, English, English
 세트의 승자는,set winner is,セットの勝者は
 회차,st,st
 어드밴티지,Advantage,アドバンテージ
+동전 던지기,Coin Toss,コイントス
+앞면과 뒷면 중 선택 하시오.,Choose Heads or Tails.,表か裏を選んでください
+앞면,Heads,表
+뒷면,Tails,裏
+가 먼저 서빙 합니다., serves first.,が先にサーブします。

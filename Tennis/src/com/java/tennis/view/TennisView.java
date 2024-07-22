@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.java.tennis.dao.CharacterDAO;
 import com.java.tennis.model.CharacterDTO;
 import com.java.tennis.service.LanguageService;
+import com.java.tennis.service.TennisService;
 
 public class TennisView {
 	CharacterDAO characterDAO;
@@ -115,57 +116,16 @@ public class TennisView {
 	public String informGame(int countSet, int countGame,int countTotalGame, int countServe, boolean isServingFirst) {	
 		
 		String temp = "";
-		if (isServingFirst = true) {
+		
+		temp += String.format("(%d %s %d %s %d%s %s)", 
+				countSet, 
+				LanguageService.get("세트"), 
+				countGame, 
+				LanguageService.get("게임"), 
+				countServe, 
+				LanguageService.get("회차"),
+				LanguageService.get(TennisService.isServe ? "서브" : "리시브"));
 			
-				if (countTotalGame % 2 == 1) {
-					
-					temp += String.format("(%d %s %d %s %d%s %s)", 
-							countSet, 
-							LanguageService.get("세트"), 
-							countGame, 
-							LanguageService.get("게임"), 
-							countServe, 
-							LanguageService.get("회차"),
-							LanguageService.get("서브"));
-					
-				} else {
-					
-					temp += String.format("(%d %s %d %s %d%s %s)", 
-							countSet, 
-							LanguageService.get("세트"), 
-							countGame, 
-							LanguageService.get("게임"), 
-							countServe, 
-							LanguageService.get("회차"),
-							LanguageService.get("리시브"));
-				}
-			
-		} else {
-			
-			if (countTotalGame % 2 == 1) {
-				
-				temp += String.format("(%d %s %d %s %d%s %s)", 
-						countSet, 
-						LanguageService.get("세트"), 
-						countGame, 
-						LanguageService.get("게임"), 
-						countServe, 
-						LanguageService.get("회차"),
-						LanguageService.get("리시브"));
-				
-			} else {
-				
-				temp += String.format("(%d %s %d %s %d%s %s)", 
-						countSet, 
-						LanguageService.get("세트"), 
-						countGame, 
-						LanguageService.get("게임"), 
-						countServe, 
-						LanguageService.get("회차"),
-						LanguageService.get("서브"));
-			}
-			
-		}
 		return temp;
 	}
 	
@@ -244,9 +204,12 @@ public class TennisView {
 				LanguageService.get("입니다.")
 				));
 		text += mainView.getSeperator();
-		text += mainView.getSubTitle("다음 게임을 시작합니다.");
+//		text += mainView.getSubTitle("다음 게임을 시작합니다.");
+		text += mainView.getSubTitle("계속하시려면 엔터를 입력해주세요.");
 		text += mainView.getSeperatorThin();
 		System.out.println(text);
+		
+		TennisService.isServe = !TennisService.isServe;
 	}
 
 	public String setWinner(int countSet, int pointSet1, int pointSet2, String p1, String p2) {
@@ -286,17 +249,18 @@ public class TennisView {
 
 	public void pointDisplay(int p1, int p2) {
 		
-		String text = "";
-		text += mainView.getSeperator();
-		text += mainView.getSubTitleNotTrans(pointName(p1, p2), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
-		text += mainView.getSeperator();
+					String text = "";
+					text += mainView.getSeperator();
+					text += mainView.getSubTitleNotTrans(pointName(p1, p2), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
+					text += mainView.getSeperator();
+					
+					System.out.print(text);
 		
-		System.out.print(text);
 	}
 
 	private String pointName(int p1, int p2) {
 			
-		String[] pointNames = { "러브", "피프틴", "써티", "포티"	};
+		String[] pointNames = { "러브", "피프틴", "써티", "포티" };
 		String text;
 
 		if (p1 == p2) {
@@ -340,7 +304,11 @@ public class TennisView {
 						+ LanguageService.get("승");
 			}
 		} else {
+			if (TennisService.isServe == true) {
 				text = LanguageService.get(pointNames[p1]) + "-" + LanguageService.get(pointNames[p2]);
+			} else {
+				text = LanguageService.get(pointNames[p2]) + "-" + LanguageService.get(pointNames[p1]);
+			}
 		}
 		return text;
 	}
@@ -353,18 +321,29 @@ public class TennisView {
 		System.out.println(temp);
 	}
 
-	public String coinToss() {
+	public void coinToss() {
 		String result = "";
 		
 		result += mainView.getSeperator();
-		result += mainView.getSubTitle("동전 던지기");
+		result += mainView.getSubTitle("동전 던지기",
+				String.format("(%s)", LanguageService.get("앞면과 뒷면 중 선택 하시오.")));
 		result += mainView.getSeperator();
-		result += mainView.getSubTitle("앞면과 뒷면 중 선택 하시오.");
-		result += mainView.getSeperatorThin();
 		result += mainView.setNumRowMargin("앞면", "뒷면");
+		result += mainView.getSeperatorThin();
+		result += mainView.input();
+		
+		System.out.print(result);
+	}
+	
+	public void getFirstServeMSG(String player) {
+		String result = "";
 		result += mainView.getSeperator();
-				
-		return result;
+		result += mainView.getSubTitleNotTrans(
+				LanguageService.get(player) 
+				+ LanguageService.get("가 먼저 서빙 합니다.")
+				);
+		result += mainView.getSeperator();
+		System.out.println(result);
 	}
 }
 

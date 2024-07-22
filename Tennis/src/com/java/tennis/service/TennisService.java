@@ -50,6 +50,7 @@ public class TennisService {
 	
 	private String playerName = "플레이어";
 	private String computerName = "컴퓨터";
+	public static boolean isServe = false;
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -171,7 +172,7 @@ public class TennisService {
 		
 		view.getTitle();
 		
-		System.out.println(view.coinToss());
+		view.coinToss();
 		boolean isServingFirst = false;
 		
 		isServingFirst = coinToss(playerName, computerName, isServingFirst);
@@ -377,7 +378,7 @@ public class TennisService {
 		boolean loop = true;
 		while (loop) {
 			if (!(input.equals("1")||input.equals("2"))) {
-				System.out.println("1번과 2번 중 하나를 입력해주세요.");	
+				mainView.errorInput();
 				coinToss(p1, p2, attackFirst);
 			} else {
 				break;
@@ -393,15 +394,18 @@ public class TennisService {
 			chance = 2;
 		}
 		if (chance == Integer.valueOf(input)) {
-			System.out.printf("%s가 먼저 서빙 합니다\r\n", p1);
+			view.getFirstServeMSG(p1);
 //			loop = false;
+			TennisService.isServe = true;
 			attackFirst = true;
+			return attackFirst;
 		} else {
-			System.out.printf("%s가 먼저 서빙 합니다.\r\n", p2);
+			view.getFirstServeMSG(p2);
 //			loop = false;
+			TennisService.isServe = false;
 			attackFirst = false;
+			return attackFirst;
 		}
-		return attackFirst;
 	}
 
 	private void gameReset() {
@@ -479,7 +483,6 @@ public class TennisService {
 		int[] temp = new int[string.length + 2];
 		
 		
-		
 		text += mainView.getSeperator();
 		text += mainView.getSubTitle("입력하신 값을 확인 부탁드립니다.");
 		
@@ -553,16 +556,6 @@ public class TennisService {
 			me.pointGame++;
 			me.point = 0;
 			cpu.point = 0;
-//			text = "";
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle(String.format("%d세트 %d게임의 승자는 %s입니다.", countSet, countGame, p1));
-//			text += mainView.getSubTitle(String.format("현재 게임 스코어는 [%d-%d] 입니다.", me.pointGame, cpu.pointGame));
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle("다음 게임을 시작합니다.");
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle("[확인]");
-//			text += mainView.getSeperatorThin();
-//			System.out.println(text);
 			view.resultGame(countSet, countGame, p1, me.pointGame, cpu.pointGame);
 			countGame++;
 			countTotalGame++;
@@ -577,16 +570,6 @@ public class TennisService {
 			cpu.pointGame++;
 			me.point = 0;
 			cpu.point = 0;
-//			text = "";
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle(String.format("%d세트 %d게임의 승자는 %s입니다.", countSet, countGame, p2));
-//			text += mainView.getSubTitle(String.format("현재 게임 스코어는 [%d-%d] 입니다.", me.pointGame, cpu.pointGame));
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle("다음 게임을 시작합니다.");
-//			text += mainView.getSeperator();
-//			text += mainView.getSubTitle("[확인]");
-//			text += mainView.getSeperatorThin();
-//			System.out.println(text);
 			view.resultGame(countSet, countGame, p2, me.pointGame, cpu.pointGame);
 			countGame++;
 			countTotalGame++;
