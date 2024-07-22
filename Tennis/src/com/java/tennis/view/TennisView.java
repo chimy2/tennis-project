@@ -87,8 +87,9 @@ public class TennisView {
 	
 	public void selectSkill() {
 		String temp = "";
-		
-		temp += LanguageService.get("사용할 기술을 선택해주세요.");
+		temp += mainView.getSeperator();
+		temp += mainView.getSubTitle("사용할 기술을 선택해주세요.");
+		temp += mainView.getSeperator();
 		
 		System.out.println(temp);
 	}
