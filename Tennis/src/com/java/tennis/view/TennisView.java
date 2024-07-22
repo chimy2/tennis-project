@@ -115,7 +115,7 @@ public class TennisView {
 	public String informGame(int countSet, int countGame,int countTotalGame, int countServe, boolean isServingFirst) {	
 		
 		String temp = "";
-		if (isServingFirst = true) {
+		if (isServingFirst == true) {
 			
 				if (countTotalGame % 2 == 1) {
 					
@@ -128,7 +128,7 @@ public class TennisView {
 							LanguageService.get("회차"),
 							LanguageService.get("서브"));
 					
-				} else {
+				} else if (countTotalGame % 2 != 1) {
 					
 					temp += String.format("(%d %s %d %s %d%s %s)", 
 							countSet, 
@@ -153,7 +153,7 @@ public class TennisView {
 						LanguageService.get("회차"),
 						LanguageService.get("리시브"));
 				
-			} else {
+			} else if (countTotalGame %2 != 1) {
 				
 				temp += String.format("(%d %s %d %s %d%s %s)", 
 						countSet, 

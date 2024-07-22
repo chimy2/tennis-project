@@ -396,12 +396,13 @@ public class TennisService {
 			view.getFirstServeMSG(p1);
 //			loop = false;
 			attackFirst = true;
+			return attackFirst;
 		} else {
 			view.getFirstServeMSG(p2);
 //			loop = false;
 			attackFirst = false;
+			return attackFirst;
 		}
-		return attackFirst;
 	}
 
 	private void gameReset() {
