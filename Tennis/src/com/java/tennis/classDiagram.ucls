@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
-  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.2.4" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="com.java.tennis.service.SkillService" project="Tennis" 
     file="/Tennis/src/com/java/tennis/service/SkillService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="166" x="489" y="548"/>    
+    <position height="135" width="166" x="1772" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="com.java.tennis.App" project="Tennis" file="/Tennis/src/com/java/tennis/App.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="113" x="295" y="31"/>    
+    <position height="153" width="113" x="2258" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="com.java.tennis.dao.ExplainDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/ExplainDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="128" x="695" y="548"/>    
+    <position height="99" width="114" x="2062" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="com.java.tennis.model.GameDTO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/model/GameDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="369" width="132" x="448" y="31"/>    
+    <position height="369" width="132" x="1063" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="com.java.tennis.service.RecordService" project="Tennis" 
     file="/Tennis/src/com/java/tennis/service/RecordService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="128" x="127" y="31"/>    
+    <position height="171" width="126" x="2830" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="com.java.tennis.service.LanguageService" project="Tennis" 
     file="/Tennis/src/com/java/tennis/service/LanguageService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="123" x="1843" y="1137"/>    
+    <position height="171" width="123" x="2668" y="2393"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="com.java.tennis.service.ExplainService" project="Tennis" 
     file="/Tennis/src/com/java/tennis/service/ExplainService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="128" x="1129" y="31"/>    
+    <position height="99" width="111" x="2136" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="com.java.tennis.service.TennisService" project="Tennis" 
     file="/Tennis/src/com/java/tennis/service/TennisService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="477" width="230" x="1297" y="31"/>    
+    <position height="459" width="230" x="1588" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="com.java.tennis.service.MainService" project="Tennis" 
     file="/Tennis/src/com/java/tennis/service/MainService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="154" x="620" y="31"/>    
+    <position height="153" width="154" x="2413" y="2393"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="com.java.tennis.dao.MatchDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/MatchDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="125" x="1379" y="548"/>    
+    <position height="135" width="125" x="1186" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="com.java.tennis.dao.RecordDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/RecordDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="333" width="227" x="127" y="548"/>    
+    <position height="297" width="227" x="2830" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="com.java.tennis.model.MatchDTO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/model/MatchDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="423" width="141" x="1062" y="1137"/>    
+    <position height="423" width="141" x="1332" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,7 +111,7 @@
   </class>  
   <class id="13" language="java" name="com.java.tennis.model.RecordDTO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/model/RecordDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="549" width="174" x="1102" y="548"/>    
+    <position height="549" width="174" x="1372" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -120,7 +120,7 @@
   </class>  
   <class id="14" language="java" name="com.java.tennis.dao.CharacterDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/CharacterDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="178" x="863" y="548"/>    
+    <position height="135" width="178" x="968" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -129,7 +129,7 @@
   </class>  
   <class id="15" language="java" name="com.java.tennis.model.CharacterDTO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/model/CharacterDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="333" width="151" x="1318" y="1744"/>    
+    <position height="333" width="151" x="1808" y="1768"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -138,7 +138,7 @@
   </class>  
   <class id="16" language="java" name="com.java.tennis.dao.LanguageDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/LanguageDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="122" x="814" y="31"/>    
+    <position height="117" width="122" x="1426" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -147,7 +147,7 @@
   </class>  
   <class id="17" language="java" name="com.java.tennis.dao.SettingDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/SettingDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="135" x="1687" y="548"/>    
+    <position height="117" width="135" x="2613" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -156,7 +156,7 @@
   </class>  
   <class id="18" language="java" name="com.java.tennis.model.AbilityDTO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/model/AbilityDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="351" width="205" x="1195" y="2117"/>    
+    <position height="351" width="205" x="1735" y="2393"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -165,7 +165,7 @@
   </class>  
   <class id="19" language="java" name="com.java.tennis.dao.AbilityDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/AbilityDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="113" x="976" y="31"/>    
+    <position height="-1" width="-1" x="102" y="182"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -174,7 +174,7 @@
   </class>  
   <class id="20" language="java" name="com.java.tennis.model.TennisDTO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/model/TennisDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="567" width="189" x="1318" y="1137"/>    
+    <position height="603" width="189" x="1543" y="1125"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -183,7 +183,7 @@
   </class>  
   <class id="21" language="java" name="com.java.tennis.dao.SkillDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/SkillDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="166" x="676" y="1137"/>    
+    <position height="153" width="166" x="968" y="1768"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -192,7 +192,7 @@
   </class>  
   <class id="22" language="java" name="com.java.tennis.model.SkillDTO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/model/SkillDTO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="132" x="1440" y="2117"/>    
+    <position height="189" width="132" x="1980" y="2393"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -201,7 +201,7 @@
   </class>  
   <class id="23" language="java" name="com.java.tennis.service.SettingService" project="Tennis" 
     file="/Tennis/src/com/java/tennis/service/SettingService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="128" x="1838" y="31"/>    
+    <position height="207" width="127" x="2613" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -210,179 +210,587 @@
   </class>  
   <class id="24" language="java" name="com.java.tennis.dao.GameDAO" project="Tennis" 
     file="/Tennis/src/com/java/tennis/dao/GameDAO.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="103" x="1544" y="548"/>    
+    <position height="135" width="103" x="1649" y="536"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="25">    
-    <end type="SOURCE" refId="14" navigable="false">      
-      <attribute id="26" name="skilldao"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="21" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="29" name="character"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="15" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="31">    
-    <bendpoint x="1327" y="548"/>    
+  <package id="25" language="java" name="com.java.tennis.dao" project="Tennis" file="/Tennis/src/com/java/tennis/dao" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="137" x="3097" y="536"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="26" language="java" name="com.java.tennis.model" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/model" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="151" x="1235" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="27" language="java" name="com.java.tennis.service" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/service" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="158" x="2413" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="28" language="java" name="com.java.tennis.view" project="Tennis" file="/Tennis/src/com/java/tennis/view" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="142" x="881" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="29" language="java" name="com.java.tennis.view.CharacterView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/CharacterView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="230" x="611" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.java.tennis.view.RecordView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/RecordView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="145" x="2872" y="1125"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.java.tennis.view.SkillView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/SkillView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="150" y="379"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.java.tennis.view.SettingView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/SettingView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="105" x="2287" y="536"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.java.tennis.view.MainView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/MainView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="585" width="234" x="2413" y="1768"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.java.tennis.view.AbilityView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/AbilityView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="92" y="65"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="com.java.tennis.view.GameView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/GameView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="209" x="1792" y="536"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.java.tennis.view.MatchView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/MatchView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="475" y="272"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.java.tennis.view.ExplainView" project="Tennis" 
+    file="/Tennis/src/com/java/tennis/view/ExplainView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="99" x="2453" y="1125"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="38">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="32" name="me"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="35" name="skill"/>      
-      <multiplicity id="36" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="38" name="dao"/>      
-      <multiplicity id="39" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="17" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="40">    
-    <bendpoint x="1852" y="548"/>    
-    <end type="SOURCE" refId="23" navigable="false">      
-      <attribute id="41" name="languageService"/>      
-      <multiplicity id="42" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="44" name="dao"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
+      <attribute id="39" name="dao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="40" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="24" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="46">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="47" name="daoMatch"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="49">    
-    <bendpoint x="1348" y="548"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="50" name="dto"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="52">    
-    <bendpoint x="1071" y="548"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="53" name="dtoMatch"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="55">    
-    <bendpoint x="1306" y="548"/>    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="56" name="cpu"/>      
-      <multiplicity id="57" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="58">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="59" name="dtoRecord"/>      
-      <multiplicity id="60" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="61">    
+  <dependency id="41">    
+    <bendpoint x="2820" y="1125"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <association id="42">    
     <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="62" name="skillDAO"/>      
-      <multiplicity id="63" minimum="0" maximum="1"/>    
+      <attribute id="43" name="skillDAO">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="44" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="64">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="65" name="dao"/>      
-      <multiplicity id="66" minimum="0" maximum="1"/>    
+  <association id="45">    
+    <bendpoint x="2582" y="536"/>    
+    <bendpoint x="2582" y="1125"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="46" name="mainView"/>      
+      <multiplicity id="47" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
+    <end type="TARGET" refId="33" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="67">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="68" name="match"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
+  <dependency id="48">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="32"/>  
+  </dependency>  
+  <association id="49">    
+    <bendpoint x="1341" y="536"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="50" name="dtoMatch">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="51" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="70">    
+  <association id="52">    
+    <bendpoint x="1968" y="1125"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="53" name="dto"/>      
+      <multiplicity id="54" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="55">    
+    <bendpoint x="2677" y="1768"/>    
     <end type="SOURCE" refId="17" navigable="false">      
-      <attribute id="71" name="languageService"/>      
-      <multiplicity id="72" minimum="0" maximum="1"/>    
+      <attribute id="56" name="languageService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="57" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="73">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="74" name="tennis"/>      
-      <multiplicity id="75" minimum="0" maximum="1"/>    
+  <association id="58">    
+    <bendpoint x="2622" y="536"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="59" name="dao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="60" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
+    <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="76">    
+  <dependency id="61">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <association id="62">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="63" name="dtoRecord">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="65">    
+    <bendpoint x="2010" y="1125"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="66" name="mainView"/>      
+      <multiplicity id="67" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="68">    
+    <bendpoint x="977" y="1125"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="69" name="skilldao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="70" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="71">    
+    <bendpoint x="2799" y="536"/>    
+    <bendpoint x="2841" y="1125"/>    
+    <bendpoint x="2841" y="1768"/>    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="72" name="languageService">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="73" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="74">    
+    <bendpoint x="2206" y="1125"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="75" name="mainView"/>      
+      <multiplicity id="76" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="77">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="78">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="35"/>  
+  </dependency>  
+  <association id="79">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="80" name="mainView"/>      
+      <multiplicity id="81" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="82">    
+    <bendpoint x="2652" y="536"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="30"/>  
+  </dependency>  
+  <dependency id="83">    
+    <bendpoint x="2227" y="1125"/>    
+    <bendpoint x="2227" y="1768"/>    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <association id="84">    
     <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="77" name="ability"/>      
-      <multiplicity id="78" minimum="0" maximum="1"/>    
+      <attribute id="85" name="ability">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="86" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="18" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="79">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="80" name="dao"/>      
-      <multiplicity id="81" minimum="0" maximum="1"/>    
+  <association id="87">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="88" name="view"/>      
+      <multiplicity id="89" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="30" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="82">    
+  <dependency id="90">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <dependency id="91">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="92">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="93">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="94" name="skill">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="95" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <bendpoint x="1618" y="536"/>    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="83" name="daoCharacter"/>      
-      <multiplicity id="84" minimum="0" maximum="1"/>    
+      <attribute id="97" name="cpu">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="98" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="99">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="30"/>  
+  </dependency>  
+  <dependency id="100">    
+    <bendpoint x="2443" y="536"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="37"/>  
+  </dependency>  
+  <association id="101">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="102" name="view"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="104">    
+    <bendpoint x="2422" y="536"/>    
+    <bendpoint x="2422" y="1125"/>    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="33"/>  
+  </dependency>  
+  <dependency id="105">    
+    <bendpoint x="2862" y="1768"/>    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <association id="106">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="107" name="match">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="108" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <bendpoint x="1576" y="536"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="110" name="me">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="111" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="112">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="113" name="daoMatch">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="114" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="115">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="116" name="mainView"/>      
+      <multiplicity id="117" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="118">    
+    <bendpoint x="2031" y="536"/>    
+    <bendpoint x="2031" y="1125"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="119" name="mainView"/>      
+      <multiplicity id="120" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <bendpoint x="2778" y="536"/>    
+    <bendpoint x="2778" y="1125"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="122" name="mainView"/>      
+      <multiplicity id="123" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="124">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="125" name="dao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="126" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="127">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="128" name="character">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="129" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="130">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="131" name="daoCharacter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="132" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+  <association id="133">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="134" name="mainView"/>      
+      <multiplicity id="135" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="136">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="137" name="settingView"/>      
+      <multiplicity id="138" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="139">    
+    <bendpoint x="3264" y="536"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="140" name="view"/>      
+      <multiplicity id="141" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="142">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="143" name="view"/>      
+      <multiplicity id="144" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="145">    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="146" name="skillService"/>      
+      <multiplicity id="147" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="148">    
+    <bendpoint x="1989" y="1125"/>    
+    <bendpoint x="1989" y="1768"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="149" name="skillList"/>      
+      <multiplicity id="150" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="151">    
+    <bendpoint x="2401" y="1125"/>    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="152" name="mainView"/>      
+      <multiplicity id="153" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="154">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="155" name="tennis">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="156" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="157">    
+    <bendpoint x="2799" y="1125"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="158" name="mainView"/>      
+      <multiplicity id="159" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="160">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="161" name="dao">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="162" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="163">    
+    <bendpoint x="1597" y="536"/>    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="164" name="dto">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="165" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
     <operations public="true" package="true" protected="true" private="true" static="true"/>  
