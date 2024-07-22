@@ -353,18 +353,29 @@ public class TennisView {
 		System.out.println(temp);
 	}
 
-	public String coinToss() {
+	public void coinToss() {
 		String result = "";
 		
 		result += mainView.getSeperator();
-		result += mainView.getSubTitle("동전 던지기");
+		result += mainView.getSubTitle("동전 던지기",
+				String.format("(%s)", LanguageService.get("앞면과 뒷면 중 선택 하시오.")));
 		result += mainView.getSeperator();
-		result += mainView.getSubTitle("앞면과 뒷면 중 선택 하시오.");
-		result += mainView.getSeperatorThin();
 		result += mainView.setNumRowMargin("앞면", "뒷면");
+		result += mainView.getSeperatorThin();
+		result += mainView.input();
+		
+		System.out.print(result);
+	}
+	
+	public void getFirstServeMSG(String player) {
+		String result = "";
 		result += mainView.getSeperator();
-				
-		return result;
+		result += mainView.getSubTitleNotTrans(
+				LanguageService.get(player) 
+				+ LanguageService.get("가 먼저 서빙 합니다.")
+				);
+		result += mainView.getSeperator();
+		System.out.println(result);
 	}
 }
 
