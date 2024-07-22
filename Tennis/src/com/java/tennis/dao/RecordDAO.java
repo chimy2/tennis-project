@@ -78,8 +78,6 @@ public class RecordDAO {
 
 				String character = nameCharacter(record.getCharacterno());
 
-//				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
-//						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
 				tempRecord += mainView.setRowMarginNotTrans(i + "", dump, record.getName(),
 						LanguageService.get(character), record.getScoreme() + " : " + record.getSocrecumputer());
 				i++;
@@ -133,8 +131,6 @@ public class RecordDAO {
 						win = "패";
 					}
 
-//					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", temp[1], set, temp[2], game, score,
-//							LanguageService.get(win));
 					result += mainView.setRowMarginNotTrans(temp[1] + " " + set, temp[2] + " " + game, score,
 							LanguageService.get(win));
 				}
@@ -168,32 +164,12 @@ public class RecordDAO {
 		try {
 			this.reader = new BufferedReader(new FileReader(PATH + "record.txt"));
 
-//			while ((line = reader.readLine()) != null) {
-//				String[] temp = line.split(",");
-//
-//				if (temp[2].equals(id)) {
-//					String character = nameCharacter(temp[3]);
-//
-//					String score = "";
-//					score = temp[4] + " : " + temp[5];
-//
-////					result += String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2],
-////							LanguageService.get(character), score);
-//					result += mainView.setRowMarginNotTrans(i + "", temp[1], temp[2],
-//							LanguageService.get(character), score); 
-//					String numChange = String.format("%s", i);
-//					idToNum.put(numChange, temp[0]);
-//					i++;
-//				}
-//
-//			}
 
 			int j = 1;
 			while ((line = reader.readLine()) != null) {
 
 				temp = line.split(",");
 				if (temp[2].equals(id)) {
-//				temp = line.split(",");
 					temp[1] = temp[1].replace("-", "");
 					RecordDTO dto = new RecordDTO();
 					dto.setNo(temp[0]); // 일련번호
@@ -208,17 +184,12 @@ public class RecordDAO {
 					dto.setCharactername(nameCharacter(temp[3]));
 					String numChange = String.format("%s", j);
 					idToNum.put(numChange, temp[0]);
-					System.out.println(idToNum);
-					System.out.println(j);
 					lineArray.add(dto);
 					j++;
 				}
 			}
 
 			lineArray.sort(Comparator.comparing(RecordDTO::getDate).reversed());
-////					.thenComparing(Comparator.comparing(RecordDTO::getSocrecumputer)
-////							.thenComparing(Comparator.comparing(RecordDTO::getDate).reversed())));
-//
 			for (RecordDTO record : lineArray) {
 
 				String dump = record.getDate();
@@ -226,8 +197,6 @@ public class RecordDAO {
 
 				String character = nameCharacter(record.getCharacterno());
 
-//				tempRecord += String.format("%d\t%s\t%s\t%s\t%s : %s\n", i, dump, record.getName(),
-//						LanguageService.get(character), record.getScoreme(), record.getSocrecumputer());
 				tempRecord += mainView.setRowMarginNotTrans(i + "", dump, record.getName(),
 						LanguageService.get(character), record.getScoreme() + " : " + record.getSocrecumputer());
 				i++;
