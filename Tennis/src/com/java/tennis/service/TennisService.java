@@ -50,6 +50,7 @@ public class TennisService {
 	
 	private String playerName = "플레이어";
 	private String computerName = "컴퓨터";
+	public static boolean isServe = false;
 	
 //	private int point;		//포인트
 //	private int gamePoint; //게임 포인트
@@ -395,11 +396,13 @@ public class TennisService {
 		if (chance == Integer.valueOf(input)) {
 			view.getFirstServeMSG(p1);
 //			loop = false;
+			TennisService.isServe = true;
 			attackFirst = true;
 			return attackFirst;
 		} else {
 			view.getFirstServeMSG(p2);
 //			loop = false;
+			TennisService.isServe = false;
 			attackFirst = false;
 			return attackFirst;
 		}
