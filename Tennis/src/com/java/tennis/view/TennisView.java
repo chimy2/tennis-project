@@ -113,31 +113,59 @@ public class TennisView {
 		System.out.println(temp);
 	}
 	
-	public String informGame(int countSet, int countGame, int countServe) {	
+	public String informGame(int countSet, int countGame, int countServe, boolean isServingFirst) {	
 		
 		String temp = "";
-		
-		if (countServe % 2 == 1) {
+		if (isServingFirst = true) {
 			
-			temp += String.format("(%d %s %d %s %d%s %s)", 
-					countSet, 
-					LanguageService.get("세트"), 
-					countGame, 
-					LanguageService.get("게임"), 
-					countServe, 
-					LanguageService.get("회차"),
-					LanguageService.get("서브"));
+				if (countGame % 2 == 1) {
+					
+					temp += String.format("(%d %s %d %s %d%s %s)", 
+							countSet, 
+							LanguageService.get("세트"), 
+							countGame, 
+							LanguageService.get("게임"), 
+							countServe, 
+							LanguageService.get("회차"),
+							LanguageService.get("서브"));
+					
+				} else {
+					
+					temp += String.format("(%d %s %d %s %d%s %s)", 
+							countSet, 
+							LanguageService.get("세트"), 
+							countGame, 
+							LanguageService.get("게임"), 
+							countServe, 
+							LanguageService.get("회차"),
+							LanguageService.get("리시브"));
+				}
 			
 		} else {
 			
-			temp += String.format("(%d %s %d %s %d%s %s)", 
-					countSet, 
-					LanguageService.get("세트"), 
-					countGame, 
-					LanguageService.get("게임"), 
-					countServe, 
-					LanguageService.get("회차"),
-					LanguageService.get("리시브"));
+			if (countGame % 2 == 1) {
+				
+				temp += String.format("(%d %s %d %s %d%s %s)", 
+						countSet, 
+						LanguageService.get("세트"), 
+						countGame, 
+						LanguageService.get("게임"), 
+						countServe, 
+						LanguageService.get("회차"),
+						LanguageService.get("리시브"));
+				
+			} else {
+				
+				temp += String.format("(%d %s %d %s %d%s %s)", 
+						countSet, 
+						LanguageService.get("세트"), 
+						countGame, 
+						LanguageService.get("게임"), 
+						countServe, 
+						LanguageService.get("회차"),
+						LanguageService.get("서브"));
+			}
+			
 		}
 		
 		return temp;
@@ -318,4 +346,41 @@ public class TennisView {
 		}
 		return text;
 	}
+
+	public String coinToss() {
+		
+		String result = "";
+		
+		result += mainView.getSeperator();
+		result += mainView.getSubTitle("동전 던지기");
+		result += mainView.getSeperator();
+		result += mainView.getSubTitle("앞면과 뒷면 중 선택 하시오.");
+		result += mainView.getSeperatorThin();
+		result += mainView.setNumRowMargin("앞면", "뒷면");
+		result += mainView.getSeperator();
+				
+		return result;
+		
+		
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -162,6 +162,13 @@ public class TennisService {
 		
 		view.getTitle();
 		
+		System.out.println(view.coinToss());
+		boolean isServingFirst = false;
+		
+		isServingFirst = coinToss(playerName, computerName, isServingFirst);
+
+		
+		
 		boolean loop = true;
 		while (loop) {
 			
@@ -182,7 +189,7 @@ public class TennisService {
 			int input;
 			GameView viewGame = new GameView();
 			while (true) {
-				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countServe));
+				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countServe, isServingFirst));
 				input = scan.nextInt();
 				scan.skip("\r\n");
 				
@@ -355,6 +362,42 @@ public class TennisService {
 		
 //		루프 돔황챠!!!
 		
+	}
+
+	private boolean coinToss(String p1, String p2, boolean attackFirst) {
+		
+		String input;
+		Random rnd = new Random();
+
+		input = scan.nextLine();
+		boolean loop = true;
+		while (loop) {
+			if (!(input.equals("1")||input.equals("2"))) {
+				System.out.println("1번과 2번 중 하나를 입력해주세요.");	
+				coinToss(p1, p2, attackFirst);
+			} else {
+				break;
+			}
+		}
+		
+		int chance;
+		chance = (rnd.nextInt(100) + 1);
+		
+		if (chance <= 50) {
+			chance = 1;
+		} else if (chance >= 50) {
+			chance = 2;
+		}
+		if (chance == Integer.valueOf(input)) {
+			System.out.printf("%s가 먼저 서빙 합니다\r\n", p1);
+			loop = false;
+			attackFirst = true;
+		} else {
+			System.out.printf("%s가 먼저 서빙 합니다.\r\n", p2);
+			loop = false;
+			attackFirst = false;
+		}
+		return attackFirst;
 	}
 
 	private void gameReset() {
