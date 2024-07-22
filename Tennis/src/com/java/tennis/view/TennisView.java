@@ -112,12 +112,12 @@ public class TennisView {
 		System.out.println(temp);
 	}
 	
-	public String informGame(int countSet, int countGame, int countServe, boolean isServingFirst) {	
+	public String informGame(int countSet, int countGame,int countTotalGame, int countServe, boolean isServingFirst) {	
 		
 		String temp = "";
 		if (isServingFirst = true) {
 			
-				if (countGame % 2 == 1) {
+				if (countTotalGame % 2 == 1) {
 					
 					temp += String.format("(%d %s %d %s %d%s %s)", 
 							countSet, 
@@ -142,7 +142,7 @@ public class TennisView {
 			
 		} else {
 			
-			if (countGame % 2 == 1) {
+			if (countTotalGame % 2 == 1) {
 				
 				temp += String.format("(%d %s %d %s %d%s %s)", 
 						countSet, 

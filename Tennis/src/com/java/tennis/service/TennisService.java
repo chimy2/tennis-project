@@ -33,6 +33,7 @@ public class TennisService {
 	
 	static int countTotalServe; //한 매치에 총 서브 횟수 (매치가 끝날 때 리셋)
 	static int countServe; //몇 번째 서브 (게임이 끝날 때 리셋)
+	static int countTotalGame; //한 매치에 총 게임 횟수 (매치가 끝날 때 리셋)
 	static int countGame; //몇 번째 게임 (세트가 끝날 때 리셋)
 	static int countSet; //몇 번째 세트 (매치가 끝날 때 리셋)
 	
@@ -164,6 +165,7 @@ public class TennisService {
 		
 		countTotalServe = 1;
 		countServe = 1;
+		countTotalGame = 1;
 		countGame = 1;
 		countSet = 1;
 		
@@ -196,7 +198,7 @@ public class TennisService {
 			int input;
 			GameView viewGame = new GameView();
 			while (true) {
-				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countServe, isServingFirst));
+				viewGame.gameView(dtoCharacter, view.informGame(countSet, countGame, countTotalGame, countServe, isServingFirst));
 				input = scan.nextInt();
 				scan.skip("\r\n");
 				
@@ -392,11 +394,11 @@ public class TennisService {
 		}
 		if (chance == Integer.valueOf(input)) {
 			System.out.printf("%s가 먼저 서빙 합니다\r\n", p1);
-			loop = false;
+//			loop = false;
 			attackFirst = true;
 		} else {
 			System.out.printf("%s가 먼저 서빙 합니다.\r\n", p2);
-			loop = false;
+//			loop = false;
 			attackFirst = false;
 		}
 		return attackFirst;
@@ -414,6 +416,7 @@ public class TennisService {
 		countGame = 1;
 		countSet = 1;
 		countTotalServe = 1;
+		countTotalGame = 1;
 
 	}
 
@@ -561,6 +564,7 @@ public class TennisService {
 //			System.out.println(text);
 			view.resultGame(countSet, countGame, p1, me.pointGame, cpu.pointGame);
 			countGame++;
+			countTotalGame++;
 			countServe = 1;
 			scan.nextLine();
 		}
@@ -584,6 +588,7 @@ public class TennisService {
 //			System.out.println(text);
 			view.resultGame(countSet, countGame, p2, me.pointGame, cpu.pointGame);
 			countGame++;
+			countTotalGame++;
 			countServe = 1;
 			scan.nextLine();
 		}
@@ -600,6 +605,7 @@ public class TennisService {
 			System.out.println(view.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2));
 			countServe = 1;
 			countGame = 1;
+			countTotalGame++;
 			countSet++;
 			scan.nextLine();
 			
@@ -615,6 +621,7 @@ public class TennisService {
 			System.out.println(view.setWinner(countSet, me.pointSet, cpu.pointSet, p1, p2));
 			countServe = 1;
 			countGame = 1;
+			countTotalGame++;
 			countSet++;
 			scan.nextLine();
 			
@@ -622,28 +629,16 @@ public class TennisService {
 		
 		if (dto.getSet() == 1) {
 			if (me.pointSet > 1) {
-//				System.out.println();
-//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
-//				System.out.println(temp);
 				view.resultMatch(p1, me.pointSet, cpu.pointSet);
 			} else if (cpu.pointSet > 1) {
-//				System.out.println();
-//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
-//				System.out.println(temp);
 				view.resultMatch(p2, cpu.pointSet, me.pointSet);
 			}
 		}
 		
 		if (dto.getSet() == 2) {
 			if (me.pointSet > 2) {
-//				System.out.println();
-//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p1, me.pointSet, cpu.pointSet);
-//				System.out.println(temp);
 				view.resultMatch(p1, me.pointSet, cpu.pointSet);
 			} else if (cpu.pointSet > 2) {
-//				System.out.println();
-//				System.out.printf("%s이(가) [%d-%d]로 매치를 승리했습니다.\r\n", p2, cpu.pointSet, me.pointSet);
-//				System.out.println(temp);
 				view.resultMatch(p2, cpu.pointSet, me.pointSet);
 			}
 		}
