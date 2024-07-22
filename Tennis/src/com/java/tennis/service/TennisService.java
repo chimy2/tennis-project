@@ -480,7 +480,6 @@ public class TennisService {
 		int[] temp = new int[string.length + 2];
 		
 		
-		
 		text += mainView.getSeperator();
 		text += mainView.getSubTitle("입력하신 값을 확인 부탁드립니다.");
 		

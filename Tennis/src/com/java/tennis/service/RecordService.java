@@ -79,7 +79,7 @@ public class RecordService {
 		view.sortQuestion(); // 정렬질문
 		String need = scan.nextLine(); // 정렬질문_스캔
 		while (!(need.equals("1") || need.equals("2"))) {
-			view.errorInput();
+			mainView.errorInput();
 			need = scan.nextLine();
 		}
 		if (need.equals("1")) {
@@ -88,7 +88,7 @@ public class RecordService {
 
 			String num = scan.nextLine();
 			while (!(num.equals("1") || num.equals("2") || num.equals("3"))) {
-				view.errorInput();
+				mainView.errorInput();
 				num = scan.nextLine();
 
 			}
