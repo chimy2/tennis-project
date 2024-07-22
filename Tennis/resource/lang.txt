@@ -116,4 +116,4 @@ English, English, English
 앞면과 뒷면 중 선택 하시오.,Choose Heads or Tails.,表か裏を選んでください
 앞면,Heads,表
 뒷면,Tails,裏
-가 먼저 서빙 합니다., serves first.,が先にサーブします。
+가 먼저 서빙 합니다, serves first.,が先にサーブします。
