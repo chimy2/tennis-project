@@ -315,7 +315,7 @@ public class TennisService {
 			}
 			
 //			if(countServe)
-			view.pointDisplay(me.point, cpu.point, isServingFirst, countTotalGame);
+			view.pointDisplay(me.point, cpu.point);
 			scan.nextLine();
 			System.out.println();
 		}

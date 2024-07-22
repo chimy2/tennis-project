@@ -246,98 +246,15 @@ public class TennisView {
 		return text;
 	}
 
-	public void pointDisplay(int p1, int p2, boolean isServingFirst, int countTotalGame) {
+	public void pointDisplay(int p1, int p2) {
 		
-
-		if (isServingFirst == true) {
-				
-				if (countTotalGame % 2 == 1) {
-					
 					String text = "";
 					text += mainView.getSeperator();
-					text += mainView.getSubTitleNotTrans(pointName(p1, p2, false), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
+					text += mainView.getSubTitleNotTrans(pointName(p1, p2), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
 					text += mainView.getSeperator();
 					
 					System.out.print(text);
-					
-				} else if (countTotalGame % 2 == 0) {
-					
-					String text = "";
-					text += mainView.getSeperator();
-					text += mainView.getSubTitleNotTrans(pointName(p1, p2, true), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
-					text += mainView.getSeperator();
-					
-					System.out.print(text);
-					
-			}
-		} else if (isServingFirst == false) {
-			
-				if (countTotalGame % 2 == 1) {
-					
-					String text = "";
-					text += mainView.getSeperator();
-					text += mainView.getSubTitleNotTrans(pointName(p1, p2, true), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
-					text += mainView.getSeperator();
-					
-					System.out.print(text);
-					
-				} else if (countTotalGame % 2 == 0) {
-					
-					String text = "";
-					text += mainView.getSeperator();
-					text += mainView.getSubTitleNotTrans(pointName(p1, p2, false), " ("+LanguageService.get("계속하시려면 엔터를 입력해주세요.")+")");
-					text += mainView.getSeperator();
-					
-					System.out.print(text);	
-			}
-		}		
-	}
-
-	private String pointName(int p1, int p2, boolean computerFirst) {
-	
-		String[] pointNames = { "러브", "피프틴", "써티", "포티"	};
-		String text;
-
-		if (p1 == p2) {
-				if (p1 < 3) {
-					text = LanguageService.get(pointNames[p1]) + "-" + LanguageService.get("올");
-				} else {
-					text = LanguageService.get("듀스");
-				}
-		} else if (p1 > 3 || p2 > 3) {
-
-			int diff = p1 - p2;
-				
-			if (diff == 1) {
-
-				text = LanguageService.get("어드밴티지")
-						+ " "
-						+ LanguageService.get("플레이어");
-						
-			} else if ( diff == -1 ) {
-
-				text = LanguageService.get("어드밴티지")
-						+ " "
-						+ LanguageService.get("컴퓨터");
-			} else if (diff >= 2) {
-
-				text = LanguageService.get("플레이어")
-						+ " "
-						+ LanguageService.get("승");
-			} else {
-
-				text = LanguageService.get("컴퓨터")
-						+ " "
-						+ LanguageService.get("승");
-			}
-		} else {
-			if (computerFirst == false) {
-				text = LanguageService.get(pointNames[p1]) + "-" + LanguageService.get(pointNames[p2]);
-			} else {
-				text = LanguageService.get(pointNames[p2]) + "-" + LanguageService.get(pointNames[p1]);
-			}
-			}
-		return text;
+		
 	}
 
 	private String pointName(int p1, int p2) {
@@ -386,7 +303,11 @@ public class TennisView {
 						+ LanguageService.get("승");
 			}
 		} else {
+			if (TennisService.isServe == true) {
 				text = LanguageService.get(pointNames[p1]) + "-" + LanguageService.get(pointNames[p2]);
+			} else {
+				text = LanguageService.get(pointNames[p2]) + "-" + LanguageService.get(pointNames[p1]);
+			}
 		}
 		return text;
 	}
