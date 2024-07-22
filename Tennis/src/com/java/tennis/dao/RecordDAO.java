@@ -136,10 +136,10 @@ public class RecordDAO {
 //					result += String.format("\t%s%s\t\t%s%s\t\t%s\t\t %s\n", temp[1], set, temp[2], game, score,
 //							LanguageService.get(win));
 					result += mainView.setRowMarginNotTrans(
-							String.format("%6s", temp[1] + " " + set), 
-							String.format("%6s", temp[2] + " " + game), 
+							String.format("%7s", temp[1] + " " + set), 
+							String.format("%8s", temp[2] + " " + game), 
 							score,
-							LanguageService.get(win));
+							String.format("%4s", LanguageService.get(win)));
 				}
 			}
 
@@ -178,8 +178,7 @@ public class RecordDAO {
 					String score = "";
 					score = temp[4] + " : " + temp[5];
 
-//					result += String.format("\t%2s\t\t%s\t%s\t\t%s\t\t%s\n", i, temp[1], temp[2],
-//							LanguageService.get(character), score);
+
 					result += mainView.setRowMarginNotTrans(String.format("%3d", i), temp[1], temp[2],
 							LanguageService.get(character), score); 
 					String numChange = String.format("%s", i);

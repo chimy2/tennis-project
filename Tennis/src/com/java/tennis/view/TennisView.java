@@ -106,10 +106,9 @@ public class TennisView {
 	
 	public void completeRecordGame() {
 		String temp = "";
-		
-		temp += LanguageService.get("게임 기록이 저장됐습니다.");
-		temp += "\r\n";
-		
+		temp += mainView.getSeperator();
+		temp += mainView.getSubTitle("게임 기록이 저장됐습니다.");
+		temp += mainView.getSeperator();
 		System.out.println(temp);
 	}
 	
@@ -139,7 +138,6 @@ public class TennisView {
 					LanguageService.get("회차"),
 					LanguageService.get("리시브"));
 		}
-		
 		return temp;
 	}
 	
@@ -317,5 +315,13 @@ public class TennisView {
 				text = LanguageService.get(pointNames[p1]) + "-" + LanguageService.get(pointNames[p2]);
 		}
 		return text;
+	}
+	
+	public void wrongNameLen() {
+		String temp = "";
+		temp += mainView.getSeperator();
+		temp += mainView.getSubTitle("이름은 1자에서 10자 사이로 입력 부탁드립니다.");
+		temp += mainView.getSeperator();
+		System.out.println(temp);
 	}
 }
