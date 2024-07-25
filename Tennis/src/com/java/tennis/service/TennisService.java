@@ -27,7 +27,6 @@ public class TennisService {
 	final String PATHCharacter = "resource\\character.txt";
 	
 	private TennisView view = new TennisView();
-//	private TennisDAO dao = new TennisDAO();
 	private TennisDTO dto = new TennisDTO();
 	private Scanner scan = new Scanner(System.in);
 	
@@ -63,7 +62,6 @@ public class TennisService {
 	public TennisService() {
 		this.dto = new TennisDTO();
 		this.view = new TennisView();
-//		this.dao = new TennisDAO();
 		this.scan = new Scanner(System.in);
 		this.settingView = new SettingView();
 		this.mainView = new MainView();
@@ -113,7 +111,6 @@ public class TennisService {
 		
 		loop = true;
 		while (loop) {
-
 			try {
 				view.selectPlayerNumber();
 				player = Integer.parseInt(scan.nextLine());
@@ -173,6 +170,7 @@ public class TennisService {
 		view.getTitle();
 		
 		view.coinToss();
+		
 		boolean isServingFirst = false;
 		
 		isServingFirst = coinToss(playerName, computerName, isServingFirst);

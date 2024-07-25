@@ -7,7 +7,6 @@ public class TennisDTO {
 	private int set; // 1 = 3세트, 2 = 5세트
 	private int player; //1 = 유저 1명, 2 = 유저 2명
 	
-	
 	public CharacterDTO getCharacter() {
 		return character;
 	}
@@ -91,6 +90,13 @@ public class TennisDTO {
 	}
 	public void setSetPoint(int setPoint) {
 		this.pointSet = setPoint;
+	}
+	
+	@Override
+	public String toString() {
+		return "TennisDTO [name=" + name + ", type=" + type + ", set=" + set + ", player=" + player + ", character="
+				+ character + ", point=" + point + ", pointGame=" + pointGame + ", pointSet=" + pointSet + ", chance="
+				+ chance + "]";
 	}
 	
 	
